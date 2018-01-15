@@ -189,7 +189,7 @@ $ age         : num  4 5 8 9 9
 
 ## Quitando filas
 
-Ahora sabemos cómo agregar filas y columnas a nuestro *dataframe* en R pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila basura.
+Ahora sabemos cómo agregar filas y columnas a nuestro *dataframe* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
   
   
   ~~~
@@ -227,7 +227,7 @@ Podemos pedir el *dataframe* sin la fila errónea:
 ~~~
 {: .output}
 
-Notar que la coma sin nada detrás indica que queremos remover la cuarta fila entera. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `cats[c(-4,-5),]`
+Notar que -4 significa que queremos remover la cuarta fila, la coma sin nada detrás indica que se aplica a todas las columnas. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `cats[c(-4,-5),]`
 
 Alternativamente, podemos eliminar filas que contengan valores `NA`:
   
@@ -248,7 +248,7 @@ Alternativamente, podemos eliminar filas que contengan valores `NA`:
 ~~~
 {: .output}
 
-Volvamos a asignar el *output* a `cats`, así nuestros cambios son permanentes:
+Volvamos a asignar el nuevo resultado *output* al *dataframe* `cats`, así nuestros cambios son permanentes:
 
 
 ~~~
@@ -258,7 +258,7 @@ cats <- na.omit(cats)
 
 ## Añadiendo a un dataframe
 
-La clave que hay que recordar al añadir datos a un *dataframe* es que *las columnas son vectores o factores, mientras que las filas son listas.* Podemos pegar dos *dataframes* juntos usando `rbind`:
+La clave que hay que recordar al añadir datos a un *dataframe* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *dataframes* usando `rbind` que significa unir las filas (verticalmente):
 
 
 ~~~
@@ -282,7 +282,7 @@ coat weight likes_string age
 ~~~
 {: .output}
 
-Pero ahora los nombres de las filas son complicados. Podemos removerlos y R los nombrará nuevamente, de manera secuencial:
+Pero ahora los nombres de las filas *rownames* son complicados. Podemos removerlos y R los nombrará nuevamente, de manera secuencial:
 
 ~~~
 rownames(cats) <- NULL
@@ -307,7 +307,7 @@ coat weight likes_string age
 
 > ## Desafío 2
 >
-> Puedes crear un nuevo dataframe desde R con la siguiente sintaxis:
+> Puedes crear un nuevo *dataframe* desde R con la siguiente sintaxis:
 > 
 > ~~~
 > df <- data.frame(id = c('a', 'b', 'c'),
@@ -323,7 +323,7 @@ coat weight likes_string age
 > - Número favorito
 >
 > Luego usa `rbind` para agregar una entrada para la gente sentada alrededor tuyo.
-> Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "¿Es hora de un recreo?"
+> Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "¿Es hora de una pausa?"
 >
   > > ## Solución al Desafío 2
   > > 
@@ -351,7 +351,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 
 > ## Tips
 >
-> * Otro tipo de archivo que puedes encontrar es el separado por tabuladores (.tsv). Para especificar este separador, usa `"\\t"` o `read.delim()`.
+> * Otro tipo de archivo que puedes encontrar es el separado por tabuladores (.tsv). Para especificar este separador, usa `"\t"` o `read.delim()`.
 >
 > * Los archivos pueden descargarse de Internet a una carpeta local usando `download.file`.
 > La función `read.csv` puede ser ejecutada para leer el archivo descargado, por ejemplo: > 
@@ -361,7 +361,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > ~~~
 > {: .r}
 >
-> *De manera alternativa, puedes leer los archivos directamente en R, usando una dirección web y `read.csv`. Es importante notar que, si se hace esto último, no habrá una copia local del archivo csv. Por ejemplo,
+> *De manera alternativa, puedes leer los archivos directamente en R, usando una dirección web y `read.csv`. Es importante notar que, si se hace esto último, no habrá una copia local del archivo csv en tu computadora. Por ejemplo,
 > 
 > ~~~
 > gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
@@ -392,7 +392,7 @@ $ gdpPercap: num  779 821 853 836 740 ...
 ~~~
 {: .output}
 
-También podemos examinar columnas individuales del dataframe con la función `typeof`:
+También podemos examinar columnas individuales del *dataframe* con la función `typeof`:
   
   
   ~~~
@@ -436,8 +436,8 @@ También podemos examinar columnas individuales del dataframe con la función `t
 {: .output}
 
 
-También podemos interrogar al dataframe por información sobre sus dimensiones;
-recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué pisnsas que el siguiente código producirá y por qué?
+También podemos interrogar al *dataframe* por la información sobre sus dimensiones;
+recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué piensas que el siguiente código producirá y por qué?
 
 ~~~
   length(gapminder)
@@ -492,7 +492,7 @@ ncol(gapminder)
 ~~~
 {: .output}
 
-O, ambos de una vez:
+para obtener ambos de una vez:
 
 
 ~~~
@@ -547,29 +547,29 @@ Una vez que estamos contentos con el tipo de datos y que la estructura parece ra
 
 Para hacer el análisis reproducible, deberíamos poner el código en un *script*, así podremos volver luego a él. 
 
-> ## Desafíp 3
-  >
-  > Ve a Archivo -> nuevo -> R script, and escribe un script de R 
-> para cargar el dataset gapminder. Ponlo en el directorio `scripts/`
-> y agrégalo al control de versiones.
+> ## Desafío 3
 >
-  > Ejecuta el script usando la función `source`, usando el path como su argumento
-> o apretando el botón de "source" en Rstudio.
+> También es útil revisar algunas líneas en el medio y el final del *dataframe* ¿Cómo harías eso?
 >
-  > > ## Solución al Desafío 3
-  > > Los contenidos de `script/load-gapminder.R`:
-  > > 
-  > > ~~~
-  > > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
-> > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+> Buscar líneas exactamente en el medio no es tan difícil, pero simplemente revisar algunas lineas al azar es suficiente. ¿cómo harías eso?
+>
+> > ## Solución al desafío 3
+> > Para revisar las últimas líneas del *dataframe* R tiene una función para esto:
+> > 
 > > ~~~
-  > > {: .r}
-> > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
-  > > 
-  > > ~~~
-  > > source(file = "scripts/load-gapminder.R")
+> > tail(gapminder)
+> > tail(gapminder, n = 15)
 > > ~~~
-  > > {: .r}
+> > {: .r}
+> > 
+> > Para revisar algunas lineas al azar?
+> > ## sugerencia: Hay muchas maneras de hacer esto
+> > La solución que presentamos aquí utiliza funciones anidadas, por ejemplo una función es el argumento de otra función. Esto te puede parecer nuevo, pero ya lo haz usado.
+> > Recuerda *my_dataframe[rows, cols]* imprime el *dataframe* con la sección de filas y columnas definidas (incluso puedes seleccionar un rando de filas y columnas usando **:** por ejemplo). Para obtener un número al azar o varios números al azar R tiene una función llamada *sample*.
+> > ~~~
+> > gapminder[sample(nrow(gapminder), 5), ]
+> > ~~~
+> > {: .r}
 > {: .solution}
 {: .challenge}
 
