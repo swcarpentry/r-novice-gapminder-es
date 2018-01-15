@@ -175,15 +175,15 @@ $ age         : num  4 5 8 9 9
 {: .output}
 
 > ## Desafío 1
-  > Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/cats/cat-age-calculator)). 
+> Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/cats/cat-age-calculator)). 
 > 1. Crea un vector llamado `human.age` multiplicando `cats$age` por 7.
 > 2. Convierte `human.age` a *factor*.
 > 3. Convierte `human.age` de nuevo a un vector numérico usando la función `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
 >
 > > ## Solución al Desafío 1
 > > 1. `human.age <- cats$age * 7`
-> > 2. `human.age <- factor(human.age)`. `as.factor(human.age)` funciona igual de bien.
-> > 3. `as.numeric(human.age)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo *integer* (aquí, 1:4), cada uno de los cuales tiene asociado una etiqueta o *label* (aquí, 28, 35, 56, y 63). Convertir un objeto de tipo *factor* a *numeric* nos da los enteros, no los *labels*. Si queremos los números originales, debemos convertir `human.age` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en algún sitio, como en la columna de un archivo .csv, que se suponía que únicamente contendría números y olvidamos incluir  `stringsAsFactors=FALSE` al leer la tabla.
+> > 2. `human.age <- factor(human.age)` o `as.factor(human.age)` las dos opciones funcionan igual de bien.
+> > 3. `as.numeric(human.age)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo entero *integer* (1:4), cada uno de los cuales tiene asociado una etiqueta *label* (28, 35, 56, y 63). Convertir un objeto de un tipo de datos a otro, por ejemplo de *factor* a *numeric* nos dá los enteros, no las etiquetas *labels*. Si queremos los números originales, necesitamos un paso intermedio, debemos convertir `human.age` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en alguna columna de nuestro archivo .csv, que se suponía que únicamente contendría números. Tendremos este problema, si al leer el archivo olvidamos incluir `stringsAsFactors=FALSE`.
 > {: .solution}
 {: .challenge}
 
