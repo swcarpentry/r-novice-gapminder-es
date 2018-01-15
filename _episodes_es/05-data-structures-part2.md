@@ -573,19 +573,48 @@ Para hacer el análisis reproducible, deberíamos poner el código en un *script
 > {: .solution}
 {: .challenge}
 
+Para que nuestro analisis sea reproducible debemos poner el código en un *script*
+entonces podemos volver y editar en el futuro.
+
 > ## Desafío 4
-  >
-  > Leer el output de `str(gapminder)` de nuevo;
+>
+> Ve a Archivo -> nuevo -> R script, y crea un script de R llamado load-gapminder.R
+> para cargar el dataset gapminder. Ponlo en el directorio `scripts/`
+> y agrégalo al control de versiones.
+>
+> Ejecuta el script usando la función `source`, usando el path como su argumento
+> o apretando el botón de "source" en RStudio.
+>
+> > ## Solución al desafío 4
+> > Los contenidos de `scripts/load-gapminder.R`:
+> > 
+> > ~~~
+> > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+> > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+> > ~~~
+  > > {: .r}
+> > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
+  > > 
+  > > ~~~
+  > > source(file = "scripts/load-gapminder.R")
+> > ~~~
+  > > {: .r}
+> {: .solution}
+{: .challenge}
+
+> ## Desafío 5
+>
+> Leer el output de `str(gapminder)` de nuevo;
 > esta vez, usar lo que has aprendido de factores, listas y vectores, las funciones como `colnames` y `dim`
 > para explicar qué significa el output de `str`.
 > Si hay partes que no puedes entender, discútelo con tus compañeros. 
-  >
-  > > ## Solution to Desafío 4
-  > >
-  > > El objeto `gapminder` es un dataframe con columnas
+>
+> > ## Solución desafío 5
+> >
+> > El objeto `gapminder` es un dataframe con columnas
 > > - `country` y `continent` como *factors*.
 > > - `year` como *integer vector*.
 > > - `pop`, `lifeExp`, and `gdpPercap` como *numeric vectors*.
 > >
-  > {: .solution}
+> {: .solution}
 {: .challenge}
