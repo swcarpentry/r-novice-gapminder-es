@@ -3,13 +3,13 @@ title: "Explorando Data Frames"
 teaching: 20
 exercises: 10
 questions:
-- "¿cómo puedo manipular un *dataframe*?"
+- "Â¿cÃ³mo puedo manipular un *dataframe*?"
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
 - "Poder anexar dos *dataframe*."
-- "Poder articular qué es un `factor` y cómo convertir entre `factor` y `character`."
-- "Poder entender las propiedades básicas de un *dataframe*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
+- "Poder articular quÃ© es un `factor` y cÃ³mo convertir entre `factor` y `character`."
+- "Poder entender las propiedades bÃ¡sicas de un *dataframe*, incluyendo tamaÃ±o, clase o tipo de columnas, nombres y primeras filas."
 keypoints:
 - "Usar `cbind()` para agregar una nueva columna a un *dataframe*."
 - "Usar `rbind()` para agregar una nueva fila a un *dataframe*."
@@ -22,12 +22,12 @@ keypoints:
 source: Rmd
 ---
   
-  A esta altura, tu has visto todo - en la última lección, recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *dataframe* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *dataframe*.
+A esta altura, ya viste todo - en la Ãºltima lecciÃ³n, donde recorrimos las estructuras bÃ¡sicas de R. Todo lo que hagas va a ser una manipulaciÃ³n de esas herramientas. Pero la mayorÃ­a del tiempo, la estrella del show va a ser el *dataframe* - la tabla que creamos al cargar informaciÃ³n de un archivo csv. En Ã©sta lecciÃ³n, vamos a aprender un par de cosas sobre cÃ³mo trabajar con la clase *dataframe*.
   
 
 ## Agregando columnas y filas a un dataframe
 
-Aprendimos que las columnas en un *dataframe* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes en el tipo dentro de la columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
+Aprendimos que las columnas en un *dataframe* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
 
 
 ~~~
@@ -55,7 +55,7 @@ We can then add this as a column via:
 ~~~
 {: .error}
 
-¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
+Â¿Por quÃ© no funcionÃ³? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
 ~~~
 cats
@@ -91,7 +91,7 @@ coat weight likes_string age
 ~~~
 {: .output}
 
-Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *dataframe* están compuestas por listas:
+Ahora, quÃ© tal si agregamos filas, en este caso, la Ãºltima vez vimos que las filas de un *dataframe* estÃ¡n compuestas por listas:
 
 ~~~
 newRow <- list("tortoiseshell", 3.3, TRUE, 9)
@@ -109,11 +109,11 @@ factor level, NA generated
 
 ## Factors
 
-Los objetos de la clase *factor* son otra cosa con la que debemos tomar cuidado. Cuando R crea un *factor*, únicamente permite aquello que originalmente estaba allí cuando cargamos los datos. En este caso fue
-'black', 'calico' y 'tabby'. Cualquier cosa nueva que no entre en esas categorías es rechazado (y se convierte en NA).
+Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, Ãºnicamente permite los valores que originalmente estaba allÃ­ cuando cargamos los datos. Por ejemplo, en nuestro caso
+'black', 'calico' y 'tabby'. Cualquier categorÃ­a nueva que no entre en esas categorÃ­as serÃ¡ rechazada (y se conviertirÃ¡ en NA).
 
-La advertencia (*warning*) nos está diciendo que agregamos'tortoiseshell' a nuestro factor
-*coat*, pero 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *weight*, *likes_string*, y *age*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir un elemento 'tortoiseshell' al *dataframe* en la columna *coat*, debemos agregar explícitamente a 'tortoiseshell' como un nivel (*level*) en el factor:
+La advertencia (*Warning*) nos estÃ¡ diciendo que agregamos 'tortoiseshell' a nuestro factor
+*coat*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se aÃ±adieron exitosamente a *weight*, *likes_string*, y *age*, respectivamente, dado que esos valores no son de tipo *factor*. Para aÃ±adir una nueva categorÃ­a 'tortoiseshell' al *dataframe* cats en la columna *coat*, debemos agregar explÃ­citamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
   
   
   ~~~
@@ -136,7 +136,7 @@ cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
 ~~~
 {: .r}
 
-De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorías, que bien pueden ser útiles, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin enriedos con los niveles del factor. 
+De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorÃ­as, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin problemas con los niveles del factor. 
   
   
   ~~~
@@ -174,22 +174,22 @@ $ age         : num  4 5 8 9 9
 ~~~
 {: .output}
 
-> ## Desafío 1
-  > Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/cats/cat-age-calculator)). 
+> ## DesafÃ­o 1
+  > Imaginemos que, como los perros, 1 aÃ±o humano es equivalente a 7 aÃ±os en los gatos (La compaÃ±Ã­a Purina usa [un algoritmo mÃ¡s sofisticado](https://www.proplan.com/cats/cat-age-calculator)). 
 > 1. Crea un vector llamado `human.age` multiplicando `cats$age` por 7.
 > 2. Convierte `human.age` a *factor*.
-> 3. Convierte `human.age` de nuevo a un vector numérico usando la función `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
+> 3. Convierte `human.age` de nuevo a un vector numÃ©rico usando la funciÃ³n `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
 >
-> > ## Solución al Desafío 1
+> > ## SoluciÃ³n al DesafÃ­o 1
 > > 1. `human.age <- cats$age * 7`
 > > 2. `human.age <- factor(human.age)`. `as.factor(human.age)` funciona igual de bien.
-> > 3. `as.numeric(human.age)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo *integer* (aquí, 1:4), cada uno de los cuales tiene asociado una etiqueta o *label* (aquí, 28, 35, 56, y 63). Convertir un objeto de tipo *factor* a *numeric* nos da los enteros, no los *labels*. Si queremos los números originales, debemos convertir `human.age` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en algún sitio, como en la columna de un archivo .csv, que se suponía que únicamente contendría números y olvidamos incluir  `stringsAsFactors=FALSE` al leer la tabla.
+> > 3. `as.numeric(human.age)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo *integer* (aquÃ­, 1:4), cada uno de los cuales tiene asociado una etiqueta o *label* (aquÃ­, 28, 35, 56, y 63). Convertir un objeto de tipo *factor* a *numeric* nos da los enteros, no los *labels*. Si queremos los nÃºmeros originales, debemos convertir `human.age` al tipo *character* y luego a *numeric* (Â¿cÃ³mo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en algÃºn sitio, como en la columna de un archivo .csv, que se suponÃ­a que Ãºnicamente contendrÃ­a nÃºmeros y olvidamos incluir  `stringsAsFactors=FALSE` al leer la tabla.
 > {: .solution}
 {: .challenge}
 
 ## Quitando filas
 
-Ahora sabemos cómo agregar filas y columnas a nuestro *dataframe* en R pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila basura.
+Ahora sabemos cÃ³mo agregar filas y columnas a nuestro *dataframe* en R pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila basura.
   
   
   ~~~
@@ -209,7 +209,7 @@ Ahora sabemos cómo agregar filas y columnas a nuestro *dataframe* en R pero en n
 ~~~
 {: .output}
 
-Podemos pedir el *dataframe* sin la fila errónea: 
+Podemos pedir el *dataframe* sin la fila errÃ³nea: 
   
   ~~~
   cats[-4,]
@@ -227,7 +227,7 @@ Podemos pedir el *dataframe* sin la fila errónea:
 ~~~
 {: .output}
 
-Notar que la coma sin nada detrás indica que queremos remover la cuarta fila entera. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `cats[c(-4,-5),]`
+Notar que la coma sin nada detrÃ¡s indica que queremos remover la cuarta fila entera. PodrÃ­amos remover ambas filas en un llamado usando ambos nÃºmeros dentro de un vector: `cats[c(-4,-5),]`
 
 Alternativamente, podemos eliminar filas que contengan valores `NA`:
   
@@ -248,7 +248,7 @@ Alternativamente, podemos eliminar filas que contengan valores `NA`:
 ~~~
 {: .output}
 
-Volvamos a asignar el *output* a `cats`, así nuestros cambios son permanentes:
+Volvamos a asignar el *output* a `cats`, asÃ­ nuestros cambios son permanentes:
 
 
 ~~~
@@ -256,9 +256,9 @@ cats <- na.omit(cats)
 ~~~
 {: .r}
 
-## Añadiendo a un dataframe
+## AÃ±adiendo a un dataframe
 
-La clave que hay que recordar al añadir datos a un *dataframe* es que *las columnas son vectores o factores, mientras que las filas son listas.* Podemos pegar dos *dataframes* juntos usando `rbind`:
+La clave que hay que recordar al aÃ±adir datos a un *dataframe* es que *las columnas son vectores o factores, mientras que las filas son listas.* Podemos pegar dos *dataframes* juntos usando `rbind`:
 
 
 ~~~
@@ -282,7 +282,7 @@ coat weight likes_string age
 ~~~
 {: .output}
 
-Pero ahora los nombres de las filas son complicados. Podemos removerlos y R los nombrará nuevamente, de manera secuencial:
+Pero ahora los nombres de las filas son complicados. Podemos removerlos y R los nombrarÃ¡ nuevamente, de manera secuencial:
 
 ~~~
 rownames(cats) <- NULL
@@ -305,7 +305,7 @@ coat weight likes_string age
 ~~~
 {: .output}
 
-> ## Desafío 2
+> ## DesafÃ­o 2
 >
 > Puedes crear un nuevo dataframe desde R con la siguiente sintaxis:
 > 
@@ -316,16 +316,16 @@ coat weight likes_string age
 >                  stringsAsFactors = FALSE)
 > ~~~
 > {: .r}
-> Crear un dataframe que contenga la siguiente información personal:
+> Crear un dataframe que contenga la siguiente informaciÃ³n personal:
 >
 > - Nombre
 > - Apellido
-> - Número favorito
+> - NÃºmero favorito
 >
 > Luego usa `rbind` para agregar una entrada para la gente sentada alrededor tuyo.
-> Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "¿Es hora de un recreo?"
+> Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "Â¿Es hora de un recreo?"
 >
-  > > ## Solución al Desafío 2
+  > > ## SoluciÃ³n al DesafÃ­o 2
   > > 
   > > ~~~
   > > df <- data.frame(nombre = c('Grace'),
@@ -341,7 +341,7 @@ coat weight likes_string age
 
 ## Ejemplo realista
 
-Hasta ahora, hemos visto las manipulaciones básicas que pueden hacerse en un *dataframe*. Ahora, vamos a extender esas habilidades. 
+Hasta ahora, hemos visto las manipulaciones bÃ¡sicas que pueden hacerse en un *dataframe*. Ahora, vamos a extender esas habilidades. 
 
 
 ~~~
@@ -354,14 +354,14 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > * Otro tipo de archivo que puedes encontrar es el separado por tabuladores (.tsv). Para especificar este separador, usa `"\\t"` o `read.delim()`.
 >
 > * Los archivos pueden descargarse de Internet a una carpeta local usando `download.file`.
-> La función `read.csv` puede ser ejecutada para leer el archivo descargado, por ejemplo: > 
+> La funciÃ³n `read.csv` puede ser ejecutada para leer el archivo descargado, por ejemplo: > 
 > ~~~
 > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
 > gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > ~~~
 > {: .r}
 >
-> *De manera alternativa, puedes leer los archivos directamente en R, usando una dirección web y `read.csv`. Es importante notar que, si se hace esto último, no habrá una copia local del archivo csv. Por ejemplo,
+> *De manera alternativa, puedes leer los archivos directamente en R, usando una direcciÃ³n web y `read.csv`. Es importante notar que, si se hace esto Ãºltimo, no habrÃ¡ una copia local del archivo csv. Por ejemplo,
 > 
 > ~~~
 > gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
@@ -371,7 +371,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > * Puedes leer directamente planillas de Excel sin necesidad de convertirlas a texto plano usando el paquete [readxl](https://cran.r-project.org/web/packages/readxl/index.html).
 {: .callout}
 
-Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ver cómo se ve el dataset usando `str`:
+Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ver cÃ³mo se ve el dataset usando `str`:
   
   
   ~~~
@@ -392,7 +392,7 @@ $ gdpPercap: num  779 821 853 836 740 ...
 ~~~
 {: .output}
 
-También podemos examinar columnas individuales del dataframe con la función `typeof`:
+TambiÃ©n podemos examinar columnas individuales del dataframe con la funciÃ³n `typeof`:
   
   
   ~~~
@@ -436,8 +436,8 @@ También podemos examinar columnas individuales del dataframe con la función `typ
 {: .output}
 
 
-También podemos interrogar al dataframe por información sobre sus dimensiones;
-recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué pisnsas que el siguiente código producirá y por qué?
+TambiÃ©n podemos interrogar al dataframe por informaciÃ³n sobre sus dimensiones;
+recordando que `str(gapminder)` dijo que habÃ­a 1704 observaciones de 6 variables en gapminder, Â¿QuÃ© pisnsas que el siguiente cÃ³digo producirÃ¡ y por quÃ©?
 
 ~~~
   length(gapminder)
@@ -451,7 +451,7 @@ recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables
 ~~~
 {: .output}
 
-Un intento certero hubiera sido decir que el largo (`length`) de un *dataframe* es el número de filas (1704), pero no es el caso; recuerda, un *dataframe es una lista de vectores y factors*. 
+Un intento certero hubiera sido decir que el largo (`length`) de un *dataframe* es el nÃºmero de filas (1704), pero no es el caso; recuerda, un *dataframe es una lista de vectores y factors*. 
 
   ~~~
   typeof(gapminder)
@@ -465,7 +465,7 @@ Un intento certero hubiera sido decir que el largo (`length`) de un *dataframe* 
 ~~~
 {: .output}
 
-Cuando `length` devuelve 6, es porque gapminder está construida por una lista de 6 columnas. Para conseguir el número de filas, intenta:
+Cuando `length` devuelve 6, es porque gapminder estÃ¡ construida por una lista de 6 columnas. Para conseguir el nÃºmero de filas, intenta:
 
 ~~~
 nrow(gapminder)
@@ -522,9 +522,9 @@ Probablemente queremos saber los nombres de las columnas. Para hacerlo, podemos 
 ~~~
 {: .output}
 
-A esta altura, es importante preguntarnos si la estructura de R está en sintonía con nuestra intuición y nuestras expectativas, ¿tienen sentido los tipos de datos reportados para cada columna? Si no lo tienen, necesitamos resolver cualquier problema antes de que se conviertan en sorpresas ingratas luego. Podemos hacerlo usando lo que aprendimos sobre cómo R interpreta los datos y la importancia de la estricta consistencia con la que registramos los datos.
+A esta altura, es importante preguntarnos si la estructura de R estÃ¡ en sintonÃ­a con nuestra intuiciÃ³n y nuestras expectativas, Â¿tienen sentido los tipos de datos reportados para cada columna? Si no lo tienen, necesitamos resolver cualquier problema antes de que se conviertan en sorpresas ingratas luego. Podemos hacerlo usando lo que aprendimos sobre cÃ³mo R interpreta los datos y la importancia de la estricta consistencia con la que registramos los datos.
 
-Una vez que estamos contentos con el tipo de datos y que la estructura parece razonable, es tiempo de empezar a investigar nuestros datos. Mira las siguientes líneas:
+Una vez que estamos contentos con el tipo de datos y que la estructura parece razonable, es tiempo de empezar a investigar nuestros datos. Mira las siguientes lÃ­neas:
   
   
   ~~~
@@ -545,18 +545,18 @@ Una vez que estamos contentos con el tipo de datos y que la estructura parece ra
 ~~~
 {: .output}
 
-Para hacer el análisis reproducible, deberíamos poner el código en un *script*, así podremos volver luego a él. 
+Para hacer el anÃ¡lisis reproducible, deberÃ­amos poner el cÃ³digo en un *script*, asÃ­ podremos volver luego a Ã©l. 
 
-> ## Desafíp 3
+> ## DesafÃ­p 3
   >
   > Ve a Archivo -> nuevo -> R script, and escribe un script de R 
 > para cargar el dataset gapminder. Ponlo en el directorio `scripts/`
-> y agrégalo al control de versiones.
+> y agrÃ©galo al control de versiones.
 >
-  > Ejecuta el script usando la función `source`, usando el path como su argumento
-> o apretando el botón de "source" en Rstudio.
+  > Ejecuta el script usando la funciÃ³n `source`, usando el path como su argumento
+> o apretando el botÃ³n de "source" en Rstudio.
 >
-  > > ## Solución al Desafío 3
+  > > ## SoluciÃ³n al DesafÃ­o 3
   > > Los contenidos de `script/load-gapminder.R`:
   > > 
   > > ~~~
@@ -573,14 +573,14 @@ Para hacer el análisis reproducible, deberíamos poner el código en un *script*, 
 > {: .solution}
 {: .challenge}
 
-> ## Desafío 4
+> ## DesafÃ­o 4
   >
   > Leer el output de `str(gapminder)` de nuevo;
 > esta vez, usar lo que has aprendido de factores, listas y vectores, las funciones como `colnames` y `dim`
-> para explicar qué significa el output de `str`.
-> Si hay partes que no puedes entender, discútelo con tus compañeros. 
+> para explicar quÃ© significa el output de `str`.
+> Si hay partes que no puedes entender, discÃºtelo con tus compaÃ±eros. 
   >
-  > > ## Solution to Desafío 4
+  > > ## Solution to DesafÃ­o 4
   > >
   > > El objeto `gapminder` es un dataframe con columnas
 > > - `country` y `continent` como *factors*.
