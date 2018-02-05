@@ -1,5 +1,5 @@
 {% comment %}
-  Display key points for an episode.
+Muestra los puntos clave de un episodio.
 {% endcomment %}
 
 {% if page.keypoints == nil %}
@@ -9,7 +9,7 @@
 {% endif %}
 
 <blockquote class="keypoints">
-  <h2>Key Points</h2>
+  <h2>Puntos Clave</h2>
   <ul>
     {% for keypoint in episode_keypoints %}
     <li>{{ keypoint|markdownify }}</li>

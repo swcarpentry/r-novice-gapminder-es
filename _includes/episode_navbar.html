@@ -6,7 +6,7 @@ need to re-assign it here
 {% include base_path.html %}
 
 {% comment %}
-  Navigation bar for an episode.
+Barra de navegación para un episodio.
 {% endcomment %}
 
 {% include manual_episode_order.html %}
@@ -19,9 +19,9 @@ need to re-assign it here
   <div class="col-xs-1">
     <h3 class="text-left">
       {% if previous_episode %}
-      <a href="{{ relative_root_path }}{{ previous_episode.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      <a href="{{ relative_root_path }}{{ previous_episode.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">episodio anterior</span></a>
       {% else %}
-      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
+      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">casa de lección</span></a>
       {% endif %}
     </h3>
   </div>
@@ -33,9 +33,9 @@ need to re-assign it here
   <div class="col-xs-1">
     <h3 class="text-right">
       {% if next_episode %}
-      <a href="{{ relative_root_path }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      <a href="{{ relative_root_path }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">siguiente episodio</span></a>
       {% else %}
-      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
+      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">casa de lección</span></a>
       {% endif %}
     </h3>
   </div>
