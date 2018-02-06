@@ -24,10 +24,10 @@ en tu directorio `datos/`, en el archivo llamado `feline-data.csv`:
 
 
 ~~~
-pelaje,peso,likes_string
-cálico,2.1,1
-negro,5.0,0
-atigrado,3.2,1
+coat,weight,likes_string
+calico,2.1,1
+black,5.0,0
+tabby,3.2,1
 ~~~
 {: .r}
 
@@ -42,18 +42,18 @@ Podemos leer el archivo en R con el siguiente comando:
 
 
 ~~~
-gatos <- read.csv(file = "datos/datos-felinos.csv")
-gatos
+cats <- read.csv(file = "data/feline-data.csv")
+cats
 ~~~
 {: .r}
 
 
 
 ~~~
-    pelaje peso likes_string
-1 cálico    2.1            1
-2  negro    5.0            0
-3  atigrado    3.2            1
+    coat weight likes_string
+1 calico    2.1            1
+2  black    5.0            0
+3  tabby    3.2            1
 ~~~
 {: .output}
 
@@ -61,7 +61,7 @@ La función `read.table` se usa para leer datos tabulares que están guardados e
 donde las columnas de datos están separadas por un signo de puntuación como en los archivos
 CSV (donde **csv** es **comma-separated values** en inglés, es decir, valores separados por comas).
 
-Los signos de puntuación más comunes usados para separar o delimitar datos en archivos de texto son tabuladores y comas.
+Los signos de puntuación más comunmente usados para separar o delimitar datos en archivos de texto son tabuladores y comas.
 Por conveniencia, R provee dos versiones de la función `read.table`. Estas versiones son: `read.csv`
 para archivos donde los datos están separados por comas y `read.delim` para archivos donde los datos están separados
 por tabuladores. De las tres variantes, `read.csv` es la usada más comúnmente. De ser necesario, es posible sobrescribir
@@ -72,7 +72,7 @@ Podemos empezar a explorar el **dataset** inmediatamente, proyectando las column
 
 
 ~~~
-gatos$peso
+cats$weight
 ~~~
 {: .r}
 
@@ -86,27 +86,28 @@ gatos$peso
 
 
 ~~~
-gatos$pelaje
+cats$coat
 ~~~
 {: .r}
 
 
 
 ~~~
-[1] cálico negro  atigrado
-Levels: negro cálico atigrado
+[1] calico black  tabby 
+Levels: black calico tabby
 ~~~
 {: .output}
+
+
 
 Podemos efectuar otras operaciones a las columnas:
 
 
 ~~~
 ## Considera que descubrimos que la balanza pesa dos kilos menos:
-gatos$peso + 2
+cats$weight + 2
 ~~~
 {: .r}
-
 
 
 ~~~
@@ -117,14 +118,14 @@ gatos$peso + 2
 
 
 ~~~
-paste("Mi gato es", gatos$pelaje)
+paste("My cat is", cats$coat)
 ~~~
 {: .r}
 
 
 
 ~~~
-[1] "Mi gato es cálico" "Mi gato es negro"  "Mi gato es atigrado"
+[1] "My cat is calico" "My cat is black"  "My cat is tabby" 
 ~~~
 {: .output}
 
@@ -150,6 +151,8 @@ factors
 [1] NA NA NA
 ~~~
 {: .output}
+
+
 
 Entender qué es lo que pasa en este case es clave para analizar datos en R exitosamente.
 
@@ -190,7 +193,7 @@ typeof(3.14)
 
 
 ~~~
-typeof(1L) # The L suffix forces the number to be an integer, since by default R uses float numbers
+typeof(1L) # El sufijo L forza a que el número sea un entero, ya que R por defecto usa números flotantes
 ~~~
 {: .r}
 
@@ -252,7 +255,7 @@ Un usuario ha agregado detalles de otro gato. Esta información está en el arch
 
 
 ~~~
-file.show("datos/datos-felinos_v2.csv")
+file.show("data/feline-data_v2.csv")
 ~~~
 {: .r}
 
@@ -271,7 +274,7 @@ Carga los datos de los nuevos gatos de la misma forma anterior, y comprueba qué
 
 
 ~~~
-cats <- read.csv(file="datos/datos-felinos_v2.csv")
+cats <- read.csv(file="data/feline-data_v2.csv")
 typeof(cats$weight)
 ~~~
 {: .r}
@@ -306,15 +309,13 @@ Warning in Ops.factor(cats$weight, 2): '+' not meaningful for factors
 
 
 ¿Qué ocurrió? Cuando R lee un archivo CSV en una de estas tablas, insiste que todas
-las columnas sean del mismo tipo de datos básico; si no puede entender todos los
-elementos en la columna como **double**, entonces ningún elemento de la columna
-se interpreta como **double**.
-
-La tabla que R cargó con los datos de los gatos se denomina un
+las columnas sean del mismo tipo de datos básico; si no puede entender 
+*todo* en la columna como un **double**, entonces *ningún* elemento de la columna
+se interpreta como **double**. La tabla que R cargó con los datos de los gatos se denomina un
 **data.frame**, y es nuestro primer ejemplo de algo que se llama una *estructura de datos* -
  es decir, una estructura que R sabe cómo construir basada en tipos de datos básicos.
 
-Podemos ver que es un **data.frame** si usamos la función **`class`**:
+Podemos ver que es un **data.frame** si usamos la función `class`:
 
 
 ~~~
@@ -335,7 +336,7 @@ básicas, y cómo se comportan. Por ahora, eliminemos la línea extra de los dat
 a leer el archivo para investigar el comportamiento más en detalle:
 
 
-datos-felinos.csv:
+feline-data.csv:
 
 ```
 coat,weight,likes_string
@@ -348,7 +349,7 @@ Y en RStudio:
 
 
 ~~~
-cats <- read.csv(file="datos/datos-felinos.csv")
+cats <- read.csv(file="data/feline-data.csv")
 ~~~
 {: .r}
 
@@ -370,8 +371,9 @@ my_vector
 ~~~
 {: .output}
 
-Un vector en R es esencialmente una lista ordenada de cosas, con la condición especial de que *todos los elementos en un vector
-tienen que ser del mismo tipo de datos básico*. Si no eliges un tipo de datos, por defecto R elige el tipo de datos **logical**.
+Un vector en R es esencialmente una lista ordenada de cosas, con la condición especial 
+de que *todos* los elementos en un vector tienen que ser del mismo tipo de datos básico*. 
+Si no eliges un tipo de datos, por defecto R elige el tipo de datos **logical**.
 También puedes declarar un vector vacío de cualquier tipo que quieras.
 
 
@@ -388,8 +390,7 @@ another_vector
 ~~~
 {: .output}
 
-You can check if something is a vector:
-
+Puedes checar si algo es un vector:
 
 ~~~
 str(another_vector)
@@ -403,9 +404,11 @@ str(another_vector)
 ~~~
 {: .output}
 
-La salida algo críptica de este comando indica el tipo de datos básico encontrado en este vector, en este caso `chr` o **character**;
-una indicación del número de elementos en el vector - específicamente los índices del vector, en este caso `[1:3]`; y unos pocos ejemplos
-de los elementos del vector - en este caso **strings** vacías.
+La salida algo críptica de este comando indica el tipo de datos básico 
+encontrado en este vector -en este caso `chr` o **character**;
+una indicación del número de elementos en el vector - específicamente los índices 
+del vector, en este caso `[1:3]` y unos pocos ejemplos
+de los elementos del vector - en este caso **strings** vacíos.
 
 Si, en forma similar, hacemos:
 
@@ -422,22 +425,25 @@ str(cats$weight)
 ~~~
 {: .output}
 
-podemos ver que `cats$weight` también es un vector - *las columnas de datos que cargamos en **data.frames** de R son todas vectores*
-y este es el motivo por el cuál R requiere que todas las columnas sean del mismo tipo de datos básico.
+podemos ver que `cats$weight` también es un vector - *las columnas de datos que cargamos 
+en **data.frames** de R son todas vectores* y este es el motivo por el cuál R requiere 
+que todas las columnas sean del mismo tipo de datos básico.
 
 
 > ## Discusión 1
 >
-> Why is R so opinionated about what we put in our columns of data?
-> How does this help us?
+> ¿Por qué R es tan obstinado acerca de lo que ponemos en nuestras columnas de datos?
+> ¿Cómo nos ayuda esto?
+>
 >
 > > ## Discusión 1
 > >
-> > Al mantener todos los elementos de una columna del mismo tipo, podemos hacer suposiciones simples sobre nuestros datos;
-> > si puedes interpretar un elemento en una columna como un número, entonces puedes interpretar *todos* los elementos como números,
+> > Al mantener todos los elementos de una columna del mismo tipo, podemos hacer 
+> > suposiciones simples sobre nuestros datos; si puedes interpretar un elemento 
+> > en una columna como un número, entonces puedes interpretar *todos* los elementos como números,
 > > y por tanto no hace falta comprobarlo cada vez.
 > > Esta consistencia es lo que se suele mencionar como *datos limpios*;
-> > a la large, la consistencia estricta hace nuestras vidas más fáciles cuando usamos R.
+> > a la larga, la consistencia estricta hace nuestras vidas más fáciles cuando usamos R.
 > {: .solution}
 {: .discussion}
 
@@ -456,7 +462,7 @@ combine_vector
 ~~~
 {: .output}
 
-Dado lo que aprendidmos hasta ahora, ¿qué te parece que el siguiente código va a producir?
+Dado lo que aprendimos hasta ahora, ¿qué piensas que va a producir el siguiente código?
 
 
 ~~~
@@ -465,8 +471,7 @@ quiz_vector <- c(2,6,'3')
 {: .r}
 
 Esto se denomina *coerción de tipos de datos* y es motivo de muchas sorpresas y la razón por la cual es necesario conocer
-los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso númerico y caracteres)
-para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
+los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso númerico y caracteres) para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
 
 Considera:
 
@@ -547,18 +552,17 @@ numeric_coerced_to_logical
 ~~~
 {: .output}
 
-Como puedes ver, algunas cosas sorprendentes ocurren cuando R fuerza un tipo de datos en otro tipo!
+Como puedes ver, algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
 Dejando de lado los detalles de la coerción, la cuestión es: si tus datos no lucen como pensabas que
 deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos los elementos de tus vectores
-son y las columnas de tus **data.frames** son del mismo tipo o te encontrarás con sorpresas desagradables!
+y las columnas de tus **data.frames** son del mismo tipo o te encontrarás con sorpresas desagradables!
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `cats`,
 `likes_string` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
 (una forma habitual de representarlos). Deberíamos usar el tipo de datos
 **`logical`** en este caso, que tiene dos estados: **`TRUE`** o **`FALSE`**, que es exactamente
-lo que nuestros datos representan. Podemos
-
-Podemos convertir esta columna al tipo de datos **`logical`** usando la función `as.logical`:
+lo que nuestros datos representan. Podemos convertir esta columna al tipo de datos **`logical`** 
+usando la función `as.logical`:
 
 
 ~~~
@@ -742,7 +746,7 @@ typeof(sequence_example)
 ~~~
 {: .output}
 
-Finalmente,puedes darle nombres a los elementos de tu vector:
+Finalmente, puedes darle nombres a los elementos de tu vector:
 
 
 ~~~
@@ -839,9 +843,11 @@ str(cats$coat)
 ~~~
 {: .output}
 
+
+
 ## Factores
 
-Otra estructura de datos importante se llama un **factor**. Factores usualmente
+Otra estructura de datos importante se llama **factor**. Factores usualmente
 parecen caracteres, pero se usan para representar información categórica. Por ejemplo,
 construyamos un vector de **strings** con etiquetas para las coloraciones para todos los
 gatos en nuestro estudio:
@@ -906,7 +912,7 @@ str(CATegories)
 {: .output}
 
 Ahora R puede interpretar que hay tres posibles categorías en nuestros datos - pero también
-hizo algo sorprendente; en lugar de imprimir las **strings** como se las dimos, imprimió una
+hizo algo sorprendente; en lugar de imprimir los **strings** como se las dimos, imprimió una
 serie de números. R ha reemplazado las categorías con índices numéricos, lo cuál es necesario porque
 muchos cálculos estadísticos usan esa representación para datos categóricos:
 
@@ -946,7 +952,7 @@ typeof(CATegories)
 >
 > > ## Solución al desafío 2
 > >
-> > One solution is use the argument `stringAsFactors`:
+> > Una solución es usar el argumento `stringAsFactors`:
 > >
 > > 
 > > ~~~
@@ -955,8 +961,8 @@ typeof(CATegories)
 > > ~~~
 > > {: .r}
 > >
-> > Another solution is use the argument `colClasses`
-> > that allow finer control.
+> > Otra solución es usar el argumento `colClasses`
+> > que permiten un control más fino.
 > >
 > > 
 > > ~~~
@@ -965,15 +971,16 @@ typeof(CATegories)
 > > ~~~
 > > {: .r}
 > >
-> > Note: new students find the help files difficult to understand; make sure to let them know
-> > that this is typical, and encourage them to take their best guess based on semantic meaning,
-> > even if they aren't sure.
+> > Nota: Los nuevos estudiantes encuentran los archivos de ayuda difíciles de entender; asegúrese de hacerles saber 
+> > que esto es normal, y anímelos a que tomen su mejor opción en función del significado semantico, 
+> > incluso si no están seguros.
 > {: .solution}
 {: .challenge}
 
-In modelling functions, it's important to know what the baseline levels are. This
-is assumed to be the first factor, but by default factors are labelled in
-alphabetical order. You can change this by specifying the levels:
+En las funciones de modelado, es importante saber cuáles son los niveles de referencia. Se asume 
+que es el primer factor, pero por defecto los factores están etiquetados en
+orden alfabetico. Puedes cambiar esto especificando los niveles:
+
 
 
 ~~~
@@ -990,15 +997,17 @@ str(factor_ordering_example)
 ~~~
 {: .output}
 
-In this case, we've explicitly told R that "control" should represented by 1, and
-"case" by 2. This designation can be very important for interpreting the
-results of statistical models!
+
+En este caso, le hemos dicho explícitamente a R que "control" debería estar representado por 1, y
+"case" por 2. Esta designación puede ser muy importante para interpretar los
+resultados de modelos estadísticos!
 
 ## Listas
 
-Another data structure you'll want in your bag of tricks is the `list`. A list
-is simpler in some ways than the other types, because you can put anything you
-want in it:
+
+Otra estructura de datos que quedrás en tu bolsa de trucos es `list`. Una lista
+es más simple, en algunos aspectos que los otros tipos, porque puedes poner cualquier cosa
+que tú quieras en ella:
 
 
 ~~~
@@ -1046,8 +1055,8 @@ $data
 ~~~
 {: .output}
 
-We can now understand something a bit surprising in our data.frame; what happens if we run:
 
+Ahora podemos entender algo un poco sorprendente en nuestro **data.frame**; ¿Qué pasa si corremos?
 
 ~~~
 typeof(cats)
@@ -1061,16 +1070,17 @@ typeof(cats)
 ~~~
 {: .output}
 
-We see that data.frames look like lists 'under the hood' - this is because a
-data.frame is really a list of vectors and factors, as they have to be - in
-order to hold those columns that are a mix of vectors and factors, the
-data.frame needs something a bit more flexible than a vector to put all the
-columns together into a familiar table.  In other words, a `data.frame` is a
-special list in which all the vectors must have the same length.
 
-In our `cats` example, we have an integer, a double and a logical variable. As
-we have seen already, each column of data.frame is a vector.
+Vemos que los **data.frames** parecen listas 'en su cara oculta' - ​​esto es porque un
+**data.frame** es realmente una lista de vectores y factores, como debe ser - 
+para mantener esas columnas que son una combinación de vectores y factores, 
+el **data.frame** necesita algo más flexible que un vector para poner todas las 
+columnas juntas en una tabla. En otras palabras, un `data.frame` es una 
+lista especial en la que todos los vectores deben tener la misma longitud.
 
+
+En nuestro ejemplo de `cats ', tenemos un número entero, un doble y una variable lógica. Como
+ya hemos visto, cada columna del **data.frame** es un vector.
 
 ~~~
 cats$coat
@@ -1128,9 +1138,9 @@ str(cats[,1])
 ~~~
 {: .output}
 
-Each row is an *observation* of different variables, itself a data.frame, and
-thus can be composed of elements of different types.
 
+Cada fila es una *observación* de diferentes variables del mismo **data.frame**, y 
+por lo tanto puede estar compuesto de elementos de diferentes tipos.
 
 ~~~
 cats[1,]
@@ -1224,8 +1234,8 @@ str(cats[1,])
 > > Levels: black calico tabby
 > > ~~~
 > > {: .output}
-> > The double brace `[[1]]` returns the contents of the list item. In this case
-> it is the contents of the first column, a _vector_ of type _factor_.
+> > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
+> > es el contenido de la primera columna, un _vector_ de tipo _factor_.
 > > 
 > > ~~~
 > > cats$coat
@@ -1239,8 +1249,9 @@ str(cats[1,])
 > > Levels: black calico tabby
 > > ~~~
 > > {: .output}
-> > This example uses the `$` character to address items by name. _coat_ is the
-> first column of the data frame, again a _vector_ of type _factor_.
+> > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _coat_ es la
+> > primer columna del marco de datos, de nuevo un _vector_ de tipo _factor_.
+> >
 > > 
 > > ~~~
 > > cats["coat"]
@@ -1256,8 +1267,9 @@ str(cats[1,])
 > > 3  tabby
 > > ~~~
 > > {: .output}
-> > Here we are using a single brace `["coat"]` replacing the index number with
-> the column name. Like example 1, the returned object is a _list_.
+> > Aquí estamos usando un solo corchete `[" coat "]` reemplazando el número del índice con 
+> > el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un _list_.
+> >
 > > 
 > > ~~~
 > > cats[1, 1]
@@ -1271,10 +1283,10 @@ str(cats[1,])
 > > Levels: black calico tabby
 > > ~~~
 > > {: .output}
-> > This example uses a single brace, but this time we provide row and column
-> coordinates. The returned object is the value in row 1, column 1. The object
-> is an _integer_ but because it is part of a _vector_ of type _factor_, R
-> displays the label "calico" associated with the integer value.
+> > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
+> > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
+> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "calico" asociada con el valor entero.
+> >
 > > 
 > > ~~~
 > > cats[, 1]
@@ -1288,9 +1300,9 @@ str(cats[1,])
 > > Levels: black calico tabby
 > > ~~~
 > > {: .output}
-> > Like the previous example we use single braces and provide row and column
-> coordinates. The row coordinate is not specified, R interprets this missing
-> value as all the elements in this _column_ _vector_.
+> > Al igual que en el ejemplo anterior, utilizamos corchetes simples y proporcionamos 
+> > las coordenadas de fila y columna. La coordenada de la fila no se especifica, 
+> > R interpreta este valor faltante como todos los elementos en este _column_ _vector_.
 > > 
 > > ~~~
 > > cats[1, ]
@@ -1304,16 +1316,16 @@ str(cats[1,])
 > > 1 calico    2.1         TRUE
 > > ~~~
 > > {: .output}
-> > Again we use the single brace with row and column coordinates. The column
-> coordinate is not specified. The return value is a _list_ containing all the
-> values in the first row.
+> > De nuevo, utilizamos el corchete simple con las coordenadas de fila y columna. 
+> > La coordenada de la columna no está especificada. El valor de retorno es una _list_ 
+> > que contiene todos los valores en la primera fila.
+> >
 > {: .solution}
 {: .challenge}
 
 ## Matrices
 
-Finalmente está la matriz. Podemos declarar una matriz llena de ceros:
-
+Por último, pero no menos importante están las matrices. Podemos declarar una matriz llena de ceros:
 
 ~~~
 matrix_example <- matrix(0, ncol=6, nrow=3)
@@ -1442,8 +1454,8 @@ ncol(matrix_example)
 > > ~~~
 > > {: .output}
 > >
-> > Because a matrix is a vector with added dimension attributes, `length`
-> > gives you the total number of elements in the matrix.
+> > Debido a que una matriz es un vector con atributos de dimensión añadidos, `length` 
+> > proporciona la cantidad total de elementos en la matriz.
 > {: .solution}
 {: .challenge}
 
@@ -1452,7 +1464,7 @@ ncol(matrix_example)
 >
 > Construye otra matriz, esta vez conteniendo los números 1:50,
 > con 5 columnas y 10 renglones.
-> ¿Cómo va completando la matriz la función **`matrix`**? ¿Cuál es el comportamiento por defector: por columna or por renglón?
+> ¿Cómo llenó la función **`matrix`** de manera predeterminada la matriz, por columna o por renglón? 
 > Investiga como cambiar este comportamento.
 > (Sugerencia: lee la documentación de la función **`matrix`**.)
 >
@@ -1460,7 +1472,7 @@ ncol(matrix_example)
 > >
 > > Construye otra matriz, esta vez conteniendo los números 1:50,
 > > con 5 columnas y 10 renglones.
-> > ¿Cómo va completando la matriz la función **`matrix`**? ¿Cuál es el comportamiento por defector: por columna or por renglón?
+> > ¿Cómo llenó la función **`matrix`** de manera predeterminada la matriz, por columna o por renglón? 
 > > Investiga como cambiar este comportamento.
 > > (Sugerencia: lee la documentación de la función **`matrix`**.)
 > >
@@ -1510,9 +1522,9 @@ ncol(matrix_example)
 > [3,]   10    7
 > ~~~
 > {: .output}
-> ¿Cuál era el comando correcto para escribir esta matriz? Examina
+> ¿Cuál fué el comando correcto para escribir esta matriz? Examina
 > cada comando e intenta determinar el correcto antes de escribirlos.
-> Piensa sobre las matrices que cada comando produce.
+> Piensa en qué matrices producirán los otros comandos.
 >
 > 1. `matrix(c(4, 1, 9, 5, 10, 7), nrow = 3)`
 > 2. `matrix(c(4, 9, 10, 1, 5, 7), ncol = 2, byrow = TRUE)`
@@ -1532,7 +1544,7 @@ ncol(matrix_example)
 > > {: .output}
 > > ¿Cuál era el comando correcto para escribir esta matriz? Examina
 > > cada comando e intenta determinar el correcto antes de escribirlos.
-> > Piensa sobre las matrices que cada comando produce.
+> > Piensa en qué matrices producirán los otros comandos.
 > > 
 > > ~~~
 > > matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
