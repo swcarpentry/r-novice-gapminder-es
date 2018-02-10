@@ -4,8 +4,8 @@ Enseñanza: 30
 Ejercicios: 30
 Preguntas:
 - "¿Cómo puedo hacer diferentes cálculos sobre diferentes conjuntos de datos?"
-objetivos:
-- "Habilitar el uso de la estrategia divide-aplica-combina para el análisis de Datos."
+Objetivos:
+- "Habilitar el uso de la estrategia divide-aplica-combina para el análisis de datos."
 Puntos claves:
 - "Uso del paquete `plyr` para dividir datos, aplicar funciones sobre subconjuntos, y combinar los resultados"
 fuente: Rmd
@@ -37,7 +37,7 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
 ~~~
 {: .r}
 
-Una tarea común que encontrarás mientras trabajes con datos, es que tu querras correr los cálculos en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que si queremos calcular la media GDP por continente?  
+Una tarea común que encontrarás mientras trabajes con datos, es que querras hacer más de un cálculo en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que tal si queremos calcular la media GDP por continente?  
 
 Podríamos correr `calcGDP`  y entonces tomar la media  de cada continente: 
 
@@ -86,7 +86,7 @@ mean(withGDP[withGDP$continent == "Asia", "gdp"])
 Pero esto no es muy  *bonito*.  Si, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. Repetidamente tendrás un costo de tiempo, tanto ahora como más tarde, y potencialmente introducirás  algunos errores.
 
 Podriamos escribir una nueva función flexible como `calcGDP`,  pero ésta también 
-también requiere una gran cantidad de esfuerzo y pruebas para obtener la información correcta.
+ requiere una gran cantidad de esfuerzo y pruebas para obtener la información correcta.
 
 El problema abstracto que estamos encontrando aquí es conocido como "divide-aplica-combina (*split-apply-combine*)":
 
