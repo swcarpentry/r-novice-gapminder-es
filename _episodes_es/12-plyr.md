@@ -1,12 +1,12 @@
 ---
-Título: Divide- aplica-Combina
-Enseñanza: 30
-Ejercicios: 30
-Preguntas:
+title: Divide-aplica-Combina
+teaching: 30
+exercises: 30
+questions:
 - "¿Cómo puedo hacer diferentes cálculos sobre diferentes conjuntos de datos?"
-Objetivos:
+objectives:
 - "Habilitar el uso de la estrategia divide-aplica-combina para el análisis de datos."
-Puntos claves:
+keypoints:
 - "Uso del paquete `plyr` para dividir datos, aplicar funciones sobre subconjuntos, y combinar los resultados"
 fuente: Rmd
 ---
@@ -15,7 +15,7 @@ fuente: Rmd
 
 Previamente vimos como puedes usar funciones para simplificar tu código.
 Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder,
-Y multiplica la columna de población por la columna GDP per cápita.  También definimos argumentos adicionales de modo que pudiéramos filtrar por año o por país
+Y multiplica la columna de población por la columna GDP per cápita.  También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`
 :
 
 
@@ -37,9 +37,9 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
 ~~~
 {: .r}
 
-Una tarea común que encontrarás mientras trabajes con datos, es que querras hacer más de un cálculo en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que tal si queremos calcular la media GDP por continente?  
+Una tarea común que encontrarás mientras trabajes con datos, es que querras hacer más de un cálculo en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que tal si queremos calcular la media GDP por `"continent"`?  
 
-Podríamos correr `calcGDP`  y entonces tomar la media  de cada continente: 
+Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada `"continent"`: 
 
 
 ~~~
@@ -137,11 +137,11 @@ xxply(.data, .variables, .fun)
 {: .r}
 
 * La primera letrea del nombre de la función da el tipo de la entrada y el segundo da el tipo de la salida.
-* .data – Es el objeto de datos a ser procesado
-* .variables – identifica la variable para hacer la división
-* .fun – Da la función a ser llamada para cada pieza 
+* `.data` – Es el objeto de datos a ser procesado
+* `.variables` – identifica la variable para hacer la división
+* `.fun` – Da la función a ser llamada para cada pieza 
 
-Ahora podemos calcular rápidamente la media GDP por continente: 
+Ahora podemos calcular rápidamente la media GDP por `"continent"`: 
 
 
 ~~~
@@ -169,8 +169,8 @@ ddply(
 Veamos el código anterior:
 
 - La función  `ddply` recibe de entrada un  `data.frame` (La función empieza con una **d**)  y regresa  otro `data.frame` (la 2da letra es una  **d**) 
-- El primer argumento que dimos fue el data.frame en el que queríamos operar: en este caso, los datos del gapminder. Primero llamamos a la función `calcGDP` para agregar la columna` gdp` a nuestra variable *data*.
--  El segundo argumento indica nuestro criterio para dividir: En este caso la columna "continent". Ten en cuenta que le dimos el nombre de la columna, no los valores de la columna como habíamos hecho previamente con los subconjuntos. Plyr se encarga de  detalles de la implementación para ti.
+- El primer argumento que dimos fue el `data.frame` en el que queríamos operar: en este caso, los datos del `gapminder`. Primero llamamos a la función `calcGDP` para agregar la columna` gdp` a nuestra variable *data*.
+-  El segundo argumento indica nuestro criterio para dividir: En este caso la columna `"continent"`. Ten en cuenta que le dimos el nombre de la columna, no los valores de la columna como habíamos hecho previamente con los subconjuntos. `Plyr` se encarga de los detalles de la implementación por ti.
 - El tercer argumento es la función que queremos aplicar a cada grupo de datos. Tenemos que definir nuestra propia función corta aquí:  cada subconjunto de datos va almacenado en `x`, el primer argumento de la función. Esta es una  función anónima: no la hemos definido en otra parte y no tiene nombre. Solo existe en el ámbito de nuestro llamado a  `ddply`.
 
 ¿Qué pasa si queremos un tipo diferente de estructura de datos de salida?:
@@ -371,13 +371,13 @@ d_ply(
 
 > ## Desafío 1
 >
-> Calcula el promedio de vida esperado por contiene. ¿Quién tiene el promedio mas alto? 
+> Calcula el promedio de vida esperado por `"continent"`. ¿Quién tiene el promedio mas alto? 
 > ¿Quién tiene el mas pequeño?
 {: .challenge}
 
 > ## Desafío 2
 >
-> Calcula el promedio de vida esperado por continente y año. ¿Quién tiene el promedio mas 
+> Calcula el promedio de vida esperado por `"continent"` y `"year"`. ¿Quién tiene el promedio mas 
 > grande y mas corto en 2007? ¿Quién tiene el cambio mas grande entre 1952
 > y 2007?
 {: .challenge}
