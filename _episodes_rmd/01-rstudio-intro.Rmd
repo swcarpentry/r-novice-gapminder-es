@@ -26,6 +26,10 @@ keypoints:
 source: Rmd
 ---
 
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("01-")
+```
 
 ## Motivación
 
@@ -112,21 +116,9 @@ Lo primero que verás en la sesión interactiva R es un montón de información,
 Lo más simple que podrías hacer con R es hacer aritmética:
 
 
-~~~
+```{r}
 1 + 100
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 101
-~~~
-{: .output}
-
+```
 
 Y R mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
 
@@ -178,38 +170,18 @@ De mayor a menor precedencia:
  * Resta: `-`
 
 
-~~~
+
+```{r}
 3 + 5 * 2
-~~~
-{: .r}
-
-
-
-~~~
-[1] 13
-~~~
-{: .output}
+```
 
 
 Usa paréntesis para agrupar las operaciones a fin de forzar el orden de la evaluación o para aclarar lo que deseas hacer.
 
 
-
-
-~~~
+```{r}
 (3 + 5) * 2
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 16
-~~~
-{: .output}
+```
 
 
 Esto puede ser difícil de manejar cuando no es necesario, pero aclara tus intenciones.
@@ -218,12 +190,11 @@ Recuerde que otros pueden leer su código.
 
 
 
-~~~
+```{r, eval=FALSE} 
 (3 + (5 * (2 ^ 2))) # difícil de leer
 3 + 5 * 2 ^ 2       # claro, si recuerdas las reglas
 3 + 5 * (2 ^ 2)     # si olvida algunas reglas, esto podría ayudar
-~~~
-{: .r}
+```
 
 
 
@@ -234,24 +205,9 @@ El texto después de cada línea de código se llama "comentario". Todo lo que s
 Los números pequeños o grandes tienen una notación científica:
 
 
-
-
-~~~
+```{r}
 2/10000
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 2e-04
-~~~
-{: .output}
-
-
+```
 
 
 Es la abreviatura de "multiplicado por` 10 ^ XX` ". Entonces `2e-4` es la abreviatura de `2 * 10^(-4)`.
@@ -260,19 +216,9 @@ Es la abreviatura de "multiplicado por` 10 ^ XX` ". Entonces `2e-4` es la abrevi
 Puedes escribir números en notación científica también:
 
 
-~~~
+```{r}
 5e3  # falta el signo menos aquí
-~~~
-{: .r}
-
-
-
-
-~~~
-[1] 5000
-~~~
-{: .output}
-
+```
 
 ## Funciones Matemáticas
 
@@ -280,72 +226,23 @@ Puedes escribir números en notación científica también:
 R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre, seguido paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llama argumentos de la función:
 
 
-~~~
+```{r}
 sin(1)  # función trigonométrica
-~~~
-{: .r}
+```
 
-
-
-
-~~~
-[1] 0.841471
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 log(1)  # logaritmo natural
-~~~
-{: .r}
+```
 
 
-
-
-
-
-~~~
-[1] 0
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 log10(10) # logaritmo en base-10
-~~~
-{: .r}
+```
 
 
-
-
-
-
-~~~
-[1] 1
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 exp(0.5) # e^(1/2)
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 1.648721
-~~~
-{: .output}
+```
 
 
 No te preocupes si no recuerdas todas las funciones en R. Simplemente puede buscarlas en Google, o si puedes recordar el comienzo del nombre de la función, usa el tabulador para completar su nombre en RStudio.
@@ -365,110 +262,32 @@ Podemos realizar comparaciones en R:
 
 
 
-~~~
+```{r}
 1 == 1  # igualdad (observe dos signos iguales, se lee como "es igual a")
-~~~
-{: .r}
+```
 
 
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 1 != 2  # desigualdad (leída como "no es igual a")
-~~~
-{: .r}
+```
 
 
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 1 < 2  # menor que
-~~~
-{: .r}
+```
 
 
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 1 <= 1  # menor o igual que
-~~~
-{: .r}
+```
 
-
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 1 > 0  # mayor que
-~~~
-{: .r}
+```
 
-
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
-
-
-
-
-~~~
+```{r}
 1 >= -9 # mayor o igual que
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] TRUE
-~~~
-{: .output}
+```
 
 
 > ## Sugerencia: Comparando números
@@ -498,33 +317,16 @@ Podemos realizar comparaciones en R:
 Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos ejemplos:
 
 
-
-
-~~~
+```{r}
 x <- 1/40
-~~~
-{: .r}
-
+```
 
 Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante en algo llamado **variable**. `x` ahora contiene el ** valor **` 0.025`:
 
 
-
-
-~~~
+```{r}
 x
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 0.025
-~~~
-{: .output}
+```
 
 
 Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción llamada un [número en coma flotante] (http://en.wikipedia.org/wiki/Floating_point).
@@ -533,47 +335,27 @@ Más precisamente, el valor almacenado es una *aproximación decimal* de esta fr
 Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que` x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
 
 
-~~~
+```{r}
 log(x)
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] -3.688879
-~~~
-{: .output}
-
+```
 
 Ten en cuenta que las variables pueden reasignarse, es decir, puedes cambiar el valor almacenado en la variable:
 
 
-
-
-~~~
+```{r}
 x <- 100
-~~~
-{: .r}
+```
 
 
 `x` tenía el valor 0.025 y ahora tiene el valor 100.
 
-
 También, los valores de asignación pueden contener la variable asignada:
 
 
-
-
-~~~
+```{r}
 x <- x + 1 #observa cómo RStudio actualiza la descripción de x en la pestaña superior derecha
 y <- x * 2
-~~~
-{: .r}
-
+```
 
 El lado derecho de la asignación puede ser cualquier expresión de R válida.
 La expresión del lado derecho * se evalúa por completo * antes de que se realice la asignación.
@@ -594,12 +376,9 @@ También es posible utilizar el operador `=` para la asignación:
 
 
 
-
-~~~
+```{r}
 x = 1/40
-~~~
-{: .r}
-
+```
 
 Esta forma es menos común entre los usuarios R. Lo más importante es
 ** ser consistente ** con el operador que usa. Ocasionalmente hay lugares
@@ -612,65 +391,12 @@ Entonces la recomendación es usar `<-`.
 
 Una última cosa a tomar en cuenta es que R está * vectorizado *, lo que significa que las variables y funciones pueden tener vectores como valores. Por ejemplo
 
-
-
-
-~~~
+```{r}
 1:5
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1] 1 2 3 4 5
-~~~
-{: .output}
-
-
-
-
-
-
-~~~
 2^(1:5)
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1]  2  4  8 16 32
-~~~
-{: .output}
-
-
-
-
-
-
-~~~
 x <- 1:5
 2^x
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-[1]  2  4  8 16 32
-~~~
-{: .output}
-
+```
 
 Esto es increíblemente poderoso; discutiremos esto en una próxima lección.
 
@@ -688,23 +414,10 @@ Hay algunos comandos útiles que puedes usar para interactuar con la sesión R.
 
 
 
-
-
-
-~~~
+```{r}
 ls()
-~~~
-{: .r}
+```
 
-
-
-
-
-
-~~~
-[1] "x" "y"
-~~~
-{: .output}
 
 
 > ## Sugerencia: ocultando objetos
@@ -721,79 +434,26 @@ para decirle a R que llame a la función.
 
 Si escribimos `ls` nada más, R mostrará el código fuente de esa función!
 
-
-
-
-~~~
+```{r}
 ls
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
-    pattern, sorted = TRUE) 
-{
-    if (!missing(name)) {
-        pos <- tryCatch(name, error = function(e) e)
-        if (inherits(pos, "error")) {
-            name <- substitute(name)
-            if (!is.character(name)) 
-                name <- deparse(name)
-            warning(gettextf("%s converted to character string", 
-                sQuote(name)), domain = NA)
-            pos <- name
-        }
-    }
-    all.names <- .Internal(ls(envir, all.names, sorted))
-    if (!missing(pattern)) {
-        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
-            ll != length(grep("]", pattern, fixed = TRUE))) {
-            if (pattern == "[") {
-                pattern <- "\\["
-                warning("replaced regular expression pattern '[' by  '\\\\['")
-            }
-            else if (length(grep("[^\\\\]\\[<-", pattern))) {
-                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
-                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
-            }
-        }
-        grep(pattern, all.names, value = TRUE)
-    }
-    else all.names
-}
-<bytecode: 0x7ffdf9e17638>
-<environment: namespace:base>
-~~~
-{: .output}
+```
 
 
 Puedes usar `rm` para eliminar objetos que ya no necesitas:
 
 
-
-
-~~~
+```{r}
 rm(x)
-~~~
-{: .r}
+```
 
 
 Si tienes muchas cosas en tu entorno y deseas borrarlas todas, 
 puedes pasar los resultados de `ls` a la función` rm`:
 
 
-
-
-~~~
+```{r}
 rm(list = ls())
-~~~
-{: .r}
-
+```
 
 En este caso, hemos combinado los dos. Al igual que el orden de las operaciones, todo lo que se encuentre dentro de los paréntesis más internos se evalúa primero, y así sucesivamente.
 
@@ -804,24 +464,9 @@ usa el operador `=` !!
 
 Si, en cambio, usamos `<-`, habrá efectos secundarios no deseados, o puedes recibir un mensaje de error:
 
-
-
-
-~~~
+```{r, error=TRUE}
 rm(list <- ls())
-~~~
-{: .r}
-
-
-
-
-
-
-~~~
-Error in rm(list <- ls()): ... must contain names or character strings
-~~~
-{: .error}
-
+```
 
 > ## Sugerencia: Advertencias vs. Errores
 >
@@ -855,7 +500,7 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 >
 > ¿Cuáles de los siguientes nombres de variables son válidos en R?
 > 
-> ~~~
+> ```{r, eval=FALSE}
 > min_height
 > max.height
 > _age
@@ -864,36 +509,32 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > min-length
 > 2widths
 > celsius2kelvin
-> ~~~
-> {: .r}
+> ```
 >
 > > ## Solución al desafío 1
 > >
 > > Las siguientes variables pueden ser utilizadas en R:
 > > 
-> > ~~~
+> > ```{r ch1pt1-sol, eval=FALSE}
 > > min_height
 > > max.height
 > > MaxLength
 > > celsius2kelvin
-> > ~~~
-> > {: .r}
+> > ```
 > >
 > > Lo siguiente crea una variable oculta:
 > > 
-> > ~~~
+> > ```{r ch1pt2-sol, eval=FALSE}
 > > .mass
-> > ~~~
-> > {: .r}
+> > ```
 > >
 > > Lo siguiente no puede ser usado para crear una variable
 > > 
-> > ~~~
+> > ```{r ch1pt3-sol, eval=FALSE}
 > > _age
 > > min-length
 > > 2widths
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -902,44 +543,39 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 >
 > ¿Cuál será el valor de cada variable después de cada comando en el siguiente programa?
 >
-> 
-> ~~~
+> ```{r, eval=FALSE}
 > mass <- 47.5
 > age <- 122
 > mass <- mass * 2.3
 > age <- age - 20
-> ~~~
-> {: .r}
+> ```
 >
 > > ## Solución al desafío 2
 > >
-> > 
-> > ~~~
+> > ```{r ch2pt1-sol}
 > > mass <- 47.5
-> > ~~~
-> > {: .r}
+> > ```
 > > Esto dará un valor de 47.5 para la variable mass
 > >
 > > 
-> > ~~~
+> > ```{r ch2pt2-sol}
 > > age <- 122
-> > ~~~
-> > {: .r}
+> > ```
+> >
 > > Esto dará un valor de 122 para la variable age
 > >
 > > 
-> > ~~~
+> > ```{r ch2pt3-sol}
 > > mass <- mass * 2.3
-> > ~~~
-> > {: .r}
+> > ```
+> >
 > > Multiplica el valor existente en mass 47.5 por 2.3 para dar un nuevo valor 
 > > 109.25 a la variable mass.
 > >
 > > 
-> > ~~~
+> > ```{r ch2pt4-sol}
 > > age <- age - 20
-> > ~~~
-> > {: .r}
+> > ```
 > > Resta 20 del valor existente de 122 para obtener un nuevo valor
 > > de 102 para la variable age.
 > {: .solution}
@@ -957,17 +593,10 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > >
 > > Una forma de responder esta pregunta en R es usar `>` para hacer lo siguiente:
 > > 
-> > ~~~
+> > ```{r ch3-sol}
 > > mass > age
-> > ~~~
-> > {: .r}
+> >```
 > > 
-> > 
-> > 
-> > ~~~
-> > [1] TRUE
-> > ~~~
-> > {: .output}
 > > Esto debería dar un valor booleano TRUE ya que 109.25 es mayor que 102.
 > {: .solution}
 {: .challenge}
@@ -983,10 +612,9 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > >
 > > Podemos usar el comando `rm` para realizar esta tarea
 > > 
-> > ~~~
+> > ```{r ch4-sol}
 > > rm(age, mass)
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -999,14 +627,15 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > >
 > > Puedes utilizar el comando `install.packages()` para instalar los paquetes requeridos.
 > > 
-> > ~~~
+> > ```{r ch5-sol, eval=FALSE}
 > > install.packages("ggplot2")
 > > install.packages("plyr")
 > > install.packages("gapminder")
-> > ~~~
-> > {: .r}
+> >```
 > {: .solution}
 {: .challenge}
+
+
 Key Points
 * Usa RStudio para escribir y ejecutar programas en R.
 * R tiene operadores aritméticos y funciones matemáticas usuales .
