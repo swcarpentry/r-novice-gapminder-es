@@ -22,7 +22,10 @@ keypoints:
 source: Rmd
 ---
 
-
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("05-")
+```
 
 
 At this point, you've see it all - in the last lesson, we toured all the basic
@@ -37,95 +40,38 @@ We learned last time that the columns in a data frame were vectors, so that our
 data are consistent in type throughout the column. As such, if we want to add a
 new column, we need to start by making a new vector:
 
+```{r, echo = FALSE}
+cats <- read.csv("data/feline-data.csv")
+```
 
-
-
-~~~
+```{r}
 age <- c(2,3,5,12)
 cats
-~~~
-{: .r}
-
-
-
-~~~
-    coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
-~~~
-{: .output}
+```
 
 We can then add this as a column via:
 
-
-~~~
+```{r, error=TRUE}
 cats <- cbind(cats, age)
-~~~
-{: .r}
-
-
-
-~~~
-Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
-~~~
-{: .error}
+```
 
 Why didn't this work? Of course, R wants to see one element in our new column
 for every row in the table:
 
-
-~~~
+```{r}
 cats
-~~~
-{: .r}
-
-
-
-~~~
-    coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
-~~~
-{: .output}
-
-
-
-~~~
 age <- c(4,5,8)
 cats <- cbind(cats, age)
 cats
-~~~
-{: .r}
-
-
-
-~~~
-    coat weight likes_string age
-1 calico    2.1            1   4
-2  black    5.0            0   5
-3  tabby    3.2            1   8
-~~~
-{: .output}
+```
 
 Now how about adding rows - in this case, we saw last time that the rows of a
 data frame are made of lists:
 
-
-~~~
+```{r}
 newRow <- list("tortoiseshell", 3.3, TRUE, 9)
 cats <- rbind(cats, newRow)
-~~~
-{: .r}
-
-
-
-~~~
-Warning in `[<-.factor`(`*tmp*`, ri, value = "tortoiseshell"): invalid
-factor level, NA generated
-~~~
-{: .error}
+```
 
 ## Factors
 
@@ -140,69 +86,24 @@ successfully added to *weight*, *likes_string*, and *age*, respectively, since
 those values are not factors. To successfully add a cat with a
 'tortoiseshell' *coat*, explicitly add 'tortoiseshell' as a *level* in the factor:
 
-
-~~~
+```{r}
 levels(cats$coat)
-~~~
-{: .r}
-
-
-
-~~~
-[1] "black"  "calico" "tabby" 
-~~~
-{: .output}
-
-
-
-~~~
 levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
 cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
-~~~
-{: .r}
+```
 
 Alternatively, we can change a factor column to a character vector; we lose the
 handy categories of the factor, but can subsequently add any word we want to the
 column without babysitting the factor levels:
 
-
-~~~
+```{r}
 str(cats)
-~~~
-{: .r}
-
-
-
-~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
- $ age         : num  4 5 8 9 9
-~~~
-{: .output}
-
-
-
-~~~
 cats$coat <- as.character(cats$coat)
 str(cats)
-~~~
-{: .r}
-
-
-
-~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : chr  "calico" "black" "tabby" NA ...
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
- $ age         : num  4 5 8 9 9
-~~~
-{: .output}
+```
 
 > ## Challenge 1
-> Let's imagine that, like dogs, 1 human year is equivalent to 7 cat years. (The Purina company uses a [more sophisticated alogrithm](https://www.proplan.com/cats/cat-age-calculator)). 
+> Let's imagine that, like dogs, 1 human year is equivalent to 7 cat years. (The Purina company uses a [more sophisticated alogrithm](https://www.purina.co.uk/cats/key-life-stages/ageing/cats-age-in-human-years)). 
 > 1. Create a vector called `human.age` by multiplying `cats$age` by 7.
 > 2. Convert `human.age` to a factor.
 > 3. Convert `human.age` back to a numeric vector using the `as.numeric()` function. Now divide it by 7 to get back the original ages. Explain what happened.
@@ -220,42 +121,15 @@ We now know how to add rows and columns to our data frame in R - but in our
 first attempt to add a 'tortoiseshell' cat to the data frame we've accidentally
 added a garbage row:
 
-
-~~~
+```{r}
 cats
-~~~
-{: .r}
-
-
-
-~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-4          <NA>    3.3            1   9
-5 tortoiseshell    3.3            1   9
-~~~
-{: .output}
+```
 
 We can ask for a data frame minus this offending row:
 
-
-~~~
+```{r}
 cats[-4,]
-~~~
-{: .r}
-
-
-
-~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-5 tortoiseshell    3.3            1   9
-~~~
-{: .output}
+```
 
 Notice the comma with nothing after it to indicate we want to drop the entire fourth row.
 
@@ -264,30 +138,15 @@ inside of a vector: `cats[c(-4,-5),]`
 
 Alternatively, we can drop all rows with `NA` values:
 
-
-~~~
+```{r}
 na.omit(cats)
-~~~
-{: .r}
-
-
-
-~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-5 tortoiseshell    3.3            1   9
-~~~
-{: .output}
+```
 
 Let's reassign the output to `cats`, so that our changes will be permanent:
 
-
-~~~
+```{r}
 cats <- na.omit(cats)
-~~~
-{: .r}
+```
 
 ## Appending to a data frame
 
@@ -295,63 +154,27 @@ The key to remember when adding data to a data frame is that *columns are
 vectors or factors, and rows are lists.* We can also glue two data frames
 together with `rbind`:
 
-
-~~~
+```{r}
 cats <- rbind(cats, cats)
 cats
-~~~
-{: .r}
-
-
-
-~~~
-            coat weight likes_string age
-1         calico    2.1            1   4
-2          black    5.0            0   5
-3          tabby    3.2            1   8
-5  tortoiseshell    3.3            1   9
-11        calico    2.1            1   4
-21         black    5.0            0   5
-31         tabby    3.2            1   8
-51 tortoiseshell    3.3            1   9
-~~~
-{: .output}
+```
 But now the row names are unnecessarily complicated. We can remove the rownames,
 and R will automatically re-name them sequentially:
 
-
-~~~
+```{r}
 rownames(cats) <- NULL
 cats
-~~~
-{: .r}
-
-
-
-~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-4 tortoiseshell    3.3            1   9
-5        calico    2.1            1   4
-6         black    5.0            0   5
-7         tabby    3.2            1   8
-8 tortoiseshell    3.3            1   9
-~~~
-{: .output}
+```
 
 > ## Challenge 2
 >
 > You can create a new data frame right from within R with the following syntax:
-> 
-> ~~~
+> ```{r}
 > df <- data.frame(id = c('a', 'b', 'c'),
 >                  x = 1:3,
 >                  y = c(TRUE, TRUE, FALSE),
 >                  stringsAsFactors = FALSE)
-> ~~~
-> {: .r}
+> ```
 > Make a data frame that holds the following information for yourself:
 >
 > - first name
@@ -362,16 +185,14 @@ cats
 > Finally, use `cbind` to add a column with each person's answer to the question, "Is it time for coffee break?"
 >
 > > ## Solution to Challenge 2
-> > 
-> > ~~~
+> > ```{r}
 > > df <- data.frame(first = c('Grace'),
 > >                  last = c('Hopper'),
 > >                  lucky_number = c(0),
 > >                  stringsAsFactors = FALSE)
 > > df <- rbind(df, list('Marie', 'Curie', 238) )
 > > df <- cbind(df, coffeetime = c(TRUE,TRUE))
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -380,11 +201,9 @@ So far, you've seen the basics of manipulating data frames with our cat data;
 now, let's use those skills to digest a more realistic dataset. Let's read in the
 gapminder dataset that we downloaded previously:
 
-
-~~~
+```{r}
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
-~~~
-{: .r}
+```
 
 > ## Miscellaneous Tips
 >
@@ -393,19 +212,15 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > * Files can also be downloaded directly from the Internet into a local
 > folder of your choice onto your computer using the `download.file` function.
 > The `read.csv` function can then be executed to read the downloaded file from the download location, for example,
-> 
-> ~~~
+> ```{r eval=FALSE, echo=TRUE}
 > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
 > gapminder <- read.csv("data/gapminder-FiveYearData.csv")
-> ~~~
-> {: .r}
+> ```
 >
 > * Alternatively, you can also read in files directly into R from the Internet by replacing the file paths with a web address in `read.csv`. One should note that in doing this no local copy of the csv file is first saved onto your computer. For example,
-> 
-> ~~~
+> ```{r eval=FALSE, echo=TRUE}
 > gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
-> ~~~
-> {: .r}
+> ```
 >
 > * You can read directly from excel spreadsheets without
 > converting them to plain text first by using the [readxl](https://cran.r-project.org/web/packages/readxl/index.html) package.
@@ -414,162 +229,54 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 Let's investigate gapminder a bit; the first thing we should always do is check
 out what the data looks like with `str`:
 
-
-~~~
+```{r}
 str(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-'data.frame':	1704 obs. of  6 variables:
- $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
- $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
- $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
- $ gdpPercap: num  779 821 853 836 740 ...
-~~~
-{: .output}
+```
 
 We can also examine individual columns of the data frame with our `typeof` function:
 
-
-~~~
+```{r}
 typeof(gapminder$year)
-~~~
-{: .r}
-
-
-
-~~~
-[1] "integer"
-~~~
-{: .output}
-
-
-
-~~~
 typeof(gapminder$country)
-~~~
-{: .r}
-
-
-
-~~~
-[1] "integer"
-~~~
-{: .output}
-
-
-
-~~~
 str(gapminder$country)
-~~~
-{: .r}
-
-
-
-~~~
- Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
-~~~
-{: .output}
+```
 
 We can also interrogate the data frame for information about its dimensions;
 remembering that `str(gapminder)` said there were 1704 observations of 6
 variables in gapminder, what do you think the following will produce, and why?
 
-
-~~~
+```{r}
 length(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 6
-~~~
-{: .output}
+```
 
 A fair guess would have been to say that the length of a data frame would be the
 number of rows it has (1704), but this is not the case; remember, a data frame
 is a *list of vectors and factors*:
 
-
-~~~
+```{r}
 typeof(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] "list"
-~~~
-{: .output}
+```
 
 When `length` gave us 6, it's because gapminder is built out of a list of 6
 columns. To get the number of rows and columns in our dataset, try:
 
-
-~~~
+```{r}
 nrow(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 1704
-~~~
-{: .output}
-
-
-
-~~~
 ncol(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 6
-~~~
-{: .output}
+```
 
 Or, both at once:
 
-
-~~~
+```{r}
 dim(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 1704    6
-~~~
-{: .output}
+```
 
 We'll also likely want to know what the titles of all the columns are, so we can
 ask for them later:
 
-
-~~~
+```{r}
 colnames(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-[1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
-~~~
-{: .output}
+```
 
 At this stage, it's important to ask ourselves if the structure R is reporting
 matches our intuition or expectations; do the basic data types reported for each
@@ -581,24 +288,9 @@ data.
 Once we're happy that the data types and structures seem reasonable, it's time
 to start digging into our data proper. Check out the first few lines:
 
-
-~~~
+```{r}
 head(gapminder)
-~~~
-{: .r}
-
-
-
-~~~
-      country year      pop continent lifeExp gdpPercap
-1 Afghanistan 1952  8425333      Asia  28.801  779.4453
-2 Afghanistan 1957  9240934      Asia  30.332  820.8530
-3 Afghanistan 1962 10267083      Asia  31.997  853.1007
-4 Afghanistan 1967 11537966      Asia  34.020  836.1971
-5 Afghanistan 1972 13079460      Asia  36.088  739.9811
-6 Afghanistan 1977 14880372      Asia  38.438  786.1134
-~~~
-{: .output}
+```
 
 To make sure our analysis is reproducible, we should put the code
 into a script file so we can come back to it later.
@@ -614,18 +306,14 @@ into a script file so we can come back to it later.
 >
 > > ## Solution to Challenge 3
 > > The contents of `script/load-gapminder.R`:
-> > 
-> > ~~~
+> > ```{r eval = FALSE}
 > > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
 > > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
-> > ~~~
-> > {: .r}
+> > ```
 > > To run the script and load the data into the `gapminder` variable:
-> > 
-> > ~~~
+> > ```{r eval = FALSE}
 > > source(file = "scripts/load-gapminder.R")
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 

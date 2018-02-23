@@ -1,214 +1,241 @@
 ---
-title: "Project Management With RStudio"
+title: "Gestión de proyectos con RStudio"
 teaching: 20
 exercises: 10
 questions:
-- "How can I manage my projects in R?"
+- "¿Cómo pudo gestionar mis proyectos en R?"
 objectives:
-- Create self-contained projects in RStudio
+- Crear proyectos independientes en RStudio
 keypoints:
-- "Use RStudio to create and manage projects with consistent layout."
-- "Treat raw data as read-only."
-- "Treat generated output as disposable."
-- "Separate function definition and application."
+- "Usar RStudio para crear y gestionar proyectos con un diseño consistente."
+- "Tratar los datos brutos como de sólo lectura."
+- "Tratar la salida generada como disponible."
+- "Definición y aplicación de funciones separadas."
 source: Rmd
 ---
 
-```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("02-")
-```
 
-## Introduction
+## Introducción
 
-The scientific process is naturally incremental, and many projects
-start life as random notes, some code, then a manuscript, and
-eventually everything is a bit mixed together.
+El proceso científico es naturalmente incremental, y la vida de muchos proyectos comienza como notas aleatorias, algún código, luego un manuscrito, y
+eventualmente todo está mezclado.
 
 <blockquote class="twitter-tweet"><p>Managing your projects in a reproducible fashion doesn't just make your science reproducible, it makes your life easier.</p>— Vince Buffalo (@vsbuffalo) <a href="https://twitter.com/vsbuffalo/status/323638476153167872">April 15, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Most people tend to organize their projects like this:
+La mayoría de la gente tiende a organizar sus proyectos de esta manera:
 
 ![](../fig/bad_layout.png)
 
-There are many reasons why we should *ALWAYS* avoid this:
+Hay muchas razones de porqué debemos *siempre* evitar esto:
 
-1. It is really hard to tell which version of your data is
-the original and which is the modified;
-2. It gets really messy because it mixes files with various
-extensions together;
-3. It probably takes you a lot of time to actually find
-things, and relate the correct figures to the exact code
-that has been used to generate it;
+1. Es realmente difícil saber cuál versión de tus datos es 
+la original y cuál es la modificada;
+2. Es realmente complicado porque se mezclan archivos con varias
+extensiones juntas;
+3. Probablemente te lleve mucho tiempo encontrar realmente
+cosas, y relacionar las figuras correctas con el código exacto
+que ha sido utilizado para generarlas;
 
-A good project layout will ultimately make your life easier:
+Un buen diseño del proyecto finalmente hará tu vida más fácil:
 
-* It will help ensure the integrity of your data;
-* It makes it simpler to share your code with someone else
-(a lab-mate, collaborator, or supervisor);
-* It allows you to easily upload your code with your manuscript submission;
-* It makes it easier to pick the project back up after a break.
+* Ayudará a garantizar la integridad de tus datos;
+* Hace que sea más simple compartir tu código con alguien más 
+(un compañero de laboratorio, colaborador, o supervisor);
+* Permite cargar fácilmente tu código con el envío de tu manuscrito;
+* Hace que sea más fácil volver a seleccionar el proyecto después de un descanso.
 
-## A possible solution
+## Una posible solución
 
-Fortunately, there are tools and packages which can help you manage your work effectively.
+Afortunadamente hay herramientas y paquetes que pueden ayudarte a gestionar tu trabajo con efectividad.
 
-One of the most powerful and useful aspects of RStudio is its project management
-functionality. We'll be using this today to create a self-contained, reproducible
-project.
+Uno de los aspectos más poderosos y útiles de RStudio es su funcionalidad de gestión de proyectos. Lo utilizaremos hoy para crear un proyecto autocontenido y reproducible.
 
 
-> ## Challenge: Creating a self-contained project
+> ## Desafío: Creando un proyecto autocontenido
 >
-> We're going to create a new project in RStudio:
+> Vamos a crear un proyecto en RStudio:
 >
-> 1. Click the "File" menu button, then "New Project".
-> 2. Click "New Directory".
-> 3. Click "Empty Project".
-> 4. Type in the name of the directory to store your project, e.g. "my_project".
-> 5. If available, select the checkbox for "Create a git repository."
-> 6. Click the "Create Project" button.
+> 1. Hacer clic en el menú "File", luego en "New Project".
+> 2. Hacer clic en "New Directory".
+> 3. Hacer clic en "Empty Project".
+> 4. Introducir el nombre del directorio para guardar tu proyecto, por ejemplo: "my_project".
+> 5. Si está disponible, seleccionar la casilla de verificación "Create a git repository."
+> 6. Hacer clic en el botón "Create Project".
 {: .challenge}
 
-Now when we start R in this project directory, or open this project with RStudio,
-all of our work on this project will be entirely self-contained in this directory.
+Ahora cuando inicie R en este directorio de proyectos, o abra este proyecto con RStudio, todo nuestro trabajo en este proyecto estará completamente autocontenido en este directorio.
 
-## Best practices for project organization
+## Mejores practicas para la organización del proyecto
 
-Although there is no "best" way to lay out a project, there are some general
-principles to adhere to that will make project management easier:
+Aunque no existe una "mejor" forma de diseñar un proyecto, existen algunos principios
+generales que deben cumplirse para facilitar la gestión de proyectos: 
 
-### Treat data as read only
+### Tratar los datos como de sólo lectura
 
-This is probably the most important goal of setting up a project. Data is
-typically time consuming and/or expensive to collect. Working with them
-interactively (e.g., in Excel) where they can be modified means you are never
-sure of where the data came from, or how it has been modified since collection.
-It is therefore a good idea to treat your data as "read-only".
+Este es probablemente el objetivo más importante al configurar un proyecto. Los datos
+suelen consumir mucho tiempo y/o ser costosos de recolectar. Trabajando con ellos interactivamente (por ejemplo, en Excel) donde pueden ser modificados significa que nunca estás seguro de donde provienen, o cómo han sido modificados desde su recolección.
+Por lo tanto, es una buena idea manejar tus datos como de "sólo lectura".
 
-### Data Cleaning
+### Limpieza de datos
 
-In many cases your data will be "dirty": it will need significant preprocessing
-to get into a format R (or any other programming language) will find useful. This
-task is sometimes called "data munging". I find it useful to store these scripts
-in a separate folder, and create a second "read-only" data folder to hold the
-"cleaned" data sets.
+En muchos casos tus datos estarán "sucios": y necesitarán un preprocesamiento significativo
+para  obtener un formato R (o cualquier otro lenguaje de programación) que te resulte útil. Esta
+tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "solo lectura" para contener los **data sets** "limpios"
 
-### Treat generated output as disposable
+### Tratar la salida generada como disponible
 
-Anything generated by your scripts should be treated as disposable: it should
-all be able to be regenerated from your scripts.
+Todo lo generado por tus **scripts** debe tratarse como disponible: todo debería 
+poder regenerarse a partir de tus **scripts**.
 
-There are lots of different ways to manage this output. I find it useful to
-have an output folder with different sub-directories for each separate
-analysis. This makes it easier later, as many of my analyses are exploratory
-and don't end up being used in the final project, and some of the analyses
-get shared between projects.
+Hay muchas diferentes maneras de gestionar esta salida. Me parece útil 
+tener una carpeta de salida con diferentes subdirectorios para cada análisis 
+por separado. Esto hace que sea más fácil después, ya que muchos de mis análisis son exploratorios
+y no terminan siendo utilizados en el proyecto final, y algunos de los análisis se comparten entre proyectos.
 
 > ## Tip: Good Enough Practices for Scientific Computing
 >
-> [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf) gives the following recommendations for project organization:
+> [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf) brinda las siguientes recomendaciones para la organización de proyectos:
 >
-> 1. Put each project in its own directory, which is named after the project.
-> 2. Put text documents associated with the project in the `doc` directory.
-> 3. Put raw data and metadata in the `data` directory, and files generated during cleanup and analysis in a `results` directory.
-> 4. Put source for the project's scripts and programs in the `src` directory, and programs brought in from elsewhere or compiled locally in the `bin` directory.
-> 5. Name all files to reflect their content or function.
+> 1. Coloque cada proyecto en su propio directorio, el cual lleva el nombre del proyecto.
+> 2. Coloque documentos de texto asociados con proyecto en el directorio `doc`.
+> 3. Coloque los datos sin procesar y los metadatas en el directorio `data`, y archivos generados durante la limpieza y análisis en un directorio `results` .
+> 4. Coloque los **scripts** fuente del proyecto y los programas en el directorio `src`, y programas traídos de otra parte o compilados localmente en el directorio `bin`.
+> 5. Nombre todos archivos de tal manera que reflejen su contenido o función.
 >
 {: .callout}
 
-> ## Tip: ProjectTemplate - a possible solution
+> ## Tip: ProjectTemplate - una posible solución
 >
-> One way to automate the management of projects is to install the third-party package, `ProjectTemplate`.
-> This package will set up an ideal directory structure for project management.
-> This is very useful as it enables you to have your analysis pipeline/workflow organised and structured.
-> Together with the default RStudio project functionality and Git you will be able to keep track of your
-> work as well as be able to share your work with collaborators.
+> Una manera de automatizar la gestión de un proyecto es instalar el paquete, `ProjectTemplate`.
+> Este paquete configurará una estructura de directorios ideal para la gestión de proyectos.
+> Esto es muy útil ya que te permite tener tu análisis **pipeline/workflow** organizado y estructurado.
+> Junto con la funcionalidad predeterminada del proyecto RStudio y Git, podrás realizar el seguimiento de tu
+> trabajo y compartirlo con colaboradores.
 >
-> 1. Install `ProjectTemplate`.
-> 2. Load the library
-> 3. Initialise the project:
+> 1. Instalar `ProjectTemplate`.
+> 2. Cargar la librería
+> 3. Inicializar el proyecto:
 >
-> ```{r, eval=FALSE}
+> 
+> ~~~
 > install.packages("ProjectTemplate")
 > library("ProjectTemplate")
 > create.project("../my_project", merge.strategy = "allow.non.conflict")
-> ```
+> ~~~
+> {: .r}
 >
-> For more information on ProjectTemplate and its functionality visit the
-> home page [ProjectTemplate](http://projecttemplate.net/index.html)
+> Para más información de ProjectTemplate y su functionalida visita la
+> página [ProjectTemplate](http://projecttemplate.net/index.html)
 {: .callout}
 
-### Separate function definition and application
+### Separar la definición de funciones y la aplicación
 
-One of the more effective ways to work with R is to start by writing the code you want to run directly in an .R script, and then running the selected lines (either using the keyboard shortcuts in RStudio or clicking the "Run" button) in the interactive R console.
+Una de las maneras más efectivas de trabajar con R es comenzar escribiendo el código que deseas que se ejecute directamente en un **script** .R, y enseguida ejecutar las líneas seleccionadas (ya sea utilizando los atajos del teclado en RStudio o haciendo clic en el botón "Run") en la consola interactiva de R.
 
-When your project is in its early stages, the initial .R script file usually contains many lines
-of directly executed code. As it matures, reusable chunks get pulled into their
-own functions. It's a good idea to separate these functions into two separate folders; one
-to store useful functions that you'll reuse across analyses and projects, and
-one to store the analysis scripts.
+Cuando tu proyecto se encuentra en sus primeras etapas, el archivo **script** inicial .R generalmente contendrá muchas líneas de código ejecutadas directamente. Conforme vaya madurando, fragmentos reutilizables podrán ser llevados a sus
+propias funciones. Es buena idea separar estas funciones en dos carpetas separadas; una
+para guardar funciones útiles que reutilizarás a través del análisis y proyectos, y
+uno para guardar los **scripts** de análisis.
 
-> ## Tip: avoiding duplication
+> ## Tip: evitando la duplicación
 >
-> You may find yourself using data or analysis scripts across several projects.
-> Typically you want to avoid duplication to save space and avoid having to
-> make updates to code in multiple places.
+> Puedes encontrarte utilizando datos o **scripts** de análisis a través de varios proyectos.
+> Normalmente, deseas evitar la duplicación para ahorrar espacio y evitar
+> actualizar el código en múltiples lugares.
 >
-> In this case I find it useful to make "symbolic links", which are essentially
-> shortcuts to files somewhere else on a filesystem. On Linux and OS X you can
-> use the `ln -s` command, and on Windows you can either create a shortcut or
-> use the `mklink` command from the windows terminal.
+> En este caso, me parece útil hacer "links simbólicos", los cuales son esencialmente
+> accesos directos a archivos en otro lugar en un sistema de archivos. En Linux y OS X puedes
+> utilizar el comando `ln -s`, y en Windows crear un acceso directo o
+> utilizar el comando `mklink` desde la terminal de windows.
 {: .callout}
 
-### Save the data in the data directory
+### Guardar los datos en el directorio de datos
 
-Now we have a good directory structure we will now place/save the data file in the `data/` directory.
+Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos los archivos de datos en el directorio `data/`.
 
-> ## Challenge 1
-> Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
+> ## Desafío 1
+> Descargar los datos gapminder de [aquí](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
 >
-> 1. Download the file (CTRL + S, right mouse click -> "Save as", or File -> "Save page as")
-> 2. Make sure it's saved under the name `gapminder-FiveYearData.csv`
-> 3. Save the file in the `data/` folder within your project.
+> 1. Descargar el archivo (CTRL + S, clic botón derecho del **mouse** -> "Save as", o File -> "Save page as")
+> 2. Asegúrate de que esté guardado con el nombre `gapminder-FiveYearData.csv`
+> 3. Guardar el archivo en la carpet `data/` dentro de tu proyecto.
 >
-> We will load and inspect these data later.
+> Más delante cargaremos e inspeccionaremos estos datos.
 {: .challenge}
 
-> ## Challenge 2
-> It is useful to get some general idea about the dataset, directly from the
-> command line, before loading it into R. Understanding the dataset better
-> will come in handy when making decisions on how to load it in R. Use the command-line
-> shell to answer the following questions:
-> 1. What is the size of the file?
-> 2. How many rows of data does it contain?
-> 3. What kinds of values are stored in this file?
+> ## Desafío 2
+> Es útil tener una idea general sobre el **dataset**, directamente desde la
+> línea de comandos, antes de cargarlo en R. Comprender mejor el **dataset**
+> será útil al tomar decisiones sobre cómo cargarlo en R. Utiliza la terminal de
+> línea de comandos para contestar las siguientes preguntas:
+> 1. ¿Cuál es el tamaño del archivo?
+> 2. ¿Cuántas líneas de datos contiene?
+> 3. ¿Cuáles tipos de valores están almacenados en este archivo?
 >
-> > ## Solution to Challenge 2
+> > ## Solución al desafío 2
 > >
-> > By running these commands in the shell:
-> > ```{r ch2a-sol, engine='sh'}
+> > Al ejecutar estos comandos en la terminal:
+> > 
+> > ~~~
 > > ls -lh data/gapminder-FiveYearData.csv
-> > ```
-> > The file size is 80K.
-> > ```{r ch2b-sol, engine='sh'}
+> > ~~~
+> > {: .r}
+> > 
+> > 
+> > 
+> > 
+> > ~~~
+> > -rw-r--r--  1 naupaka  staff    80K Jul 19  2016 data/gapminder-FiveYearData.csv
+> > ~~~
+> > {: .output}
+> > El tamaño del archivo es 80K.
+> > 
+> > ~~~
 > > wc -l data/gapminder-FiveYearData.csv
-> > ```
-> > There are 1705 lines. The data looks like:
-> > ```{r ch2c-sol, engine='sh'}
+> > ~~~
+> > {: .r}
+> > 
+> > 
+> > 
+> > 
+> > ~~~
+> >     1705 data/gapminder-FiveYearData.csv
+> > ~~~
+> > {: .output}
+> > Hay 1705 líneas. Los datos se ven así:
+> > 
+> > ~~~
 > > head data/gapminder-FiveYearData.csv
-> > ```
+> > ~~~
+> > {: .r}
+> > 
+> > 
+> > 
+> > 
+> > ~~~
+> > country,year,pop,continent,lifeExp,gdpPercap
+> > Afghanistan,1952,8425333,Asia,28.801,779.4453145
+> > Afghanistan,1957,9240934,Asia,30.332,820.8530296
+> > Afghanistan,1962,10267083,Asia,31.997,853.10071
+> > Afghanistan,1967,11537966,Asia,34.02,836.1971382
+> > Afghanistan,1972,13079460,Asia,36.088,739.9811058
+> > Afghanistan,1977,14880372,Asia,38.438,786.11336
+> > Afghanistan,1982,12881816,Asia,39.854,978.0114388
+> > Afghanistan,1987,13867957,Asia,40.822,852.3959448
+> > Afghanistan,1992,16317921,Asia,41.674,649.3413952
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
-> ## Tip: command line in R Studio
+> ## Tip: Línea de comandos en R Studio
 >
-> You can quickly open up a shell in RStudio using the **Tools -> Shell...** menu item.
+> Puedes abrir rápidamente una terminal en RStudio usando la opción del menú  **Tools -> Shell...**.
 {: .callout}
 
-### Version Control
+### Control de versiones
 
-It is important to use version control with projects.  Go [here](http://swcarpentry.github.io/git-novice/14-supplemental-rstudio/) for a good lesson which describes using Git with R Studio.
+Es importante llevar a cabo el control de versiones en un proyecto. Ve [aquí](http://swcarpentry.github.io/git-novice/14-supplemental-rstudio/) para una buena lección donde se describe el uso de Git con R Studio.
 
 
