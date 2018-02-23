@@ -16,7 +16,7 @@ programación R, y no en el análisis estadídtico.
 
 A lo largo de este taller se utilizan una variedad de paquetes, desarrolados por terceros, los cuales no neceariamente son los mejores, ni se ven todas las funcionalidades de los mismos, pero son paquetes que consideramos útilies y han sido elegidos principalmente por su facilidad de uso.
 
-Responsables:
+**Maintainers**:
 
 * [Tom Wright][wright_tom]
 * [Naupaka Zimmerman][zimmerman_naupaka]
