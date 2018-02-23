@@ -14,6 +14,9 @@ keypoints:
 source: Rmd
 ---
 
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("02-")
 
 ## Introducción
 
@@ -118,12 +121,11 @@ y no terminan siendo utilizados en el proyecto final, y algunos de los análisis
 > 3. Inicializar el proyecto:
 >
 > 
-> ~~~
+> ```{r, eval=FALSE}
 > install.packages("ProjectTemplate")
 > library("ProjectTemplate")
 > create.project("../my_project", merge.strategy = "allow.non.conflict")
-> ~~~
-> {: .r}
+> ```
 >
 > Para más información de ProjectTemplate y su functionalida visita la
 > página [ProjectTemplate](http://projecttemplate.net/index.html)
@@ -177,55 +179,22 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > >
 > > Al ejecutar estos comandos en la terminal:
 > > 
-> > ~~~
+> > ```{r ch2a-sol, engine='sh'}
 > > ls -lh data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .r}
+> > ```
 > > 
-> > 
-> > 
-> > 
-> > ~~~
-> > -rw-r--r--  1 naupaka  staff    80K Jul 19  2016 data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .output}
 > > El tamaño del archivo es 80K.
 > > 
-> > ~~~
+> > ```{r ch2b-sol, engine='sh'}
 > > wc -l data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .r}
+> > ```
 > > 
-> > 
-> > 
-> > 
-> > ~~~
-> >     1705 data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .output}
 > > Hay 1705 líneas. Los datos se ven así:
 > > 
-> > ~~~
+> > ```{r ch2c-sol, engine='sh'}
 > > head data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .r}
+> > ```
 > > 
-> > 
-> > 
-> > 
-> > ~~~
-> > country,year,pop,continent,lifeExp,gdpPercap
-> > Afghanistan,1952,8425333,Asia,28.801,779.4453145
-> > Afghanistan,1957,9240934,Asia,30.332,820.8530296
-> > Afghanistan,1962,10267083,Asia,31.997,853.10071
-> > Afghanistan,1967,11537966,Asia,34.02,836.1971382
-> > Afghanistan,1972,13079460,Asia,36.088,739.9811058
-> > Afghanistan,1977,14880372,Asia,38.438,786.11336
-> > Afghanistan,1982,12881816,Asia,39.854,978.0114388
-> > Afghanistan,1987,13867957,Asia,40.822,852.3959448
-> > Afghanistan,1992,16317921,Asia,41.674,649.3413952
-> > ~~~
-> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -237,5 +206,3 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 ### Control de versiones
 
 Es importante llevar a cabo el control de versiones en un proyecto. Ve [aquí](http://swcarpentry.github.io/git-novice/14-supplemental-rstudio/) para una buena lección donde se describe el uso de Git con R Studio.
-
-
