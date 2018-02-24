@@ -19,8 +19,12 @@ keypoints:
 source: Rmd
 ---
 
-
-
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("10-")
+# Silently load in the data so the rest of the lesson works
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```
 
 Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticos simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
 
@@ -46,25 +50,22 @@ En esta lección, aprenderemos cómo escribir una función de forma que seamos c
 Empecemos abriendo un nuevo __script__ de R en el directorio `functions/` y nombrémosle functions-lesson.R.
 
 
-~~~
-mi_suma <- function(a, b) {
-  la_suma <- a + b
-  return(la_suma)
+```{r}
+my_sum <- function(a, b) {
+  the_sum <- a + b
+  return(the_sum)
 }
-~~~
-{: .r}
+```
 
 Definamos una función `fahr_a_kelvin()` que convierta temperaturas de 
 Fahrenheit a Kelvin:
 
-
-~~~
-fahr_a_kelvin <- function(temp) {
+```{r}
+fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
 }
-~~~
-{: .r}
+```
 
 Definimos `fahr_a_kelvin()` asignándola al __output__ de `function`. La
 lista de los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
@@ -93,32 +94,15 @@ Tratemos de correr nuestra función.
 Llamamos nuestra propia función de la misma manera que llamamos cualquier otra:
 
 
-~~~
-# Punto de congelación del agua
-fahr_a_kelvin(32)
-~~~
-{: .r}
+```{r}
+# freezing point of water
+fahr_to_kelvin(32)
+```
 
-
-
-~~~
-[1] 273.15
-~~~
-{: .output}
-
-
-~~~
-# Punto de ebullición del agua
-fahr_a_kelvin(212)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 373.15
-~~~
-{: .output}
+```{r}
+# boiling point of water
+fahr_to_kelvin(212)
+```
 
 > ## Desafío 1
 >
@@ -132,14 +116,12 @@ fahr_a_kelvin(212)
 > > Escribe una función llamada `kelvin_a_celsius()` que toma la temperatura en grados
 > > Kelvin y devuelve la temperatura en Celsius.
 > >
-> > 
-> > ~~~
-> > kelvin_a_celsius <- function(temp) {
+> > ```{r}
+> > kelvin_to_celsius <- function(temp) {
 > >  celsius <- temp - 273.15
 > >  return(celsius)
 > > }
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -152,18 +134,17 @@ Definamos dos funciones que convertirán la temperatura de Fahrenheit a
 Kelvin, y de Kelvin a Celsius:
 
 
-~~~
-fahr_a_kelvin <- function(temp) {
+```{r}
+fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
 }
 
-kelvin_a_celsius <- function(temp) {
+kelvin_to_celsius <- function(temp) {
   celsius <- temp - 273.15
   return(celsius)
 }
-~~~
-{: .r}
+```
 
 > ## Desafío 2
 >
@@ -179,14 +160,13 @@ kelvin_a_celsius <- function(temp) {
 > >
 > >
 > > 
-> > ~~~
-> > fahr_a_celsius <- function(temp) {
-> >   temp_k <- fahr_a_kelvin(temp)
-> >   result <- kelvin_a_celsius(temp_k)
+> > ```{r}
+> > fahr_to_celsius <- function(temp) {
+> >   temp_k <- fahr_to_kelvin(temp)
+> >   result <- kelvin_to_celsius(temp_k)
 > >   return(result)
 > > }
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -205,14 +185,12 @@ Esto facilita la depuración porque nos dan una mejor idea de dónde se originan
 Empecemos por re-examinar `fahr_a_kelvin()`, nuestra función para convertir
 temperaturas de Fahrenheit a Kelvin. Estaba definida de la siguiente manera:
 
-
-~~~
-fahr_a_kelvin <- function(temp) {
+```{r}
+fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
 }
-~~~
-{: .r}
+```
 
 Para que esta función trabaje como se desea, el argumento `temp` debe ser un valor `numeric`; de lo contrario, el procedimiento
 matemático para convertir entre las dos escalas de temperatura no funcionará. Para crear un error, podemos usar la función
@@ -220,17 +198,15 @@ matemático para convertir entre las dos escalas de temperatura no funcionará. 
 chequearlo con un condicional `if` y devolver un error si la 
 condición no se cumple. Podríamos agregar esto a nuestra función de la siguiente manera:
 
-
-~~~
-fahr_a_kelvin <- function(temp) {
+```{r}
+fahr_to_kelvin <- function(temp) {
   if (!is.numeric(temp)) {
-    stop("temp debe ser un vector numerico.")
+    stop("temp must be a numeric vector.")
   }
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
 }
-~~~
-{: .r}
+```
 
 Si tuviéramos muchas condiciones o argumentos para revisar, podría llevar muchas líneas
 de código chequearlas a todas. Afortunadamente R provee la función de conveniencia
@@ -243,47 +219,28 @@ chequear el __input__ a nuestra función `fahr_a_kelvin()`.
 
 Queremos asegurar lo siguiente: `temp` es un vector numérico. Lo podemos hacer de la siguiente manera:
 
-
-~~~
-fahr_a_kelvin <- function(temp) {
+```{r}
+fahr_to_kelvin <- function(temp) {
   stopifnot(is.numeric(temp))
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
 }
-~~~
-{: .r}
+```
 
 Aún funciona si se le da un __input__ adecuado.
 
 
-~~~
-# temperatura de congelación del agua
-fahr_a_kelvin(temp = 32)
-~~~
-{: .r}
-
-
-
-~~~
-[1] 273.15
-~~~
-{: .output}
-
+```{r}
+# freezing point of water
+fahr_to_kelvin(temp = 32)
+```
 Pero falla instantáneamente si se le da un __input__ inapropiado.
 
 
-~~~
-# Aquí la medida es un factor, no un valor numérico
-fahr_a_kelvin(temp = as.factor(32))
-~~~
-{: .r}
-
-
-
-~~~
-Error: is.numeric(temp) is not TRUE
-~~~
-{: .error}
+```{r}
+# Metric is a factor instead of numeric
+fahr_to_kelvin(temp = as.factor(32))
+```
 
 > ## Desafío 3
 >
@@ -301,33 +258,30 @@ Error: is.numeric(temp) is not TRUE
 > >
 > >
 > > 
-> > ~~~
-> > fahr_a_celsius <- function(temp) {
+> > ```{r}
+> > fahr_to_celsius <- function(temp) {
 > >   stopifnot(!is.numeric(temp))
-> >   temp_k <- fahr_a_kelvin(temp)
-> >   result <- kelvin_a_celsius(temp_k)
+> >   temp_k <- fahr_to_kelvin(temp)
+> >   result <- kelvin_to_celsius(temp_k)
 > >   return(result)
 > > }
-> > ~~~
-> > {: .r}
+> > ```
 > {: .solution}
-{: .challenge}```
+{: .challenge}
 
 ## Más sobre combinar funciones
 
 Ahora vamos a definir una función que calcula el Producto Bruto Interno ("GDP" en la base de datos, por sus siglas en inglés 
 Gross Domestic Product) de un país a partir de los datos disponibles en nuestro set de datos:
 
-
-~~~
-# Toma un set de datos y multiplica la columna de la población
-# con la del Producto Bruto Interno per cápita.
+```{r}
+# Takes a dataset and multiplies the population column
+# with the GDP per capita column.
 calcGDP <- function(dat) {
   gdp <- dat$pop * dat$gdpPercap
   return(gdp)
 }
-~~~
-{: .r}
+```
 
 Definimos `calcGDP()` asignándola al __output__ de `function`. La lista de
 los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
@@ -346,26 +300,16 @@ Dentro de la función, usamos la función `return()` para obtener el resultado.
 Esta función `return()` es opcional: R automáticamente devolverá el resultado de cualquier 
 sea el comando que se ejecute en la última línea de la función.
 
-
-~~~
+```{r}
 calcGDP(head(gapminder))
-~~~
-{: .r}
-
-
-
-~~~
-[1]  6567086330  7585448670  8758855797  9648014150  9678553274 11697659231
-~~~
-{: .output}
+```
 
 Eso no es muy informativo. Agreguemos algunos argumentos más para poder extraer
- por año y país. 
+por año y país. 
 
-
-~~~
-# Toma un set de datos y multiplica la columna de la población
-# con la del Producto Bruto Interno per cápita.
+```{r}
+# Takes a dataset and multiplies the population column
+# with the GDP per capita column.
 calcGDP <- function(dat, year=NULL, country=NULL) {
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
@@ -378,18 +322,15 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
   new <- cbind(dat, gdp=gdp)
   return(new)
 }
-~~~
-{: .r}
+```
 
 Si has estado escribiendo estas funciones en un __script__ de R aparte
 (¡una buena idea!), puedes cargar las funciones en nuestra sesión de R
 usando la función `source()`:
 
-
-~~~
+```{r, eval=FALSE}
 source("functions/functions-lesson.R")
-~~~
-{: .r}
+```
 
 Ok, entonces están pasando muchas cosas en esta función ahora. En pocas palabras, ahora
 la función filtra un subconjunto de datos por año si el argumento año no está vacío,
@@ -401,75 +342,28 @@ es mucho más informativo que un vector numérico.
 
 Veamos qué sucede cuando especificamos el año:
 
-
-~~~
+```{r}
 head(calcGDP(gapminder, year=2007))
-~~~
-{: .r}
-
-
-
-~~~
-       country year      pop continent lifeExp  gdpPercap          gdp
-12 Afghanistan 2007 31889923      Asia  43.828   974.5803  31079291949
-24     Albania 2007  3600523    Europe  76.423  5937.0295  21376411360
-36     Algeria 2007 33333216    Africa  72.301  6223.3675 207444851958
-48      Angola 2007 12420476    Africa  42.731  4797.2313  59583895818
-60   Argentina 2007 40301927  Americas  75.320 12779.3796 515033625357
-72   Australia 2007 20434176   Oceania  81.235 34435.3674 703658358894
-~~~
-{: .output}
+```
 
 O para un país específico:
 
-
-~~~
+```{r}
 calcGDP(gapminder, country="Australia")
-~~~
-{: .r}
-
-
-
-~~~
-     country year      pop continent lifeExp gdpPercap          gdp
-61 Australia 1952  8691212   Oceania  69.120  10039.60  87256254102
-62 Australia 1957  9712569   Oceania  70.330  10949.65 106349227169
-63 Australia 1962 10794968   Oceania  70.930  12217.23 131884573002
-64 Australia 1967 11872264   Oceania  71.100  14526.12 172457986742
-65 Australia 1972 13177000   Oceania  71.930  16788.63 221223770658
-66 Australia 1977 14074100   Oceania  73.490  18334.20 258037329175
-67 Australia 1982 15184200   Oceania  74.740  19477.01 295742804309
-68 Australia 1987 16257249   Oceania  76.320  21888.89 355853119294
-69 Australia 1992 17481977   Oceania  77.560  23424.77 409511234952
-70 Australia 1997 18565243   Oceania  78.830  26997.94 501223252921
-71 Australia 2002 19546792   Oceania  80.370  30687.75 599847158654
-72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
-~~~
-{: .output}
+```
 
 O ambos:
 
 
-~~~
+```{r}
 calcGDP(gapminder, year=2007, country="Australia")
-~~~
-{: .r}
-
-
-
-~~~
-     country year      pop continent lifeExp gdpPercap          gdp
-72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
-~~~
-{: .output}
+```
 
 Veamos paso a paso el cuerpo de la función:
 
-
-~~~
+``` {r, eval=FALSE}
 calcGDP <- function(dat, year=NULL, country=NULL) {
-~~~
-{: .r}
+```
 
 Aquí hemos agregado dos argumentos: año ("year") y país ("country"). Hemos seteado
 *argumentos por defecto* para ambos como `NULL` usando el operador `=` 
@@ -477,15 +371,14 @@ en la definición de la función. Esto significa que estos argumentos tendrán e
 a menos que el usuario especifique otra cosa.
 
 
-~~~
+```{r, eval=FALSE}
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
   }
   if (!is.null(country)) {
     dat <- dat[dat$country %in% country,]
   }
-~~~
-{: .r}
+```
 
 Aquí chequeamos si cada argumento adicional esta seteado a `null`, y cuando no sea
 `null` se sobreescriben los datos almacenados en `dat` con un subconjunto de datos determinados por el 
@@ -524,14 +417,12 @@ argumentos.
 > son modificadas en ninguna manera cuando se ejecuta la función.
 {: .callout}
 
-
-~~~
+```{r, eval=FALSE}
   gdp <- dat$pop * dat$gdpPercap
   new <- cbind(dat, gdp=gdp)
   return(new)
 }
-~~~
-{: .r}
+```
 
 Finalmente, calculamos GDP en nuestro nuevo subconjunto de datos, y creamos una nueva __dataframe__
 con esta columna agregada. Esto significa que cuando llamamos a la función, en el resultado 
@@ -547,10 +438,9 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > > ## Solución al desafío 3
 > >
 > > 
-> > ~~~
+> > ```{r, eval=FALSE}
 > >   calcGDP(gapminder, year = c(1952, 1987), country = "New Zealand")
-> > ~~~
-> > {: .r}
+> > ```
 > > GDP para Nueva Zelandia en 1987: 65050008703
 > >
 > > GDP para Nueva Zelandia en 1952: 21058193787
@@ -563,27 +453,18 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > La función `paste()` puede ser usada para combinar texto, ej.:
 >
 > 
-> ~~~
-> buenas_practicas <- c("Escribir", "programas", "para", "personas", "no", "computadoras")
-> paste(buenas_practicas, collapse=" ")
-> ~~~
-> {: .r}
-> 
-> 
-> 
-> ~~~
-> [1] "Escribir programas para personas no computadoras"
-> ~~~
-> {: .output}
+> ```{r}
+> best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+> paste(best_practice, collapse=" ")
+> ```
 >
 >  Escribir una función `fence()` que toma dos vectores como argumentos, llamados
 > `text` y `wrapper`, e muestra el texto flanqueado del `wrapper`:
 >
 > 
-> ~~~
-> fence(text=buenas_practicas, wrapper="***")
-> ~~~
-> {: .r}
+> ```{r, eval=FALSE}
+> fence(text=best_practice, wrapper="***")
+> ```
 >
 > *Nota:* la función `paste()` tiene un argumento llamado `sep`, que especifica
 > el separador de texto. Por defecto es un espacio: " ". El valor por defecto de la función
@@ -594,23 +475,15 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > >  Escribir una función `fence()` que toma dos vectores como argumentos, llamados
 > > `text` y `wrapper`, e imprime el texto flanqueado del `wrapper`:
 > > 
-> > ~~~
+> > ```{r}
 > > fence <- function(text, wrapper){
 > >   text <- c(wrapper, text, wrapper)
 > >   result <- paste(text, collapse = " ")
 > >   return(result)
 > > }
-> > buenas_practicas <- c("Escribir", "programas", "para", "personas", "no", "computadores")
-> > fence(text=buenas_practicas, wrapper="***")
-> > ~~~
-> > {: .r}
-> > 
-> > 
-> > 
-> > ~~~
-> > [1] "*** Escribir programas para personas no computadores ***"
-> > ~~~
-> > {: .output}
+> > best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+> > fence(text=best_practice, wrapper="***")
+> > ```
 > {: .solution}
 {: .challenge}
 
