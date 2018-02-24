@@ -13,6 +13,12 @@ keypoints:
 source: Rmd
 ---
 
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("08-")
+# Silently load in the data so the rest of the lesson works
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header = TRUE)
+```
 
 Graficar nuestros datos es una de las mejores maneras
 para explorarlos y para observar las relaciones que existen entre las variables.
@@ -40,14 +46,11 @@ Photoshop, Illustrator, o Inkscape.
 Comencemos con un ejemplo:
 
 
-~~~
+```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
 library("ggplot2")
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter" alt="plot of chunk lifeExp-vs-gdpPercap-scatter" style="display: block; margin: auto;" />
+```
 
 La primera cosa que hacemos es llamar a la función `ggplot`. Esta función
 le dice a R que estamos creando una nueva gráfica, todos los argumentos
@@ -66,36 +69,27 @@ buscar esa columna en los **datos**!
 
 Por sí mismo, llamar a la función `ggplot` no es suficiente para dibujar una figura:
 
-~~~
+```{r}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+```
 
 Necesitamos decirle a `ggplot` cómo queremos representar visualmente los datos, 
 esto lo hacemos al agregar una nueva capa **geom**. En nuestro ejemplo, usamos `geom_point`,
 la cual le indica a `ggplot` que queremos representar visualmente la relación entre **x** y **y**
 como un gráfico de dispersión de los puntos (scatterplot) .
 
-
-~~~
+```{r lifeExp-vs-gdpPercap-scatter2}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter2-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter2" alt="plot of chunk lifeExp-vs-gdpPercap-scatter2" style="display: block; margin: auto;" />
-
+```
 > ## Desafío 1
 >
 > Modifica el ejemplo anterior de manera que en la figura se muestre
 > como la esperanza de vida ha cambiado a través del tiempo:
 >
-> ~~~
+> ```{r, eval=FALSE}
 > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
-> ~~~
-> {: .r}
+> ```
 >
 >
 > Pista: El dataset gapminder tiene una columna llamada "year", la cual
@@ -107,12 +101,9 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > >
 > > Esta es una posible solución:
 > >
-> > ~~~
+> > ```{r ch1-sol}
 > > ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
-> > ~~~
-> > {: .r}
-> > 
-> > <img src="../fig/rmd-08-ch1-sol-1.png" title="plot of chunk ch1-sol" alt="plot of chunk ch1-sol" style="display: block; margin: auto;" />
+> > ```
 > >
 > {: .solution}
 {: .challenge}
@@ -132,14 +123,10 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > > es el *color*. Modifica el código del desafío anterior para **colorear** los puntos de acuerdo a la columna
 > > "continent". ¿Qué tendencias observas en los datos? ¿Son lo que esperabas?
 > > 
-> > ~~~
+> > ```{r ch2-sol}
 > > ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
 > >   geom_point()
-> > ~~~
-> > {: .r}
-> > 
-> > <img src="../fig/rmd-08-ch2-sol-1.png" title="plot of chunk ch2-sol" alt="plot of chunk ch2-sol" style="display: block; margin: auto;" />
-> >
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -150,13 +137,10 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 Un gráfico de dispersión probablemente no es la mejor manera de visualizar el cambio a través del tiempo.
 En vez de eso, vamos a decirle a `ggplot` que queremos visualizar los datos como un diagrama de línea (line plot):
 
-~~~
+```{r lifeExp-line}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-line-1.png" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
+```
 
 En vez de agregar una capa `geom_point`, hemos agregado una capa `geom_line`.
 Además, hemos agregado el **aesthetic** **by**, el cual le dice a `ggplot` que
@@ -165,26 +149,17 @@ debe dibujar una línea para cada país.
 Pero, ¿qué pasa si queremos visualizar ambos, puntos y líneas en la misma gráfica?
 Simplemente tenemos que agregar otra capa a la gráfica:
 
-
-~~~
+```{r lifeExp-line-point}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-line-point-1.png" title="plot of chunk lifeExp-line-point" alt="plot of chunk lifeExp-line-point" style="display: block; margin: auto;" />
-
+```
 Es importante notar que cada capa se dibuja encima de la capa anterior. En este ejemplo, 
 los puntos se han dibujado *sobre* las líneas. A continuación observamos una demostración:
 
-
-~~~
+```{r lifeExp-layer-example-1}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
   geom_line(aes(color=continent)) + geom_point()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-layer-example-1-1.png" title="plot of chunk lifeExp-layer-example-1" alt="plot of chunk lifeExp-layer-example-1" style="display: block; margin: auto;" />
+```
 
 En este ejemplo, el mapeo **aesthetic** de **color** se ha movido de las opciones globales de la gráfica en 
 `ggplot` a la capa `geom_line` y, por lo tanto, ya no es válido para los puntos. 
@@ -209,13 +184,10 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 > >
 > > Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. ¿Qué sucede?
 > >
-> > ~~~
+> > ```{r ch3-sol}
 > > ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 > >  geom_point() + geom_line(aes(color=continent))
-> > ~~~
-> > {: .r}
-> > 
-> > <img src="../fig/rmd-08-ch3-sol-1.png" title="plot of chunk ch3-sol" alt="plot of chunk ch3-sol" style="display: block; margin: auto;" />
+> > ```
 > >
 > > ¡Las líneas ahora están dibujadas sobre los puntos!
 > >
@@ -227,14 +199,10 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 `ggplot` también facilita sobreponer modelos estadísticos a los datos. 
 Para demostrarlo regresaremos a nuestro primer ejemplo:
 
-
-~~~
+```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
   geom_point()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter3-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter3" alt="plot of chunk lifeExp-vs-gdpPercap-scatter3" style="display: block; margin: auto;" />
+```
 
 En este momento es difícil ver las relaciones entre los puntos debido a algunos 
 valores altamente atípicos de la variable GDP per capita. Podemos cambiar la escala de unidades del eje X
@@ -243,15 +211,10 @@ de los datos y los valores visuales de un **aesthetic**. También podemos modifi
 de los puntos, usando la función *alpha*, la cual es especialmente útil cuando tienes una
 gran cantidad de datos fuertemente conglomerados.
 
-
-~~~
+```{r axis-scale}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + scale_x_log10()
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-axis-scale-1.png" title="plot of chunk axis-scale" alt="plot of chunk axis-scale" style="display: block; margin: auto;" />
-
+```
 La función `log10` aplica una transformación sobre los valores de la columna gdpPercap
 antes de presentarlos en la gráfica, de manera que cada múltiplo de 10 ahora
 corresponde a un incremento de 1 en la escala transformada, e.g. un GDP per capita de 1,000
@@ -270,25 +233,16 @@ Esto facilita visualizar la dispersión de los datos sobre el eje X.
 Podemos ajustar una relación simple a los datos agregando otra capa,
 `geom_smooth`:
 
-
-~~~
+```{r lm-fit}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm")
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lm-fit-1.png" title="plot of chunk lm-fit" alt="plot of chunk lm-fit" style="display: block; margin: auto;" />
-
+```
 Podemos hacer la línea más gruesa *configurando* el **aesthetic** **tamaño** en la capa `geom_smooth`:
 
-
-~~~
+```{r lm-fit2}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-lm-fit2-1.png" title="plot of chunk lm-fit2" alt="plot of chunk lm-fit2" style="display: block; margin: auto;" />
+```
 
 Existen dos formas en las que un *aesthetic* puede ser especificado. Aquí *configuramos* el 
 **aesthetic** **tamaño** pasándolo como un argumento a `geom_smooth`. Previamente en la lección
@@ -306,16 +260,11 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > >
 > > Pista: No uses la función `aes`.
 > >
-> > 
-> > ~~~
+> > ```{r ch4a-sol}
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > >  geom_point(size=3, color="orange") + scale_x_log10() +
 > >  geom_smooth(method="lm", size=1.5)
-> > ~~~
-> > {: .r}
-> > 
-> > <img src="../fig/rmd-08-ch4a-sol-1.png" title="plot of chunk ch4a-sol" alt="plot of chunk ch4a-sol" style="display: block; margin: auto;" />
-> {: .solution}
+> > ```> {: .solution}
 {: .challenge}
 
 
@@ -335,15 +284,11 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > 
 > > Pista: El argumento color puede ser usado dentro de **aesthetic**
 > >
-> >
-> >~~~
+> >```{r ch4b-sol}
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
 > > geom_point(size=3, shape=17) + scale_x_log10() +
 > > geom_smooth(method="lm", size=1.5)
-> >~~~
-> >{: .r}
-> >
-> ><img src="../fig/rmd-08-ch4b-sol-1.png" title="plot of chunk ch4b-sol" alt="plot of chunk ch4b-sol" style="display: block; margin: auto;" />
+> > ```
 > {: .solution}
 {: .challenge}
 
@@ -365,15 +310,13 @@ Enfocándonos únicamente en aquellos países con nombres que empiezan con la le
 
 
 
-~~~
+```{r facet}
 starts.with <- substr(gapminder$country, start = 1, stop = 1)
 az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country)
-~~~
-{: .r}
+```
 
-<img src="../fig/rmd-08-facet-1.png" title="plot of chunk facet" alt="plot of chunk facet" style="display: block; margin: auto;" />
 
 La capa `facet_wrap` toma una "fórmula" como argumento, lo cual se indica por la tilde (~).
 Esto le dice a R que debe dibujar un panel para cada valor único de la columna "country" 
@@ -393,20 +336,17 @@ el título de la leyenda de los colores de las líneas se define utilizando `col
 de la legenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
 
 
-~~~
+```{r theme}
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
   labs(
-    x = "Year",              # título del eje X
-    y = "Life expectancy",   # título del eje Y
-    title = "Figure 1",      # título principal de la figura
-    color = "Continent"      # título de la leyenda
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
   ) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
-~~~
-{: .r}
-
-<img src="../fig/rmd-08-theme-1.png" title="plot of chunk theme" alt="plot of chunk theme" style="display: block; margin: auto;" />
+```
 
 
 Esta lección es una prueba de lo que puedes hacer utilizando `ggplot2`. RStudio proporciona
@@ -436,12 +376,9 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas con ¡cód
 > > - Agrega una capa **facet** para generar gráficos de densidad con un panel para cada año.
 > >
 > > 
-> > ~~~
+> > ```{r ch5-sol}
 > > ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
 > >  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
-> > ~~~
-> > {: .r}
-> > 
-> > <img src="../fig/rmd-08-ch5-sol-1.png" title="plot of chunk ch5-sol" alt="plot of chunk ch5-sol" style="display: block; margin: auto;" />
+> > ```
 > {: .solution}
 {: .challenge}
