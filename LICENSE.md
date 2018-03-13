@@ -9,7 +9,7 @@ Todo el material instructivo de Software Carpentry and Data Carpentry es
 disponible bajo el [Creative Commons Attribution
 licencia][cc-por-humano]. El siguiente es un resumen de lectura humana
 (y no un sustituto) del [texto legal completo de CC BY 4.0
-licencia][cc-por-legal].
+licencia][cc-by-legal].
 
 Estas libre:
 
