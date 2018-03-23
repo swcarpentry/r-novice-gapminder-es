@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Ser capaz de guardar gráficas y datos desde R."
 keypoints:
-- "Guardar gráficas desde RStudio usando el botón de 'Export'."
+- "Guardar gráficas desde RStudio usando el botón de <kbd>Export</kbd>."
 - "Usar `write.table` para guardar datos tabulares."
 source: Rmd
 ---
@@ -31,7 +31,7 @@ usando el comando `ggsave`. A manera de recuerdo:
 ```{r, eval=FALSE}
 ggsave("My_most_recent_plot.pdf")
 ```
-Puedes guardar una gráfica desde Rstudio usando el botón de 'Export' en la
+Puedes guardar una gráfica desde Rstudio usando el botón de <kbd>Export</kbd> en la
 ventana de 'Plot'. Esto te dará la opción de guardarla como .pdf, .png, .jpg
 u otros formatos de imágenes.
 
@@ -40,7 +40,7 @@ en la ventana de 'Plot'. Quizá quieras hacer un documento pdf con varias
 páginas: por ejemplo, cada una con una gráfica distinta. O quizá tu estás
 iterando sobre distintos subconjuntos de un archivo, graficando los datos
 de cada subconjunto y quieres guardar cada una de las gráficas, obviamente no
-puedes detener la iteración en cada paso para dar clic en 'Export' para
+puedes detener la iteración en cada paso para dar clic en <kbd>Export</kbd> para
 cada una.
 
 En este caso quieres usar un método más flexible. La función `pdf` crea un
