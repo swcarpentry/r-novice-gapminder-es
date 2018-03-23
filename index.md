@@ -26,3 +26,6 @@ A lo largo de este taller se utilizan una variedad de paquetes, desarrolados por
 > Files are organised in directories (folders).
 > Know how to access files not in the working directory by specifying the path.
 {: .prereq}
+
+[gapminder]: http://www.gapminder.org/
+[lesson-example]: https://swcarpentry.github.io/lesson-example
