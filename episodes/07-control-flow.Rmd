@@ -129,7 +129,7 @@ x
 > > ```
 > > Poniendo esto junto, nosotros obtenemos:
 > > 
-> > ```{r ch10pt4-sol, eval=FALSE}
+> > ```{r ch10pt4, eval=FALSE}
 > > if(nrow(gapminder[(gapminder$year == 2002),]) >= 1){
 > >    print("Se encontraron registro(s) para el año 2002.")
 > > }
