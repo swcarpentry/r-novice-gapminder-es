@@ -634,12 +634,3 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > >```
 > {: .solution}
 {: .challenge}
-
-
-Key Points
-* Usa RStudio para escribir y ejecutar programas en R.
-* R tiene operadores aritméticos y funciones matemáticas usuales .
-* Usa <- para asignar valores a variables.
-* Usa ls() para listar las variables en un programa.
-* Usa rm() para eliminar objetos en un programa.
-* Usa install.packages() para instalar paquetes (librerías).
