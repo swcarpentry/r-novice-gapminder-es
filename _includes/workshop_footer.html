@@ -1,11 +1,11 @@
 {% comment %}
-  Footer for a standard workshop.
+  Pie de página para un taller estándar.
 {% endcomment %}
 <footer>
   <div class="row">
     <div class="col-md-6" align="left">
       <h4>
-	Copyright &copy; 2016
+	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	{% if site.carpentry == "swc" %}
 	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
 	{% elsif site.carpentry == "dc" %}
@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-6" align="right">
       <h4>
-	<a href="mailto:{{ site.email }}">Contact</a>
+	<a href="mailto:{{ site.email }}">Contacto</a>
       </h4>
     </div>
   </div>
