@@ -1,20 +1,20 @@
 ---
-title: Produciendo informes con **knitr**
+title: Produciendo informes con knitr
 teaching: 60
 exercises: 15
 questions:
 - "¿Cómo puedo integrar programas e informes?"
 objectives:
-- Valor de informes reproducibles
-- Conceptos básicos de **Markdown**
-- Fragmentos de código en **R**
-- Opciones de fragmentos
-- Código **R** en línea
-- Otros formatos de salida
+- "Valor de informes reproducibles"
+- "Conceptos básicos de **Markdown**"
+- "Fragmentos de código en **R**"
+- "Opciones de fragmentos"
+- "Código **R** en línea"
+- "Otros formatos de salida"
 keypoints:
 - "Informes mixtos escritos en **R Markdown** usando un programa escrito en **R**."
-- "Especificar opciones de fragmento para controlar el formateo".
-- "Usar `knitr` para convertir estos documentos en PDF y en otros formatos".
+- "Especificar opciones de fragmento para controlar el formateo."
+- "Usar `knitr` para convertir estos documentos en PDF y en otros formatos."
 source: Rmd
 ---
 
