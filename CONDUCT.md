@@ -1,45 +1,47 @@
 ---
 layout: page
-title: "Contributor Code of Conduct"
+title: "Código de conducta del contribuidor"
 permalink: /conduct/
 ---
-As contributors and maintainers of this project,
-we pledge to respect all people who contribute through reporting issues,
-posting feature requests,
-updating documentation,
-submitting pull requests or patches,
-and other activities.
 
-We are committed to making participation in this project a harassment-free experience for everyone,
-regardless of level of experience,
-gender,
-gender identity and expression,
-sexual orientation,
-disability,
-personal appearance,
-body size,
-race,
-ethnicity,
-age,
-or religion.
+Los contribuidores y **maintainers** de este proyecto,
+nos comprometemos a respetar a todas las personas que contribuyen a través de problemas de informes **issues**,
+publicar solicitudes de mejora,
+actualizar la documentación,
+enviando solicitudes de mejoras o parches,
+y otras actividades.
 
-Examples of unacceptable behavior by participants include the use of sexual language or imagery,
-derogatory comments or personal attacks,
+Nos comprometemos a hacer que la participación en este proyecto sea una experiencia libre de acoso para todos,
+independientemente del nivel de experiencia,
+género,
+identidad y expresión de género,
+orientación sexual,
+discapacidad,
+apariencia personal,
+tamaño corporal,
+carrera,
+etnia,
+años,
+o religión.
+
+Los ejemplos de comportamiento inaceptable de los participantes incluyen el uso de imágenes o lenguaje sexual,
+comentarios despectivos o ataques personales,
 trolling,
-public or private harassment,
-insults,
-or other unprofessional conduct.
+acoso público o privado,
+insultos,
+u otra conducta no profesional.
 
-Project maintainers have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to our [Code of Conduct][coc].
-Project maintainers who do not follow the Code of Conduct may be removed from the project team.
+Los mantenedores de proyectos tienen el derecho y la responsabilidad de eliminar, editar o rechazar
+comentarios, **commits**, código, ediciones de wiki, problemas y otras contribuciones
+que no estén alineados con nuestro [Código de Conducta][coc].
+Los **maintainers** del proyecto que no sigan el Código de Conducta pueden ser removidos del equipo del proyecto.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior
-may be reported by following our [reporting guidelines][coc-reporting].
+Instancias de comportamiento abusivo, acosador o de otra manera inaceptable
+puede informarse siguiendo nuestras [guías de informes][coc-reporting].
 
 
-- [Software and Data Carpentry Code of Conduct][coc]
-- [Code of Conduct Reporting Guide][coc-reporting]
+- [Código de conducta de Software y Data Carpentry][coc]
+- [Guía de informes del código de conducta][coc-reporting]
+
 
 {% include links.md %}
