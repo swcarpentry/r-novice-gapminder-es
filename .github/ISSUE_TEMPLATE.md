@@ -1,9 +1,11 @@
-Please delete the text below before submitting your contribution. 
+Por favor borre este texto antes de enviar tu issue o pull request.
 
 ---
 
-Thanks for contributing! If this contribution is for instructor training, please send an email to checkout@carpentries.org with a link to this contribution so we can record your progress. You’ve completed your contribution step for instructor checkout just by submitting this contribution.  
+¡Gracias por contribuir! Agradecemos tu tiempo y esfuerzo para mejorar esta lección.
 
-Please keep in mind that lesson maintainers are volunteers and it may be some time before they can respond to your contribution. Although not all contributions can be incorporated into the lesson materials, we appreciate your time and effort to improve the curriculum.  If you have any questions about the lesson maintenance process or would like to volunteer your time as a contribution reviewer, please contact Kate Hertweck (k8hertweck@gmail.com).  
+Si esta contribución es para la capacitación del **instructor**, envíe un correo electrónico a [checkout@carpentries.org](mailto:checkout@carpentries.org) con un enlace a esta contribución para que podamos registrar su progreso.
+
+Tenga en cuenta que los **Maintainers** son voluntarios y pueden tardar más de 72 horas en responder. Si tiene alguna pregunta sobre el proceso de mantenimiento de la lección o le gustaría ofrecer su tiempo como **Maintainer**, comuníquese con [Rayna Harris](mailto:rayna.harris@gmail.com).
 
 ---
