@@ -5,7 +5,7 @@ exercises: 15
 questions:
 - "¿Cómo puedo cambiar el formato de los dataframes?"
 objectives:
-- "Entender los conceptos de formatos de datos "largo" y "ancho" y poder convertirlos al otro formato usando `tidyr`."
+- "Entender los conceptos de formatos de datos 'largo' y 'ancho' y poder convertirlos al otro formato usando `tidyr`."
 keypoints:
 - "Usar el paquete `tidyr` para cambiar el diseño de los dataframes."
 - "Usar `gather()` para invertir del formato ancho al formato largo."
