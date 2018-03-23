@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Setup
+title: Configuración
 permalink: /setup/
 ---
 
