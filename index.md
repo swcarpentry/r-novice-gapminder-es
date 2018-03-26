@@ -2,9 +2,6 @@
 layout: lesson
 root: .
 ---
-
-R para Análisis Científicos Reproducibles
-
 Una introducción a R para no-programadores utilizando los datos de  [Gapminder][gapminder].
 Consulta la página <https://swcarpentry.github.io/r-novice-gapminder> para visualizar el material y
 [la documentación de la plantilla de la lección][lesson-example]
