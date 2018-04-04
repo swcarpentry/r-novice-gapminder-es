@@ -21,10 +21,11 @@ A lo largo de este taller se utilizan una variedad de paquetes, desarrolados por
 
 **Maintainers**:
 
-* [Tom Wright][wright_tom]
-* [Naupaka Zimmerman][zimmerman_naupaka]
+* [Rayna Harris][harris_rayna]: [@raynamharris](https://github.com/raynamharris)
+* Veronica Jimenez: [@vjimenez9](https://github.com/vjimenez9)
+* Silvana Pereyra: [@spereyra](https://github.com/spereyra)
+* Heladia Saldago: [@Helysalgado](https://github.com/Helysalgado)
 
+[harris_rayna]: http://software-carpentry.org/team/#harris_rayna
 [gapminder]: http://www.gapminder.org/
 [lesson-example]: https://swcarpentry.github.io/lesson-example
-[wright_tom]: http://software-carpentry.org/team/#wright_thomas
-[zimmerman_naupaka]: http://software-carpentry.org/team/#zimmerman_naupaka
