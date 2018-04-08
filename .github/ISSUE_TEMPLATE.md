@@ -1,6 +1,6 @@
-Por favor borra este texto antes de enviar tu issue o pull request.
-
 ---
+
+Por favor borra este texto antes de enviar tu issue.
 
 Agradecemos tu tiempo y esfuerzo para mejorar esta lección. ¡Gracias por contribuir! 
 
