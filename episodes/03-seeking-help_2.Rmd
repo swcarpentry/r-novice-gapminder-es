@@ -1,5 +1,5 @@
 ---
-title: "buscando ayuda"
+title: "Buscando ayuda"
 teaching: 10
 exercises: 10
 questions:
