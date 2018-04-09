@@ -1,9 +1,9 @@
 ---
-title: Manipulación de **Dataframes** con dplyr
+title: Manipulación de **dataframes** con dplyr
 teaching: 40
 exercises: 15
 questions:
-- "Cómo manipular **dataframes** sin repetir lo mismo una y otra vez."
+- "¿Cómo manipular **dataframes** sin repetir lo mismo una y otra vez?"
 objectives:
 - "Ser capaces de usar las seis principales acciones de manipulación de **dataframes** con **pipes** en `dplyr`."
 - "Comprender cómo combinar `group_by()` y `summarize()` para obtener resúmenes de **datasets**."
