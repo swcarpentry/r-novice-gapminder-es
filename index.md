@@ -11,11 +11,11 @@ programación R, y no en el análisis estadídtico.
 
 A lo largo de este taller se utilizan una variedad de paquetes, desarrolados por terceros, los cuales no neceariamente son los mejores, ni se ven todas las funcionalidades de los mismos, pero son paquetes que consideramos útilies y han sido elegidos principalmente por su facilidad de uso.
 
-> ## Prerequisites
+> ## Prerrequisitos
 >
-> Understand that computers store data and instructions (programs, scripts etc.) in files.
-> Files are organised in directories (folders).
-> Know how to access files not in the working directory by specifying the path.
+> Entender que los archivos estan organizados en directorios (folders).
+> Entender que las computadoras guardan datos e instrucciones (programas, **scripts**) en archivos.
+> Saber como acceder a los archivos que no están en el directorio de trabajo, especificando el **path**.
 {: .prereq}
 
 [gapminder]: http://www.gapminder.org/
