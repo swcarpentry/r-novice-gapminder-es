@@ -645,12 +645,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                  country year      pop continent lifeExp gdpPercap
-> > 285                Chile 1992 13572994  Americas  74.126  7596.126
-> > 477          El Salvador 1992  5274649  Americas  66.798  4444.232
-> > 1686              Zambia 1977  5216550    Africa  51.386  1588.688
-> > 1557 Trinidad and Tobago 1992  1183669  Americas  69.862  7370.991
-> > 905                Libya 1972  2183877    Africa  52.773 21011.497
+> >         country year       pop continent lifeExp  gdpPercap
+> > 715   Indonesia 1982 153343000      Asia  56.159  1516.8730
+> > 1674 Yemen Rep. 1977   8403990      Asia  44.175  1829.7652
+> > 1535   Thailand 2002  62806748      Asia  68.564  5913.1875
+> > 1519   Tanzania 1982  19844382    Africa  50.608   874.2426
+> > 1235     Poland 2002  38625976    Europe  74.670 12002.2391
 > > ~~~
 > > {: .output}
 > {: .solution}
