@@ -1,5 +1,5 @@
 ---
-title: Control de Flujo
+title: Control de flujo
 teaching: 45
 exercises: 20
 questions:
