@@ -3,7 +3,7 @@ title: "Explorando data frames"
 teaching: 20
 exercises: 10
 questions:
-- "¿cómo puedo manipular un *dataframe*?"
+- "¿Cómo puedo manipular un *dataframe*?"
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
