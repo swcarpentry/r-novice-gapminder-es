@@ -1,5 +1,5 @@
 ---
-title: "Explorando Data Frames"
+title: "Explorando data frames"
 teaching: 20
 exercises: 10
 questions:
