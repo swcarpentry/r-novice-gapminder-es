@@ -144,8 +144,10 @@ Cada uno aparecerá como:
 - itálica con guiones bajos
 - tipografía estilo código fuente con acento inverso/grave
 
+Puedes usar el método que prefieras (guiones o asteriscos), pero *se consistente*. Esto mantiene la 
+legibilidad del código.
 
-Puedes hacer una lista numerada simplemente usando números. Puedes usar el
+Puedes hacer una lista numerada simplemente usando números. Puedes incluso usar el
 mismo número una y otra vez si lo deseas:
 
 ```
