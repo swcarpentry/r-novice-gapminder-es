@@ -30,18 +30,15 @@ Los analistas de datos tienden a escribir muchos informes, describiendo sus
 análisis y resultados, para sus colaboradores o para documentar su
 trabajo para referencia futura.
 
-Cuando comencé por primera vez, escribía una rutina **R** con todos mis
-trabajos, y simplemente enviaba un correo electrónico a mi colaborador, describiendo el
-resultados y adjuntando varios gráficos. Al discutir los resultados,
-a menudo había confusión sobre qué gráfico era cuál.
+Es común que muchos nuevos usuarios comiencen escribiendo una rutina **R** con todos sus
+trabajos. Luego simplemente envien el análisis por un correo electrónico a su colaborador, describiendo los resultados y adjuntando el **script** y varios gráficos. Éste método puede ser problemático, ya que al discutir los resultados,
+a menudo hay confusión sobre qué gráfico corresponde a cuál resultado.
 
-Pasé a escribir informes formales, con **Word** o **LaTeX**, pero tenía que
-pasar mucho tiempo haciendo que las figuras se vieran bien. El mayor 
-obstáculo era con los saltos de página.
+Escribir informes formales, con **Word** o **LaTeX**, puede simplificar esto, al incorporar el análisis y los resultados a un documento único. Pero arreglando el formato del documento para hacer que las figuras se vean bien y corregir saltos de página rebeldes puede ser tedioso y llevar mucho tiempo. 
 
-Ahora todo es más fácil, creo una página **web** (como un
-archivo **html**) usando **R markdown**. esta página puede ser muy larga, así que puedo usar figuras largas que
-no cabrían normalmente en una página. Recuerda que ell desplazamiento de página es muy bueno.
+Crear una página **web** (como un
+archivo **html**) usando **R markdown** hace que el todo sea mas sencillo. El reporte puede ser muy largo, así que figuras altas que
+no cabrían normalmente en una página, pueden incluirse en tamaño original, ya que el lector las puede ver simplemente desplazando la página. Dar formato es simple y fácil de modificar, por lo que podemos dedicar más tiempo a nuestros análisis y no a la redacción de informes.
 
 
 ## Programación literaria
@@ -91,7 +88,7 @@ output: html_document
 ```
 
 Puedes eliminar cualquiera de esos campos si no los quieres
-incluido. Las comillas dobles no son estrictamente _necesarias_ en este caso.
+incluidos. Las comillas dobles no son estrictamente _necesarias_ en este caso.
 Pero en su mayoría son necesarias si deseas incluir dos puntos en el título.
 
 **RStudio** crea el documento con un texto de ejemplo para ayudarte
@@ -124,8 +121,8 @@ Haces las cosas en **negrita** usando dos asteriscos, como esto: `** negrita **`
 y haces cosas _italicas_ usando guiones bajos, como esto:
 `_italics_`.
 
-Puede hacer una lista con viñetas escribiendo una lista con guiones o
-asteriscos, como este:
+Puedes hacer una lista con viñetas escribiendo una lista con guiones o
+asteriscos, como esta:
 
 ```
 * negrita con doble asterisco
@@ -147,7 +144,6 @@ Cada uno aparecerá como:
 - itálica con guiones bajos
 - tipografía estilo código fuente con acento inverso/grave
 
-(Prefiero guiones en lugar de asteriscos, yo mismo)
 
 Puedes hacer una lista numerada simplemente usando números. Puedes usar el
 mismo número una y otra vez si lo deseas:
