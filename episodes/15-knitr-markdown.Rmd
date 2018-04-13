@@ -345,12 +345,12 @@ Tal vez anteceda el párrafo con un fragmento de código más grande que hace
 cálculos y define cosas, con `include=FALSE` para ese largo
 fragmento (que es lo mismo que `echo=FALSE` y `results="hide"`).
 
-Soy muy particular sobre el redondeo en tales situaciones. Es posible que desee
+Redondear puede generar diferencias en el resultado en tales situaciones. Es posible que desees
 `2.0`, pero` round (2.03, 1) `resultará solo` 2`.
 
 La función
 [`myround`](https://github.com/kbroman/broman/blob/master/R/myround.R)
-en mi paquete [R/broman](https://github.com/kbroman) maneja
+en el paquete [R/broman](https://github.com/kbroman) maneja
 esi.
 
 > ## Desafío
