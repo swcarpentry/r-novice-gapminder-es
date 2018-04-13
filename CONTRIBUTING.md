@@ -6,10 +6,10 @@ de todo tipo: nuevas lecciones, correcciones al material existente,
 informes de errores, y revisiones de cambios propuestos son todas
 bienvenidas.
 
-## Acuerdo de Colaboración
+## Acuerdo de colaboración
 
 Al contribuir, aceptas que podemos redistribuir tu trabajo bajo
-[nuestra licencia](LICENCIA.md). A cambio, abordaremos tus problemas 
+[nuestra licencia](LICENSE.md). A cambio, abordaremos tus problemas 
 y/o evaluaremos tu propuesta de cambio tan pronto como podamos, y 
 te ayudaremos a convertirte en miembro de nuestra comunidad. Todos los 
 involucrados en [Software Carpentry][swc-site] y 
@@ -29,7 +29,7 @@ y conocer a algunos de los miembros de nuestra comunidad.
 
 3. Si te sientes cómodo con Git, y te gustaría agregar o cambiar material, puedes enviar una solicitud de inclusión o **pull request** (PR). Las  instrucciones para hacerlo [se incluyen a continuación](#using-github).
 
-## Donde Contribuir
+## Donde contribuir
 
 1. Si deseas cambiar esta lección, por favor trabaja en <https://github.com/swcarpentry/r-novice-gapminder>,
     que se puede ver en <https://swcarpentry.github.io/r-novice-gapminder>.
@@ -53,10 +53,10 @@ problemas de los proyectos [Data Carpentry][dc-issues] y
 Los comentarios sobre problemas y revisiones de solicitudes de
 inclusión son igualmente bienvenidos: somos más inteligentes juntos
 que por nuestra cuenta. Los comentarios de principiantes y recién 
-llegados son particularmente valiosos: es fácil para las personas
-que han estado usando estas lecciones por un tiempo, olvidar lo 
-impenetrable que puede ser parte de este material, por lo que los 
-ojos frescos son siempre bienvenidos.
+llegados son particularmente valiosos. Es fácil para las personas 
+que usan estas lecciones frecuentemente olvidar lo impenetrable 
+que puede ser el material; 
+por lo tanto, los ojos frescos son siempre bienvenidos.
 
 ## Qué *No* contribuir
 
@@ -82,11 +82,11 @@ En resumen:
 
 1. La copia publicada de la lección está en la rama `gh-pages` del repositorio (para que GitHub la regenere automáticamente). Por favor crea todas las ramas de eso, y fusiona la rama `gh-pages` del [repositorio maestro][repo] en la rama` gh-pages` antes de comenzar a trabajar. Por favor, *no* trabajes directamente en su rama `gh-pages`, ya que eso te dificultará trabajar en otras contribuciones.
 
-2. Usamos [GitHub flow] [github-flow] para gestionar los cambios:
+2. Usamos [GitHub flow][github-flow] para gestionar los cambios:
    1. Crea una nueva rama en tu copia de escritorio de este repositorio para cada cambio significativo.
    2. Confirma (**commit**) el cambio en esa rama.
    3. Empuja esa rama a su tenedor de este repositorio en GitHub.
-   4. Envía una solicitud de inserción (**pull request**) desde esa rama al [repositorio principal] [repo].
+   4. Envía una solicitud de inserción (**pull request**) desde esa rama al [repositorio principal][repo].
    5. Si recibe comentarios,
       haz cambios en tu escritorio y envíalos (**push**) a tu rama en GitHub:
       la solicitud de inserción se actualizará automáticamente.
@@ -113,9 +113,9 @@ a la cual todos son bienvenidos. También puedes
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [cómo-contribuir]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[nuevo-problema]: https://github.com/swcarpentry/git-novice/issues/new
-[issues]: https://github.com/swcarpentry/git-novice/issues/
-[repo]: https://github.com/swcarpentry/git-novice/
+[nuevo-problema]: https://github.com/swcarpentry/r-novice-gapminder-es/issues/new
+[issues]: https://github.com/swcarpentry/r-novice-gapminder-es/issues/
+[repo]: https://github.com/swcarpentry/r-novice-gapminder-es/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
 [swc-lessons]: http://software-carpentry.org/lessons/
 [swc-site]: http://software-carpentry.org/
