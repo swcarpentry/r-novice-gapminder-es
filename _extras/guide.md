@@ -1,80 +1,80 @@
 ---
 layout: page
-title: "Instructor Notes"
+title: "Guía del instructor"
 permalink: /guide/
 ---
 
-## Timing
+## Tiempo
 
-Leave about 30 minutes at the start of each workshop and another 15 mins
-at the start of each session for technical difficulties like WiFi and
-installing things (even if you asked students to install in advance, longer if
-not).
+Dedicar unos 30 minutos antes del comienzo de cada taller y otros 15 minutos
+al comienzo de cada sesión para resolver dificultades técnicas como WiFi e
+instalación cosas (incluso si le pediste a los estudiantes que instalen programas con anticipación, y reservar más tiempo
+si no lo hiciste).
 
-## Lesson Plans
+## Planificación de la lección
 
-The lesson contains much more material than can be taught in a day.
-Instructors will need to pick an appropriate subset of episodes to use
-in a standard one day course. 
+La lección contiene mucho más material del que puede ser enseñado en un día.
+Los instructores deberán elegir un subgrupo apropiado de episodios a usar 
+para un curso estándar de un día de duración. 
 
-Some suggested paths through the material are:
+Algunos lineamientos sugeridos del material a utilizar son:
 
-(suggested by [@liz-is](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-276529213))
+(sugerido por [@liz-is](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-276529213))
 
-* 01 Introduction to R and RStudio
-* 04 Data Structures
-* 05 Exploring Data Frames ("Realistic example" section onwards)
-* 08 Creating Publication-Quality Graphics
-* 10 Functions Explained
-* 13 Dataframe Manipulation with dplyr
-* 15 Producing Reports With knitr
+* 01 Introducción a R y RStudio
+* 04 Estructuras de datos
+* 05 Explorando data frames (desde la sección "Ejemplo realista")
+* 08 Creando gráficas con calidad para publicación
+* 10 Funciones
+* 13 Manipulación de data frames con dplyr
+* 15 Produciendo informes con knitr
 
-(suggested by [@naupaka](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-312547509))
-* 01 Introduction to R and RStudio
-* 02 Project Management With RStudio
-* 03 Seeking Help
-* 04 Data Structures
-* 05 Exploring Data Frames
-* 06 Subsetting Data
+(sugerido por [@naupaka](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-312547509))
+* 01 Introducción a R y RStudio
+* 02 Gestión de proyectos con RStudio
+* 03 Buscando ayuda
+* 04 Estructuras de datos
+* 05 Explorando data frames 
+* 06 Haciendo subconjuntos de datos
 * 09 Vectorization
-* 08 Creating Publication-Quality Graphics *OR*
-  13 Dataframe Manipulation with dplyr
-* 15 Producing Reports With knitr
+* 08 Creando gráficas con calidad para publicación *OR* 
+13 Manipulación de data frames con dplyr
+* 15 Produciendo informes con knitr
 
-A half day course could consist of (suggested by [@karawoo](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-277599864)):
+Medio día de curso podría consistir en (sugerido por [@karawoo](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-277599864)):
 
-* 01 Introduction to R and RStudio
-* 04 Data Structures (only creating vectors with `c()`)
-* 05 Exploring Data Frames ("Realistic example" section onwards)
-* 06 Subsetting Datai (excluding factor, matrix and list subsetting)
-* 08 Creating Publication-Quality Graphics 
+* 01 Introducción a R y RStudio
+* 04 Estructuras de datos (únicamente creando vectores con `c()`)
+* 05 Explorando data frames (desde la sección "Ejemplo realista")
+* 06 Haciendo subconjuntos de datos (excluyendo subconjuntos de factores, matrices y listas)
+* 08 Creando gráficas con calidad para publicación 
 
-## Setting up git in RStudio
+## Configurando git en RStudio
 
-There can be difficulties linking git to RStudio depending on the
-operating system and the version of the operating system. To make sure
-Git is properly installed and configured, the learners should go to
-the Options window in the RStudio application.
+Pueden haber dificultades relacionando git a RStudio dependiendo del 
+sistema operativo y de su versión. Para asegurarse que Git está correctamente
+instalado y configurado, los alumnos deberán ir a la ventana Opciones de
+la aplicación RStudio.
 
 * **Mac OS X:**
-  * Go RStudio -> Preferences... -> Git/SVN
-  * Check and see whether there is a path to a file in the "Git executable" window. If not, the next challenge is figuring out where Git is located.
-  * In the terminal enter `which git` and you will get a path to the git executable. In the "Git executable" window you may have difficulties finding the directory since OS X hides many of the operating system files. While the file selection window is open, pressing "Command-Shift-G" will pop up a text entry box where you will be able to type or paste in the full path to your git executable: e.g. /usr/bin/git or whatever else it might be.
+  * Ir a RStudio -> Preferencias... -> Git/SVN
+  * Chequear si existe un **path** a un archivo en la ventana "Git ejecutable". Si no lo hay, el siguiente desafío será averiguar dónde está ubicado Git. 
+  * En la terminal, ingresa `which git` y obtendrás el **path** al archivo ejecutable de git. En la ventana "Git ejecutable" quizás tengas dificultades encontrando el directorio, ya que OS X oculta muchos de sus archivos del sistema operativo. Con la ventana de selección de archivo abierta, presionar las teclas "Comando-Shift-G" hará que se abra un cuadro de texto donde podrás tipear o pegar el **path** completo a tu archivo ejecutable de Git: e.g. /usr/bin/git o lo que corresponda.
 * **Windows:**
-  * Go Tools -> Global options... -> Git/SVN
-  * If you use the Software Carpentry Installer, then 'git.exe' should be installed at `C:/Program Files/Git/bin/git.exe`.
+  * Ir a Herramientas -> Opciones Globales... -> Git/SVN
+  * Si usas el Instalador de Software Carpentry, entonces 'git.exe' debe ser instalado en `C:/Archivos de Programa/Git/bin/git.exe`.
 
-To prevent the learners from having to re-enter their password each time they push a commit to GitHub, this command (which can be run from a bash prompt) will make it so they only have to enter their password once:
+Para evitar que los alumnos tengan que re-ingresar su **password** cada vez que hacen un **push** a GitHub, éste comando (que puede ser corrido desde un **prompt** de **bash**) hará que solo tengan que ingresar su **password** una única vez:
 
 ~~~
 $ git config --global credential.helper 'cache --timeout=10000000'
 ~~~
 {: .bash}
 
-## Pulling in Data
+## Obteniendo datos
 
-The easiest way to get the data used in this lesson during a workshop is
-to have attendees run the following:
+La forma más simple de obtener los datos usados en esta lección durante un taller es 
+hacer que los asistentes ejecuten lo siguiente:
 
 ~~~
 git remote add data https://github.com/resbaz/r-novice-gapminder-files
@@ -82,47 +82,47 @@ git pull data master
 ~~~
 {: .bash}
 
-If Git is not being taught as part of the workshop the raw data can be downloaded from
-[gapminder-FiveYearData][gapminder-data] and
+Si Git no está siendo enseñado como parte del taller, entonces los datos crudos pueden ser descargados desde
+[gapminder-FiveYearData][gapminder-data] y
 [gapminder-FiveYearData-Wide][gapminder-data-wide].
 
-Attendees can use the `File - Save As` dialog in their browser to save the file.
+Los asistentes pueden usar el diálogo `Archivo - Guardar como...` de su navegador para guardar el archivo.
 
-## Overall
+## En general
 
-Make sure to emphasize good practices: put code in scripts, and make
-sure they're version controlled. Encourage students to create script
-files for challenges.
+Asegurarse de enfatizar las buenas prácticas: escribir el código en **scripts** y hacer 
+que esté bajo control de versiones. Alentar a los estudiantes a crear archivos de **scripts**
+para resolver los desafíos. 
 
-If you're working in a cloud environment, get them to upload the
-gapminder data after the second lesson.
+Si estás trabajando en un ambiente remoto (en "la nube"), puedes pedirles que suban los datos de **gapminder**
+luego de la segunda lección. 
 
-Make sure to emphasize that matrices are vectors underneath the hood
-and data frames are lists underneath the hood: this will explain a
-lot of the esoteric behaviour encountered in basic operations.
+Asegurate de enfatizar que, a fin de cuentas, las matrices son vectores y que las **data frames**
+son listas: esto explicará mucho del comportamiento esotérico encontrado 
+en las operaciones básicas.
 
-Vector recycling and function stacks are probably best explained
-with diagrams on a whiteboard.
+El reciclado de vectores y funciones probablemente se explican mejor usando 
+diagramas en una pizarra.
 
-Be sure to actually go through examples of an R help page: help files
-can be intimidating at first, but knowing how to read them is tremendously
-useful.
+Es recomendado mirar y hacer los ejemplos de una página de ayuda de R: los 
+archivos de ayuda pueden ser intimidantes al principio, pero saber cómo leerlos es 
+tremendamente útil.
 
-Be sure to show the CRAN task views, look at one of the topics.
+Mostrar las **CRAN task views**, verlas con uno de los temas.
 
-There's a lot of content: move quickly through the earlier lessons. Their
-extensiveness is mostly for purposes of learning by osmosis: so that their
-memory will trigger later when they encounter a problem or some esoteric behaviour.
+Hay mucho contenido: muévete rápidamente por las primeras lecciones. Éstas son extensas
+mayormente con el propósito de aprender por ósmosis: de forma que su recuerdo 
+se dispare cuando se encuentren luego con un problema o comportamiento esotérico.
 
-Key lessons to take time on:
+Lecciones clave en las cuales dedicar tiempo:
 
-* Data subsetting - conceptually difficult for novices
-* Functions - learners especially struggle with this
-* Data structures - worth being thorough, but you can go through it quickly.
+* Haciendo subconjuntos de datos - conceptualmente difíciles para novatos
+* Funciones - los estudiantes tienen problemas especialmente con ellas
+* Estructuras de datos - vale la pena ser completo, pero puedes avanzar por la lección rápidamente.
 
-Don't worry about being correct or knowing the material back-to-front. Use
-mistakes as teaching moments: the most vital skill you can impart is how to
-debug and recover from unexpected errors.
+No se preocupes por no equivocarte o conocer el material de pies a cabeza. Usa
+los errores como momentos de aprendizaje: la habilidad más importante que puedes 
+enseñar es cómo eliminar errores (**debug**) y recuperarse de errores inesperados.
 
 [gapminder-data]: https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv
 [gapminder-data-wide]: https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_wide.csv
