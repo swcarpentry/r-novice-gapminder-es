@@ -1,5 +1,5 @@
 ---
-title: "División y combinación de data frames con dplyr"
+title: "División y combinación de data frames con plyr"
 teaching: 30
 exercises: 30
 questions:
