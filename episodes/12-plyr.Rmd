@@ -1,5 +1,5 @@
 ---
-title: Divide-aplica-combina
+title: "División y combinación de data frames con dplyr"
 teaching: 30
 exercises: 30
 questions:

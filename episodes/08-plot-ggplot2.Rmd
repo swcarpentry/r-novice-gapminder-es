@@ -1,5 +1,5 @@
 ---
-title: Creando gráficas con calidad para publicación
+title: Creando gráficas con calidad para publicación con ggplot2
 teaching: 60
 exercises: 20
 questions:
