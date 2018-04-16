@@ -24,7 +24,7 @@ Algunos lineamientos sugeridos del material a utilizar son:
 * 01 Introducción a R y RStudio
 * 04 Estructuras de datos
 * 05 Explorando data frames (desde la sección "Ejemplo realista")
-* 08 Creando gráficas con calidad para publicación
+* 08 Creando gráficas con calidad para publicación con ggplot2
 * 10 Funciones
 * 13 Manipulación de data frames con dplyr
 * 15 Produciendo informes con knitr
@@ -37,7 +37,7 @@ Algunos lineamientos sugeridos del material a utilizar son:
 * 05 Explorando data frames 
 * 06 Haciendo subconjuntos de datos
 * 09 Vectorization
-* 08 Creando gráficas con calidad para publicación *OR* 
+* 08 Creando gráficas con calidad para publicación con ggplot2 *OR* 
 13 Manipulación de data frames con dplyr
 * 15 Produciendo informes con knitr
 
@@ -47,7 +47,7 @@ Medio día de curso podría consistir en (sugerido por [@karawoo](https://github
 * 04 Estructuras de datos (únicamente creando vectores con `c()`)
 * 05 Explorando data frames (desde la sección "Ejemplo realista")
 * 06 Haciendo subconjuntos de datos (excluyendo subconjuntos de factores, matrices y listas)
-* 08 Creando gráficas con calidad para publicación 
+* 08 Creando gráficas con calidad para publicación con ggplot2
 
 ## Configurando git en RStudio
 
