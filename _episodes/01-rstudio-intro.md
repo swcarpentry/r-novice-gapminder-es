@@ -30,6 +30,7 @@ source: Rmd
 
 
 
+
 ## Motivación
 
 
@@ -83,8 +84,8 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 1. Probar y jugar dentro de la consola interactiva de R y luego copiar el código en un archivo .R para ejecutarlo más tarde.
    *  Esto funciona bien cuando se hacen pequeñas pruebas y se está comenzando.
    *  Rápidamente se vuelve laborioso. 
-2. Comienza a escribir un archivo en .R y usa las teclas de acceso directo de RStudio para Ejecutar la línea actual, las líneas seleccionadas o modificadas en la consola interactiva.
-   * Esta es una buena forma de comenzar; todo tu código es guardado para después.
+2. Comienza a escribir un archivo en .R y usa las teclas de acceso directo de RStudio para ejecutar la línea actual, las líneas seleccionadas o modificadas en la consola interactiva.
+   * Esta es una buena forma de comenzar; todo tu código estará guardado para después.
    * Podrás ejecutar el archivo que crees desde RStudio o mediante la función `source ()` de R.
 
 
@@ -96,19 +97,19 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 > "Code", o  3. Presionar Ctrl-Enter en Windows o Linux o Command-Enter en OS X. (Este atajo también se 
 > puede hacer colocando el mouse sobre el botón). Para ejecutar un bloque de código, selecciónalo y luego 
 > pulsa `Run`. Si has modificado una línea de código dentro de un bloque que acabas de ejecutar,
-> no es necesario re-seleccionar  el bloque y `Run`, puedes usar el botón 
+> no es necesario re-seleccionar el bloque y `Run`, puedes usar el botón 
 > `Re-run the previous region`. Esto ejecutará el bloque de código anterior, incluidas las modificaciones que 
-> has realizado.
+> hayas realizado.
 {: .callout}
 
 
 ## Introducción a R
 
 
-Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que obtendrías si escribieras en líneas de comando en el entorno `R`.
+Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que obtendrías si escribieras `R` en la terminal de shell/linea de comandos.
 
 
-Lo primero que verás en la sesión interactiva R es un montón de información, seguido de un cursor ">" y un cursor parpadeante. En este sentido, esto es similar al entorno de shell que aprendiste durante las lecciones de shell: opera con la misma idea de "leer, evaluar, mostrar": escribe comandos, R intenta ejecutarlos y luego devuelve un resultado.
+Lo primero que verás en la sesión interactiva R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar": tu escribes comandos, R intenta ejecutarlos y luego devuelve un resultado.
 
 
 ## Usando R como una calculadora
@@ -146,25 +147,25 @@ Al igual que bash, si escribes un comando incompleto, R esperará a que lo compl
 {: .output}
 
 
-Cada vez que presionas return y R muestra un "+" en lugar de ">", significa que está esperando que completes el comando. Si desea cancelar un comando, simplemente presione "Esc" y RStudio le devolverá el mensaje ">".
+Cada vez que presionas Enter y R te muestra un "+" en lugar de ">", significa que está esperando que completes el comando. Si deseas cancelar un comando, simplemente presiona "Esc" y RStudio te devolverá el ">" **prompt**.
 
 
 
 
 > ## Sugerencia: Cancelando comandos
 >
-> Si usas R desde la línea de comando en lugar de estar dentro de RStudio, 
+> Si usas R desde la línea de comandos en lugar de estar dentro de RStudio, 
 > debe usar `Ctrl + C` en lugar de` Esc` para cancelar el comando. 
 > ¡Esto se aplica también a los usuarios de Mac!
 >
-> La cancelación de un comando no solo es útil para matar comandos incompletos: 
+> La cancelación de un comando no sólo es útil para matar comandos incompletos: 
 > también puedes usarlo para decirle a R que deje de ejecutar el código (por ejemplo, si tarda 
 > mucho más de lo que esperabas), o para deshacerte del código que estás escribiendo actualmente.
 >
 {: .callout}
 
 
-Cuando se usa R como calculadora, el orden de las operaciones es el mismo que has aprendido en la escuela.
+Cuando usas R como calculadora, el orden de las operaciones es el mismo que has aprendido en la escuela.
 
 
 De mayor a menor precedencia:
@@ -211,7 +212,7 @@ Usa paréntesis para agrupar las operaciones a fin de forzar el orden de la eval
 
 
 Esto puede ser difícil de manejar cuando no es necesario, pero aclara tus intenciones.
-Recuerde que otros pueden leer su código.
+Recuerda que otros pueden leer tu código.
 
 
 
@@ -220,14 +221,14 @@ Recuerde que otros pueden leer su código.
 ~~~
 (3 + (5 * (2 ^ 2))) # difícil de leer
 3 + 5 * 2 ^ 2       # claro, si recuerdas las reglas
-3 + 5 * (2 ^ 2)     # si olvida algunas reglas, esto podría ayudar
+3 + 5 * (2 ^ 2)     # si olvidas algunas reglas, esto podría ayudar
 ~~~
 {: .language-r}
 
 
 
 
-El texto después de cada línea de código se llama "comentario". Todo lo que sigue después del símbolo hash (o numeral) `#` es ignorado por R cuando ejecuta el código.
+El texto después de cada línea de código se llama "comentario". Todo lo que sigue después del símbolo hash (o numeral) `#` es ignorado por R cuando se ejecuta el código.
 
 
 Los números pequeños o grandes tienen una notación científica:
@@ -250,12 +251,12 @@ Los números pequeños o grandes tienen una notación científica:
 Es la abreviatura de "multiplicado por` 10 ^ XX` ". Entonces `2e-4` es la abreviatura de `2 * 10^(-4)`.
 
 
-Puedes escribir números en notación científica también:
+Tú también puedes escribir números en notación científica:
 
 
 
 ~~~
-5e3  # falta el signo menos aquí
+5e3  # nota la falta del signo menos aquí
 ~~~
 {: .language-r}
 
@@ -266,10 +267,10 @@ Puedes escribir números en notación científica también:
 ~~~
 {: .output}
 
-## Funciones Matemáticas
+## Funciones matemáticas
 
 
-R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre, seguido paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llama argumentos de la función:
+R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre, seguido de paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llama argumentos de la función:
 
 
 
@@ -330,10 +331,10 @@ exp(0.5) # e^(1/2)
 No te preocupes si no recuerdas todas las funciones en R. Simplemente puede buscarlas en Google, o si puedes recordar el comienzo del nombre de la función, usa el tabulador para completar su nombre en RStudio.
 
 
-Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de autocompletado que le permiten buscar funciones más fácilmente, sus argumentos y los valores que toman.
+Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de autocompletado que te permiten buscar funciones más fácilmente, sus argumentos y los valores que toman.
 
 
-Escribir un `?` antes del nombre de un comando y abrirá la página de ayuda para ese comando. Además de proporcionar una descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante.
+Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para ese comando. Además de proporcionar una descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante.
 
 
 ## Comparando
@@ -346,7 +347,7 @@ Podemos realizar comparaciones en R:
 
 
 ~~~
-1 == 1  # igualdad (observe dos signos iguales, se lee como "es igual a")
+1 == 1  # igualdad (observa dos signos iguales, se lee como "es igual a")
 ~~~
 {: .language-r}
 
@@ -430,8 +431,8 @@ Podemos realizar comparaciones en R:
 >
 > Una advertencia sobre la comparación de números: 
 > nunca debes usar `==` para comparar dos números a menos que 
-> sean enteros (un tipo de datos que puede representar 
-> específicamente solo números enteros).
+> sean enteros (**integer** es un tipo de datos que 
+> específica números enteros).
 >
 > Las computadoras sólo pueden representar números decimales con 
 > un cierto grado de precisión, así que dos números que parecen iguales 
@@ -447,7 +448,7 @@ Podemos realizar comparaciones en R:
 {: .callout}
 
 
-## Variables y Asignaciones
+## Variables y asignaciones
 
 
 Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos ejemplos:
@@ -459,7 +460,7 @@ x <- 1/40
 ~~~
 {: .language-r}
 
-Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante en algo llamado **variable**. `x` ahora contiene el ** valor **` 0.025`:
+Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante, en algo llamado **variable**. `x` ahora contiene el **valor** `0.025`:
 
 
 
@@ -476,7 +477,7 @@ x
 {: .output}
 
 
-Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción llamada un [número en coma flotante] (http://en.wikipedia.org/wiki/Floating_point).
+Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción, llamado [número de coma flotante o **floating point**] (http://en.wikipedia.org/wiki/Floating_point).
 
 
 Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que` x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
@@ -505,31 +506,31 @@ x <- 100
 {: .language-r}
 
 
-`x` tenía el valor 0.025 y ahora tiene el valor 100.
+`x` tenía el valor `0.025` y ahora tiene el valor `100`.
 
 También, los valores de asignación pueden contener la variable asignada:
 
 
 
 ~~~
-x <- x + 1 #observa cómo RStudio actualiza la descripción de x en la pestaña superior derecha
+x <- x + 1 # observa cómo RStudio actualiza la descripción de x en la pestaña superior derecha
 y <- x * 2
 ~~~
 {: .language-r}
 
 El lado derecho de la asignación puede ser cualquier expresión de R válida.
-La expresión del lado derecho * se evalúa por completo * antes de que se realice la asignación.
+La expresión del lado derecho *se evalúa por completo* antes de que se realice la asignación.
 
 
 Los nombres de las variables pueden contener letras, números, guiones bajos y puntos. No pueden comenzar con un número ni contener espacios en absoluto. Diferentes personas usan diferentes convenciones para nombres largos de variables, estos incluyen
 
 
   * puntos.entre.palabras
-  * guiones bajos\_entre_palabras
+  * guiones bajos_entre_palabras
   * MayúsculasMinúsculasParaSepararPalabras
 
 
-Lo que uses depende de tí, pero ** sé consistente **.
+Lo que uses depende de tí, pero **sé consistente**.
 
 
 También es posible utilizar el operador `=` para la asignación:
@@ -543,15 +544,63 @@ x = 1/40
 {: .language-r}
 
 Esta forma es menos común entre los usuarios R. Lo más importante es
-** ser consistente ** con el operador que usa. Ocasionalmente hay lugares
-donde es menos confuso usar `<-` que` = `, y es el símbolo más común usado en la comunidad. 
+**ser consistente** con el operador que usas. Ocasionalmente hay lugares
+donde es menos confuso usar `<-` que `=`, y es el símbolo más común usado en la comunidad. 
 Entonces la recomendación es usar `<-`.
+
+> ## Desafío 1
+>
+> De los siguientes ejemplos, ¿Cuáles son nombres de variables válidas en R?
+> 
+> ~~~
+> min_height
+> max.height
+> _age
+> .mass
+> MaxLength
+> min-length
+> 2widths
+> celsius2kelvin
+> ~~~
+> {: .language-r}
+>
+> > ## Solución al desafío 1
+> >
+> > Los siguientes nombres de variables son válidos en R:
+> > 
+> > ~~~
+> > min_height
+> > max.height
+> > MaxLength
+> > celsius2kelvin
+> > ~~~
+> > {: .language-r}
+> >
+> > El punto al inicio crea una variable oculta:
+> > 
+> > ~~~
+> > .mass
+> > ~~~
+> > {: .language-r}
+> >
+> > Los siguientes no son nombres de variables válidos en RÑ
+> > 
+> > ~~~
+> > _age
+> > min-length
+> > 2widths
+> > ~~~
+> > {: .language-r}
+> {: .solution}
+{: .challenge}
 
 
 ## Vectorización
 
 
-Una última cosa a tomar en cuenta es que R está * vectorizado *, lo que significa que las variables y funciones pueden tener vectores como valores. Por ejemplo
+Muy importante para tomar en cuenta, es que R es *vectorizado*, lo que significa que las variables y funciones pueden tener vectores como valores y R puede operar en vectores completos a la vez. 
+En contraste con los conceptos de vectores de física y matemáticas, un vector en R describe un conjunto de valores del
+mismo tipo de datos en un cierto orden. Por ejemplo:
 
 
 ~~~
@@ -611,7 +660,6 @@ Hay algunos comandos útiles que puedes usar para interactuar con la sesión R.
 
 
 
-
 ~~~
 ls()
 ~~~
@@ -624,12 +672,10 @@ ls()
 ~~~
 {: .output}
 
-
-
 > ## Sugerencia: ocultando objetos
 >
 > Al igual que en el shell, `ls` oculta por defecto cualquier variable o función que comience
-> con un ".". Para listar todos los objetos, escribe `ls (all.names = TRUE)` 
+> con un ".". Para listar todos los objetos, escribe `ls(all.names = TRUE)` 
 >
 {: .callout}
 
@@ -638,7 +684,7 @@ Ten en cuenta que no se dió ningún argumento a `ls`, pero sí se necesita pone
 para decirle a R que llame a la función.
 
 
-Si escribimos `ls` nada más, R mostrará el código fuente de esa función!
+Si escribimos `ls` nada más, ¡R mostrará el código fuente de esa función!
 
 
 ~~~
@@ -680,7 +726,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x7fdb4a717400>
+<bytecode: 0x7fbc4cfe3e00>
 <environment: namespace:base>
 ~~~
 {: .output}
@@ -697,7 +743,7 @@ rm(x)
 
 
 Si tienes muchas cosas en tu entorno y deseas borrarlas todas, 
-puedes pasar los resultados de `ls` a la función` rm`:
+puedes pasar los resultados de `ls` y mandarlos a la función` rm`:
 
 
 
@@ -709,8 +755,7 @@ rm(list = ls())
 En este caso, hemos combinado los dos. Al igual que el orden de las operaciones, todo lo que se encuentre dentro de los paréntesis más internos se evalúa primero, y así sucesivamente.
 
 
-En este caso, hemos especificado que los resultados de `ls` se deben usar para el argumento ` list` en `rm`. Cuando asignes valores a argumentos por su nombre, * debes *
-usa el operador `=` !!
+En este caso, hemos especificado que los resultados de `ls` se deben usar para el argumento `list` y luego remover la lista con `rm`. Cuando asignes valores a argumentos por su nombre, *debes* usar el operador `=`.
 
 
 Si, en cambio, usamos `<-`, habrá efectos secundarios no deseados, o puedes recibir un mensaje de error:
@@ -749,63 +794,11 @@ por otra persona. Hay más de 10,000 paquetes disponibles en CRAN (la red comple
 R y RStudio tienen funcionalidad para administrar paquetes:
 
 
-* Puedes ver qué paquetes están instalados escribiendo `installed.packages ()`
-* Puedes instalar paquetes escribiendo `install.packages (" packagename ")`, donde `packagename` es el nombre del paquete entre comillas.
-* Puedes actualizar los paquetes instalados escribiendo `update.packages ()`
-* Puedes eliminar un paquete con `remove.packages (" packagename ")`
-* Puedes hacer que un paquete esté disponible para su uso con `library (packagename)`
-
-
-> ## Desafío 1
->
-> ¿Cuáles de los siguientes nombres de variables son válidos en R?
-> 
-> 
-> ~~~
-> min_height
-> max.height
-> _age
-> .mass
-> MaxLength
-> min-length
-> 2widths
-> celsius2kelvin
-> ~~~
-> {: .language-r}
->
-> > ## Solución al desafío 1
-> >
-> > Las siguientes variables pueden ser utilizadas en R:
-> > 
-> > 
-> > ~~~
-> > min_height
-> > max.height
-> > MaxLength
-> > celsius2kelvin
-> > ~~~
-> > {: .language-r}
-> >
-> > Lo siguiente crea una variable oculta:
-> > 
-> > 
-> > ~~~
-> > .mass
-> > ~~~
-> > {: .language-r}
-> >
-> > Lo siguiente no puede ser usado para crear una variable
-> > 
-> > 
-> > ~~~
-> > _age
-> > min-length
-> > 2widths
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
-
+* Puedes ver qué paquetes están instalados escribiendo `installed.packages()`
+* Puedes instalar paquetes escribiendo `install.packages("packagename")`, donde `packagename` es el nombre del paquete entre comillas.
+* Puedes actualizar los paquetes instalados escribiendo `update.packages()`
+* Puedes eliminar un paquete con `remove.packages("packagename")`
+* Puedes hacer que un paquete esté disponible para su uso con `library(packagename)`
 
 > ## Desafío 2
 >
@@ -861,11 +854,10 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 
 
-
 > ## Desafío 3
 >
 > Ejecuta el código del desafío anterior y escribe un comando para comparar la variable mass con age. 
-> ¿mass es más grande que age?
+> ¿Es la variable `mass` más grande que `age`?
 >
 > > ## Solución del desafío 3
 > >
@@ -887,8 +879,6 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > > Esto debería dar un valor booleano TRUE ya que 109.25 es mayor que 102.
 > {: .solution}
 {: .challenge}
-
-
 
 
 > ## Desafío 4
