@@ -5,7 +5,7 @@ title: "Explorando data frames"
 teaching: 20
 exercises: 10
 questions:
-- "¿cómo puedo manipular un *dataframe*?"
+- "¿Cómo puedo manipular un *dataframe*?"
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
@@ -645,12 +645,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >         country year       pop continent lifeExp  gdpPercap
-> > 715   Indonesia 1982 153343000      Asia  56.159  1516.8730
-> > 1674 Yemen Rep. 1977   8403990      Asia  44.175  1829.7652
-> > 1535   Thailand 2002  62806748      Asia  68.564  5913.1875
-> > 1519   Tanzania 1982  19844382    Africa  50.608   874.2426
-> > 1235     Poland 2002  38625976    Europe  74.670 12002.2391
+> >         country year      pop continent lifeExp gdpPercap
+> > 1039 Mozambique 1982 12587223    Africa  42.795  462.2114
+> > 73      Austria 1952  6927772    Europe  66.800 6137.0765
+> > 25      Algeria 1952  9279525    Africa  43.077 2449.0082
+> > 1028    Morocco 1987 22987397    Africa  62.677 2755.0470
+> > 510    Ethiopia 1977 34617799    Africa  44.510  556.8084
 > > ~~~
 > > {: .output}
 > {: .solution}

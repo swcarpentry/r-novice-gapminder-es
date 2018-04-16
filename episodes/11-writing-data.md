@@ -5,7 +5,7 @@ title: Guardando datos
 teaching: 10
 exercises: 10
 questions:
-- "¿Cómo puedo guardar gráficas y datos creados en R"
+- "¿Cómo puedo guardar gráficas y datos creados en R?"
 objectives:
 - "Ser capaz de guardar gráficas y datos desde R."
 keypoints:
