@@ -91,9 +91,9 @@ tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **sc
 Todo lo generado por tus **scripts** debe tratarse como disponible: todo debería 
 poder regenerarse a partir de tus **scripts**.
 
-Hay muchas diferentes maneras de gestionar esta salida. Me parece útil 
+Hay muchas diferentes maneras de gestionar esta salida. Es útil 
 tener una carpeta de salida con diferentes subdirectorios para cada análisis 
-por separado. Esto hace que sea más fácil después, ya que muchos de mis análisis son exploratorios
+por separado. Esto hace que sea más fácil después, ya que muchos de nuestros análisis son exploratorios
 y no terminan siendo utilizados en el proyecto final, y algunos de los análisis se comparten entre proyectos.
 
 > ## Tip: Good Enough Practices for Scientific Computing
@@ -129,7 +129,7 @@ y no terminan siendo utilizados en el proyecto final, y algunos de los análisis
 > ~~~
 > {: .language-r}
 >
-> Para más información de ProjectTemplate y su functionalida visita la
+> Para más información de ProjectTemplate y su functionalidad visita la
 > página [ProjectTemplate](http://projecttemplate.net/index.html)
 {: .callout}
 
@@ -140,7 +140,7 @@ Una de las maneras más efectivas de trabajar con R es comenzar escribiendo el c
 Cuando tu proyecto se encuentra en sus primeras etapas, el archivo **script** inicial .R generalmente contendrá muchas líneas de código ejecutadas directamente. Conforme vaya madurando, fragmentos reutilizables podrán ser llevados a sus
 propias funciones. Es buena idea separar estas funciones en dos carpetas separadas; una
 para guardar funciones útiles que reutilizarás a través del análisis y proyectos, y
-uno para guardar los **scripts** de análisis.
+una para guardar los **scripts** de análisis.
 
 > ## Tip: evitando la duplicación
 >
@@ -151,7 +151,7 @@ uno para guardar los **scripts** de análisis.
 > En este caso, me parece útil hacer "links simbólicos", los cuales son esencialmente
 > accesos directos a archivos en otro lugar en un sistema de archivos. En Linux y OS X puedes
 > utilizar el comando `ln -s`, y en Windows crear un acceso directo o
-> utilizar el comando `mklink` desde la terminal de windows.
+> utilizar el comando `mklink` desde la terminal de Windows.
 {: .callout}
 
 ### Guardar los datos en el directorio de datos
@@ -163,7 +163,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 >
 > 1. Descargar el archivo (CTRL + S, clic botón derecho del **mouse** -> "Save as", o File -> "Save page as")
 > 2. Asegúrate de que esté guardado con el nombre `gapminder-FiveYearData.csv`
-> 3. Guardar el archivo en la carpet `data/` dentro de tu proyecto.
+> 3. Guardar el archivo en la carpeta `data/` dentro de tu proyecto.
 >
 > Más delante cargaremos e inspeccionaremos estos datos.
 {: .challenge}
