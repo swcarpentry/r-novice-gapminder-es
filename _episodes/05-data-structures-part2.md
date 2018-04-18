@@ -5,39 +5,39 @@ title: "Explorando data frames"
 teaching: 20
 exercises: 10
 questions:
-- "¿Cómo puedo manipular un *dataframe*?"
+- "¿Cómo puedo manipular un *data frame*?"
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
-- "Poder anexar dos *dataframe*."
+- "Poder anexar dos *data frame*."
 - "Poder articular qué es un `factor` y cómo convertir entre `factor` y `character`."
-- "Poder entender las propiedades básicas de un *dataframe*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
+- "Poder entender las propiedades básicas de un *data frame*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
 keypoints:
-- "Usar `cbind()` para agregar una nueva columna a un *dataframe*."
-- "Usar `rbind()` para agregar una nueva fila a un *dataframe*."
-- "Quitar filas de un *dataframe*."
-- "Usar `na.omit()` para remover filas de un *dataframe* con valores `NA`."
+- "Usar `cbind()` para agregar una nueva columna a un *data frame*."
+- "Usar `rbind()` para agregar una nueva fila a un *data frame*."
+- "Quitar filas de un *data frame*."
+- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`."
 - "Usar `levels()` y `as.character()` para explorar y manipular columnas de clase *factor*"
-- "Usar `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` y `typeof()` para entender la estructura de un *dataframe*"
+- "Usar `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` y `typeof()` para entender la estructura de un *data frame*"
 - "Leer un archivo csv usando `read.csv()`"
-- "Entender el uso de `length()` en un *dataframe*"
+- "Entender el uso de `length()` en un *data frame*"
 source: Rmd
 ---
 
 
   
-A esta altura, ya viste todo - en la última lección, donde recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *dataframe* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *dataframe*.
+A esta altura, ya viste todo - en la última lección, donde recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
   
 
-## Agregando columnas y filas a un dataframe
+## Agregando columnas y filas a un data frame
 
-Aprendimos que las columnas en un *dataframe* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
+Aprendimos que las columnas en un *data frame* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
 
 
 
 
 ~~~
-age <- c(2,3,5,12)
+age <- c(2,3,5)
 cats
 ~~~
 {: .language-r}
@@ -57,7 +57,26 @@ Podemos entonces agregarlo como una columna via:
 
 
 ~~~
-cats <- cbind(cats, age)
+cbind(cats, age)
+~~~
+{: .language-r}
+
+
+
+~~~
+    coat weight likes_string age
+1 calico    2.1            1   2
+2  black    5.0            0   3
+3  tabby    3.2            1   5
+~~~
+{: .output}
+
+Tenga en cuenta que fallará si tratamos de agregar un vector con un número diferente de entradas que el número de filas en el marco de datos.
+
+
+~~~
+age <- c(2, 3, 5, 12)
+cbind(cats, age)
 ~~~
 {: .language-r}
 
@@ -69,44 +88,32 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 {: .error}
 
 
+
+~~~
+age <- c(2, 3)
+cbind(cats, age)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 2
+~~~
+{: .error}
+
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-
-~~~
-cats
-~~~
-{: .language-r}
-
+Para que funcione, no debemos tener `nrow(cats)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
-~~~
-{: .output}
-
-
-
-~~~
-age <- c(4,5,8)
+age <- c(2, 3, 5)
 cats <- cbind(cats, age)
-cats
 ~~~
 {: .language-r}
 
-
-
-~~~
-    coat weight likes_string age
-1 calico    2.1            1   4
-2  black    5.0            0   5
-3  tabby    3.2            1   8
-~~~
-{: .output}
-
-Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *dataframe* están compuestas por listas:
+Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
 
 
 ~~~
@@ -129,7 +136,7 @@ Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cui
 'black', 'calico' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*coat*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *weight*, *likes_string*, y *age*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *dataframe* cats en la columna *coat*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*coat*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *weight*, *likes_string*, y *age*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* cats en la columna *coat*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
@@ -167,7 +174,7 @@ str(cats)
  $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
  $ weight      : num  2.1 5 3.2 3.3 3.3
  $ likes_string: int  1 0 1 1 1
- $ age         : num  4 5 8 9 9
+ $ age         : num  2 3 5 9 9
 ~~~
 {: .output}
 
@@ -186,7 +193,7 @@ str(cats)
  $ coat        : chr  "calico" "black" "tabby" NA ...
  $ weight      : num  2.1 5 3.2 3.3 3.3
  $ likes_string: int  1 0 1 1 1
- $ age         : num  4 5 8 9 9
+ $ age         : num  2 3 5 9 9
 ~~~
 {: .output}
 
@@ -205,7 +212,7 @@ str(cats)
 
 ## Quitando filas
 
-Ahora sabemos cómo agregar filas y columnas a nuestro *dataframe* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
+Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
 
 
 ~~~
@@ -217,15 +224,15 @@ cats
 
 ~~~
            coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
+1        calico    2.1            1   2
+2         black    5.0            0   3
+3         tabby    3.2            1   5
 4          <NA>    3.3            1   9
 5 tortoiseshell    3.3            1   9
 ~~~
 {: .output}
 
-Podemos pedir el *dataframe* sin la fila errónea: 
+Podemos pedir el *data frame* sin la fila errónea: 
 
 
 ~~~
@@ -237,9 +244,9 @@ cats[-4,]
 
 ~~~
            coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
+1        calico    2.1            1   2
+2         black    5.0            0   3
+3         tabby    3.2            1   5
 5 tortoiseshell    3.3            1   9
 ~~~
 {: .output}
@@ -258,14 +265,14 @@ na.omit(cats)
 
 ~~~
            coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
+1        calico    2.1            1   2
+2         black    5.0            0   3
+3         tabby    3.2            1   5
 5 tortoiseshell    3.3            1   9
 ~~~
 {: .output}
 
-Volvamos a asignar el nuevo resultado *output* al *dataframe* `cats`, así nuestros cambios son permanentes:
+Volvamos a asignar el nuevo resultado *output* al *data frame* `cats`, así nuestros cambios son permanentes:
 
 
 ~~~
@@ -273,9 +280,52 @@ cats <- na.omit(cats)
 ~~~
 {: .language-r}
 
-## Añadiendo a un dataframe
+## Eliminando columnas
 
-La clave que hay que recordar al añadir datos a un *dataframe* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *dataframes* usando `rbind` que significa unir las filas (verticalmente):
+También podemos eliminar columnas en un marco de datos. Hay dos formas de eliminar una columna: por número o nobre de índice.
+
+
+~~~
+cats[,-4]
+~~~
+{: .language-r}
+
+
+
+~~~
+           coat weight likes_string
+1        calico    2.1            1
+2         black    5.0            0
+3         tabby    3.2            1
+5 tortoiseshell    3.3            1
+~~~
+{: .output}
+
+Observe la coma sin nada antes, lo que indica que queremos mantener todas las filas.
+
+Alternativamente, podemos soltar la columna usando el nombre del índice.
+
+
+~~~
+drop <- names(cats) %in% c("age")
+cats[,!drop]
+~~~
+{: .language-r}
+
+
+
+~~~
+           coat weight likes_string
+1        calico    2.1            1
+2         black    5.0            0
+3         tabby    3.2            1
+5 tortoiseshell    3.3            1
+~~~
+{: .output}
+
+## Añadiendo a un data frame
+
+La clave que hay que recordar al añadir datos a un *data frame* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *data frames* usando `rbind` que significa unir las filas (verticalmente):
 
 
 
@@ -289,13 +339,13 @@ cats
 
 ~~~
             coat weight likes_string age
-1         calico    2.1            1   4
-2          black    5.0            0   5
-3          tabby    3.2            1   8
+1         calico    2.1            1   2
+2          black    5.0            0   3
+3          tabby    3.2            1   5
 5  tortoiseshell    3.3            1   9
-11        calico    2.1            1   4
-21         black    5.0            0   5
-31         tabby    3.2            1   8
+11        calico    2.1            1   2
+21         black    5.0            0   3
+31         tabby    3.2            1   5
 51 tortoiseshell    3.3            1   9
 ~~~
 {: .output}
@@ -313,20 +363,20 @@ cats
 
 ~~~
            coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
+1        calico    2.1            1   2
+2         black    5.0            0   3
+3         tabby    3.2            1   5
 4 tortoiseshell    3.3            1   9
-5        calico    2.1            1   4
-6         black    5.0            0   5
-7         tabby    3.2            1   8
+5        calico    2.1            1   2
+6         black    5.0            0   3
+7         tabby    3.2            1   5
 8 tortoiseshell    3.3            1   9
 ~~~
 {: .output}
 
 > ## Desafío 2
 >
-> Puedes crear un nuevo *dataframe* desde R con la siguiente sintaxis:
+> Puedes crear un nuevo *data frame* desde R con la siguiente sintaxis:
 > 
 > ~~~
 > df <- data.frame(id = c('a', 'b', 'c'),
@@ -335,7 +385,7 @@ cats
 >                  stringsAsFactors = FALSE)
 > ~~~
 > {: .language-r}
-> Crear un dataframe que contenga la siguiente información personal:
+> Crear un data frame que contenga la siguiente información personal:
 >
 > - Nombre
 > - Apellido
@@ -355,13 +405,12 @@ cats
 > > df <- cbind(df, coffeetime = c(TRUE,TRUE))
 > > ~~~
 > > {: .language-r}
-
 > {: .solution}
 {: .challenge}
 
 ## Ejemplo realista
 
-Hasta ahora, hemos visto las manipulaciones básicas que pueden hacerse en un *dataframe*. Ahora, vamos a extender esas habilidades con un ejemplo más real. Vamos a importar el **gapminder dataset** que descargamos previamente:
+Hasta ahora, hemos visto las manipulaciones básicas que pueden hacerse en un *data frame*. Ahora, vamos a extender esas habilidades con un ejemplo más real. Vamos a importar el **gapminder dataset** que descargamos previamente:
 
 
 ~~~
@@ -414,7 +463,7 @@ str(gapminder)
 ~~~
 {: .output}
 
-También podemos examinar columnas individuales del *dataframe* con la función `typeof`:
+También podemos examinar columnas individuales del *data frame* con la función `typeof`:
   
 
 ~~~
@@ -458,7 +507,7 @@ str(gapminder$country)
 {: .output}
 
 
-También podemos interrogar al *dataframe* por la información sobre sus dimensiones;
+También podemos interrogar al *data frame* por la información sobre sus dimensiones;
 recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué piensas que el siguiente código producirá y por qué?
 
 
@@ -475,7 +524,7 @@ length(gapminder)
 ~~~
 {: .output}
 
-Un intento certero hubiera sido decir que el largo (`length`) de un *dataframe* es el número de filas (1704), pero no es el caso; recuerda, un *dataframe es una lista de vectores y factors*. 
+Un intento certero hubiera sido decir que el largo (`length`) de un *data frame* es el número de filas (1704), pero no es el caso; recuerda, un *data frame es una lista de vectores y factors*. 
 
 
 ~~~
@@ -576,12 +625,12 @@ head(gapminder)
 
 > ## Desafío 3
 >
-> También es útil revisar algunas líneas en el medio y el final del **dataframe** ¿Cómo harías eso?
+> También es útil revisar algunas líneas en el medio y el final del **data frame** ¿Cómo harías eso?
 >
 > Buscar líneas exactamente en el medio no es tan difícil, pero simplemente revisar algunas lineas al azar es suficiente. ¿cómo harías eso?
 >
 > > ## Solución al desafío 3
-> > Para revisar las últimas líneas del *dataframe* R tiene una función para esto:
+> > Para revisar las últimas líneas del *data frame* R tiene una función para esto:
 > > 
 > > 
 > > ~~~
@@ -634,7 +683,7 @@ head(gapminder)
 > > Para revisar algunas lineas al azar?
 > > ## sugerencia: Hay muchas maneras de hacer esto
 > > La solución que presentamos aquí utiliza funciones anidadas, por ejemplo una función es el argumento de otra función. Esto te puede parecer nuevo, pero ya lo haz usado.
-> > Recuerda *my_dataframe[rows, cols]* imprime el *dataframe* con la sección de filas y columnas definidas (incluso puedes seleccionar un rando de filas y columnas usando **:** por ejemplo). Para obtener un número al azar o varios números al azar R tiene una función llamada *sample*.
+> > Recuerda *my_dataframe[rows, cols]* imprime el *data frame* con la sección de filas y columnas definidas (incluso puedes seleccionar un rando de filas y columnas usando **:** por ejemplo). Para obtener un número al azar o varios números al azar R tiene una función llamada *sample*.
 > >
 > > 
 > > ~~~
@@ -645,12 +694,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >         country year      pop continent lifeExp gdpPercap
-> > 1039 Mozambique 1982 12587223    Africa  42.795  462.2114
-> > 73      Austria 1952  6927772    Europe  66.800 6137.0765
-> > 25      Algeria 1952  9279525    Africa  43.077 2449.0082
-> > 1028    Morocco 1987 22987397    Africa  62.677 2755.0470
-> > 510    Ethiopia 1977 34617799    Africa  44.510  556.8084
+> >          country year      pop continent lifeExp gdpPercap
+> > 537       France 1992 57374179    Europe  77.460 24703.796
+> > 1081 Netherlands 1952 10381988    Europe  72.130  8941.572
+> > 739         Iraq 1982 14173318      Asia  62.038 14517.907
+> > 1275     Romania 1962 18680721    Europe  66.800  4734.998
+> > 37        Angola 1952  4232095    Africa  30.015  3520.610
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -696,7 +745,7 @@ entonces podemos volver y editar en el futuro.
 >
 > > ## Solución desafío 5
 > >
-> > El objeto `gapminder` es un dataframe con columnas
+> > El objeto `gapminder` es un data frame con columnas
 > > - `country` y `continent` como *factors*.
 > > - `year` como *integer vector*.
 > > - `pop`, `lifeExp`, and `gdpPercap` como *numeric vectors*.
