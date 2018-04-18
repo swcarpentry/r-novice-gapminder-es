@@ -1,12 +1,5 @@
-If you are making a change to this lesson, please edit the corresponding
-.Rmd file in _episodes_rmd/.
+No edite archivos en este directorio. Los archivos .md en este directorio se crean automáticamente como parte del proceso de compilación de la lección. Cualquier cambio realizado aquí será sobrescrito. Edite el archivo .Rmd correspondiente en _episodes_rmd /.
 
-The .md files in this directory are created automatically as part of 
-the lesson build process, so any changes made here will be overwritten.
+[Episodio 5](http://swcarpentry.github.io/lesson-example/05-rmarkdown-example/index.html) del [ejemplo de lección](http://swcarpentry.github.io/lesson-example/) contiene detalles de cómo incluir **RMarkdown** en un episodio.
 
-The episode 5 of the lesson example:
-http://swcarpentry.github.io/lesson-example/ contains details of
-how to include RMarkdown in an episode.
-
-Thanks in advance for your contribution!
-
+Gracias de antemano por su contribución!
