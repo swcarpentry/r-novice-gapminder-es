@@ -259,7 +259,7 @@ quiz_vector <- c(2,6,'3')
 ```
 
 Esto se denomina *coerción de tipos de datos* y es motivo de muchas sorpresas y la razón por la cual es necesario conocer
-los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso númerico y caracteres) para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
+los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso **numeric** y **character**) para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
 
 Considera:
 
@@ -480,7 +480,7 @@ columnas juntas en una tabla. En otras palabras, un `data.frame` es una
 lista especial en la que todos los vectores deben tener la misma longitud.
 
 
-En nuestro ejemplo de `cats`, tenemos un número entero, un doble y una variable lógica. Como
+En nuestro ejemplo de `cats`, tenemos una variable **integer**, una **double** y una **logical**. Como
 ya hemos visto, cada columna del **data.frame** es un vector.
 
 
