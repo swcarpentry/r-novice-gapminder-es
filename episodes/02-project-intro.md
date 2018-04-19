@@ -34,7 +34,7 @@ Hay muchas razones de porqué debemos *siempre* evitar esto:
 
 1. Es realmente difícil saber cuál versión de tus datos es 
 la original y cuál es la modificada;
-2. Es realmente complicado porque se mezclan archivos con varias
+2. Es muy complicado porque se mezclan archivos con varias
 extensiones juntas;
 3. Probablemente te lleve mucho tiempo encontrar realmente
 cosas, y relacionar las figuras correctas con el código exacto
@@ -45,8 +45,8 @@ Un buen diseño del proyecto finalmente hará tu vida más fácil:
 * Ayudará a garantizar la integridad de tus datos;
 * Hace que sea más simple compartir tu código con alguien más 
 (un compañero de laboratorio, colaborador, o supervisor);
-* Permite cargar fácilmente tu código con el envío de tu manuscrito;
-* Hace que sea más fácil volver a seleccionar el proyecto después de un descanso.
+* Permite cargar fácilmente tu código junto con el envío de tu manuscrito;
+* Hace que sea más fácil retomar un proyecto después de un descanso.
 
 ## Una posible solución
 
@@ -69,10 +69,10 @@ Uno de los aspectos más poderosos y útiles de RStudio es su funcionalidad de g
 
 Ahora cuando inicie R en este directorio de proyectos, o abra este proyecto con RStudio, todo nuestro trabajo en este proyecto estará completamente autocontenido en este directorio.
 
-## Mejores practicas para la organización del proyecto
+## Mejores prácticas para la organización del proyecto
 
 Aunque no existe una "mejor" forma de diseñar un proyecto, existen algunos principios
-generales que deben cumplirse para facilitar la gestión de proyectos: 
+generales que deben cumplirse para facilitar su gestión: 
 
 ### Tratar los datos como de sólo lectura
 
@@ -84,11 +84,11 @@ Por lo tanto, es una buena idea manejar tus datos como de "sólo lectura".
 
 En muchos casos tus datos estarán "sucios": y necesitarán un preprocesamiento significativo
 para  obtener un formato R (o cualquier otro lenguaje de programación) que te resulte útil. Esta
-tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "solo lectura" para contener los **data sets** "limpios"
+tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "sólo lectura" para contener los **datasets** "limpios"
 
 ### Tratar la salida generada como disponible
 
-Todo lo generado por tus **scripts** debe tratarse como disponible: todo debería 
+Todo lo generado por tus **scripts** debe tratarse como descartable: todo debería 
 poder regenerarse a partir de tus **scripts**.
 
 Hay muchas diferentes maneras de gestionar esta salida. Es útil 
@@ -102,7 +102,7 @@ y no terminan siendo utilizados en el proyecto final, y algunos de los análisis
 >
 > 1. Coloque cada proyecto en su propio directorio, el cual lleva el nombre del proyecto.
 > 2. Coloque documentos de texto asociados con proyecto en el directorio `doc`.
-> 3. Coloque los datos sin procesar y los metadatas en el directorio `data`, y archivos generados durante la limpieza y análisis en un directorio `results` .
+> 3. Coloque los datos sin procesar y los metadatos en el directorio `data`, y archivos generados durante la limpieza y análisis en el directorio `results` .
 > 4. Coloque los **scripts** fuente del proyecto y los programas en el directorio `src`, y programas traídos de otra parte o compilados localmente en el directorio `bin`.
 > 5. Nombre todos archivos de tal manera que reflejen su contenido o función.
 >
@@ -112,7 +112,7 @@ y no terminan siendo utilizados en el proyecto final, y algunos de los análisis
 >
 > Una manera de automatizar la gestión de un proyecto es instalar el paquete, `ProjectTemplate`.
 > Este paquete configurará una estructura de directorios ideal para la gestión de proyectos.
-> Esto es muy útil ya que te permite tener tu análisis **pipeline/workflow** organizado y estructurado.
+> Esto es muy útil ya que te permite tener tu **pipeline/workflow** de análisis organizado y estructurado.
 > Junto con la funcionalidad predeterminada del proyecto RStudio y Git, podrás realizar el seguimiento de tu
 > trabajo y compartirlo con colaboradores.
 >
@@ -148,7 +148,7 @@ una para guardar los **scripts** de análisis.
 > Normalmente, deseas evitar la duplicación para ahorrar espacio y evitar
 > actualizar el código en múltiples lugares.
 >
-> En este caso, me parece útil hacer "links simbólicos", los cuales son esencialmente
+> En este caso, es útil hacer "links simbólicos", los cuales son esencialmente
 > accesos directos a archivos en otro lugar en un sistema de archivos. En Linux y OS X puedes
 > utilizar el comando `ln -s`, y en Windows crear un acceso directo o
 > utilizar el comando `mklink` desde la terminal de Windows.
@@ -161,7 +161,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > ## Desafío 1
 > Descargar los datos gapminder de [aquí](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
 >
-> 1. Descargar el archivo (CTRL + S, clic botón derecho del **mouse** -> "Save as", o File -> "Save page as")
+> 1. Descargar el archivo (CTRL + S, clic botón derecho del ratón -> "Guardar como...", o Archivo -> "Guardar página como...")
 > 2. Asegúrate de que esté guardado con el nombre `gapminder-FiveYearData.csv`
 > 3. Guardar el archivo en la carpeta `data/` dentro de tu proyecto.
 >
@@ -191,7 +191,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-r--r--  1 raynamharris  staff    80K Apr 10 00:04 data/gapminder-FiveYearData.csv
+> > -rw-r--r--  1 raynamharris  staff    80K Apr  9 22:04 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 
