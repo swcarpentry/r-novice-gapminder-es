@@ -144,7 +144,7 @@ cats <- read.csv(file="data/feline-data_v2.csv")
 typeof(cats$weight)
 ```
 
-Oh no, nuestros pesos ya no son de tipo **double**! Si intentamos hacer los mismos cálculos anteriores, tenemos problemas:
+¡Oh no, nuestros pesos ya no son de tipo **double**! Si intentamos hacer los mismos cálculos anteriores, tenemos problemas:
 
 ```{r}
 cats$weight + 2
