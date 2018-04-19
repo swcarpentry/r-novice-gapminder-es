@@ -49,7 +49,7 @@ Las diferentes funciones pueden tener diferentes secciones, pero estas son las p
 >
 > Uno de los aspectos más desalentadores de R es la gran cantidad de funciones
 > disponibles. Es muy difícil, si no imposible, recordar el
-> uso correcto para cada función que usa. Afortunadamente, están los archivos de ayuda
+> uso correcto para cada función que usas. Afortunadamente, están los archivos de ayuda
 > ¡lo que significa, que no tienes que hacerlo!
 {: .callout}
 
@@ -67,8 +67,8 @@ Para buscar ayuda en operadores especiales, usa comillas:
 
 Muchos paquetes vienen con "viñetas": tutoriales y documentación de ejemplo extendida.
 Sin ningún argumento, `vignette()` listará todas las viñetas disponibles para todos los paquetes instalados;
-`vignette(package="package-name")` listará todas las viñetas disponibles
-`package-name`, y `vignette("vignette-name")` abrirán la viñeta especificada.
+`vignette(package="package-name")` listará todas las viñetas disponibles para
+`package-name`, y `vignette("vignette-name")` abrirá la viñeta especificada.
 
 Si un paquete no tiene viñetas, generalmente puedes encontrar ayuda escribiendo
 `help("package-name")`.
@@ -139,11 +139,11 @@ loaded via a namespace (and not attached):
 ~~~
 {: .output}
 
-Imprimirá su versión actual de R, así como cualquier paquete que tú hayas
+Imprimirá tu versión actual de R, así como cualquier paquete que hayas
 cargado. Esto puede ser útil para otros para ayudar a reproducir y depurar
 tu problema.
 
-> ## Desafio 1
+> ## Desafío 1
 >
 > Buscar la ayuda para la función `c`. ¿Qué tipo de vector
 > crees que crearás si evalúas lo siguiente?:
@@ -155,23 +155,23 @@ tu problema.
 > c(1, 2, 'f')
 > ~~~
 > {: .language-r}
-> > ## Solución al desafio 1
+> > ## Solución al desafío 1
 > >
 > > La función `c()` crea un vector, en el cual todos los elementos son
 > > del mismo tipo. En el primer caso, los elementos son numéricos, en el
-> > segundo, son character, y en el tercero son **character**:
-> > los valores numéricos son "coerced" para ser **characters**.
+> > segundo, son **character**, y en el tercero son **character**:
+> > los valores numéricos son "forzados" para ser **characters**.
 > {: .solution}
 {: .challenge}
 
-> ## Desafio 2
+> ## Desafío 2
 >
 > Buscar la ayuda para la función `paste`. Tendrás que usar esto más tarde.
 > ¿Cuál es la diferencia entre los argumentos `sep` y `collapse`?
 >
-> > ## Solución para el desafio 2
+> > ## Solución para el desafío 2
 > >
-> > Buscar la ayuda de la función `paste()`, usa:
+> > Busca la ayuda de la función `paste()`, usa:
 > > 
 > > 
 > > ~~~
@@ -182,10 +182,10 @@ tu problema.
 > > La diferencia entre `sep` y `collapse` es un poco
 > > complicada. La función `paste` acepta cualquier número de argumentos, cada uno 
 > > de los cuales puede ser un vector de cualquier longitud. El argumento `sep` especifica la cadena
-> > usada entre términos concatenados — by default, un espacio.  El resultado es un
-> > vector tan largo como el argumento más largo proporcionado a `paste`. A diferencia de,
-> > `collapse` especifica que después de la concatenación los elementos *collapsed*
-> > juntos utilizando el separador dado, el resultado es una sola cadena.
+> > usada entre términos concatenados — por defecto, un espacio.  El resultado es un
+> > vector tan largo como el argumento más largo proporcionado a `paste`. En cambio,
+> > `collapse` especifica que después de la concatenación los elementos son *colapsados*
+> > juntos utilizando el separador dado, y el resultado es una sola cadena.
 > > e.g. 
 > > 
 > > 
@@ -248,26 +248,26 @@ tu problema.
 > {: .solution}
 {: .challenge}
 
-> ## Desafio 3
+> ## Desafío 3
 > Usa la ayuda para encontrar una función (y sus parámetros asociados) que tu puedas
 > usar para cargar datos de un archivo csv en los cuales las columnas están delimitadas con "\ t"
 > (tab) y el punto decimal es un "." (punto). Esta comprobación para el separador decimal
-> es importante, especialmente si está trabajando con colegas internacionales
-> porque diferentes países tienen diferentes convenciones para el
-> punto decimal (i.e. coma vs punto).
+> es importante, especialmente si estás trabajando con colegas internacionales
+> ya que diferentes países tienen diferentes convenciones para el
+> punto decimal (i.e. coma vs. punto).
 > sugerencia: usa `??csv` para buscar funciones relacionadas con csv.
-> > ## Solución para el desafio 3
+> > ## Solución para el desafío 3
 > >
 > > La función R estándar para leer archivos delimitados por tabuladores con un separador
-> > de punto decimal es read.delim(). Tu puedes hacer esto también con
-> > `read.table(file, sep="\t")` (el punto es el *default* separador
-> > decimal para `read.table()`, aunque es posible que tengas que cambiar también el argumento
+> > de punto decimal es `read.delim()`. Tu puedes hacer esto también con
+> > `read.table(file, sep="\t")` (el punto es el separador
+> > decimal por defecto para `read.table()`, aunque es posible que tengas que cambiar también el argumento
 > >  `comment.char` si tu archivo de datos contiene caracteres
-> > **hash** (#)
+> > numeral (#)
 > {: .solution}
 {: .challenge}
 
-## Otros puertos de llamada
+## Otros recursos útiles
 
 * [Quick R](http://www.statmethods.net/)
 * [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
