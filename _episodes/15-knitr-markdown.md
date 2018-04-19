@@ -79,7 +79,7 @@ producir una salida **html** (en otras palabras, una página **web**).
 
 ```
 ---
-title: "Documento inicial **R Markdown**"
+title: "Documento inicial R Markdown"
 author: "Karl Broman"
 date: "23 de Abril de 2015"
 output: html_document
@@ -345,7 +345,7 @@ del archivo.
 {: .callout}
 
 
-## Recursos
+## Recursos (en inglés)
 
 - [Knitr in a knutshell tutorial](http://kbroman.org/knitr_knutshell)
 - [Dynamic Documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20) (book)
