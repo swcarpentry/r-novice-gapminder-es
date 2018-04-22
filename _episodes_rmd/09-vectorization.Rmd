@@ -85,7 +85,7 @@ y:  6  7  8  9
 >
 > > ## Solución al desafío 2
 > >
-> > Recuerda tus habilidades de graficación graficando la población en millones en comparación con el año.
+> > Recuerda tus habilidades de graficación al crear una gráfica con la población en millones en comparación con el año.
 > >
 > > ```{r ch2-sol}
 > > ggplot(gapminder, aes(x = year, y = pop_millions)) +
