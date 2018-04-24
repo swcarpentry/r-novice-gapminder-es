@@ -33,13 +33,13 @@ permalink: /reference/
  - Instala el paquete `packrat` para crear proyectos independientes
  - `install.packages` para instalar paquetes desde CRAN
  - `library` para cargar un paquete en R
- - `packrat::status` para verificar si se han instalado todos los paquetes a los que se hacer referencia en tus **scripts**.
+ - `packrat::status` para verificar si se han instalado todos los paquetes a los que se hace referencia en tus **scripts**.
 
 ## [Buscando ayuda]({{ page.root }}/03-seeking-help/)
 
 - Para acceder a la ayuda de una función `?function_name` o `help(function_name)`
 - Usa comillas para operadores especiales, por ejemplo: `?"+"`
-- Utiliza la búsqueda difusa si no puedes recordar un nombre '??search_term'
+- Utiliza la búsqueda ambigua si no puedes recordar un nombre `??search_term`
 - [CRAN task views](http://cran.at.r-project.org/web/views) son un buen punto de partida.
 - [Stack Overflow](http://stackoverflow.com/) es un buen lugar para obtener ayuda con tu código.
     - `?dput` Guardará datos que estás trabajando, para que otros puedan cargarlos fácilmente.
@@ -66,11 +66,11 @@ Los valores atómicos en R deben ser de alguno de los 5 **tipos de datos**, múl
      - `?Inf`, `-Inf` infinito.
      - `?NULL` una estructura de datos que no existe
 
-    `NA` puede ocurrir en cualquier vector atómico. `NaN`, and `Inf` sólo pueden aparecer en vectores de tipo **complex**, **integer** o **numeric**. Los vectores atómicos son los bloques de construcción para todas las demás estructuras de datos. Un valor `NULL` ocurrirá en una estructura de datos entera (pero puede ocurrir como elementos de lista).
+    `NA` puede ocurrir en cualquier vector atómico. `NaN`, and `Inf` sólo pueden aparecer en vectores de tipo **complex**, **integer** o **numeric**. Los vectores atómicos son los bloques de construcción para todas las demás estructuras de datos. Un valor `NULL` ocurrirá en una estructura de datos entera (pero puede ocurrir como lista de elementos).
 
 
  **Estructuras de datos básicas en R:**
-  - atómico `?vector` (sólo puede conener un tipo de dato)
+  - `?vector` atómico (sólo puede contener un tipo de dato)
   - `?list` (contenedores para otros objetos)
   - `?data.frame` objetos bidimensionales cuyas columnas pueden contener diferentes tipos de datos
   - `?matrix` objeto bidimensional que puede contener sólo un tipo de dato.
@@ -78,11 +78,11 @@ Los valores atómicos en R deben ser de alguno de los 5 **tipos de datos**, múl
   - `?array` objeto multi-dimensional que puede contener sólo un tipo de dato.
 
  Recuerda que las matrices son realmente vectores atómicos, y que los
-data.frames son realmente listas(esto explica algunos de los comportamientos extraños de R).
+**data.frames** son realmente listas(esto explica algunos de los comportamientos extraños de R).
 
  **[Vectores]({{ page.root }}/04-data-structures-part1/)**
  - `?vector()` Todos los elementos del vector deben ser del mismo tipo.
- - Los elementos se pueden convertir de un tipo a otro utilizando *coercion*.
+ - Los elementos se pueden convertir de un tipo a otro utilizando *coerción*.
  - La función concatenar 'c()' agrega elementos al vector.
  - `seq(from=0, to=1, by=1)` crea una secuencia de números.
  - Los elementos de un vector se pueden nombrar usando la función `names()`.
@@ -92,26 +92,26 @@ data.frames son realmente listas(esto explica algunos de los comportamientos ext
  - `levels()` muestra los valores válidos que se pueden almacenar en un vector de tipo factor.
 
  **[Listas]({{ page.root }}/04-data-structures-part1/)**
- - `?list()` Las listas son una estructura de datos diseñada para almacenar datos de diferente tipo.
+ - `?list()` Las listas son una estructura de datos diseñada para almacenar datos de diferente tipos.
 
  **[Matrices]({{ page.root }}/04-data-structures-part1/)**
  - `?matrix()` Las matrices son una estructura de datos diseñada para almacenar datos bidimensionales.
 
  **[Data Frames]({{ page.root }}/05-data-structures-part2/)**
- - `?data.frame` es una estructura de datos clave. Es una  `list` de `vectors`.
- - `cbind()` agregará una columna (vector) a un data.frame.
- - `rbind()` agregará un renglón (list) a un data.frame.
+ - `?data.frame` es una estructura de datos clave. Es una `lista` de `vectores`.
+ - `cbind()` agregará una columna (vector) a un **data.frame**.
+ - `rbind()` agregará un renglón (list) a un **data.frame**.
 
  **Funciones útiles para consultar estructuras de datos:**
  - `?str` estructura, imprime un resumen de toda la estructura de datos
  - `?typeof` te dice el tipo dentro de un vector atómico
- - `?class` ¿Cuál es la estructura de datos?
+ - `?class` Indica cual es la estructura de datos
  - `?head` Imprime los primeros `n` elementos (filas para objetos bidimensionales)
  - `?tail` imprime los últimos `n` elementos (filas para objetos bidimensionales)
- - `?rownames`, `?colnames`, `?dimnames` recuperar o modificar los nombres de fila y columna de un objeto.
- - `?names` recuperar omodificar los nombres de un vector o lista atómica (o columnas de un dataframe).
- - `?length` obtener el número de elementos de un vector atómico
- - `?nrow`, `?ncol`, `?dim` obtener las dimensiones de un objeto n-dimensional
+ - `?rownames`, `?colnames`, `?dimnames` recupera o modifica los nombres de fila y columna de un objeto.
+ - `?names` recupera o modifica los nombres de un vector o lista atómica (o columnas de un **dataframe**).
+ - `?length` obtiene el número de elementos de un vector atómico
+ - `?nrow`, `?ncol`, `?dim` obtiene las dimensiones de un objeto n-dimensional
    (No funcionará en vectores o listas atómicas).
 
 ## [Explorando Dataframes]({{ page.root }}/05-data-structures-part2/)
@@ -131,14 +131,14 @@ data.frames son realmente listas(esto explica algunos de los comportamientos ext
    - Vectores lógicos
 
 - `[` corchetes:
-   - *extraer* elementos individuales o *subset* vectores
+   - *extrae* elementos individuales o **subset** de vectores
     - por ejemplo,`x[1]` extrae el primer elemento del vector x.
-   - *extraer* elementos individuales de una lista. El valor devuelto será otra `list()`.
-   - *extraer* columnas de un data.frame
+   - *extrae* elementos individuales de una lista. El valor devuelto será otra `list()`.
+   - *extrae* columnas de un **data.frame**.
  - `[` con dos argumentos para:
-   - *extraer* filas y/o columnas de
+   - *extrae* filas y/o columnas de
      - matrices
-     - data.frames
+     - **data.frames**
      - por ejemplo: `x[1,2]` extraerá el valor de la fila 1, columna 2.
      - por ejemplo: `x[2,:]` extraerá toda la segunda fila.
 
@@ -148,12 +148,12 @@ data.frames son realmente listas(esto explica algunos de los comportamientos ext
 
 ## [Control de flujo]({{ page.root }}/07-control-flow/)
 
- - Usa la condición `if` para iniciar una instrucción condicional, `else if` para proporcionar pruebas adicionales, y `else` para proporcionar un  valor predeterminado
+ - Usa la condición `if` para iniciar una instrucción condicional, `else if` para proporcionar pruebas adicionales, y `else` para proporcionar un valor predeterminado.
  - Las instrucciones que se encuentran entre las llaves de las declaraciones condicionales deben estar indentadas.
  - Usa `==` para probar la igualdad.
  - `X && Y` sólo es cierto si tanto X como Y son `TRUE`.
  - `X || Y` es cierto si ya sea X o Y, o ambos, son `TRUE`.
- - Cero se considera `FALSE`; todos los demás numeros se consideran `TRUE`
+ - Cero se considera `FALSE`; todos los demás números se consideran `TRUE`
  - Anidar loops para operar en datos multidimensionales.
 
 ## [Creación de gráficos con calidad para publicación]({{ page.root }}/08-plot-ggplot2/)
@@ -164,150 +164,153 @@ data.frames son realmente listas(esto explica algunos de los comportamientos ext
    - `aes`especifica la estética de los ejes de datos, la forma, color y tamaño
    - `geom`especifica el tipo de gráfico, por ejemplo, `point`, `line`, `density`, `box`
    - `geom`agrega también transformaciones estadísticas, por ejemplo. `geom_smooth`
-   - `scale` functions change the mapping from data to aesthetics
-   - `facet` functions stratify the figure into panels
-   - `aes`thetics apply to individual layers, or can be set for the whole plot
-     inside `ggplot`.
+   - `scale` funciones que controla la relación entre los valores de los datos y los valores visuales o estéticos 
+   - `facet` funciones para estratificar la figura en paneles
+   - `aes` Las características estéticas se aplican a capas individuales, o se pueden establecer para todo el gráfico dentro de `ggplot`.
    - `theme` cambia el aspecto general del gráfico
-   - order of layers matters!
-   - `ggsave` para salvar una figura.
+   - ¡El orden de las capas importa!
+   - `ggsave` salva una figura.
 
 ## [Vectorización]({{ page.root }}/09-vectorization/)
 
-- Most functions and operations apply to each element of a vector
-- `*` applies element-wise to matrices
-- `%*%` for true matrix multiplication
-- `any()` will return `TRUE` if any element of a vector is `TRUE`
-- `all()` will return `TRUE` if *all* elements of a vector are `TRUE`
+- La mayoría de las funciones y operaciones se aplican a cada elemento de un vector
+- `*` la multiplicación de elemento a elemento
+- `%*%` para una verdadera multiplicación de matrices
+- `any()` regresará `TRUE` si cualquier elemento de un vector es `TRUE`
+- `all()` regresará `TRUE` si *todos* los elementos de un vector son `TRUE`
 
 ## [Funciones]({{ page.root }}/10-functions/)
 
   - `?"function"`
-  - Put code whose parameters change frequently in a function, then call it with
-    different parameter values to customize its behavior.
-  - The last line of a function is returned, or you can use `return` explicitly
-  - Any code written in the body of the function will preferably look for variables defined inside the function.
-  - Document Why, then What, then lastly How (if the code isn't self explanatory)
+  - Coloque el código cuyos parámetros cambian frecuentemente en una función, luego llámelo con diferentes valores de parámetros para personalizar su comportamiento.
+  - Se devuelve la última línea de una función, o puede usar `return` explícitamente
+  - Cualquier código escrito en el cuerpo de la función buscará preferiblemente variables definidas dentro de la función
+  - Documente ¿por qué?, luego ¿qué?, y finalmente ¿cómo? (si el código no se explica por sí mismo)
 
 ## [Escribiendo datos]({{ page.root }}/11-writing-data/)
 
- - `write.table` to write out objects in regular format
- - set `quote=FALSE` so that text isn't wrapped in `"` marks
+ - `write.table` para escribir objetos en formato regular
+ - asigna `quote = FALSE` para que el texto no sea envuelto entre comillas ` "` 
+
 
 ## [Split-apply-combine]({{ page.root }}/12-plyr/)
 
- - Use the `xxply` family of functions to apply functions to groups within
-   some data.
- - the first letter, `a`rray , `d`ata.frame or `l`ist corresponds to the input data
- - the second letter denotes the output data structure
- - Anonymous functions (those not assigned a name) are used inside the `plyr` family
-   of functions on groups within data.
+ - Use la familia de funciones `xxply` para aplicar funciones a grupos dentro de algunos datos.
+ - la primera letra, `a`rray,`d`ata.frame o `l`ist corresponde a los datos de entrada
+ - la segunda letra denota la estructura de datos de salida
+ - Las funciones anónimas (aquellas que no tienen un nombre asignado) se usan dentro de la familia de funciones `plyr` 
+   en grupos dentro de los datos.
+
 
 ## [Manejo de dataframe con dplyr]({{ page.root }}/13-dplyr/)
  - `library(dplyr)`
- - `?select` to extract variables by name.
- - `?filter` return rows with matching conditions.
- - `?group_by` group data by one of more variables.
- - `?summarize` summarize multiple values to a single value.
- - `?mutate` add new variables to a data.frame.
- - Combine operations using the `?"%>%"` pipe operator.
+ - `?select` extrae variables por nombre.
+ - `?filter` regresa filas que coincidan con las condiciones.
+ - `?group_by` agrupa datos por una de muchas variables.
+ - `?summarize` resume valores múltiples a un solo valor.
+ - `?mutate` agrega nuevas variables a un **data.frame**.
+ - Combina operaciones usando el operador **pipe** `?"%>%"`.
 
 ## [Manejo de dataframe con tidyr]({{ page.root }}/14-tidyr/)
 - `library(tidyr)`
-- '?gather' convert data from *wide* to *long* format.
-- '?spread' convert data from *long* to *wide* format.
-- '?separate' split a single value into multiple values.
-- '?unite' merge multiple values into a single value.
+- '?gather' convierte datos del formato *ancho* al *largo*. 
+- '?spread' convierte datos del formato *largo* al *ancho*.
+- '?separate' separa un único valor en múltiples valores. 
+- '?unite' fusionar valores múltiples en un solo valor.
 
 ## [Generando reportes con knitr]({{ page.root }}/15-knitr-markdown/)
-- Value of reproducible reports
-- Basics of Markdown
-- R code chunks
-- Chunk options
-- Inline R code
-- Other output formats
+- Valor de informes reproducibles
+- Conceptos básicos de Markdown
+- fragmentos de código R
+- Opciones de fragmentos
+- Código R en línea
+- Otros formatos de salida
+
 
 ## [Buenas prácticas para escribir un buen código]({{ page.root }}/16-wrap-up/)
 
- * Program defensively, i.e., assume that errors are going to arise, and write code to detect them when they do.
- * Write tests before writing code in order to help determine exactly what that code is supposed to do.
- * Know what code is supposed to do before trying to debug it.
- * Make it fail every time.
- * Make it fail fast.
- * Change one thing at a time, and for a reason.
- * Keep track of what you've done.
- * Be humble
+ * Programa defensivamente, es decir, asume que van a surgir errores y escribe el código para detectarlos cuando surjan.
+ * Escriba pruebas antes de escribir el código para ayudar a determinar exactamente qué se supone que debe hacer ese código.
+ * Conoce que se supone hace el código, antes de tratar de corregirlo.
+ * Haz que falle cada vez.
+ * Haz que falle rápido.
+ * Cambia una cosa a la vez, y por una razón.
+ * Ten un registro de lo que has hecho.
+ * Se humilde.
 
 ## Glosario
 
 {:auto_ids}
 argument
-:   A value given to a function or program when it runs.
-    The term is often used interchangeably (and inconsistently) with [parameter](#parameter).
+:   Un valor dado a una función o programa cuando se ejecuta.
+    El término a menudo se usa indistintamente (y de manera inconsistente) con [parámetro](#parameter).
+
 
 assign
-:   To give a value a name by associating a variable with it.
-
+:   Para darle a un valor un nombre asociandolo a una variable.
+  
 body
-:   (of a function): the statements that are executed when a function runs.
+:   (de una función): las instrucciones que se ejecutan cuando se ejecuta una función.
 
 comment
-:   A remark in a program that is intended to help human readers understand what is going on,
-    but is ignored by the computer.
-    Comments in Python, R, and the Unix shell start with a `#` character and run to the end of the line;
-    comments in SQL start with `--`,
-    and other languages have other conventions.
+:   Una observación en un programa que pretende ayudar a los lectores humanos a comprender lo que está sucediendo,
+    pero es ignorado por la computadora.
+    Los comentarios en Python, R y el shell de Unix comienzan con un caracter `#` y se ejecutan hasta el final de la linea;
+    los comentarios en SQL comienzan con `--`,
+    y otros idiomas tienen otras convenciones.
 
 comma-separated values
-:   (CSV) A common textual representation for tables
-    in which the values in each row are separated by commas.
+:   (CSV) Una representación textual común para tablas
+    en el cual los valores en cada fila están separados por comas.
 
 delimiter
-:   A character or characters used to separate individual values,
-    such as the commas between columns in a [CSV](#comma-separated-values) file.
+:   Un caracter or caracteres usados para separar valores individuales,
+    tales como las comas entre columnas en un archivo [CSV](#comma-separated-values).
 
 documentation
-:   Human-language text written to explain what software does,
-    how it works, or how to use it.
+:   Texto en lenguaje humano escrito para explicar lo que hace el software
+    cómo funciona, o cómo usarlo.
 
 floating-point number
-:   A number containing a fractional part and an exponent.
-    See also: [integer](#integer).
+:   Un número que contiene una parte fraccionaria y un exponente.
+    Ver también: [integer](#integer).
 
 for loop
-:   A loop that is executed once for each value in some kind of set, list, or range.
-    See also: [while loop](#while-loop).
+:   Un ciclo que se ejecuta una vez para cada valor en algún tipo de conjunto, lista o rango.
+    Ver también: [while loop](#while-loop).
 
 index
-:   A subscript that specifies the location of a single value in a collection,
-    such as a single pixel in an image.
+:   Un subíndice que especifica la ubicación de un único valor en una colección,
+    como un solo píxel en una imagen.
 
 integer
-:   A whole number, such as -12343. See also: [floating-point number](#floating-point-number).
+:   Un número entero, como -12343.
+    Ver también: [floating-point number](#floating-point-number).
 
 library
-:   In R, the directory(ies) where [packages](#package) are stored.
+:   En R, es el directorio(s) donde los [paquetes](#package) son almacenados.
 
 package
-:   A collection of R functions, data and compiled code in a well-defined format. Packages are stored in a [library](#library) and loaded using the library() function.
+:   Una colección de funciones R, datos y código compilado en un formato bien definido. Los paquetes se almacenan en una [biblioteca](#library) y se cargan usando la función de library().
+
 
 parameter
-:   A variable named in the function's declaration that is used to hold a value passed into the call.
-    The term is often used interchangeably (and inconsistently) with [argument](#argument).
+:   Nombre de variable en la declaración de la función que se usa para guardar un valor cuando la función es llamada.
+    El término a menudo se usa indistintamente (y de manera inconsistente) con [argumento](#argumento).
 
 return statement
-:   A statement that causes a function to stop executing and return a value to its caller immediately.
+:   Una declaración que hace que una función deje de ejecutarse y devuelva un valor en donde fue llamada.
 
 sequence
-:   A collection of information that is presented in a specific order.
+:   Una colección de información que se presenta en un orden específico.
 
 shape
-:   An array's dimensions, represented as a vector.
-    For example, a 5×3 array's shape is `(5,3)`.
+:   Las dimensiones de una matriz, representadas como un vector.
+    Por ejemplo, una forma de matriz de 5 × 3 es `(5,3)`.
 
 string
-:   Short for "character string",
-    a [sequence](#sequence) of zero or more characters.
+:   Abreviatura de "cadena de caracteres",
+    una [secuencia](#sequence) de cero o más caracteres.
 
 syntax error
 :  Un error de programación que ocurre cuando las instrucciones están en un orden o contienen caracteres no esperados por el lenguaje de programación.
@@ -319,4 +322,4 @@ type
 
 while loop
 :   Un bucle que se ejecuta siempre que una condición dada sea verdadera.
-    See also: [for loop](#for-loop).
+    Ver también: [for loop](#for-loop).

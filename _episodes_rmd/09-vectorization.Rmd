@@ -85,7 +85,7 @@ y:  6  7  8  9
 >
 > > ## Solución al desafío 2
 > >
-> > Refresca tus habilidades de trazado trazando la población en millones en comparación con el año.
+> > Recuerda tus habilidades de graficación al crear una gráfica con la población en millones en comparación con el año.
 > >
 > > ```{r ch2-sol}
 > > ggplot(gapminder, aes(x = year, y = pop_millions)) +
@@ -99,7 +99,7 @@ y:  6  7  8  9
 {: .challenge}
 
 
-Operadores de comparación, operadores lógicos y muchas funciones también están
+Operadores de comparación, operadores lógicos y muchas otras funciones también están
 vectorizadas:
 
 
@@ -148,7 +148,7 @@ m * -1
 > matrix(1:4, nrow=1) %*% matrix(1:4, ncol=1)
 > ```
 >
-> Para saber ms sobre Álgebra de matrices, ver [Quick-R reference guide](http://www.statmethods.net/advstats/matrix.html)
+> Para saber más sobre Álgebra de matrices, ver [Quick-R reference guide](http://www.statmethods.net/advstats/matrix.html)
 {: .callout}
 
 
@@ -181,7 +181,7 @@ m * -1
 > > ```
 > >
 > >
-> > Escribe lo que piensas que pasará cuando ejecutes:
+> > Escribe lo que piensas que sucederá cuando ejecutes:
 > >
 > > 1. `m ^ -1`
 > >
