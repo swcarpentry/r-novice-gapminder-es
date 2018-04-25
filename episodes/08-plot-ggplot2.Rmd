@@ -293,7 +293,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 {: .challenge}
 
 
-## Figuras Multi-panel 
+## Figuras en múltiples paneles
 
 Anteriormente visualizamos el cambio en la esperanza de vida a lo largo del tiempo para cada uno de los países 
 en un solo gráfico. Como una alternativa, podemos dividir este gráfice en múltiples paneles al agregar una capa **facet**,
