@@ -121,7 +121,7 @@ Lo más simple que podrías hacer con R es hacer aritmética:
 1 + 100
 ```
 
-Y R mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
+Y R te mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
 
 
 Al igual que bash, si escribes un comando incompleto, R esperará a que lo completes:
