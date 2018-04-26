@@ -26,7 +26,7 @@ knitr_fig_path("10-")
 gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
 ```
 
-Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticos simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
+Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticas simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
 
 En esta lección, aprenderás cómo escribir una función de forma que seamos capaces de repetir varias operaciones con un comando único. 
 
@@ -40,7 +40,7 @@ En esta lección, aprenderás cómo escribir una función de forma que seamos ca
 > * un conjunto definido de **inputs** y **outputs** esperados
 > * una mayor conexión con el ambiente de programación
 >
-> Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen > la "programación" de cualquier abstracción que puedas hacer. Si ha escrito una función, eres un programador de computadoras.
+> Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen > la "programación" de cualquier abstracción que puedas hacer. Si has escrito una función, eres ya todo un programador.
 {: .callout}
 
 ## Definiendo una función
@@ -283,8 +283,7 @@ calcGDP <- function(dat) {
 
 Definimos `calcGDP()` asignándola al __output__ de `function`. La lista de
 los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
-cuerpo de la función--los 
-comandos que son ejecutados cuando se corre-- se encuentran entre paréntesis curvos
+cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- se encuentran entre paréntesis curvos
 (`{}`). 
 
 Hemos indentado los comandos en el cuerpo con dos espacios. Esto hace que el código 
@@ -410,7 +409,7 @@ argumentos.
 > Otro concepto importante es el alcance: las variables (¡o funciones!) que 
 > creas o modificas dentro del cuerpo de una función sólo existen durante 
 > el tiempo de ejecución de la función. Cuando llamamos `calcGDP()`, las variables `dat`,
-> `gdp` y `new` sólo existen dentro del cuerpo de la función. Incluso si 
+> `gdp` y `new` sólo existen dentro del cuerpo de la función. Incluso, si 
 > tenemos variables con el mismo nombre en nuestra sesión interactiva de R, éstas no 
 > son modificadas en ninguna manera cuando se ejecuta la función.
 {: .callout}
@@ -456,8 +455,8 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > paste(best_practice, collapse=" ")
 > ```
 >
->  Escribir una función `fence()` que toma dos vectores como argumentos, llamados
-> `text` y `wrapper`, e muestra el texto flanqueado del `wrapper`:
+>  Escribir una función `fence()` que tome dos vectores como argumentos, llamados
+> `text` y `wrapper`, y muestra el texto flanqueado del `wrapper`:
 >
 > 
 > ```{r, eval=FALSE}
@@ -503,10 +502,10 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > ## Sugerencia: Probar y documentar
 >
 > Es importante probar las funciones así como documentarlas:
-> la documentación ayuda, a tí y a otros, a entender cuál es el propósito
-> de la función, y cómo usarla, además de ser importante 
-> para asegurarse que la función realmente hace
-> lo que tu crees que hace.
+> la documentación ayuda, tanto a tí como a otros, a entender cuál es el propósito
+> de la función y cómo usarla; además es importante  
+> asegurarse que la función realmente haga
+> lo que tú piensas que hace.
 >
 > Cuando recién comiences, tu flujo de trabajo probablemente luzca 
 > algo así:
@@ -522,8 +521,8 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > aparte, se transforman en la documentación que ves en los archivos de ayuda.
 > El paquete [roxygen2][] le permite a los programadores de R escribir la
 > documentación junto con el código, y luego procesarlo para generar los archivos `.Rd`
-> apropiados. Quizas quieras cambiarte a este método más formal de escribir 
-> la documentación cuando empieces a escribir projectos de R más complicados.
+> apropiados. Quizás quieras cambiarte a este método más formal de escribir 
+> la documentación cuando empieces a escribir proyectos de R más complicados.
 >
 > Pruebas automatizadas formales se pueden escribir usando el paquete [testthat][].
 {: .callout}
