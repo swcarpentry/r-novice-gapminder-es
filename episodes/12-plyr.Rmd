@@ -5,10 +5,10 @@ exercises: 30
 questions:
 - "¿Cómo puedo hacer diferentes cálculos sobre diferentes conjuntos de datos?"
 objectives:
-- "Habilitar el uso de la estrategia divide-aplica-combina para el análisis de datos."
+- "Estar apto a usar la estrategia divide-aplica-combina para el análisis de datos."
 keypoints:
 - "Uso del paquete `plyr` para dividir datos, aplicar funciones sobre subconjuntos, y combinar los resultados"
-fuente: Rmd
+source: Rmd
 ---
 
 ```{r, include=FALSE}
@@ -19,13 +19,12 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
 ```
 
 Previamente vimos como puedes usar funciones para simplificar tu código.
-Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder,
-Y multiplica la columna de población por la columna GDP per cápita.  También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
+Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder, y multiplica la columna de población por la columna GDP per cápita. También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
 
 
 ```{r}
 # Toma un dataset y multiplica la columna population con
-# la columna  GDP per cápita.
+# la columna GDP per cápita.
 calcGDP <- function(dat, year=NULL, country=NULL) {
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
@@ -40,9 +39,9 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
 }
 ```
 
-Una tarea común que encontrarás mientras trabajes con datos, es que querras hacer más de un cálculo en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que tal si queremos calcular la media GDP por `"continent"`?  
+Una tarea común que encontrarás mientras trabajes con datos, es que querrás hacer cálculos en diferentes grupos sobre los datos. En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero qué tal si queremos calcular la media GDP por continente?  
 
-Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada `"continent"`:
+Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada continente:
 
 
 ```{r}
@@ -52,21 +51,21 @@ mean(withGDP[withGDP$continent == "Americas", "gdp"])
 mean(withGDP[withGDP$continent == "Asia", "gdp"])
 ```
 
-Pero esto no es muy *bonito*. Si, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. Repetidamente tendrás un costo de tiempo, tanto ahora como más tarde, y potencialmente introducirás  algunos errores.
+Pero esto no es muy *bonito*. Sí, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. La repetición te costará tiempo, tanto ahora como más tarde, y potencialmente introducirás algunos errores desagradables.
 
-Podriamos escribir una nueva función flexible como `calcGDP`,  pero ésta también requiere una gran cantidad de esfuerzo y pruebas para obtener la información correcta.
+Podriamos escribir una nueva función que sea flexible como `calcGDP`,  pero esta también requiere una gran cantidad de esfuerzo y pruebas para hacerlo bien.
 
 El problema abstracto que estamos encontrando aquí es conocido como "divide-aplica-combina (*split-apply-combine*)":
 
 ![Split apply combine](../fig/12-plyr-fig1.png)
 
-Nosotros queremos dividir (*split*) nuestros datos dentro de grupos, en este caso continentes, aplicar (*apply*) algunos cálculos sobre el grupo y opcionalmente combinar *combine* los resultados.
+Nosotros queremos dividir (*split*) nuestros datos dentro de grupos, en este caso continentes, aplicar (*apply*) algunos cálculos sobre este grupo y, opcionalmente, combinar (*combine*) los resultados más tarde.
 
 
 ## El paquete `plyr`
 
-Para aquellos que han usado antes R, deben estar familiarizados con la familia de funciones `apply`. Mientras que las funciones integradas de R funcionan, vamos a introducirte a otro método para resolver el problema
-"split-apply-combine". El paquete [plyr](http://had.co.nz/plyr/) proporciona un conjunto de funciones que encontramos mas fáciles de usar para resolver este problema.
+Para aquellos que han usado antes R, es posible que estén familiarizados con la familia de funciones `apply`. Mientras que las funciones integradas de R funcionan, vamos a introducirte a otro método para resolver el problema
+"split-apply-combine". El paquete [plyr](http://had.co.nz/plyr/) proporciona un conjunto de funciones que encontramos más amigables de usar para resolver este problema.
 
 Instalamos este paquete en un desafío anterior. Vamos a cargarlo ahora:
 
@@ -76,9 +75,9 @@ library("plyr")
 
 Plyr tiene una función para operar sobre listas o `**lists**` , `**data.frames**` y `**arrays**` (matrices, o vectores n-dimensional). Cada función realiza:
 
-1. Una operación de división o **split**ting
-2. **Apply** Aplica una función sobre cada una de las partes a la vez.
-3. Re**combina** los datos de salida como un simple objeto de datos.
+1. Una operación de división (**split**ting).
+2. Aplica (**apply**) una función sobre cada una de las partes a la vez.
+3. Recombina (re**combine**) los datos de salida como un simple objeto de datos.
 
 Las funciones se nombran en función de la estructura de datos que esperan como entrada, y la estructura de datos que desea devolver como salida: [a]rray, [l]ist, o [d]ata.frame. La primera letra corresponde a la estructura de datos de entrada, la segunda letra a la estructura de datos de salida, y luego el resto de la función se llama "ply".
 
