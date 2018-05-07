@@ -2,7 +2,7 @@
 
 ## Versión inicial
 
-- TBD
+- [May 2018] https://github.com/swcarpentry/r-novice-gapminder-es
 
 ## Archivo de prelanzamiento
 
