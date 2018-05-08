@@ -120,7 +120,7 @@ Se puede observar que la estructura del **data frame** obtenido por `group_by()`
 
 ## Usando summarize()
 
-Lo visto arriba no es muy sofisticado, pero `group_by()` es mucho más excitante si se usa en conjunción con `summarize()`. Esto nos permitirá crear nuevas variables usando funciones que se aplican a cada uno de los **data frames** específicos para cada continente. Es decir, usando la función `group_by()` dividimos nuestro **data frame** original en varias partes, a las que luego podemos aplicarles funciones (por ejemplo, `mean()` o `sd()`) independientemente con `summarize()`.
+Lo visto arriba no es muy sofisticado, pero `group_by()` es más interesante y útil si se usa en conjunto con `summarize()`. Esto nos permitirá crear nuevas variables usando funciones que se aplican a cada uno de los **data frames** específicos para cada continente. Es decir, usando la función `group_by()` dividimos nuestro **data frame** original en varias partes, a las que luego podemos aplicarles funciones (por ejemplo, `mean()` o `sd()`) independientemente con `summarize()`.
 
 ```{r}
 gdp_bycontinents <- gapminder %>%
