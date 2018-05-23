@@ -269,21 +269,21 @@ output_vector2
 > }
 > ```
 >
-> A modo de ejemplo aquí hay un bucle while
-> que genera números aleatorios a partir de una distribución uniforme (la función `runif()` )
-> entre 0 y 1  hasta que obtiene uno que es menor a 0.1.
+> A modo de ejemplo aquí hay un bucle while que genera números aleatorios a
+> partir de una distribución uniforme (la función `runif()` ) entre 0 y 1 hasta
+> que obtiene uno que es menor a 0.1.
 >
-> ~~~
+> ```{r, eval=FALSE}
 > z <- 1
 > while(z > 0.1){
 >   z <- runif(1)
 >   print(z)
 > }
-> ~~~
-> {: .r}
+> ```
 >
-> Los bucles `while()` no siempre serán la elección apropiada. Debes ser particularmente cuidadoso
-> de que tu condición se cumpla y no terminar en un bucle infinito.
+> Los bucles `while()` no siempre serán la elección apropiada. Debes ser
+> particularmente cuidadoso de que tu condición se cumpla y no terminar en un
+> bucle infinito. 
 {: .callout}
 
 
@@ -402,13 +402,13 @@ output_vector2
 > >  Modificamos nuestra solución al Reto 3 agregando ahora dos umbrales, `lowerThreshold` y` upperThreshold` y extendiendo nuestras declaraciones if-else:
 > >
 > > 
-> > ```{r 07-chall-04-sol, eval=FALSE}
+> > ```{r 07-chall-04-sol, results="hide"}
 > >  lowerThreshold <- 50
 > >  upperThreshold <- 70
-> >  
+> >
 > > for( iCountry in unique(gapminder$country) ){
 > >     tmp <- mean(subset(gapminder, country==iCountry)$lifeExp)
-> >     
+> >
 > >     if(tmp < lowerThreshold){
 > >         cat("Average Life Expectancy in", iCountry, "is less than", lowerThreshold, "\n")
 > >     }
@@ -426,30 +426,39 @@ output_vector2
 
 > ## Desafío 5 - Avanzado
 >
-> Escribir un script que con un bucle recorra cada país en el **dataset** **`gapminder`**,
-> probar si el país comienza con una 'B' y graficar la esperanza de vida
-> contra el tiempo como un gráfico de líneas si la esperanza de vida media es menor de 50 años.
+> Escribir un script que con un bucle recorra cada país en el **dataset**
+> **`gapminder`**, probar si el país comienza con una 'B' y graficar la
+> esperanza de vida contra el tiempo como un gráfico de líneas si la esperanza
+> de vida media es menor de 50 años.
 >
-> > Solución para el Desafío 5
+> > ## Solución para el Desafío 5
 > >
-> > Lo primero que vamos a hacer es usar el comando `grep` que se introdujo en la lección Shell de Unix para encontrar países que comiencen con" B "."
+> > Lo primero que vamos a hacer es usar el comando `grep` que se introdujo en
+> > la lección Shell de Unix para encontrar países que comiencen con" B "."
 > > 
-> > Si seguimos la lección de Shell de Unix podríamos vernos tentados de probar lo siguiente
+> > Si seguimos la lección de Shell de Unix podríamos vernos tentados de probar
+> > lo siguiente
 > > 
 > > ```{r 07-chall-05-sol-a, eval=FALSE}
 > > grep("^B", unique(gapminder$country))
 > > ```
 > >
-> > Pero cuando evaluamos este comando obtenemos los índices de la variable del factor `country` que comienza con "B".
-> > Para obtener los valores, debemos agregar la opción `value = TRUE` al comando` grep`:
-> >
+> > Pero cuando evaluamos este comando obtenemos los índices de la variable del
+> > factor `country` que comienza con "B".
+> > Para obtener los valores, debemos agregar la opción `value = TRUE` al
+> > comando` grep`:
 > > 
 > > ```{r 07-chall-05-sol-b, eval=FALSE}
 > > grep("^B", unique(gapminder$country), value=TRUE)
 > > ```
 > >
-> > A continuación almacenaremos estos países en una variable llamada candidateCountries y luego con un bucle recorreremos cada entrada en la variable.
-> > Dentro del bucle se evaluará la expectativa de vida promedio para cada país y de ser menor a 50 usamos un gráfico base para trazar la evolución de la expectativa de vida promedio:
+> > A continuación almacenaremos estos países en una variable llamada
+> > candidateCountries y luego con un bucle recorreremos cada entrada en la
+> > variable.
+> > 
+> > Dentro del bucle se evaluará la expectativa de vida promedio para cada país
+> > y de ser menor a 50 usamos un gráfico base para trazar la evolución de la
+> > expectativa de vida promedio:
 > >
 > > 
 > > ```{r 07-chall-05-sol-c, eval=FALSE}
@@ -458,10 +467,11 @@ output_vector2
 > >
 > > for( iCountry in candidateCountries){
 > >     tmp <- mean(subset(gapminder, country==iCountry)$lifeExp)
-> >     
+> >
 > >     if(tmp < thresholdValue){
-> >         cat("Average Life Expectancy in", iCountry, "is less than", thresholdValue, "plotting life expectancy graph... \n")
-> >         
+> >         cat("Average Life Expectancy in", iCountry, "is less than", 
+> >              thresholdValue, "plotting life expectancy graph... \n")
+> >
 > >         with(subset(gapminder, country==iCountry),
 > >                 plot(year,lifeExp,
 > >                      type="o",
@@ -473,7 +483,9 @@ output_vector2
 > >     } # end for loop
 > >     rm(tmp)
 > >  }
-> >  ```
+> > ```
 > {: .solution}
 {: .challenge}
 
+
+{% include links.md %}

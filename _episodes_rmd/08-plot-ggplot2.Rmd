@@ -339,12 +339,12 @@ de la leyenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
 ```{r theme}
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
-  labs(
-    x = "Year",              # título del eje x
-    y = "Life expectancy",   # título del eje y
-    title = "Figure 1",      # título principal de la figura
-    color = "Continent"      # título de la leyenda
-  ) +
+    labs(
+        x = "Year",              # título del eje x
+        y = "Life expectancy",   # título del eje y
+        title = "Figure 1",   # título principal de la figura
+        color = "Continent"   # título de la leyenda
+    ) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 ```
 
@@ -382,3 +382,5 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas ¡con cód
 > > ```
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

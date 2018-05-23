@@ -328,3 +328,4 @@ bucle condicionado
 : Un bucle que se ejecuta siempre que alguna condición sea verdadera.
   Ver también: [bucle](#bucle).
 
+{% include links.md %}

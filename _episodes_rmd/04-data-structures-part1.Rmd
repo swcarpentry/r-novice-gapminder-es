@@ -643,7 +643,7 @@ ncol(matrix_example)
 > > dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
 > > answer <- list(dataTypes, dataStructures)
 > > ```
-> > {: .r}
+> > 
 > > Nota: es útil hacer una lista en el pizarrón o en papel colgado en la pared listando
 > > todos los tipos y estructuras de datos y mantener la lista durante el resto del curso
 > > para recordar la importancia de estos elementos básicos.
@@ -683,3 +683,5 @@ ncol(matrix_example)
 > > ```
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

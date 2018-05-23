@@ -530,3 +530,5 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 [roxygen2]: http://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
 [testthat]: http://r-pkgs.had.co.nz/tests.html
 
+
+{% include links.md %}
