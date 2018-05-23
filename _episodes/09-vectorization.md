@@ -116,7 +116,7 @@ y:  6  7  8  9
 >
 > > ## Solución al desafío 2
 > >
-> > Refresca tus habilidades de trazado trazando la población en millones en comparación con el año.
+> > Recuerda tus habilidades de graficación al crear una gráfica con la población en millones en comparación con el año.
 > >
 > > 
 > > ~~~
@@ -140,7 +140,7 @@ y:  6  7  8  9
 {: .challenge}
 
 
-Operadores de comparación, operadores lógicos y muchas funciones también están
+Operadores de comparación, operadores lógicos y muchas otras funciones también están
 vectorizadas:
 
 
@@ -254,7 +254,7 @@ m * -1
 > ~~~
 > {: .output}
 >
-> Para saber ms sobre Álgebra de matrices, ver [Quick-R reference guide](http://www.statmethods.net/advstats/matrix.html)
+> Para saber más sobre Álgebra de matrices, ver [Quick-R reference guide](http://www.statmethods.net/advstats/matrix.html)
 {: .callout}
 
 
@@ -311,7 +311,7 @@ m * -1
 > > {: .output}
 > >
 > >
-> > Escribe lo que piensas que pasará cuando ejecutes:
+> > Escribe lo que piensas que sucederá cuando ejecutes:
 > >
 > > 1. `m ^ -1`
 > >
@@ -345,7 +345,6 @@ m * -1
 > > [3,]  TRUE FALSE  TRUE FALSE
 > > ~~~
 > > {: .output}
-
 > >
 > {: .solution}
 {: .challenge}
@@ -355,11 +354,12 @@ m * -1
 >
 > Estamos interesados en encontrar la suma de la 
 > siguiente secuencia de fracciones:
->
->~~~
+> 
+> 
+> ~~~
 >  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
->~~~
->{: .language-r}
+> ~~~
+> {: .language-r}
 >
 > Esto sería tedioso de escribir, e imposible para valores altos de 
 > n. Usa vectorización para calcular x cuando n=100. ¿Cuál es la suma cuando
@@ -470,6 +470,7 @@ m * -1
 > > [1] 1.644834
 > > ~~~
 > > {: .output}
-> >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

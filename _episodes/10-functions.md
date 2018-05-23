@@ -23,23 +23,21 @@ source: Rmd
 
 
 
-Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticos simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
+Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticas simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
 
-En esta lección, aprenderemos cómo escribir una función de forma que seamos capaces de repetir varias operaciones con un comando único. 
+En esta lección, aprenderás cómo escribir una función de forma que seamos capaces de repetir varias operaciones con un comando único. 
 
 > ## ¿Qué es una función?
 >
-> Las funciones reunen una secuencia de operaciones en un todo, almacenándola para
-> su uso. Las funciones proveen:
+> Las funciones reunen una secuencia de operaciones como un todo, almacenandola para
+> su uso continuo. Las funciones proveen:
 >
 > * un nombre que podemos recordar y usar para invocarla
 > * una solución para la necesidad de recordar operaciones individuales
-> * un conjunto definido de **inputs** y **ouputs** esperados
-> * conexiones ricas con el ambiente de programación mayor
+> * un conjunto definido de **inputs** y **outputs** esperados
+> * una mayor conexión con el ambiente de programación
 >
-> Así como en la estructura de construcción básica de la mayoría de los lenguajes de programación, las funciones 
-> definidas por el usuario constituyen "programación" tan válida como lo es cualquier simple abstracción. Si
-> has escrito una función, entonces eres un programador de computación.
+> Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen > la "programación" de cualquier abstracción que puedas hacer. Si has escrito una función, eres ya todo un programador.
 {: .callout}
 
 ## Definiendo una función
@@ -73,7 +71,7 @@ lista de los nombres de los argumentos se encuentran entre paréntesis. Luego, e
 [cuerpo]({{ page.root }}/reference/#function-body) de la función--los
 comandos que son ejecutados cuando se corre--se encuentran entre paréntesis curvos
 (`{}`). Los comandos en el cuerpo se indentan con dos espacios. Esto hace que
-el código sea legible sin afectar cómo opera.
+el código sea legible sin afectar su funcionalidad.
 
 Cuando utilizamos la función, los valores que definimos como argumentos se asignan a 
 esas variables para que podamos usarlos dentro de la función. Dentro de la 
@@ -84,8 +82,8 @@ quien lo solicitó.
 
 > ## Sugerencia
 >
-> Una característica única de R es que el __return statement__ no es requerido.
-> R automáticamente devuelve cualquier variable que esté en la última linea del cuerpo
+> Una característica única de R es que el __return statement__ no es necesario.
+> R automáticamente devuelve cualquier variable que esté en la última línea del cuerpo
 > de la función. Pero por claridad, nosotros explícitamente definiremos el 
 > __return statement__.
 {: .callout}
@@ -200,12 +198,12 @@ kelvin_to_celsius <- function(temp) {
 Ahora que hemos empezado a apreciar cómo las funciones proporcionan una manera eficiente de hacer que el código R sea reutilizable
 y modular, debemos tener en cuenta que es importante garantizar que las funciones solo funcionen en los casos de uso previstos.
 Revisar los parámetros de las funciones está relacionado con el concepto de _programación defensiva_.
-La programación defensiva nos alienta a chequear las condiciones frecuentemente y arrojar un
-error si algo está mal. Estos chequeos se conocen como __assertion statements__ porque queremos 
+La programación defensiva nos alienta a probar las condiciones frecuentemente y arrojar un
+error si algo está mal. Estas pruebas se conocen como __assertion statements__ porque queremos 
 asegurarnos de que una determinada condición es `TRUE` antes de proceder. 
 Esto facilita la depuración porque nos dan una mejor idea de dónde se originan los errores. 
 
-### Chequear condiciones con `stopifnot()`
+### Probando condiciones con `stopifnot()`
 
 Empecemos por re-examinar `fahr_a_kelvin()`, nuestra función para convertir
 temperaturas de Fahrenheit a Kelvin. Estaba definida de la siguiente manera:
@@ -222,7 +220,7 @@ fahr_to_kelvin <- function(temp) {
 Para que esta función trabaje como se desea, el argumento `temp` debe ser un valor `numeric`; de lo contrario, el procedimiento
 matemático para convertir entre las dos escalas de temperatura no funcionará. Para crear un error, podemos usar la función
 `stop()`. Por ejemplo, dado que el argumento `temp` debe ser un vector `numeric`, podríamos
-chequearlo con un condicional `if` y devolver un error si la 
+probarlo con un condicional `if` y devolver un error si la 
 condición no se cumple. Podríamos agregar esto a nuestra función de la siguiente manera:
 
 
@@ -238,13 +236,13 @@ fahr_to_kelvin <- function(temp) {
 {: .language-r}
 
 Si tuviéramos muchas condiciones o argumentos para revisar, podría llevar muchas líneas
-de código chequearlas a todas. Afortunadamente R provee la función de conveniencia
+de código probarlas todas. Afortunadamente R provee la función de conveniencia
 `stopifnot()`. Podemos listar todos los requerimientos que deben ser evaluados como `TRUE`;
 `stopifnot()` arroja un error si encuentra uno que sea `FALSE`. 
 Listar estas condiciones tiene como objetivo secundario el generar documentación extra para la función.
 
-Probemos la programación defensiva con `stopifnot()` agregando aseveraciones para
-chequear el __input__ a nuestra función `fahr_a_kelvin()`.
+Hagamos la programación defensiva con `stopifnot()` agregando aseveraciones para
+probar el __input__ a nuestra función `fahr_a_kelvin()`.
 
 Queremos asegurar lo siguiente: `temp` es un vector numérico. Lo podemos hacer de la siguiente manera:
 
@@ -287,7 +285,7 @@ fahr_to_kelvin(temp = as.factor(32))
 
 
 ~~~
-Error: is.numeric(temp) is not TRUE
+Error in fahr_to_kelvin(temp = as.factor(32)): is.numeric(temp) is not TRUE
 ~~~
 {: .error}
 
@@ -302,7 +300,7 @@ Error: is.numeric(temp) is not TRUE
 > >
 > > Extender la definición previa de nuestra función agregándole una llamada explícita
 > > a `stopifnot()`. Dado que `fahr_a_celsius()` es una composición de otras dos
-> > funciones, hacer un chequeo a la función hace redundante el agregar chequeos a cada una de las 
+> > funciones, hacer pruebas a la función hace redundante el agregar pruebas a cada una de las 
 > > dos funciones que la componen.
 > >
 > >
@@ -322,8 +320,8 @@ Error: is.numeric(temp) is not TRUE
 
 ## Más sobre combinar funciones
 
-Ahora vamos a definir una función que calcula el Producto Bruto Interno ("GDP" en la base de datos, por sus siglas en inglés 
-Gross Domestic Product) de un país a partir de los datos disponibles en nuestro set de datos:
+Ahora vamos a definir una función que calcula el Producto Interno Bruto ("GDP" en la base de datos, por sus siglas en inglés 
+Gross Domestic Product) de un país a partir de los datos disponibles en nuestro conjunto de datos:
 
 
 ~~~
@@ -338,8 +336,7 @@ calcGDP <- function(dat) {
 
 Definimos `calcGDP()` asignándola al __output__ de `function`. La lista de
 los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
-cuerpo de la función--los 
-comandos que son ejecutados cuando se corre-- se encuentran entre paréntesis curvos
+cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- se encuentran entre paréntesis curvos
 (`{}`). 
 
 Hemos indentado los comandos en el cuerpo con dos espacios. Esto hace que el código 
@@ -351,7 +348,7 @@ que se convierten en variables dentro del cuerpo de la función.
 Dentro de la función, usamos la función `return()` para obtener el resultado.
 
 Esta función `return()` es opcional: R automáticamente devolverá el resultado de cualquier 
-sea el comando que se ejecute en la última línea de la función.
+comando que se ejecute en la última línea de la función.
 
 
 ~~~
@@ -479,11 +476,10 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
 ~~~
 {: .language-r}
 
-Aquí hemos agregado dos argumentos: año ("year") y país ("country"). Hemos seteado
-*argumentos por defecto* para ambos como `NULL` usando el operador `=` 
-en la definición de la función. Esto significa que estos argumentos tendrán esos valores
-a menos que el usuario especifique otra cosa.
-
+Aquí hemos agregado dos argumentos, año y país. Hemos establecido 
+*argumentos predeterminados* para ambos como NULL usando el operador = 
+en la definición de la función. Esto significa que esos argumentos tomarán esos valores 
+a menos que el usuario especifique lo contrario.
 
 
 ~~~
@@ -496,9 +492,10 @@ a menos que el usuario especifique otra cosa.
 ~~~
 {: .language-r}
 
-Aquí chequeamos si cada argumento adicional esta seteado a `null`, y cuando no sea
-`null` se sobreescriben los datos almacenados en `dat` con un subconjunto de datos determinados por el 
-argumento no nulo.
+Aquí verificamos si cada argumento adicional se define como `null`, y cuando no sea
+`null` se sobreescriben los datos almacenados en `dat` por un subconjunto de datos determinados por el 
+argumento not-`null`.
+
 
 Hacemos esto para que nuestra función sea más flexible para más adelante. Podemos pedirle que
 calcule el GDP para:
@@ -528,7 +525,7 @@ argumentos.
 > Otro concepto importante es el alcance: las variables (¡o funciones!) que 
 > creas o modificas dentro del cuerpo de una función sólo existen durante 
 > el tiempo de ejecución de la función. Cuando llamamos `calcGDP()`, las variables `dat`,
-> `gdp` y `new` sólo existen dentro del cuerpo de la función. Incluso si 
+> `gdp` y `new` sólo existen dentro del cuerpo de la función. Incluso, si 
 > tenemos variables con el mismo nombre en nuestra sesión interactiva de R, éstas no 
 > son modificadas en ninguna manera cuando se ejecuta la función.
 {: .callout}
@@ -587,8 +584,8 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > ~~~
 > {: .output}
 >
->  Escribir una función `fence()` que toma dos vectores como argumentos, llamados
-> `text` y `wrapper`, e muestra el texto flanqueado del `wrapper`:
+>  Escribir una función `fence()` que tome dos vectores como argumentos, llamados
+> `text` y `wrapper`, y muestra el texto flanqueado del `wrapper`:
 >
 > 
 > 
@@ -645,10 +642,10 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > ## Sugerencia: Probar y documentar
 >
 > Es importante probar las funciones así como documentarlas:
-> la documentación ayuda, a tí y a otros, a entender cuál es el propósito
-> de la función, y cómo usarla, además de ser importante 
-> para asegurarse que la función realmente hace
-> lo que tu crees que hace.
+> la documentación ayuda, tanto a tí como a otros, a entender cuál es el propósito
+> de la función y cómo usarla; además es importante  
+> asegurarse que la función realmente haga
+> lo que tú piensas que hace.
 >
 > Cuando recién comiences, tu flujo de trabajo probablemente luzca 
 > algo así:
@@ -664,8 +661,8 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 > aparte, se transforman en la documentación que ves en los archivos de ayuda.
 > El paquete [roxygen2][] le permite a los programadores de R escribir la
 > documentación junto con el código, y luego procesarlo para generar los archivos `.Rd`
-> apropiados. Quizas quieras cambiarte a este método más formal de escribir 
-> la documentación cuando empieces a escribir projectos de R más complicados.
+> apropiados. Quizás quieras cambiarte a este método más formal de escribir 
+> la documentación cuando empieces a escribir proyectos de R más complicados.
 >
 > Pruebas automatizadas formales se pueden escribir usando el paquete [testthat][].
 {: .callout}
@@ -673,3 +670,5 @@ nuestro primer intento cuando habíamos obtenido un vector de números.
 [roxygen2]: http://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
 [testthat]: http://r-pkgs.had.co.nz/tests.html
 
+
+{% include links.md %}

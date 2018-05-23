@@ -113,6 +113,7 @@ los datos "reales" (es decir, nuestros propios datos de investigación) nunca es
 
 > Descarga la versión ancha de los datos de gapminder desde [aquí] (https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_wide.csv)
 y guarda el archivo csv en tu carpeta de datos.
+{: .callout}
 
 Cargaremos el archivo de datos para verlo. Nota: no queremos que las columnas de caracteres sean convertidas a factores, por lo que usamos el argumento `stringsAsFactors = FALSE` para para deshabilitar eso, más información en la ayuda `?read.csv ()`.
 
@@ -249,36 +250,38 @@ gap_long$year <- as.integer(gap_long$year)
 >
 > > ## Solución al Desafío 2
 > >
-> >~~~
-> >gap_long %>% group_by(continent, obs_type) %>%
-> >    summarize(means = mean(obs_values))
-> >~~~
-> >{: .r}
-> >
-> >
-> >
-> >~~~
-> ># A tibble: 15 x 3
-> ># Groups:   continent [?]
-> >   continent  obs_type        means
-> >       <chr>     <chr>        <dbl>
-> > 1    Africa gdpPercap 2.193755e+03
-> > 2    Africa   lifeExp 4.886533e+01
-> > 3    Africa       pop 9.916003e+06
-> > 4  Americas gdpPercap 7.136110e+03
-> > 5  Americas   lifeExp 6.465874e+01
-> > 6  Americas       pop 2.450479e+07
-> > 7      Asia gdpPercap 7.902150e+03
-> > 8      Asia   lifeExp 6.006490e+01
-> > 9      Asia       pop 7.703872e+07
-> >10    Europe gdpPercap 1.446948e+04
-> >11    Europe   lifeExp 7.190369e+01
-> >12    Europe       pop 1.716976e+07
-> >13   Oceania gdpPercap 1.862161e+04
-> >14   Oceania   lifeExp 7.432621e+01
-> >15   Oceania       pop 8.874672e+06
-> >~~~
-> >{: .output}
+> > 
+> > ~~~
+> > gap_long %>% 
+> >     group_by(continent, obs_type) %>%
+> >     summarize(means = mean(obs_values))
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 15 x 3
+> > # Groups:   continent [?]
+> >    continent obs_type       means
+> >    <chr>     <chr>          <dbl>
+> >  1 Africa    gdpPercap     2194. 
+> >  2 Africa    lifeExp         48.9
+> >  3 Africa    pop        9916003. 
+> >  4 Americas  gdpPercap     7136. 
+> >  5 Americas  lifeExp         64.7
+> >  6 Americas  pop       24504795. 
+> >  7 Asia      gdpPercap     7902. 
+> >  8 Asia      lifeExp         60.1
+> >  9 Asia      pop       77038722. 
+> > 10 Europe    gdpPercap    14469. 
+> > 11 Europe    lifeExp         71.9
+> > 12 Europe    pop       17169765. 
+> > 13 Oceania   gdpPercap    18622. 
+> > 14 Oceania   lifeExp         74.3
+> > 15 Oceania   pop        8874672. 
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -537,14 +540,15 @@ str(gap_wide_new)
 > Crea un formato de datos `gap_super_wide` mediante la distribución por países, año y las tres métricas.
 > **Ayuda** este nuevo **data frame** sólo debe tener cinco filas.
 >
->> ## Solución para el desafío 3
+> > ## Solución para el desafío 3
+> >
 > >
 > >~~~
 > >gap_super_wide <- gap_long %>%
 > >    unite(var_names, obs_type, year, country, sep = "_") %>%
 > >    spread(var_names, obs_values)
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -619,3 +623,5 @@ str(gap_wide_betterID)
 * [Hoja de trucos para la conversión de datos] (https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 * [Introducción a tidyr] (https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)
 * [Manipulación de datos con R y RStudio] (https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/)
+
+{% include links.md %}

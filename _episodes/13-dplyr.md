@@ -5,14 +5,14 @@ title: Manipulación de data frames con dplyr
 teaching: 40
 exercises: 15
 questions:
-- "¿Cómo manipular **dataframes** sin repetir lo mismo una y otra vez?"
+- "¿Cómo manipular data frames sin repetir lo mismo una y otra vez?"
 objectives:
-- "Ser capaces de usar las seis principales acciones de manipulación de **dataframes** con **pipes** en `dplyr`."
-- "Comprender cómo combinar `group_by()` y `summarize()` para obtener resúmenes de **datasets**."
+- "Ser capaces de usar las seis principales acciones de manipulación de data frames con pipes en `dplyr`."
+- "Comprender cómo combinar `group_by()` y `summarize()` para obtener resúmenes de datasets."
 - "Ser capaces de analizar un subconjunto de datos usando un filtrado lógico."
 keypoints:
-- "Usar el paquete `dplyr` para manipular **dataframes**."
-- "Usar `select()` para seleccionar variables de un **dataframe**."
+- "Usar el paquete `dplyr` para manipular data frames."
+- "Usar `select()` para seleccionar variables de un data frame."
 - "Usar `filter()` para seleccionar datos basándose en los valores."
 - "Usar `group_by()` y `summarize()` para trabajar con subconjuntos de datos."
 - "Usar `mutate()` para crear nuevas variables."
@@ -21,7 +21,7 @@ source: Rmd
 
 
 
-La manipulación de **dataframes** significa distintas cosas para distintos investigadores. A veces podemos querer seleccionar ciertas observaciones (filas) o variables (columnas), otras deseamos agrupar los datos en función de una o más variables, o podemos querer calcular valores estadísticos del conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
+La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
 
 
 ~~~
@@ -64,11 +64,11 @@ mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 ~~~
 {: .output}
 
-Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta un tiempo, tanto en el momento de hacerlo como en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
+Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta tiempo, tanto en el momento de hacerlo como en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
 
 ## El paquete `dplyr`
 
-Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) proporciona un conjunto de funciones extremadamente útiles para manipular **dataframes** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
+Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) proporciona un conjunto de funciones extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
 
 Aquí vamos a revisar 6 de sus funciones más usadas, así como a usar los **pipes** (`%>%`) para combinarlas.
 
@@ -96,7 +96,7 @@ library("dplyr")
 
 ## Usando select()
 
-Si por ejemplo queremos continuar el trabajo con sólo unas pocas de las variables de nuestro **dataframe** podemos usar la función `select()`. Esto guardará sólo las variables que seleccionemos.
+Si por ejemplo queremos continuar el trabajo con sólo unas pocas de las variables de nuestro **data frame** podemos usar la función `select()`. Esto guardará sólo las variables que seleccionemos.
 
 
 
@@ -115,11 +115,11 @@ year_country_gdp <- gapminder %>% select(year,country,gdpPercap)
 ~~~
 {: .language-r}
 
-Para ayudarte a entender por qué lo hemos escrito así, vamos a revisarlo por partes. Primero hemos llamado al **dataframe** "gapminder" y se lo hemos pasado al siguiente paso, que es la función `select()`, usando el símbolo de la **pipe** `%>%`. En este caso no especificamos qué objeto con datos vamos a usar en la función `select()` porque esta lo recibe de la **pipe** previa. **Dato curioso:** es muy posible que te hayas encontrado con **pipes** antes en la terminal. En R el símbolo de la **pipe** es `%>%`, mientras que en la terminal es `|`, pero el concepto es el mismo.
+Para ayudarte a entender por qué lo hemos escrito así, vamos a revisarlo por partes. Primero hemos llamado al **data frame** "gapminder" y se lo hemos pasado al siguiente paso, que es la función `select()`, usando el símbolo del **pipe** `%>%`. En este caso no especificamos qué objeto de datos vamos a usar en la función `select()` porque esto se obtiene del resultado de la instrucción previa a el **pipe**. **Dato curioso:** es muy posible que te hayas encontrado con **pipes** antes en la terminal de unix. En R el símbolo del **pipe** es `%>%`, mientras que en la terminal es `|`, pero el concepto es el mismo.
 
 ## Usando filter()
 
-Si ahora quermos continuar con lo de arriba, pero sólo con los países europeos, podemos combinar `select` y `filter`.
+Si ahora queremos continuar con lo de arriba, pero sólo con los países europeos, podemos combinar `select` y `filter`.
 
 
 ~~~
@@ -132,9 +132,9 @@ year_country_gdp_euro <- gapminder %>%
 > ## Reto 1
 >
 > Escribe un único comando (que puede ocupar varias líneas e incluir **pipes**)
-> que produzca un **dataframe** que tenga los valores africanos correspondientes
+> que produzca un **data frame** y que tenga los valores africanos correspondientes
 > a `lifeExp`, `country` y `year`, pero no de los otros continentes.
-> ¿Cuántas filas tiene dicho **dataframe** y por qué?
+> ¿Cuántas filas tiene dicho **data frame** y por qué?
 >
 > > ## Solución al Reto 1
 > >
@@ -147,7 +147,7 @@ year_country_gdp_euro <- gapminder %>%
 > {: .solution}
 {: .challenge}
 
-Al igual que la vez anterior, primero le pasamos el **dataframe** "gapminder" a la función `filter()` y luego le pasamos la versión de dicho **dataframe** así filtrada a la función `select()`. **Nota:** El orden de las operaciones es muy importante en este caso. Si usamos primero `select()`, la función `filter()` no habría podido encontrar la variable "continent" porque la habríamos eliminado en el paso previo.
+Al igual que la vez anterior, primero le pasamos el **data frame** "gapminder" a la función `filter()` y luego le pasamos la versión filtrada del **data frame** a la función `select()`. **Nota:** El orden de las operaciones es muy importante en este caso. Si usamos primero `select()`, la función `filter()` no habría podido encontrar la variable "continent" porque la habríamos eliminado en el paso previo.
 
 ## Usando group_by() y summarize()
 
@@ -189,8 +189,7 @@ Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variable
  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
  $ gdpPercap: num  779 821 853 836 740 ...
- - attr(*, "vars")=List of 1
-  ..$ : symbol continent
+ - attr(*, "vars")= chr "continent"
  - attr(*, "drop")= logi TRUE
  - attr(*, "indices")=List of 5
   ..$ : int  24 25 26 27 28 29 30 31 32 33 ...
@@ -202,19 +201,18 @@ Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variable
  - attr(*, "biggest_group_size")= int 624
  - attr(*, "labels")='data.frame':	5 obs. of  1 variable:
   ..$ continent: Factor w/ 5 levels "Africa","Americas",..: 1 2 3 4 5
-  ..- attr(*, "vars")=List of 1
-  .. ..$ : symbol continent
+  ..- attr(*, "vars")= chr "continent"
   ..- attr(*, "drop")= logi TRUE
 ~~~
 {: .output}
 
-Se puede observar que la estructura del **dataframe** obtenido por `group_by()` (`grouped_df`) no es la misma que la del **dataframe** original `gapminder`(`data.fram`). Se puede pensar en un `grouped_df` como en una `list` donde cada item in la `list` es un `data.frame` que contiene únicamente las filas que corresponden a un valor particular de `continent` (en el el ejemplo mostrado).
+Se puede observar que la estructura del **data frame** obtenido por `group_by()` (`grouped_df`) no es la misma que la del **data frame** original `gapminder`(`data.fram`). Se puede pensar en un `grouped_df` como en una `list` donde cada item in la `list` es un `data.frame` que contiene únicamente las filas que corresponden a un valor particular de `continent` (en el ejemplo mostrado).
 
 ![](../fig/13-dplyr-fig2.png)
 
 ## Usando summarize()
 
-Lo visto arriba no es demasiado remarcable, pero `group_by()` es mucho más excitante si se usa en conjunción con `summarize()`. Esto nos permitirá crear nuevas variables usando funciones que se aplican a cada uno de los **dataframes** específicos para cada continente. Es decir, usando la función `group_by()` dividimos nuestro **dataframe** original en varias partes, a las que luego podemos aplicar funciones (por ejemplo, `mean()` o `sd()`) independientemente con `summarize()`.
+Lo visto arriba no es muy sofisticado, pero `group_by()` es más interesante y útil si se usa en conjunto con `summarize()`. Esto nos permitirá crear nuevas variables usando funciones que se aplican a cada uno de los **data frames** específicos para cada continente. Es decir, usando la función `group_by()` dividimos nuestro **data frame** original en varias partes, a las que luego podemos aplicarles funciones (por ejemplo, `mean()` o `sd()`) independientemente con `summarize()`.
 
 
 ~~~
@@ -261,17 +259,17 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 2 × 2
-> >       country mean_lifeExp
-> >        <fctr>        <dbl>
-> >1      Iceland     76.51142
-> >2 Sierra Leone     36.76917
+> ># A tibble: 2 x 2
+> >  country      mean_lifeExp
+> >  <fct>               <dbl>
+> >1 Iceland              76.5
+> >2 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > >
 > Otro modo de hacer esto es usando la función `arrange()` del paquete `dplyr`,
-> que distribuye las filas de un **dataframe** en función del orden de una
-> o más variables del **dataframe**. Tiene una sintaxis similar a otras funciones
+> que distribuye las filas de un **data frame** en función del orden de una
+> o más variables del **data frame**. Tiene una sintaxis similar a otras funciones
 > del paquete `dplyr`. Se puede usar `desc()` dentro de `arrange()` para 
 > ordenar de modo descendente.
 > >
@@ -286,10 +284,10 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 1 × 2
-> >       country mean_lifeExp
-> >        <fctr>        <dbl>
-> >1 Sierra Leone     36.76917
+> ># A tibble: 1 x 2
+> >  country      mean_lifeExp
+> >  <fct>               <dbl>
+> >1 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > >
@@ -305,10 +303,10 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 1 × 2
+> ># A tibble: 1 x 2
 > >  country mean_lifeExp
-> >   <fctr>        <dbl>
-> >1 Iceland     76.51142
+> >  <fct>          <dbl>
+> >1 Iceland         76.5
 > >~~~
 > >{: .output}
 > {: .solution}
@@ -354,14 +352,14 @@ gapminder %>%
 
 
 ~~~
-# A tibble: 5 × 2
+# A tibble: 5 x 2
   continent     n
-     <fctr> <int>
-1    Africa    52
-2      Asia    33
-3    Europe    30
-4  Americas    25
-5   Oceania     2
+  <fct>     <int>
+1 Africa       52
+2 Asia         33
+3 Europe       30
+4 Americas     25
+5 Oceania       2
 ~~~
 {: .output}
 
@@ -378,18 +376,18 @@ gapminder %>%
 
 
 ~~~
-# A tibble: 5 × 2
-  continent    se_pop
-     <fctr>     <dbl>
-1    Africa 0.3663016
-2  Americas 0.5395389
-3      Asia 0.5962151
-4    Europe 0.2863536
-5   Oceania 0.7747759
+# A tibble: 5 x 2
+  continent se_pop
+  <fct>      <dbl>
+1 Africa     0.366
+2 Americas   0.540
+3 Asia       0.596
+4 Europe     0.286
+5 Oceania    0.775
 ~~~
 {: .output}
 
-También se pueden encadenar juntas varias operaciones de resumen, como en el caso siguiente, en el calculamos el `minimum`, `maximum`, `mean` y `se` de la esperanza de vida por país para cada continente:
+También se pueden encadenar juntas varias operaciones de resumen, como en el caso siguiente, en el que calculamos el `minimum`, `maximum`, `mean` y `se` de la esperanza de vida por país para cada continente:
 
 
 ~~~
@@ -406,14 +404,14 @@ gapminder %>%
 
 
 ~~~
-# A tibble: 5 × 5
-  continent  mean_le min_le max_le     se_le
-     <fctr>    <dbl>  <dbl>  <dbl>     <dbl>
-1    Africa 48.86533 23.599 76.442 0.3663016
-2  Americas 64.65874 37.579 80.653 0.5395389
-3      Asia 60.06490 28.801 82.603 0.5962151
-4    Europe 71.90369 43.585 81.757 0.2863536
-5   Oceania 74.32621 69.120 81.235 0.7747759
+# A tibble: 5 x 5
+  continent mean_le min_le max_le se_le
+  <fct>       <dbl>  <dbl>  <dbl> <dbl>
+1 Africa       48.9   23.6   76.4 0.366
+2 Americas     64.7   37.6   80.7 0.540
+3 Asia         60.1   28.8   82.6 0.596
+4 Europe       71.9   43.6   81.8 0.286
+5 Oceania      74.3   69.1   81.2 0.775
 ~~~
 {: .output}
 
@@ -437,7 +435,7 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
 
 ## Conectando mutate con filtrado lógico: ifelse
 
-La creación de nuevas variables se puede conectar con una condición lógica. Una simple combinación de `mutate` y `ifelse` facilita el filtrado solo allí donde se necesita: en el momento de crear algo nuevo. Esta combinación es fácil de leer y es un modo rápido y potente de descartar ciertos datos (incluso sin cambiar la dimensión conjunta del **dataframe**) o para actualizar valores dependiendo de la condición utilizada.
+La creación de nuevas variables se puede conectar con una condición lógica. Una simple combinación de `mutate` y `ifelse` facilita el filtrado solo allí donde se necesita: en el momento de crear algo nuevo. Esta combinación es fácil de leer y es un modo rápido y potente de descartar ciertos datos (incluso sin cambiar la dimensión conjunta del **data frame**) o para actualizar valores dependiendo de la condición utilizada.
 
 
 ~~~
@@ -481,7 +479,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
 
 <img src="../fig/rmd-13-unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
 
-Este código construye el gráfica correcta, pero también crea algunas variables `starts.with` y `az.countries`) que podemos no querer usar para nada más. Del mismo modo que usamos `%>%` para pasar datos con **pipes** a lo largo de una cadena de funciones `dplyr`, podemos usarlo para pasarle datos a `ggplot()`. Como `%>%` sustituye al primer argumento de una función, no necesitamos especifica el argumento `data=` de la función `ggplot()`. Combinando funciones de los paquetes `dplyr` y `ggplot` podemos hacer la misma figura sin crear ninguna nueva variable y sin modificar los datos.
+Este código construye la gráfica correcta, pero también crea algunas variables `starts.with` y `az.countries`) que podemos no querer usar para nada más. Del mismo modo que usamos `%>%` para pasar datos con **pipes** a lo largo de una cadena de funciones `dplyr`, podemos usarlo para pasarle datos a `ggplot()`. Como `%>%` sustituye al primer argumento de una función, no necesitamos especificar el argumento `data=` de la función `ggplot()`. Combinando funciones de los paquetes `dplyr` y `ggplot` podemos hacer la misma figura sin crear ninguna nueva variable y sin modificar los datos.
 
 
 ~~~
@@ -541,5 +539,7 @@ gapminder %>%
 
 * [R for Data Science](http://r4ds.had.co.nz/)
 * [Data Wrangling Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-* [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
+* [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html)
 * [Data wrangling with R and RStudio](https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/)
+
+{% include links.md %}
