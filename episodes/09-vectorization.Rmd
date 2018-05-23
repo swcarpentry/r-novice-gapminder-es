@@ -200,7 +200,6 @@ m * -1
 > > ```{r, echo=FALSE}
 > > m > c(0, 20)
 > > ```
-
 > >
 > {: .solution}
 {: .challenge}
@@ -210,7 +209,8 @@ m * -1
 >
 > Estamos interesados en encontrar la suma de la 
 > siguiente secuencia de fracciones:
->```{r, eval=FALSE}
+> 
+> ```{r, eval=FALSE}
 >  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 > ```
 >
@@ -251,6 +251,7 @@ m * -1
 > > n <- 10000
 > > inverse_sum_of_squares(n)
 > > ```
-> >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

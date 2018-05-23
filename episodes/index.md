@@ -17,3 +17,5 @@ Una variedad de paquetes creados por terceras partes se utilizan a lo largo de e
 > Los archivos están organizados en directorios (carpetas).
 > Aprender a cómo acceder a los archivos que no están en el directorio de trabajo, especificando la ruta.
 {: .prereq}
+
+{% include links.md %}

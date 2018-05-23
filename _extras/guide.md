@@ -69,7 +69,7 @@ Para evitar que los alumnos tengan que re-ingresar su **password** cada vez que 
 ~~~
 $ git config --global credential.helper 'cache --timeout=10000000'
 ~~~
-{: .bash}
+{: .language-bash}
 
 ## Obteniendo datos
 
@@ -80,7 +80,7 @@ hacer que los asistentes ejecuten lo siguiente:
 git remote add data https://github.com/resbaz/r-novice-gapminder-files
 git pull data master
 ~~~
-{: .bash}
+{: .language-bash}
 
 Si Git no está siendo enseñado como parte del taller, entonces los datos crudos pueden ser descargados desde
 [gapminder-FiveYearData][gapminder-data] y

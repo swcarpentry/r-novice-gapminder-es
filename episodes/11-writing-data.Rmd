@@ -170,3 +170,5 @@ head cleaned-data/gapminder-aus.csv
 # repository
 unlink("cleaned-data", recursive=TRUE)
 ```
+
+{% include links.md %}

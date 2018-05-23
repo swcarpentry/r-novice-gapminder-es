@@ -207,3 +207,5 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 ### Control de versiones
 
 Es importante llevar a cabo el control de versiones en un proyecto. Ve [aquí](http://swcarpentry.github.io/git-novice/14-supplemental-rstudio/) para una buena lección donde se describe el uso de Git con R Studio.
+
+{% include links.md %}

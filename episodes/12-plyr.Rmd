@@ -242,3 +242,5 @@ d_ply(
 > ```
 >
 {: .challenge}
+
+{% include links.md %}
