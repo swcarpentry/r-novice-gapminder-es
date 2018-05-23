@@ -1,5 +1,5 @@
 ---
-title: "Introducción a R y RStudio 🇦🇷"
+title: "Introducción a R y RStudio"
 teaching: 45
 exercises: 10
 questions:
