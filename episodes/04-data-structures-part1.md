@@ -23,7 +23,7 @@ source: Rmd
 
 Una de las características más poderosas de R es su habilidad de manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. Comencemos creando un **dataset** de ejemplo
-en tu directorio `datos/`, en el archivo llamado `feline-data.csv`:
+en tu directorio `data/`, en el archivo llamado `feline-data.csv`:
 
 
 ~~~
@@ -36,7 +36,7 @@ tabby,3.2,1
 
 > ## Consejo: Edición de archivos de texto en R
 >
-> Alternativamente, puedes crear el archivo `datos/datos-felinos.csv` usando un editor de texto (Nano),
+> Alternativamente, puedes crear el archivo `data/feline-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
 {: .callout}
 
@@ -67,7 +67,7 @@ CSV (donde **csv** es **comma-separated values** en inglés, es decir, valores s
 Los signos de puntuación más comunmente usados para separar o delimitar datos en archivos de texto son tabuladores y comas.
 Por conveniencia, R provee dos versiones de la función `read.table`. Estas versiones son: `read.csv`
 para archivos donde los datos están separados por comas y `read.delim` para archivos donde los datos están separados
-por tabuladores. De las tres variantes, `read.csv` es la usada más comúnmente. De ser necesario, es posible sobrescribir
+por tabuladores. De las tres variantes, `read.csv` es la más comúnmente usada. De ser necesario, es posible sobrescribir
  el signo de puntuación usado por defecto para ambas funciones: `read.csv` y `read.delim`.
 
 
@@ -101,7 +101,7 @@ Levels: black calico tabby
 ~~~
 {: .output}
 
-Podemos efectuar otras operaciones a las columnas:
+Podemos hacer otras operaciones sobre las columnas:
 
 
 
@@ -155,7 +155,7 @@ factors
 ~~~
 {: .output}
 
-Entender qué es lo que pasa en este case es clave para analizar datos en R exitosamente.
+Entender qué es lo que pasa en este caso es clave para analizar datos en R exitosamente.
 
 ## Tipos de datos
 
@@ -250,7 +250,7 @@ No importa cuan complicado sea nuestro análisis, todos los datos en R se interp
 tipos de datos básicos. Este rigor tiene algunas consecuencias importantes.
 
 Un usuario ha agregado detalles de otro gato. Esta información está en el archivo
-`datos/datos-felinos_v2.csv`.
+`data/feline-data_v2.csv`.
 
 
 
@@ -288,7 +288,7 @@ typeof(cats$weight)
 ~~~
 {: .output}
 
-Oh no, nuestros pesos ya no son de tipo **double**! Si intentamos hacer los mismos cálculos anteriores, tenemos problemas:
+¡Oh no, nuestros pesos ya no son de tipo **double**! Si intentamos hacer los mismos cálculos anteriores, tenemos problemas:
 
 
 ~~~
@@ -374,7 +374,7 @@ my_vector
 ~~~
 {: .output}
 Un vector en R es esencialmente una lista ordenada de cosas, con la condición especial 
-de que *todos* los elementos en un vector tienen que ser del mismo tipo de datos básico*. 
+de que *todos los elementos en un vector tienen que ser del mismo tipo de datos básico*. 
 Si no eliges un tipo de datos, por defecto R elige el tipo de datos **logical**.
 También puedes declarar un vector vacío de cualquier tipo que quieras.
 
@@ -466,7 +466,7 @@ combine_vector
 [1] 2 6 3
 ~~~
 {: .output}
-Dado lo que aprendimos hasta ahora, ¿qué piensas que va a producir el siguiente código?
+Dado lo que aprendimos hasta ahora, ¿qué crees que hace el siguiente código?
 
 
 ~~~
@@ -475,7 +475,7 @@ quiz_vector <- c(2,6,'3')
 {: .language-r}
 
 Esto se denomina *coerción de tipos de datos* y es motivo de muchas sorpresas y la razón por la cual es necesario conocer
-los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso númerico y caracteres) para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
+los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mezcla de tipos de datos (en este caso **numeric** y **character**) para combinarlos en un vector, va a forzarlos a ser del mismo tipo.
 
 Considera:
 
@@ -556,10 +556,10 @@ numeric_coerced_to_logical
 ~~~
 {: .output}
 
-Como puedes ver, algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
+Como puedes ver, ¡algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
 Dejando de lado los detalles de la coerción, la cuestión es: si tus datos no lucen como pensabas que
 deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos los elementos de tus vectores
-y las columnas de tus **data.frames** son del mismo tipo o te encontrarás con sorpresas desagradables!
+y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables!
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `cats`,
 `likes_string` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
@@ -786,7 +786,7 @@ names(my_example)
 > ## Desafío 1
 >
 > Comienza construyendo un vector con los números del 1 al 26.
-> Multiplica el vector por 2 y asigna al vector resultante los nombres A hasta Z
+> Multiplica el vector por 2 y asigna al vector resultante, los nombres de A hasta Z
 > (Pista: hay un vector pre-definido llamado **`LETTERS`**)
 >
 > > ## Solución del desafío 1
@@ -882,7 +882,7 @@ str(coats)
 
 
 ~~~
- chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "black" ...
+ chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "black" "tabby"
 ~~~
 {: .output}
 
@@ -952,7 +952,7 @@ typeof(CATegories)
 
 > ## Desafío 2
 >
-> ¿Hay algún un **factor** en nuestro **data.frame** `cats`? ¿Cuál es el nombre?
+> ¿Hay algún **factor** en nuestro **data.frame** `cats`? ¿Cuál es el nombre?
 > Intenta usar `?read.csv` para darte cuenta cómo mantener las columnas de texto como vectores de caracteres
 > en lugar de factores; luego escribe uno o más comandos para mostrar que el **factor** en
 > `cats` es en realidad un vector de caracteres cuando se carga de esta manera.
@@ -978,7 +978,7 @@ typeof(CATegories)
 > > {: .language-r}
 > >
 > > Nota: Los nuevos estudiantes encuentran los archivos de ayuda difíciles de entender; asegúrese de hacerles saber 
-> > que esto es normal, y anímelos a que tomen su mejor opción en función del significado semantico, 
+> > que esto es normal, y anímelos a que tomen su mejor opción en función del significado semántico, 
 > > incluso si no están seguros.
 > {: .solution}
 {: .challenge}
@@ -1075,7 +1075,7 @@ typeof(cats)
 ~~~
 {: .output}
 
-Vemos que los **data.frames** parecen listas 'en su cara oculta' - ​​esto es porque un
+Vemos que los **data.frames** parecen listas 'en su cara oculta' - esto es porque un
 **data.frame** es realmente una lista de vectores y factores, como debe ser - 
 para mantener esas columnas que son una combinación de vectores y factores, 
 el **data.frame** necesita algo más flexible que un vector para poner todas las 
@@ -1083,7 +1083,7 @@ columnas juntas en una tabla. En otras palabras, un `data.frame` es una
 lista especial en la que todos los vectores deben tener la misma longitud.
 
 
-En nuestro ejemplo de `cats`, tenemos un número entero, un doble y una variable lógica. Como
+En nuestro ejemplo de `cats`, tenemos una variable **integer**, una **double** y una **logical**. Como
 ya hemos visto, cada columna del **data.frame** es un vector.
 
 
@@ -1508,7 +1508,7 @@ ncol(matrix_example)
 > > answer <- list(dataTypes, dataStructures)
 > > ~~~
 > > {: .language-r}
-> > {: .r}
+> > 
 > > Nota: es útil hacer una lista en el pizarrón o en papel colgado en la pared listando
 > > todos los tipos y estructuras de datos y mantener la lista durante el resto del curso
 > > para recordar la importancia de estos elementos básicos.
@@ -1560,3 +1560,5 @@ ncol(matrix_example)
 > > {: .language-r}
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

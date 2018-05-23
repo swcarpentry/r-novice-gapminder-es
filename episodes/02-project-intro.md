@@ -191,7 +191,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-r--r--  1 raynamharris  staff    80K Apr  9 22:04 data/gapminder-FiveYearData.csv
+> > -rw-rw-r-- 1 francois francois 80K Feb 21 10:23 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 
@@ -207,7 +207,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> >     1705 data/gapminder-FiveYearData.csv
+> > 1705 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 
@@ -247,3 +247,5 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 ### Control de versiones
 
 Es importante llevar a cabo el control de versiones en un proyecto. Ve [aquí](http://swcarpentry.github.io/git-novice/14-supplemental-rstudio/) para una buena lección donde se describe el uso de Git con R Studio.
+
+{% include links.md %}

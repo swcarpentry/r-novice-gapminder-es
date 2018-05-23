@@ -5,42 +5,42 @@ title: Guardando datos
 teaching: 10
 exercises: 10
 questions:
-- "¿Cómo puedo guardar gráficas y datos creados en R?"
+- "¿Cómo puedo guardar gráficos y datos creados en R?"
 objectives:
-- "Ser capaz de guardar gráficas y datos desde R."
+- "Ser capaz de guardar gráficos y datos desde R."
 keypoints:
-- "Guardar gráficas desde RStudio usando el botón de 'Export'."
+- "Guardar gráficos desde RStudio usando el botón de 'Export'."
 - "Usar `write.table` para guardar datos tabulares."
 source: Rmd
 ---
 
 
 
-## Guardando gráficas
+## Guardando gráficos
 
-Ya has visto como guardar la más reciente gráfica que creaste en `ggplot2`
-usando el comando `ggsave`. A manera de recuerdo:
+Ya hemos visto como guardar el gráfico más reciente que creaste con el paquete `ggplot2`
+usando el comando `ggsave`. A manera de recordatorio, aquí está el código:
 
 
 ~~~
 ggsave("My_most_recent_plot.pdf")
 ~~~
 {: .language-r}
-Puedes guardar una gráfica desde Rstudio usando el botón de 'Export' en la
-ventana de 'Plot'. Esto te dará la opción de guardarla como .pdf, .png, .jpg
+Puedes guardar un gráfico desde Rstudio usando el botón de 'Export' en la
+ventana de 'Plot'. Esto te dará la opción de guardarlo como .pdf, .png, .jpg
 u otros formatos de imágenes.
 
-Algunas veces podrías querer guardar las gráficas sin primero desplegarlas
-en la ventana de 'Plot'. Quizá quieras hacer un documento pdf con varias
-páginas: por ejemplo, cada una con una gráfica distinta. O quizá tu estás
+Puede que quieras guardar los gráficos sin visualizarlos previamente
+en la ventana de 'Plot'. Quizás quieras hacer un documento pdf con varias
+páginas: por ejemplo, cada una con un gráfico distinto. O quizás estás
 iterando sobre distintos subconjuntos de un archivo, graficando los datos
-de cada subconjunto y quieres guardar cada una de las gráficas, obviamente no
+de cada subconjunto y quieres guardar cada una de los gráficos. En estos casos obviamente no
 puedes detener la iteración en cada paso para dar clic en 'Export' para
-cada una.
+cada uno.
 
-En este caso quieres usar un método más flexible. La función `pdf` crea un
-nuevo dispositivo pdf. Puedes controlar el tamaño y la resolución usando
-argumentos para esta función.
+En dicho caso conviene usar un método más flexible. La función `pdf` crea un
+nuevo pdf del cual puedes controlar el tamaño y la resolución usando los
+argumentos específicos de esta función.
 
 
 
@@ -50,7 +50,7 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
   geom_line() +
   theme(legend.position = "none") 
 
-# ¡Tienes que asegurarte de apagar el dispositivo pdf!
+# ¡Tienes que asegurarte de cerrar el pdf! Para ello usas el comando:
 
 dev.off()
 ~~~
@@ -61,9 +61,8 @@ Abre este documento y echa un vistazo.
 
 > ## Desafío 1
 >
-> Vuelve a escribir el comando 'pdf' para imprimir una segunda página en el
-> pdf, mostrando una gráfica **facet** (sugerencia: usa `facet_grid`) de los
-> mismos datos con un panel por continente.
+> Vuelve a escribir el comando 'pdf', pero esta vez emplea el término **facet** (sugerencia: usa `facet_grid`) con los
+> mismos datos. Esto te permitirá visualizar en un gráfico los datos por continente y guardarlos en un pdf.
 > > ## Solution to challenge 1
 > > ## Solución al desafío 1
 > >
@@ -83,17 +82,17 @@ Abre este documento y echa un vistazo.
 {: .challenge}
 
 
-Los comandos `jpeg`, `png`, etc. son usados de manera similar para producir
+Los comandos como `jpeg`y `png` entre otros son usados de manera similar para producir
 documentos en los correspondientes formatos.
 
 ## Guardando datos
 
-En algún momento, también querrás guardar datos desde R.
+En algún momento puede que también quieras guardar datos desde R.
 
-Podemos usar la función `write.table` para esto, ésta es muy similar a la
+Para ello podes usar la función `write.table`, que es muy similar a la
 función `read.table` que se presentó anteriormente.
 
-Vamos a crear un **script** para limpiar datos, para este análisis, vamos a
+Vamos a crear un **script** para limpiar datos. En este análisis, vamos a
 enfocarnos solamente en los datos de **gapminder** para Australia:
 
 
@@ -108,7 +107,7 @@ write.table(aust_subset,
 ~~~
 {: .language-r}
 
-Ahora regresemos a la terminal para dar un vistazo a los datos para
+Ahora regresemos a la terminal para dar un vistazo a los datos y
 asegurarnos que se vean bien:
 
 
@@ -135,7 +134,7 @@ head cleaned-data/gapminder-aus.csv
 {: .output}
 
 Mmm, eso no era precisamente lo que queríamos. ¿De dónde vinieron todas
-esas comillas?. También los números de línea no tienen ningún sentido.
+esas comillas?. Los números de línea tampoco tienen sentido.
 
 Veamos el archivo de ayuda para investigar como podemos cambiar este
 comportamiento.
@@ -146,11 +145,11 @@ comportamiento.
 ~~~
 {: .language-r}
 
-Por omisión los vectores **character** se ponen entre comillas cuando se
-guarda en un archivo. También se guardan los nombres de los renglones y las
+Salvo que configuremos otra cosa, los vectores **character** aparecen de forma predeterminada entre comillas cuando se
+guardan en un archivo. También se guardan los nombres de los renglones y las
 columnas.
 
-Arreglemos esto:
+Cambiemos esto:
 
 
 ~~~
@@ -188,11 +187,11 @@ Australia,1992,17481977,Oceania,77.56,23424.76683
 ~~~
 {: .output}
 
-¡Esto se ve mejor!
+¡Ahora se ve mejor!
 
 > ## Desafío 2
 >
-> Escribe un **script** de limpieza de datos que filtre los datos de
+> Escribe un **script** para limpiar estos datos, filtrando los datos de
 > **gapminder** que fueron colectados desde 1990.
 >
 > Usa este **script** para guardar este nuevo subconjunto de datos en el
@@ -213,4 +212,4 @@ Australia,1992,17481977,Oceania,77.56,23424.76683
 
 
 
-
+{% include links.md %}

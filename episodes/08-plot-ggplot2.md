@@ -5,13 +5,13 @@ title: Creando gráficas con calidad para publicación con ggplot2
 teaching: 60
 exercises: 20
 questions:
-- "¿Cómo puedo crear gráficas con calidad para publicación en R?"
+- "¿Cómo puedo crear gráficos con calidad para publicación en R?"
 objectives:
-- "Ser capaz de utilizar ggplot2 para generar gráficas con calidad para publicación."
-- "Entender la gramática básica de las gráficas, incluyendo estética y capas geométricas, agregando estadísticas, transformando las escalas y los colores, o dividiendo por grupos."
+- "Ser capaz de utilizar ggplot2 para generar gráficos con calidad para publicación."
+- "Entender la gramática básica de los gráficos, incluyendo estética y capas geométricas, agregando estadísticas, transformando las escalas y los colores, o dividiendo por grupos."
 keypoints:
-- "Usar `ggplot2` para crear gráficas."
-- "Piensa cada gráica como capas: estética, geometría, estadisticas, transformaciones de escala, y agrupamiento."
+- "Usar `ggplot2` para crear gráficos."
+- "Piensa cada gráfico como capas: estética, geometría, estadisticas, transformaciones de escala, y agrupamiento."
 source: Rmd
 ---
 
@@ -21,19 +21,19 @@ Graficar nuestros datos es una de las mejores maneras
 para explorarlos y para observar las relaciones que existen entre las variables.
 
 En R existen tres sistemas principales encargados de hacer gráficos,
-el sistema [base plotting system][base], el paqute [lattice][lattice]
+el sistema de ploteo [base][base], el paquete [lattice][lattice]
  y el paquete [ggplot2][ggplot2].
 
 [base]: http://www.statmethods.net/graphs/
 [lattice]: http://www.statmethods.net/advgraphs/trellis.html
 [ggplot2]: http://www.statmethods.net/advgraphs/ggplot2.html
 
-Hoy aprenderemos un poco acerca del paquete ggplot2, este sistema es el
-más efectivo para crear gráficas con calidad para publicación.
+Hoy aprenderemos un poco acerca del paquete ggplot2, ya que este sistema es el
+más efectivo para crear gráficos con calidad para publicación.
 
 ggplot2 se construyó basándose en la gramática de gráficos, es decir,
 en la idea de que cualquier gráfico puede expresarse a partir del mismo set de componentes:
-un set de **datos**, un **sistema coordinado**, y un set de **geoms** -- que corresponden a la representación visual de cada dato.
+un set de **datos**, un **sistema de coordenadas**, y un set de **geoms** -- que corresponden a la representación visual de cada dato.
 
 La clave para entender ggplot2 es pensar en una figura como un conjunto de capas.
 Esta idea podría resultarte familiar si has usado un programa de edición de imágenes como 
@@ -54,18 +54,18 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 <img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter" alt="plot of chunk lifeExp-vs-gdpPercap-scatter" style="display: block; margin: auto;" />
 
 La primera cosa que hacemos es llamar a la función `ggplot`. Esta función
-le dice a R que estamos creando una nueva gráfica, todos los argumentos
-que le pasemos a la función `ggplot` serán considerados como opciones *globales* en nuestra gráfica:
-lo cual significa que estas opciones son válidas para todas las capas de la gráfica.
+le dice a R que estamos creando un nuevo gráfico, todos los argumentos
+que le pasemos a la función `ggplot` serán considerados como opciones *globales* en nuestro gráfico:
+lo cual significa que estas opciones son válidas para todas las capas del gráfico.
 
 En este ejemplo, le hemos pasado dos argumentos a `ggplot`. Primero, le decimos a `ggplot`
 cuáles son los datos que queremos mostrar en nuestra figura, en este ejemplo usaremos los datos
 de gapminder que cargamos anteriormente. Como segundo argumento, le pasamos la función `aes`,
-la cual le dice a `ggplot` como es que cada una de las variables en los **datos** se relacionan con las propiedades
+la cual le dice a `ggplot` cómo es que cada una de las variables en los **datos** se relacionan con las propiedades
 **aesthetic** (estéticas) de la figura, en este caso los valores que tomarán **x** y **y**. En este ejemplo, le dijimos a 
-`ggplot` que queremos graficar la columna "gdpPercap" del dataframe gapminder en el eje X, y la columna
+`ggplot` que queremos graficar la columna "gdpPercap" del **data frame** gapminder en el eje X, y la columna
 "lifeExp" en el eje Y. Nota que no necesitamos indicar explícitamente estas columnas en la función `aes` 
-(e.g. `x = gapminder[, "gdpPercap"]`), esto es debido a que `ggplot` es suficientemente listo para 
+(e.g. `x = gapminder[, "gdpPercap"]`), ¡esto es debido a que `ggplot` es suficientemente listo para 
 buscar esa columna en los **datos**!
 
 Por sí mismo, llamar a la función `ggplot` no es suficiente para dibujar una figura:
@@ -81,7 +81,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
 Necesitamos decirle a `ggplot` cómo queremos representar visualmente los datos, 
 esto lo hacemos al agregar una nueva capa **geom**. En nuestro ejemplo, usamos `geom_point`,
 la cual le indica a `ggplot` que queremos representar visualmente la relación entre **x** y **y**
-como un gráfico de dispersión de los puntos (scatterplot) .
+como un gráfico de dispersión de los puntos (**scatterplot**).
 
 
 ~~~
@@ -103,7 +103,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > {: .language-r}
 >
 >
-> Pista: El dataset gapminder tiene una columna llamada "year", la cual
+> Pista: El **dataset** gapminder tiene una columna llamada "year", la cual
 > debe aparecer en el eje X.
 >
 > > ## Solución al desafío 1
@@ -166,11 +166,11 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 <img src="../fig/rmd-08-lifeExp-line-1.png" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
 
 En vez de agregar una capa `geom_point`, hemos agregado una capa `geom_line`.
-Además, hemos agregado el **aesthetic** **by**, el cual le dice a `ggplot` que
+Además, hemos agregado el argumento **aesthetic** **by**, el cual le dice a `ggplot` que
 debe dibujar una línea para cada país.
 
 Pero, ¿qué pasa si queremos visualizar ambos, puntos y líneas en la misma gráfica?
-Simplemente tenemos que agregar otra capa a la gráfica:
+Simplemente tenemos que agregar otra capa al gráfico:
 
 
 ~~~
@@ -198,7 +198,7 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 
 > ## Sugerencia: Asignando un **aesthetic** a un valor en vez de a un mapeo 
 >
-> Hasta ahora,hemos visto como usar un **aesthetic** (como **color**) como un *mapeo* entre una variable de los datos
+> Hasta ahora, hemos visto cómo usar un **aesthetic** (como **color**) como un *mapeo* entre una variable de los datos
 > y su representación visual. Por ejemplo, cuando usamos `geom_line(aes(color=continent))`, ggplot le asignará
 > un color diferente a cada continente.
 > Pero, ¿qué tal si queremos cambiar el color de todas las líneas a azul? Podrías pensar que
@@ -245,7 +245,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
 
 En este momento es difícil ver las relaciones entre los puntos debido a algunos 
 valores altamente atípicos de la variable GDP per capita. Podemos cambiar la escala de unidades del eje X
-usando las funciones de **escala**. Estas funcionaes controlan la relación entre los valores 
+usando las funciones de **escala**. Estas funciones controlan la relación entre los valores 
 de los datos y los valores visuales de un **aesthetic**. También podemos modificar la transparencia
 de los puntos, usando la función *alpha*, la cual es especialmente útil cuando tienes una
 gran cantidad de datos fuertemente conglomerados.
@@ -258,16 +258,16 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 {: .language-r}
 
 <img src="../fig/rmd-08-axis-scale-1.png" title="plot of chunk axis-scale" alt="plot of chunk axis-scale" style="display: block; margin: auto;" />
-La función `log10` aplica una transformación sobre los valores de la columna gdpPercap
-antes de presentarlos en la gráfica, de manera que cada múltiplo de 10 ahora
+La función `log10` aplica una transformación sobre los valores de la columna "gdpPercap"
+antes de presentarlos en el gráfico, de manera que cada múltiplo de 10 ahora
 corresponde a un incremento de 1 en la escala transformada, e.g. un GDP per capita de 1,000
-se convierte en un 3 en el eje Y, un valor de 10,000 corresponde a un valor de 4 en el eje Y, y así suciesivamente.
+se convierte en un 3 en el eje Y, un valor de 10,000 corresponde a un valor de 4 en el eje Y, y así sucesivamente.
 Esto facilita visualizar la dispersión de los datos sobre el eje X.
 
 > ## Sugerencia Recordatorio: Asignando un **aesthetic** a un valor en vez de a un mapeo 
 >
-> Nota que usamos `geom_point(alpha = 0.5)`. Como la sugerencia anterior menciona, 
-> cambiar una especificación afuera de la función  `aes()` causará que este valor sea usado
+> Nota que usamos `geom_point(alpha = 0.5)`. Como menciona la sugerencia anterior, 
+> cambiar una especificación afuera de la función `aes()` causará que este valor sea usado
 > para todos los puntos, que es exactamente lo que queremos en este caso.  Sin embargo, como cualquier otra
 > especificación **aesthetic**, *alpha* puede ser mapeado hacia una variable de los datos. Por ejemplo, 
 > podemos asignar una transparencia diferente a cada continente usando `geom_point(aes(alpha = continent))`.
@@ -284,7 +284,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 {: .language-r}
 
 <img src="../fig/rmd-08-lm-fit-1.png" title="plot of chunk lm-fit" alt="plot of chunk lm-fit" style="display: block; margin: auto;" />
-Podemos hacer la línea más gruesa *configurando* el **aesthetic** **tamaño** en la capa `geom_smooth`:
+Podemos hacer la línea más gruesa *configurando* el argumento **aesthetic** **tamaño** en la capa `geom_smooth`:
 
 
 ~~~
@@ -320,7 +320,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > {: .challenge}
 > > 
 > > 
-> > > ## Challenge 4b
+> > > ## Desafío 4b
 > > >
 > > > Modifica tu solución al Desafío 4a de manera que ahora los puntos
 > > > tengan una forma diferente y estén coloreados de acuerdo al continente
@@ -357,11 +357,11 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 {: .challenge}
 
 
-## Figuras Multi-panel 
+## Figuras en múltiples paneles
 
 Anteriormente visualizamos el cambio en la esperanza de vida a lo largo del tiempo para cada uno de los países 
-en una sola gráfica. Como una alternativa, podemos dividir esta gráfica en múltiples paneles al agregar una capa **facet**.
-Enfocándonos únicamente en aquellos países con nombres que empiezan con la letra "A" o "Z".
+en un solo gráfico. Como una alternativa, podemos dividir este gráfice en múltiples paneles al agregar una capa **facet**,
+enfocándonos únicamente en aquellos países con nombres que empiezan con la letra "A" o "Z".
 
 > ## Pista
 >
@@ -386,34 +386,34 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 <img src="../fig/rmd-08-facet-1.png" title="plot of chunk facet" alt="plot of chunk facet" style="display: block; margin: auto;" />
 
 
-La capa `facet_wrap` toma una "fórmula" como argumento, lo cual se indica por la tilde (~).
+La capa `facet_wrap` toma una "fórmula" como argumento, lo cual se indica por el símbolo `~`.
 Esto le dice a R que debe dibujar un panel para cada valor único de la columna "country" 
-del dataset gapminder.
+del **dataset** gapminder.
 
 ## Modificando texto 
 
-Para limpiar esta figura y que quede lista para publicación necesitamos cambiar algunos elementos de texto.
+Para limpiar esta figura y que quede lista para publicar necesitamos cambiar algunos elementos de texto.
 El eje X está demasiado saturado, y el nombre del eje Y debería ser "Esperanza de vida", 
-en vez del nombre que aparece para esa columna en el dataframe.
+en vez del nombre que aparece para esa columna en el **data frame**.
 
 Podemos hacer todo lo anterior agregando un par de capas. La capa **theme** controla el texto de los ejes, 
-y el tamaño del texto. Las etiquetas de los ejes, el título de la gráfica y el título para todas las
+y el tamaño del texto. Las etiquetas de los ejes, el título del gráfico y el título para todas las
 leyendas pueden ser configurados utilizando la función `labs`. Los títulos de las leyendas son configurados
 haciendo referencia a los mismos nombres que utilizamos en la especificación `aes`. Entonces, en el siguiente ejemplo
 el título de la leyenda de los colores de las líneas se define utilizando `color = "Continent"`, mientras que el título
-de la legenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
+de la leyenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
 
 
 
 ~~~
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
-  labs(
-    x = "Year",              # x axis title
-    y = "Life expectancy",   # y axis title
-    title = "Figure 1",      # main title of figure
-    color = "Continent"      # title of legend
-  ) +
+    labs(
+        x = "Year",              # título del eje x
+        y = "Life expectancy",   # título del eje y
+        title = "Figure 1",   # título principal de la figura
+        color = "Continent"   # título de la leyenda
+    ) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 ~~~
 {: .language-r}
@@ -422,10 +422,10 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 
 
 Esta lección es una prueba de lo que puedes hacer utilizando `ggplot2`. RStudio proporciona
-un [cheat sheet][cheat] realmente útil de las diferentes capas disponibles,
-una documentación más extensa se encuentra disponible en el [ggplot2 website][ggplot-doc].
+una [hoja de ayuda][cheat] realmente útil de las diferentes capas disponibles,
+una documentación más extensa se encuentra disponible en el [sitio web de ggplot2][ggplot-doc].
 Finalmente, si no tienen idea de cómo cambiar algún detalle, una búsqueda rápida en Google 
-te llevarán a Stack Overflow donde encuentras preguntas y respuestas con ¡código reusable que puedes modificar!
+te llevarán a Stack Overflow donde encuentras preguntas y respuestas ¡con código reusable que puedes modificar!
 
 [cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 [ggplot-doc]: http://docs.ggplot2.org/current/
@@ -433,7 +433,7 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas con ¡cód
 
 > ## Desafío 5
 >
-> Crea una gráfica de densidad de GDP per capita, en la que el color del relleno cambie por continente
+> Crea una gráfica de densidad de GDP per cápita, en la que el color del relleno cambie por continente.
 >
 > Avanzado:
 > - Transforma el eje X para visualizar mejor la dispersión de los datos.
@@ -441,7 +441,7 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas con ¡cód
 >
 > > ## Solución al desafío 5
 > >
-> > Crea una gráfica de densidad de GDP per capita, en la que el color del relleno cambie por continente
+> > Crea una gráfica de densidad de GDP per cápita, en la que el color del relleno cambie por continente.
 > >
 > > Avanzado:
 > > - Transforma el eje X para visulaizar mejor la dispersión de los datos.
@@ -458,3 +458,5 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas con ¡cód
 > > <img src="../fig/rmd-08-ch5-sol-1.png" title="plot of chunk ch5-sol" alt="plot of chunk ch5-sol" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

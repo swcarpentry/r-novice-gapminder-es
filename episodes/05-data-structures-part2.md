@@ -694,12 +694,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >          country year      pop continent lifeExp gdpPercap
-> > 537       France 1992 57374179    Europe  77.460 24703.796
-> > 1081 Netherlands 1952 10381988    Europe  72.130  8941.572
-> > 739         Iraq 1982 14173318      Asia  62.038 14517.907
-> > 1275     Romania 1962 18680721    Europe  66.800  4734.998
-> > 37        Angola 1952  4232095    Africa  30.015  3520.610
+> >                    country year      pop continent lifeExp gdpPercap
+> > 1344                Serbia 2007 10150265    Europe  74.002  9786.535
+> > 1300 Sao Tome and Principe 1967    70787    Africa  54.425  1384.841
+> > 669        Hong Kong China 1992  5829696      Asia  77.601 24757.603
+> > 1576                Turkey 1967 33411317    Europe  54.336  2826.356
+> > 1425                 Spain 1992 39549438    Europe  77.570 18603.065
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -752,3 +752,5 @@ entonces podemos volver y editar en el futuro.
 > >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

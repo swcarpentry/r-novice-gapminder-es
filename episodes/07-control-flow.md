@@ -18,9 +18,9 @@ source: Rmd
 
 
 
-A menudo, cuando estamos programando deseamos controlar el flujo de nuestras acciones. Esto se puede realizar
-estableciendo acciones para que ocurran solo si se cumple una condición o un conjunto de condiciones.
-Alternativamente, también podemos establecer que una acción ocurra un número determinado de veces.
+Cuando estamos programando puede que queramos controlar el flujo de nuestras acciones. Esto se puede realizar
+estableciendo acciones que ocurran solo si se cumple una condición o un conjunto de condiciones.
+A su vez, podemos hacer que una acción ocurra un número determinado de veces.
 
 Hay varias maneras de controlar el flujo en R.
 Para declaraciones condicionales, los enfoques más comúnmente utilizados son los **constructs**:
@@ -68,11 +68,11 @@ x
 ## [1] 10
 ```
 
-Ten en cuenta que puedes no obtener el mismo resultado que tu vecino porque
-se generaron diferentes números aleatorios de una misma distribución.
+Ten en cuenta que puedes no obtener el mismo resultado que tu compañero ya que
+se generaron diferentes números aleatorios desde una misma distribución.
 
 Vamos a establecer una semilla (seed) para que todos generemos el mismo número
-'pseudo-aleatorio', y luego obtener más información:
+'pseudo-aleatorio' y luego obtener más información:
 
 
 
@@ -95,16 +95,16 @@ if (x >= 10) {
 
 > ## Tip: números pseudo-aleatorios
 >
-> En el caso anterior, la función `rpois()` genera un número aleaotorio de una
+> En el caso anterior, la función `rpois()` genera un número aleatorio a partir de una
 > distribución de Poisson con una media (ej. lambda) de 8. La función `set.seed()`
 > garantiza que todas las computadoras generarán el mismo número 'pseudo-aleatorio'
 >  ([más información sobre los números pseudo-aleatorios](http://en.wikibooks.org/wiki/R_Programming/Random_Number_Generation)).
-> Entonces si nosotros escribimos `set.seed(10)`, vemos que `x` toma el valor de 8. Deberias obtener el mismo número 
-> exacto.
+> Entonces si nosotros escribimos `set.seed(10)`, vemos que `x` toma el valor de 8. Deberías obtener exactamente el mismo número 
+> que tu compañero.
 {: .callout}
 
-**Importante:** cuando R evalua las condiciones dentro de `if()` , esta buscando
-elementos logicos, ej., `TRUE` o `FALSE`. Esto puede ser un dolor de cabeza para
+**Importante:** cuando R evalúa las condiciones dentro de `if()` esta buscando
+elementos lógicos como `TRUE` o `FALSE`. Entender esto puede ser un dolor de cabeza para
 los principiantes. Por ejemplo:
 
 
@@ -116,7 +116,7 @@ if (x) {
 }
 ```
 
-Como podemos ver, el mensaje no se mostro porque el resultado del vector x es `FALSE`
+Como podemos observar el mensaje no se muestra porque el resultado del vector x es `FALSE`
 
 
 ```r
@@ -131,13 +131,13 @@ x
 > ## Desafío 1
 >
 > Usa una declaración `if()` para mostrar un mensaje adecuado
-> reportando si hay algún registro de 2002 en
-> el **dataset** de **`gapminder`**.
-> Ahora haz lo mismo para el año 2012.
+> reportando si hay algún registro del año 2002 en
+> el **dataset** **`gapminder`**.
+> Luego haz lo mismo para el año 2012.
 >
 > > ## Solución al Desafío 1
-> > Primero veremos una solución al Desafío 1 que no usa la funcion `any()`.
-> > Primero obtenemos un vector lógico que desscribe que el elemento `gapminder$year` es igual a `2002`:
+> > Primero veremos una solución al Desafío 1 que no usa la función `any()`.
+> > A continuación obtenemos un vector lógico que describe que el elemento `gapminder$year` es igual a `2002`:
 > > 
 > > 
 > > ```r
@@ -149,13 +149,13 @@ x
 > > ```r
 > > rows2002_number <- nrow(gapminder[(gapminder$year == 2002),])
 > > ```
-> > La presencia de cualquier registro para el año 2002 es equivalente a la petición de que `rows2002_number` sea uno o más:
+> > La presencia de cualquier registro para el año 2002 es equivalente a la petición de que `rows2002_number` sea mayor a uno:
 > > 
 > > 
 > > ```r
 > > rows2002_number >= 1
 > > ```
-> > Poniendo esto junto, nosotros obtenemos:
+> > Entonces podríamos escribir:
 > > 
 > > 
 > > ```r
@@ -164,7 +164,7 @@ x
 > > }
 > > ```
 > >
-> > Todo esto se puede hacer más rápido con `any()`. La condición lógica se puede expresar como:
+> > Todo esto se puede hacer más rápido con `any()`. En dicho caso la condición lógica se puede expresar como:
 > > 
 > > 
 > > ```r
@@ -191,22 +191,21 @@ elemento. Aquí debes asegurarte de que tu condición sea de longitud 1.
 
 > ## Tip: `any()` y `all()`
 >
-> La función `any()` devolverá TRUE si al menos un
-> valor TRUE se encuentra dentro del vector,  en caso contrario devolverá `FALSE`.
+> La función `any()` devolverá TRUE si hay al menos un valor 
+> TRUE dentro del vector, en caso contrario devolverá `FALSE`.
 > Esto se puede usar de manera similar al operador `%in%`.
-> La función `all()`, como el nombre sugiere, devolvera `TRUE`  si todos los valores en
+> La función `all()`, como el nombre sugiere, devolvera `TRUE` siempre y cuando todos los valores en
 > el vector son `TRUE`.
 {: .callout}
 
 ## Operaciones repetidas
 
-Si quieres iterar
-sobre un conjunto de valores, cuando el orden de iteración es importante, y realizar 
-la misma operación en cada uno, un bucle `for()` hará el trabajo.
-Vimos los bucles `for()` en las lecciones anteriores de terminal. Esta es la
-operación de bucle más flexible, pero también la más dificil de usar
-correctamente. Evita usar bucles `for()` a menos que el orden de la iteración sea importante:
-i.e. Cuando el cálculo de cada interación dependa del resultado de la interación previa.
+Si quieres iterar sobre un conjunto de valores, el orden de la iteración es importante y debes realizar 
+la misma operación en cada uno, un bucle `for()` es lo que estas buscando.
+Vimos los bucles `for()` en las lecciones anteriores de terminal. Si bien esta es la
+operación de bucle más flexible es también la más difícil de usar correctamente. 
+Evita usar bucles `for()` a menos que el orden de la iteración sea importante
+como cuando el cálculo de cada interación dependa del resultado de la interación previa.
 
 La estructura básica de un bucle `for()` es:
 
@@ -286,7 +285,7 @@ for(i in 1:5){
 ```
 
 
-En lugar de mostrar los resultados, podriamos escribir lor resultados en un nuevo objeto.
+En lugar de mostrar los resultados en la pantalla podríamos guardarlos en un nuevo objeto.
 
 
 
@@ -307,23 +306,23 @@ output_vector
 ## [23] "5 c" "5 d" "5 e"
 ```
 
-Este enfoque puede ser útil, pero "aumentará o crecerá tus resultados" (construir el objeto resultante de forma incremental) es computacionalmente ineficiente, así que evítalo cuando estés iterando a través de muchos valores.
+Este enfoque puede ser útil, pero aumentar o incrementar tus resultados (es decir, construir el objeto resultante de forma incremental) es computacionalmente ineficiente por lo que conviene evitarlo cuando estés iterando a través de muchos valores.
 
-> ## Tip: no crezcas tus resultados
+> ## Tip: no incrementes tus resultados
 >
-> Una de las cosas más importantes que hace tropezar tanto a los principiantes como 
+> Una de las cosas que más frecuentemente hace tropezar tanto a los principiantes como 
 > a los usuarios experimentados de R es la construcción de un objeto de resultados
 > (vector, lista, matriz, data frame) a medida que progresas en el bucle for.
-> Las computadoras son muy malas para manejar esto, por lo que tus cálculos 
-> pueden alentarse muy rápidamente. Es mucho mejor definir un objeto de 
-> resultados vacío de primera mano con las dimensiones apropiadas.
-> Entonces, si sabe que el resultado final se almacenará en una matriz como la 
-> anterior, cree una matriz vacía con 5 filas y 5 columnas, luego en cada iteración
-> almacene los resultados en la ubicación adecuada.
+> Las computadoras son muy malas para manejar esto lo cual puede hacer que tus cálculos 
+> se enlentezcan rápidamente. En este caso es mejor definir un objeto de 
+> resultados vacío con las dimensiones apropiadas.
+> Si sabes que el resultado final se almacenará en una matriz como la 
+> anterior es una buena idea crear una matriz vacía con 5 filas y 5 columnas y luego en cada iteración
+> almacenar los resultados en la ubicación adecuada.
 {: .callout}
 
-Una mejor manera es definir el objeto de salida (vacio) antes de completar los valores.
-Para este ejemplo, parece más complicado, pero es aún más eficiente.
+Una mejor manera es definir el objeto de salida (vacío) antes de completar los valores.
+Aunque para este ejemplo parece más complicado, es aún más eficiente.
 
 
 ```r
@@ -349,7 +348,7 @@ output_vector2
 > ## Tip: Bucles While
 >
 >
-> Algunas veces tendras la necesidad de repetir una operación hasta que
+> Algunas veces tendrás la necesidad de repetir una operación hasta que
 > cierta condición se cumpla. Puedes hacer esto con un bucle `while()`.
 >
 > 
@@ -360,30 +359,29 @@ output_vector2
 > }
 > ```
 >
-> Como ejemplo, aquí hay un bucle while
-> que genera números aleatorios a partir de una distribución uniforme (la función `runif()` )
-> entre 0 y 1  hasta que obtiene uno que es menor a 0.1.
+> A modo de ejemplo aquí hay un bucle while que genera números aleatorios a
+> partir de una distribución uniforme (la función `runif()` ) entre 0 y 1 hasta
+> que obtiene uno que es menor a 0.1.
 >
-> ~~~
+> 
+> ```r
 > z <- 1
 > while(z > 0.1){
 >   z <- runif(1)
 >   print(z)
 > }
-> ~~~
-> {: .r}
+> ```
 >
-> Los bucle `while()` no siempre seran apropiados. Tienes que ser particularmente cuidadoso
-> de no terminar en un bucle infinito porque tu condición nunca se cumple.
+> Los bucles `while()` no siempre serán la elección apropiada. Debes ser
+> particularmente cuidadoso de que tu condición se cumpla y no terminar en un
+> bucle infinito. 
 {: .callout}
 
 
 > ## Desafío 2
 >
-> Compara los objetos output_vector y
-> output_vector2. ¿Son lo mismo? Si no, ¿por qué no?
-> ¿Cómo cambiarías el último bloque de código para hacer output_vector2
-> igual a output_vector?
+> Compara los objetos output_vector y output_vector2. ¿Son lo mismo? Si no, ¿por qué no?
+> ¿Cómo cambiarías el último bloque de código para hacer output_vector2 igual a output_vector?
 >
 > > ## Solución al Desafío 2
 > > Podemos verificar si dos vectores son idénticos usando la función `all()` :
@@ -392,21 +390,21 @@ output_vector2
 > > ```r
 > > all(output_vector == output_vector2)
 > > ```
-> > Sin embargo, todos los elementos de `output_vector` se pueden encontrar en `output_vector2`:
+> > Sin embargo todos los elementos de `output_vector` se pueden encontrar en `output_vector2`:
 > > 
 > > 
 > > ```r
 > > all(output_vector %in% output_vector2)
 > > ```
-> > y vice versa:
+> > y viceversa:
 > > 
 > > 
 > > ```r
 > > all(output_vector2 %in% output_vector)
 > > ```
-> > Por lo tanto, el elemento en `output_vector` y `output_vector2` estan en orden distinto.
-> > Esto es porque `as.vector ()` genera los elementos de una matriz de entrada que pasa por su columna.
-> > Echando un vistazo a `output_matrix`, podemos notar que queremos sus elementos por filas.
+> > Por lo tanto, los elementos en `output_vector` y `output_vector2` estan en distinto orden.
+> > Esto es porque `as.vector ()` genera los elementos leyendo la matriz de entrada por columnas.
+> > Si observamos `output_matrix` podemos notar que deseamos obtener sus elementos ordenados por filas.
 > > La solución es transponer la `output_matrix`. Podemos hacerlo llamando a la función de transposición
 > > `t ()` o ingresando los elementos en el orden correcto.
 > > La primera solución requiere cambiar el original
@@ -440,7 +438,7 @@ output_vector2
 > ## Desafío 3
 >
 > Escribe un **script** que a través de bucles recorra los datos `gapminder` por continente e imprima
-> si la esperanza de vida media es menor o mayor que 50
+> si la esperanza de vida media es menor o mayor de 50
 > años.
 >
 > > ## Solución al Desafío 3
@@ -473,7 +471,7 @@ output_vector2
 > > **Paso 3**: El ejercicio solo requiere que se imprima el resultado si la expectativa de vida promedio es menor a 50 o superior a 50. Por lo tanto, debemos agregar una condición 'if' antes de imprimir, lo cual evalúa si la expectativa de vida promedio calculada es superior o inferior a un umbral, e imprime una salida condicional en el resultado.
 > > Necesitamos corregir (3) desde arriba:
 > >
-> > 3a. Si la esperanza de vida calculada es menor que algún umbral (50 años), devuelva el continente y una declaración de que la esperanza de vida es menor que el umbral, de lo contrario devuelva el continente y una declaración de que la esperanza de vida es mayor que el umbral ,:
+> > 3a. Si la esperanza de vida calculada es menor que algún umbral (50 años), devuelva el continente e imprime la frase "la esperanza de vida es menor que el umbral", de lo contrario devuelve el continente e imprime la frase "la esperanza de vida es mayor que el umbral":
 > >
 > > 
 > > 
@@ -497,9 +495,8 @@ output_vector2
 
 > ## Desafío 4
 >
-> Modifica el **script** del Desafío 4 por un bucle sobre cada uno de los
-> paises. Qué esta vez, imprima si la esperanza de vida es
-> menor que 50, entre 50 y 70, o mayor que 70.
+> Modifica el **script** del Desafío 4 agregando un bucle para obtener resultados para cada uno de los
+> países. En esta oportunidad que imprima si la esperanza de vida es menor que 50, se encuentra entre 50 y 70 o es mayor que 70.
 >
 > > ## Solución al Desafío 4
 > >  Modificamos nuestra solución al Reto 3 agregando ahora dos umbrales, `lowerThreshold` y` upperThreshold` y extendiendo nuestras declaraciones if-else:
@@ -509,10 +506,10 @@ output_vector2
 > > ```r
 > >  lowerThreshold <- 50
 > >  upperThreshold <- 70
-> >  
+> > 
 > > for( iCountry in unique(gapminder$country) ){
 > >     tmp <- mean(subset(gapminder, country==iCountry)$lifeExp)
-> >     
+> > 
 > >     if(tmp < lowerThreshold){
 > >         cat("Average Life Expectancy in", iCountry, "is less than", lowerThreshold, "\n")
 > >     }
@@ -525,37 +522,50 @@ output_vector2
 > >     rm(tmp)
 > > }
 > > ```
+> > 
+> > ```
+> > ## Error in unique(gapminder$country): object 'gapminder' not found
+> > ```
 > {: .solution}
 {: .challenge}
 
 > ## Desafío 5 - Avanzado
 >
-> Escribir un script que con un bucle recorra cada país en el **dataset** **`gapminder`**,
-> prueba si el país comienza con una 'B' y grafica la esperanza de vida
-> contra el tiempo como un gráfico de líneas si la esperanza de vida media es menor de 50 años.
+> Escribir un script que con un bucle recorra cada país en el **dataset**
+> **`gapminder`**, probar si el país comienza con una 'B' y graficar la
+> esperanza de vida contra el tiempo como un gráfico de líneas si la esperanza
+> de vida media es menor de 50 años.
 >
-> > Solución para el Desafío 5
+> > ## Solución para el Desafío 5
 > >
-> > Usaremos el comando `grep` que se introdujo en la lección Shell de Unix para encontrar países que comiencen con" B "."
-> > Vamos a entender cómo hacer esto primero.
-> > Siguiendo la sección de shell de Unix, podemos tener la tentación de probar lo siguiente
+> > Lo primero que vamos a hacer es usar el comando `grep` que se introdujo en
+> > la lección Shell de Unix para encontrar países que comiencen con" B "."
+> > 
+> > Si seguimos la lección de Shell de Unix podríamos vernos tentados de probar
+> > lo siguiente
 > > 
 > > 
 > > ```r
 > > grep("^B", unique(gapminder$country))
 > > ```
 > >
-> > Pero cuando evaluamos este comando, regresa los índices de la variable del factor `country` que comienza con" B ".
-> > Para obtener los valores, debemos agregar la opción `value = TRUE` al comando` grep`:
-> >
+> > Pero cuando evaluamos este comando obtenemos los índices de la variable del
+> > factor `country` que comienza con "B".
+> > Para obtener los valores, debemos agregar la opción `value = TRUE` al
+> > comando` grep`:
 > > 
 > > 
 > > ```r
 > > grep("^B", unique(gapminder$country), value=TRUE)
 > > ```
 > >
-> > Ahora almacenaremos estos países en una variable llamada candidateCountries, y luego con un bucle recorremos cada entrada en la variable.
-> > Dentro del bucle, evaluamos la expectativa de vida promedio para cada país, y si la expectativa de vida promedio es menor a 50, usamos un gráfico base para trazar la evolución de la expectativa de vida promedio:
+> > A continuación almacenaremos estos países en una variable llamada
+> > candidateCountries y luego con un bucle recorreremos cada entrada en la
+> > variable.
+> > 
+> > Dentro del bucle se evaluará la expectativa de vida promedio para cada país
+> > y de ser menor a 50 usamos un gráfico base para trazar la evolución de la
+> > expectativa de vida promedio:
 > >
 > > 
 > > 
@@ -565,10 +575,11 @@ output_vector2
 > > 
 > > for( iCountry in candidateCountries){
 > >     tmp <- mean(subset(gapminder, country==iCountry)$lifeExp)
-> >     
+> > 
 > >     if(tmp < thresholdValue){
-> >         cat("Average Life Expectancy in", iCountry, "is less than", thresholdValue, "plotting life expectancy graph... \n")
-> >         
+> >         cat("Average Life Expectancy in", iCountry, "is less than", 
+> >              thresholdValue, "plotting life expectancy graph... \n")
+> > 
 > >         with(subset(gapminder, country==iCountry),
 > >                 plot(year,lifeExp,
 > >                      type="o",
@@ -584,3 +595,5 @@ output_vector2
 > {: .solution}
 {: .challenge}
 
+
+{% include links.md %}

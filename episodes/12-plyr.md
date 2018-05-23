@@ -7,23 +7,22 @@ exercises: 30
 questions:
 - "¿Cómo puedo hacer diferentes cálculos sobre diferentes conjuntos de datos?"
 objectives:
-- "Habilitar el uso de la estrategia divide-aplica-combina para el análisis de datos."
+- "Estar apto a usar la estrategia divide-aplica-combina para el análisis de datos."
 keypoints:
 - "Uso del paquete `plyr` para dividir datos, aplicar funciones sobre subconjuntos, y combinar los resultados"
-fuente: Rmd
+source: Rmd
 ---
 
 
 
 Previamente vimos como puedes usar funciones para simplificar tu código.
-Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder,
-Y multiplica la columna de población por la columna GDP per cápita.  También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
+Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder, y multiplica la columna de población por la columna GDP per cápita. También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
 
 
 
 ~~~
 # Toma un dataset y multiplica la columna population con
-# la columna  GDP per cápita.
+# la columna GDP per cápita.
 calcGDP <- function(dat, year=NULL, country=NULL) {
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
@@ -39,9 +38,9 @@ calcGDP <- function(dat, year=NULL, country=NULL) {
 ~~~
 {: .language-r}
 
-Una tarea común que encontrarás mientras trabajes con datos, es que querras hacer más de un cálculo en diferentes grupos dentro de tus datos.   En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero que tal si queremos calcular la media GDP por `"continent"`?  
+Una tarea común que encontrarás mientras trabajes con datos, es que querrás hacer cálculos en diferentes grupos sobre los datos. En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero qué tal si queremos calcular la media GDP por continente?  
 
-Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada `"continent"`:
+Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada continente:
 
 
 
@@ -86,21 +85,21 @@ mean(withGDP[withGDP$continent == "Asia", "gdp"])
 ~~~
 {: .output}
 
-Pero esto no es muy *bonito*. Si, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. Repetidamente tendrás un costo de tiempo, tanto ahora como más tarde, y potencialmente introducirás  algunos errores.
+Pero esto no es muy *bonito*. Sí, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. La repetición te costará tiempo, tanto ahora como más tarde, y potencialmente introducirás algunos errores desagradables.
 
-Podriamos escribir una nueva función flexible como `calcGDP`,  pero ésta también requiere una gran cantidad de esfuerzo y pruebas para obtener la información correcta.
+Podriamos escribir una nueva función que sea flexible como `calcGDP`,  pero esta también requiere una gran cantidad de esfuerzo y pruebas para hacerlo bien.
 
 El problema abstracto que estamos encontrando aquí es conocido como "divide-aplica-combina (*split-apply-combine*)":
 
 ![Split apply combine](../fig/12-plyr-fig1.png)
 
-Nosotros queremos dividir (*split*) nuestros datos dentro de grupos, en este caso continentes, aplicar (*apply*) algunos cálculos sobre el grupo y opcionalmente combinar *combine* los resultados.
+Nosotros queremos dividir (*split*) nuestros datos dentro de grupos, en este caso continentes, aplicar (*apply*) algunos cálculos sobre este grupo y, opcionalmente, combinar (*combine*) los resultados más tarde.
 
 
 ## El paquete `plyr`
 
-Para aquellos que han usado antes R, deben estar familiarizados con la familia de funciones `apply`. Mientras que las funciones integradas de R funcionan, vamos a introducirte a otro método para resolver el problema
-"split-apply-combine". El paquete [plyr](http://had.co.nz/plyr/) proporciona un conjunto de funciones que encontramos mas fáciles de usar para resolver este problema.
+Para aquellos que han usado antes R, es posible que estén familiarizados con la familia de funciones `apply`. Mientras que las funciones integradas de R funcionan, vamos a introducirte a otro método para resolver el problema
+"split-apply-combine". El paquete [plyr](http://had.co.nz/plyr/) proporciona un conjunto de funciones que encontramos más amigables de usar para resolver este problema.
 
 Instalamos este paquete en un desafío anterior. Vamos a cargarlo ahora:
 
@@ -112,9 +111,9 @@ library("plyr")
 
 Plyr tiene una función para operar sobre listas o `**lists**` , `**data.frames**` y `**arrays**` (matrices, o vectores n-dimensional). Cada función realiza:
 
-1. Una operación de división o **split**ting
-2. **Apply** Aplica una función sobre cada una de las partes a la vez.
-3. Re**combina** los datos de salida como un simple objeto de datos.
+1. Una operación de división (**split**ting).
+2. Aplica (**apply**) una función sobre cada una de las partes a la vez.
+3. Recombina (re**combine**) los datos de salida como un simple objeto de datos.
 
 Las funciones se nombran en función de la estructura de datos que esperan como entrada, y la estructura de datos que desea devolver como salida: [a]rray, [l]ist, o [d]ata.frame. La primera letra corresponde a la estructura de datos de entrada, la segunda letra a la estructura de datos de salida, y luego el resto de la función se llama "ply".
 
@@ -261,33 +260,7 @@ ddply(
 31      Asia 1982 194429049919
 32      Asia 1987 241784763369
 33      Asia 1992 307100497486
-34      Asia 1997 387597655323
-35      Asia 2002 458042336179
-36      Asia 2007 627513635079
-37    Europe 1952  84971341466
-38    Europe 1957 109989505140
-39    Europe 1962 138984693095
-40    Europe 1967 173366641137
-41    Europe 1972 218691462733
-42    Europe 1977 255367522034
-43    Europe 1982 279484077072
-44    Europe 1987 316507473546
-45    Europe 1992 342703247405
-46    Europe 1997 383606933833
-47    Europe 2002 436448815097
-48    Europe 2007 493183311052
-49   Oceania 1952  54157223944
-50   Oceania 1957  66826828013
-51   Oceania 1962  82336453245
-52   Oceania 1967 105958863585
-53   Oceania 1972 134112109227
-54   Oceania 1977 154707711162
-55   Oceania 1982 176177151380
-56   Oceania 1987 209451563998
-57   Oceania 1992 236319179826
-58   Oceania 1997 289304255183
-59   Oceania 2002 345236880176
-60   Oceania 2007 403657044512
+ [ reached getOption("max.print") -- omitted 27 rows ]
 ~~~
 {: .output}
 
@@ -446,3 +419,5 @@ d_ply(
 > {: .language-r}
 >
 {: .challenge}
+
+{% include links.md %}
