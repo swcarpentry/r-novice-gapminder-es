@@ -34,11 +34,11 @@ y conocer a algunos de los miembros de nuestra comunidad.
 1. Si deseas cambiar esta lección, por favor trabaja en <https://github.com/swcarpentry/r-novice-gapminder>,
     que se puede ver en <https://swcarpentry.github.io/r-novice-gapminder>.
 
-2. Si deseas cambiar la lección de ejemplo, por favor trabaja en <https://github.com/swcarpentry/lesson-example>, que documenta el formato de nuestras lecciones y se puede ver en <https://swcarpentry.github.io/lesson-example>.
+2. Si deseas cambiar la lección de ejemplo, por favor trabaja en <https://github.com/carpentries/lesson-example>, que documenta el formato de nuestras lecciones y se puede ver en <https://carpentries.github.io/lesson-example>.
 
 3. Si deseas cambiar la plantilla utilizada para la pagina web del taller, por favor trabaja en <https://github.com/carpentries-es/workshop-template-es>. La página de inicio de ese repositorio explica cómo configurar los sitios web de los talleres, mientras que las páginas adicionales en <https://carpentries-es.github.io/workshop-template-es> proporcionan más información sobre nuestros criterios de diseño.
 
-4. Si deseas cambiar los archivos de estilo CSS, herramientas, o texto estándar HTML para lecciones o talleres almacenados en `_includes` o` _layouts`, por favor trabaja en <https://github.com/swcarpentry/styles-es>.
+4. Si deseas cambiar los archivos de estilo CSS, herramientas, o texto estándar HTML para lecciones o talleres almacenados en `_includes` o` _layouts`, por favor trabaja en <https://github.com/carpentries/styles-es>.
 
 ## Qué aportar
 
