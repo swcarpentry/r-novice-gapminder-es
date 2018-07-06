@@ -46,62 +46,53 @@ Digamos, por ejemplo, que queremos que R imprima un mensaje si una variable `x` 
 
 
 ```r
-# Muestrea un numero al azar de una distribución de Poisson
-# con una media (lambda) de 8
-
-x <- rpois(1, lambda=8)
+x <- 8
 
 if (x >= 10) {
   print("x es mayor o igual que 10")
 }
-```
 
-```
-## [1] "x es mayor o igual que 10"
-```
-
-```r
 x
 ```
 
 ```
-## [1] 10
+## [1] 8
 ```
-
-Ten en cuenta que puedes no obtener el mismo resultado que tu compañero ya que
-se generaron diferentes números aleatorios desde una misma distribución.
-
-Vamos a establecer una semilla (seed) para que todos generemos el mismo número
-'pseudo-aleatorio' y luego obtener más información:
-
+La sentencia **print**  "x es mayor o igual que 10" no aparece en la consola porque x no es mayor o igual a 10. Para imprimir un mensaje diferente para numeros menores a 10, podemos agregar una sentencia **else**
 
 
 ```r
-set.seed(10)
-x <- rpois(1, lambda=8)
+x <- 8
+
+if (x >= 10) {
+  print("x es mayor o igual a 10")
+} else {
+  print("x es menor a 10")
+}
+```
+
+```
+## [1] "x es menor a 10"
+```
+
+También podemos testear múltiples condiciones usando **else if**
+
+
+```r
+x <- 8
 
 if (x >= 10) {
   print("x es mayor o igual a 10")
 } else if (x > 5) {
-  print("x es mayor a 5")
-} else {
+  print("x es mayor a 5, pero menor a 10")
+} else{
   print("x es menor a 5")
 }
 ```
 
 ```
-## [1] "x es mayor a 5"
+## [1] "x es mayor a 5, pero menor a 10"
 ```
-
-> ## Tip: números pseudo-aleatorios
->
-> En el caso anterior, la función `rpois()` genera un número aleatorio a partir de una
-> distribución de Poisson con una media (ej. lambda) de 8. La función `set.seed()`
-> garantiza que todas las computadoras generarán el mismo número 'pseudo-aleatorio'
->  ([más información sobre los números pseudo-aleatorios](http://en.wikibooks.org/wiki/R_Programming/Random_Number_Generation)).
-> Entonces si nosotros escribimos `set.seed(10)`, vemos que `x` toma el valor de 8. Deberías obtener exactamente el mismo número 
-> que tu compañero.
-{: .callout}
 
 **Importante:** cuando R evalúa las condiciones dentro de `if()` esta buscando
 elementos lógicos como `TRUE` o `FALSE`. Entender esto puede ser un dolor de cabeza para
@@ -113,10 +104,16 @@ los principiantes. Por ejemplo:
 x  <-  4 == 3
 if (x) {
   "4 igual a 3"
+} else {
+  "4 no es igual a 3"
 }
 ```
 
-Como podemos observar el mensaje no se muestra porque el resultado del vector x es `FALSE`
+```
+## [1] "4 no es igual a 3"
+```
+
+Como podemos observar se muestra el mensaje es igual porque el vector x es `FALSE`
 
 
 ```r
@@ -137,7 +134,7 @@ x
 >
 > > ## Solución al Desafío 1
 > > Primero veremos una solución al Desafío 1 que no usa la función `any()`.
-> > A continuación obtenemos un vector lógico que describe que el elemento `gapminder$year` es igual a `2002`:
+> > Primero obtenemos un vector lógico que describe que el elemento `gapminder$year` es igual a `2002`:
 > > 
 > > 
 > > ```r
@@ -149,7 +146,7 @@ x
 > > ```r
 > > rows2002_number <- nrow(gapminder[(gapminder$year == 2002),])
 > > ```
-> > La presencia de cualquier registro para el año 2002 es equivalente a la petición de que `rows2002_number` sea mayor a uno:
+> > La presencia de cualquier registro para el año 2002 es equivalente a la petición de que `rows2002_number` sea mayor o igual a uno:
 > > 
 > > 
 > > ```r
@@ -187,7 +184,7 @@ x
 
 Si tu condición se evalúa como un vector con más de un elemento lógico,
 la función `if()` todavía se ejecutará, pero solo evaluará la condición en el primer 
-elemento. Aquí debes asegurarte de que tu condición sea de longitud 1.
+elemento. Aquí debes asegurarte que tu condición sea de longitud 1.
 
 > ## Tip: `any()` y `all()`
 >
@@ -205,14 +202,14 @@ la misma operación en cada uno, un bucle `for()` es lo que estas buscando.
 Vimos los bucles `for()` en las lecciones anteriores de terminal. Si bien esta es la
 operación de bucle más flexible es también la más difícil de usar correctamente. 
 Evita usar bucles `for()` a menos que el orden de la iteración sea importante
-como cuando el cálculo de cada interación dependa del resultado de la interación previa.
+como cuando el cálculo de cada iteración dependa del resultado de la iteración previa.
 
 La estructura básica de un bucle `for()` es:
 
 
 
 ```r
-for(iterador en conjunto de valores){
+for(iterador in conjunto de valores){
   haz alguna acción
 }
 ```
@@ -312,7 +309,7 @@ Este enfoque puede ser útil, pero aumentar o incrementar tus resultados (es dec
 >
 > Una de las cosas que más frecuentemente hace tropezar tanto a los principiantes como 
 > a los usuarios experimentados de R es la construcción de un objeto de resultados
-> (vector, lista, matriz, data frame) a medida que progresas en el bucle for.
+> (vector, lista, matriz, data frame) a medida que tu bucle for progresa.
 > Las computadoras son muy malas para manejar esto lo cual puede hacer que tus cálculos 
 > se enlentezcan rápidamente. En este caso es mejor definir un objeto de 
 > resultados vacío con las dimensiones apropiadas.
@@ -402,7 +399,7 @@ output_vector2
 > > ```r
 > > all(output_vector2 %in% output_vector)
 > > ```
-> > Por lo tanto, los elementos en `output_vector` y `output_vector2` estan en distinto orden.
+> > Por lo tanto, los elementos en `output_vector` y `output_vector2` están en distinto orden.
 > > Esto es porque `as.vector ()` genera los elementos leyendo la matriz de entrada por columnas.
 > > Si observamos `output_matrix` podemos notar que deseamos obtener sus elementos ordenados por filas.
 > > La solución es transponer la `output_matrix`. Podemos hacerlo llamando a la función de transposición
@@ -413,7 +410,7 @@ output_vector2
 > > ```r
 > > output_vector2 <- as.vector(output_matrix)
 > > ```
-> > into
+> > por
 > > 
 > > 
 > > ```r
@@ -425,7 +422,7 @@ output_vector2
 > > ```r
 > > output_matrix[i, j] <- temp_output
 > > ```
-> > into
+> > por
 > > 
 > > 
 > > ```r
@@ -454,7 +451,7 @@ output_vector2
 > > **Paso 2**: También tenemos que recorrer cada uno de estos continentes y calcular la esperanza de vida promedio para cada "subconjunto" de datos.
 > > Podemos hacer eso de la siguiente manera:
 > >
-> > 1. Pasa por encima de cada uno de los valores únicos de 'continente'
+> > 1. Recorre cada uno de los valores únicos de 'continente'
 > > 2. Para cada valor de continente, crea una variable temporal que almacene la vida útil para ese subconjunto,
 > > 3. Regresar la expectativa de vida calculada al usuario imprimiendo el resultado:
 > >
@@ -471,7 +468,7 @@ output_vector2
 > > **Paso 3**: El ejercicio solo requiere que se imprima el resultado si la expectativa de vida promedio es menor a 50 o superior a 50. Por lo tanto, debemos agregar una condición 'if' antes de imprimir, lo cual evalúa si la expectativa de vida promedio calculada es superior o inferior a un umbral, e imprime una salida condicional en el resultado.
 > > Necesitamos corregir (3) desde arriba:
 > >
-> > 3a. Si la esperanza de vida calculada es menor que algún umbral (50 años), devuelva el continente e imprime la frase "la esperanza de vida es menor que el umbral", de lo contrario devuelve el continente e imprime la frase "la esperanza de vida es mayor que el umbral":
+> > 3a. Si la esperanza de vida calculada es menor que algún umbral (50 años), devuelve el continente e imprime la frase "la esperanza de vida es menor que el umbral", de lo contrario devuelve el continente e imprime la frase "la esperanza de vida es mayor que el umbral":
 > >
 > > 
 > > 
@@ -495,7 +492,7 @@ output_vector2
 
 > ## Desafío 4
 >
-> Modifica el **script** del Desafío 4 agregando un bucle para obtener resultados para cada uno de los
+> Modifica el **script** del Desafío 4 para obtener resultados para cada uno de los
 > países. En esta oportunidad que imprima si la esperanza de vida es menor que 50, se encuentra entre 50 y 70 o es mayor que 70.
 >
 > > ## Solución al Desafío 4
