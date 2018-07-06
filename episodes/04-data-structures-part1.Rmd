@@ -10,6 +10,7 @@ objectives:
 - "Conocer los distintos tipos de datos."
 - "Comenzar a explorar los *data frames* y entender cómo se relacionan con **vectors**, **factors** y **lists**."
 - "Ser capaz de preguntar sobre el tipo, clase y estructura de un objeto en R."
+- "Conocer y entender qué es coerción y cuáles son los distintos tipos de coerciones."
 keypoints:
 - "Usar `read.csv` para leer los datos tabulares en R."
 - "Los tipos de datos básicos en R son **double**, **integer**, **complex**, **logical**, y **character**."
