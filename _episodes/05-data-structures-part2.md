@@ -28,46 +28,64 @@ source: Rmd
   
 A esta altura, ya viste todo - en la última lección, donde recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
   
-
+> ## Palabras clave 
+>
+> Command : Translation
+>
+> `nrow`: número de filas
+>
+> `ncol`: número de columnas
+>
+> `rbind`: combinar filas
+>
+> `cbind`: combinar columnas
+>
+{: .checklist}  
+  
 ## Agregando columnas y filas a un data frame
 
 Aprendimos que las columnas en un *data frame* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
 
 
 
-
 ~~~
-age <- c(2,3,5)
-cats
+gatos
 ~~~
 {: .language-r}
 
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
+    capa peso gusta_cuerdo
+1 calico  2.1            1
+2  negro  5.0            0
+3  tabby  3.2            1
 ~~~
 {: .output}
+
+
+
+~~~
+edad <- c(2,3,5)
+~~~
+{: .language-r}
 
 
 Podemos entonces agregarlo como una columna via:
 
 
 ~~~
-cbind(cats, age)
+cbind(gatos, edad)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1            1   2
-2  black    5.0            0   3
-3  tabby    3.2            1   5
+    capa peso gusta_cuerdo edad
+1 calico  2.1            1    2
+2  negro  5.0            0    3
+3  tabby  3.2            1    5
 ~~~
 {: .output}
 
@@ -75,8 +93,8 @@ Tenga en cuenta que fallará si tratamos de agregar un vector con un número dif
 
 
 ~~~
-age <- c(2, 3, 5, 12)
-cbind(cats, age)
+edad <- c(2, 3, 5, 12)
+cbind(gatos, edad)
 ~~~
 {: .language-r}
 
@@ -90,8 +108,8 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 
 
 ~~~
-age <- c(2, 3)
-cbind(cats, age)
+edad <- c(2, 3)
+cbind(gatos, edad)
 ~~~
 {: .language-r}
 
@@ -104,21 +122,47 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-Para que funcione, no debemos tener `nrow(cats)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+Para que funcione, no debemos tener `nrow(gatos)` = `length(edad)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 
 ~~~
-age <- c(2, 3, 5)
-cats <- cbind(cats, age)
+edad <- c(2, 3, 5)
+gatos <- cbind(gatos, edad)
+gatos
 ~~~
 {: .language-r}
+
+
+
+~~~
+    capa peso gusta_cuerdo edad
+1 calico  2.1            1    2
+2  negro  5.0            0    3
+3  tabby  3.2            1    5
+~~~
+{: .output}
 
 Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
 
 
 ~~~
-newRow <- list("tortoiseshell", 3.3, TRUE, 9)
-cats <- rbind(cats, newRow)
+nueva_fila <- list("tortoiseshell", 3.3, TRUE, 9)
+gatos <- rbind(gatos, nueva_fila)
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning in `[<-.factor`(`*tmp*`, ri, value = "tortoiseshell"): invalid
+factor level, NA generated
+~~~
+{: .error}
+
+
+
+~~~
+gatos <- rbind(gatos, nueva_fila)
 ~~~
 {: .language-r}
 
@@ -133,29 +177,29 @@ factor level, NA generated
 ## Factors
 
 Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente estaba allí cuando cargamos los datos. Por ejemplo, en nuestro caso
-'black', 'calico' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
+'negro', 'calico' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*coat*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *weight*, *likes_string*, y *age*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* cats en la columna *coat*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*capa*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *capa*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
-levels(cats$coat)
+levels(gatos$capa)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] "black"  "calico" "tabby" 
+[1] "calico" "negro"  "tabby" 
 ~~~
 {: .output}
 
 
 
 ~~~
-levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
-cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+levels(gatos$capa) <- c(levels(gatos$capa), 'tortoiseshell')
+gatos <- rbind(gatos, list("tortoiseshell", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
 
@@ -163,50 +207,50 @@ De manera alternativa, podemos cambiar la columna a tipo *character*. En este ca
 
 
 ~~~
-str(cats)
+str(gatos)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
- $ age         : num  2 3 5 9 9
+'data.frame':	6 obs. of  4 variables:
+ $ capa        : Factor w/ 4 levels "calico","negro",..: 1 2 3 NA NA 4
+ $ peso        : num  2.1 5 3.2 3.3 3.3 3.3
+ $ gusta_cuerdo: num  1 0 1 1 1 1
+ $ edad        : num  2 3 5 9 9 9
 ~~~
 {: .output}
 
 
 
 ~~~
-cats$coat <- as.character(cats$coat)
-str(cats)
+gatos$capa <- as.character(gatos$capa)
+str(gatos)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : chr  "calico" "black" "tabby" NA ...
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
- $ age         : num  2 3 5 9 9
+'data.frame':	6 obs. of  4 variables:
+ $ capa        : chr  "calico" "negro" "tabby" NA ...
+ $ peso        : num  2.1 5 3.2 3.3 3.3 3.3
+ $ gusta_cuerdo: num  1 0 1 1 1 1
+ $ edad        : num  2 3 5 9 9 9
 ~~~
 {: .output}
 
 > ## Desafío 1
-> Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/cats/cat-age-calculator)). 
-> 1. Crea un vector llamado `human.age` multiplicando `cats$age` por 7.
-> 2. Convierte `human.age` a *factor*.
-> 3. Convierte `human.age` de nuevo a un vector numérico usando la función `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
+> Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/gatos/cat-edad-calculator)). 
+> 1. Crea un vector llamado `human.edad` multiplicando `gatos$edad` por 7.
+> 2. Convierte `human.edad` a *factor*.
+> 3. Convierte `human.edad` de nuevo a un vector numérico usando la función `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
 >
 > > ## Solución al Desafío 1
-> > 1. `human.age <- cats$age * 7`
-> > 2. `human.age <- factor(human.age)` o `as.factor(human.age)` las dos opciones funcionan igual de bien.
-> > 3. `as.numeric(human.age)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo entero *integer* (1:4), cada uno de los cuales tiene asociado una etiqueta *label* (28, 35, 56, y 63). Convertir un objeto de un tipo de datos a otro, por ejemplo de *factor* a *numeric* nos dá los enteros, no las etiquetas *labels*. Si queremos los números originales, necesitamos un paso intermedio, debemos convertir `human.age` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en alguna columna de nuestro archivo .csv, que se suponía que únicamente contendría números. Tendremos este problema, si al leer el archivo olvidamos incluir `stringsAsFactors=FALSE`.
+> > 1. `human.edad <- gatos$edad * 7`
+> > 2. `human.edad <- factor(human.edad)` o `as.factor(human.edad)` las dos opciones funcionan igual de bien.
+> > 3. `as.numeric(human.edad)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo entero *integer* (1:4), cada uno de los cuales tiene asociado una etiqueta *label* (28, 35, 56, y 63). Convertir un objeto de un tipo de datos a otro, por ejemplo de *factor* a *numeric* nos dá los enteros, no las etiquetas *labels*. Si queremos los números originales, necesitamos un paso intermedio, debemos convertir `human.edad` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en alguna columna de nuestro archivo .csv, que se suponía que únicamente contendría números. Tendremos este problema, si al leer el archivo olvidamos incluir `stringsAsFactors=FALSE`.
 > {: .solution}
 {: .challenge}
 
@@ -216,19 +260,20 @@ Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero e
 
 
 ~~~
-cats
+gatos
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   2
-2         black    5.0            0   3
-3         tabby    3.2            1   5
-4          <NA>    3.3            1   9
-5 tortoiseshell    3.3            1   9
+           capa peso gusta_cuerdo edad
+1        calico  2.1            1    2
+2         negro  5.0            0    3
+3         tabby  3.2            1    5
+4          <NA>  3.3            1    9
+5          <NA>  3.3            1    9
+6 tortoiseshell  3.3            1    9
 ~~~
 {: .output}
 
@@ -236,47 +281,48 @@ Podemos pedir el *data frame* sin la fila errónea:
 
 
 ~~~
-cats[-4,]
+gatos[-4,]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   2
-2         black    5.0            0   3
-3         tabby    3.2            1   5
-5 tortoiseshell    3.3            1   9
+           capa peso gusta_cuerdo edad
+1        calico  2.1            1    2
+2         negro  5.0            0    3
+3         tabby  3.2            1    5
+5          <NA>  3.3            1    9
+6 tortoiseshell  3.3            1    9
 ~~~
 {: .output}
 
-Notar que -4 significa que queremos remover la cuarta fila, la coma sin nada detrás indica que se aplica a todas las columnas. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `cats[c(-4,-5),]`
+Notar que -4 significa que queremos remover la cuarta fila, la coma sin nada detrás indica que se aplica a todas las columnas. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `gatos[c(-4,-5),]`
 
 Alternativamente, podemos eliminar filas que contengan valores `NA`:
   
 
 ~~~
-na.omit(cats)
+na.omit(gatos)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   2
-2         black    5.0            0   3
-3         tabby    3.2            1   5
-5 tortoiseshell    3.3            1   9
+           capa peso gusta_cuerdo edad
+1        calico  2.1            1    2
+2         negro  5.0            0    3
+3         tabby  3.2            1    5
+6 tortoiseshell  3.3            1    9
 ~~~
 {: .output}
 
-Volvamos a asignar el nuevo resultado *output* al *data frame* `cats`, así nuestros cambios son permanentes:
+Volvamos a asignar el nuevo resultado *output* al *data frame* `gatos`, así nuestros cambios son permanentes:
 
 
 ~~~
-cats <- na.omit(cats)
+gatos <- na.omit(gatos)
 ~~~
 {: .language-r}
 
@@ -286,18 +332,18 @@ También podemos eliminar columnas en un marco de datos. Hay dos formas de elimi
 
 
 ~~~
-cats[,-4]
+gatos[,-4]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string
-1        calico    2.1            1
-2         black    5.0            0
-3         tabby    3.2            1
-5 tortoiseshell    3.3            1
+           capa peso gusta_cuerdo
+1        calico  2.1            1
+2         negro  5.0            0
+3         tabby  3.2            1
+6 tortoiseshell  3.3            1
 ~~~
 {: .output}
 
@@ -307,19 +353,19 @@ Alternativamente, podemos soltar la columna usando el nombre del índice.
 
 
 ~~~
-drop <- names(cats) %in% c("age")
-cats[,!drop]
+drop <- names(gatos) %in% c("edad")
+gatos[,!drop]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string
-1        calico    2.1            1
-2         black    5.0            0
-3         tabby    3.2            1
-5 tortoiseshell    3.3            1
+           capa peso gusta_cuerdo
+1        calico  2.1            1
+2         negro  5.0            0
+3         tabby  3.2            1
+6 tortoiseshell  3.3            1
 ~~~
 {: .output}
 
@@ -330,23 +376,23 @@ La clave que hay que recordar al añadir datos a un *data frame* es que *las col
 
 
 ~~~
-cats <- rbind(cats, cats)
-cats
+gatos <- rbind(gatos, gatos)
+gatos
 ~~~
 {: .language-r}
 
 
 
 ~~~
-            coat weight likes_string age
-1         calico    2.1            1   2
-2          black    5.0            0   3
-3          tabby    3.2            1   5
-5  tortoiseshell    3.3            1   9
-11        calico    2.1            1   2
-21         black    5.0            0   3
-31         tabby    3.2            1   5
-51 tortoiseshell    3.3            1   9
+            capa peso gusta_cuerdo edad
+1         calico  2.1            1    2
+2          negro  5.0            0    3
+3          tabby  3.2            1    5
+6  tortoiseshell  3.3            1    9
+11        calico  2.1            1    2
+21         negro  5.0            0    3
+31         tabby  3.2            1    5
+61 tortoiseshell  3.3            1    9
 ~~~
 {: .output}
 
@@ -354,23 +400,23 @@ Pero ahora los nombres de las filas *rownames* son complicados. Podemos removerl
 
 
 ~~~
-rownames(cats) <- NULL
-cats
+rownames(gatos) <- NULL
+gatos
 ~~~
 {: .language-r}
 
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   2
-2         black    5.0            0   3
-3         tabby    3.2            1   5
-4 tortoiseshell    3.3            1   9
-5        calico    2.1            1   2
-6         black    5.0            0   3
-7         tabby    3.2            1   5
-8 tortoiseshell    3.3            1   9
+           capa peso gusta_cuerdo edad
+1        calico  2.1            1    2
+2         negro  5.0            0    3
+3         tabby  3.2            1    5
+4 tortoiseshell  3.3            1    9
+5        calico  2.1            1    2
+6         negro  5.0            0    3
+7         tabby  3.2            1    5
+8 tortoiseshell  3.3            1    9
 ~~~
 {: .output}
 
@@ -387,9 +433,9 @@ cats
 > {: .language-r}
 > Crear un data frame que contenga la siguiente información personal:
 >
-> - Nombre
-> - Apellido
-> - Número favorito
+> - nombre
+> - apellido
+> - número favorito
 >
 > Luego usa `rbind` para agregar una entrada para la gente sentada alrededor tuyo.
 > Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "¿Es hora de una pausa?"
@@ -398,11 +444,11 @@ cats
 > > 
 > > ~~~
 > > df <- data.frame(first = c('Grace'),
-> >                  last = c('Hopper'),
-> >                  lucky_number = c(0),
+> >                  apellido = c('Hopper'),
+> >                  numero_favorito = c(0),
 > >                  stringsAsFactors = FALSE)
 > > df <- rbind(df, list('Marie', 'Curie', 238) )
-> > df <- cbind(df, coffeetime = c(TRUE,TRUE))
+> > df <- cbind(df, cafe = c(TRUE,TRUE))
 > > ~~~
 > > {: .language-r}
 > {: .solution}
@@ -411,6 +457,16 @@ cats
 ## Ejemplo realista
 
 Hasta ahora, hemos visto las manipulaciones básicas que pueden hacerse en un *data frame*. Ahora, vamos a extender esas habilidades con un ejemplo más real. Vamos a importar el **gapminder dataset** que descargamos previamente:
+
+La función `read.table` se usa para leer datos tabulares que están guardados en un archivo de texto,
+donde las columnas de datos están separadas por un signo de puntuación como en los archivos
+CSV (donde **csv** es **comma-separated values** en inglés, es decir, valores separados por comas).
+
+Los signos de puntuación más comunmente usados para separar o delimitar datos en archivos de texto son tabuladores y comas.
+Por conveniencia, R provee dos versiones de la función `read.table`. Estas versiones son: `read.csv`
+para archivos donde los datos están separados por comas y `read.delim` para archivos donde los datos están separados
+por tabuladores. De las tres variantes, `read.csv` es la más comúnmente usada. De ser necesario, es posible sobrescribir
+ el signo de puntuación usado por defecto para ambas funciones: `read.csv` y `read.delim`.
 
 
 ~~~
@@ -694,12 +750,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >         country year      pop continent lifeExp  gdpPercap
-> > 792     Jamaica 2007  2780132  Americas  72.567  7320.8803
-> > 1498      Syria 1997 15081016      Asia  71.527  4014.2390
-> > 616      Guinea 1967  3451418    Africa  37.197   708.7595
-> > 54    Argentina 1977 26983828  Americas  68.481 10079.0267
-> > 919  Madagascar 1982  9171477    Africa  48.969  1302.8787
+> >           country year      pop continent lifeExp gdpPercap
+> > 1334       Serbia 1957  7271135    Europe  61.685  4981.091
+> > 478   El Salvador 1997  5783439  Americas  69.535  5154.825
+> > 872       Lebanon 1987  3089353      Asia  67.926  5377.091
+> > 445       Ecuador 1952  3548753  Americas  48.357  3522.111
+> > 1318 Saudi Arabia 1997 21229759      Asia  70.533 20586.690
 > > ~~~
 > > {: .output}
 > {: .solution}
