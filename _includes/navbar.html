@@ -49,7 +49,7 @@
 
         {% comment %} Muestra episodios de lecciones para lecciones. {% endcomment %}
         <li class="dropdown">
-          <a href="{{ relative_root_path }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodos <span class="caret"></span></a>
+          <a href="{{ relative_root_path }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodios <span class="caret"></span></a>
           <ul class="dropdown-menu">
             {% for lesson_episode in lesson_episodes %}
             {% if site.episode_order %}
