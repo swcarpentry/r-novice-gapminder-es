@@ -191,7 +191,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-rw-r-- 1 francois francois 80K Feb 21 10:23 data/gapminder-FiveYearData.csv
+> > -rw-r--r--  1 raynamharris  staff    80K Jul  6 10:56 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 
@@ -207,7 +207,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > 1705 data/gapminder-FiveYearData.csv
+> >     1705 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 

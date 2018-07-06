@@ -694,12 +694,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >         country year      pop continent lifeExp gdpPercap
-> > 915  Madagascar 1962  5703324    Africa  40.848  1643.387
-> > 237    Cameroon 1992 12467171    Africa  54.314  1793.163
-> > 377     Croatia 1972  4225310    Europe  69.610  9164.090
-> > 18      Albania 1977  2509048    Europe  68.930  3533.004
-> > 1574     Turkey 1957 25670939    Europe  48.079  2218.754
+> >         country year      pop continent lifeExp  gdpPercap
+> > 792     Jamaica 2007  2780132  Americas  72.567  7320.8803
+> > 1498      Syria 1997 15081016      Asia  71.527  4014.2390
+> > 616      Guinea 1967  3451418    Africa  37.197   708.7595
+> > 54    Argentina 1977 26983828  Americas  68.481 10079.0267
+> > 919  Madagascar 1982  9171477    Africa  48.969  1302.8787
 > > ~~~
 > > {: .output}
 > {: .solution}
