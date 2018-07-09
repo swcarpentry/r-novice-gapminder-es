@@ -7,14 +7,14 @@ questions:
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
-- "Poder anexar dos *data frame*."
+- "Poder anexar dos *data frames*."
 - "Poder articular qué es un `factor` y cómo convertir entre `factor` y `character`."
 - "Poder entender las propiedades básicas de un *data frame*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
 keypoints:
-- "Usar `cbind()` para agregar una nueva columna a un *data frame*."
-- "Usar `rbind()` para agregar una nueva fila a un *data frame*."
-- "Quitar filas de un *data frame*."
-- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`."
+- "Usar `cbind()` para agregar una nueva columna a un *data frame*"
+- "Usar `rbind()` para agregar una nueva fila a un *data frame*"
+- "Quitar filas de un *data frame*"
+- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`"
 - "Usar `levels()` y `as.character()` para explorar y manipular columnas de clase *factor*"
 - "Usar `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` y `typeof()` para entender la estructura de un *data frame*"
 - "Leer un archivo csv usando `read.csv()`"
@@ -27,7 +27,7 @@ source("../bin/chunk-options.R")
 knitr_fig_path("05-")
 ```
   
-A esta altura, ya viste todo - en la última lección, donde recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
+A esta altura, ya viste todo - en la última lección, recorrimos todos los tipos y estructuras de datos básicos de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En esta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
   
 
 ## Agregando columnas y filas a un data frame
@@ -62,7 +62,7 @@ cbind(cats, age)
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-Para que funcione, no debemos tener `nrow(cats)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+Para que funcione, debemos tener `nrow(cats)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 ```{r}
 age <- c(2, 3, 5)
@@ -78,7 +78,8 @@ cats <- rbind(cats, newRow)
 
 ## Factors
 
-Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente estaba allí cuando cargamos los datos. Por ejemplo, en nuestro caso
+Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
+estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'black', 'calico' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
@@ -141,13 +142,13 @@ cats <- na.omit(cats)
 
 ## Eliminando columnas
 
-También podemos eliminar columnas en un marco de datos. Hay dos formas de eliminar una columna: por número o nobre de índice.
+También podemos eliminar columnas en un *data frame*. Hay dos formas de eliminar una columna: por número o nombre de índice.
 
 ```{r}
 cats[,-4]
 ```
 
-Observe la coma sin nada antes, lo que indica que queremos mantener todas las filas.
+Observa la coma sin nada antes, lo que indica que queremos mantener todas las filas.
 
 Alternativamente, podemos soltar la columna usando el nombre del índice.
 
@@ -156,7 +157,7 @@ drop <- names(cats) %in% c("age")
 cats[,!drop]
 ```
 
-## Añadiendo a un data frame
+## Añadiendo filas o columnas a un data frame
 
 La clave que hay que recordar al añadir datos a un *data frame* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *data frames* usando `rbind` que significa unir las filas (verticalmente):
 
@@ -247,7 +248,7 @@ str(gapminder$country)
 
 
 También podemos interrogar al *data frame* por la información sobre sus dimensiones;
-recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué piensas que el siguiente código producirá y por qué?
+recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿qué piensas que el siguiente código producirá y por qué?
 
 
 ```{r}
@@ -315,7 +316,7 @@ head(gapminder)
 {: .challenge}
 
 Para que nuestro analisis sea reproducible debemos poner el código en un *script*
-entonces podemos volver y editar en el futuro.
+al que podremos volver y editar en el futuro.
 
 > ## Desafío 4
 >
