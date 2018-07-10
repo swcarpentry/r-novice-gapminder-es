@@ -75,6 +75,20 @@ Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las f
 newRow <- list("tortoiseshell", 3.3, TRUE, 9)
 cats <- rbind(cats, newRow)
 ```
+Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
+
+```{r}
+colores <- factor(c("negro","canela","canela","negro"))
+levels(colores)
+nlevels(colores)
+```
+El orden de los factores puede reorganizar también.
+
+```{r}
+colores ## el orden actual
+colores <- factor(colores, levels = c("negro", "canela"))
+colores # despues de re-organizar
+```
 
 ## Factors
 
