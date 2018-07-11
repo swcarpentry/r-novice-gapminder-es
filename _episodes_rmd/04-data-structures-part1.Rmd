@@ -29,18 +29,18 @@ como los que puedes tener en una planilla de cálculo o un archivo CSV.
 Comencemos creando un **dataset** llamado `gatos` que se vea así. 
 
 ```{r, eval=FALSE}
-capa,peso,gusta_cuerdo
-calico,2.1,1
+color,peso,le_gusta_cuerda
+calicó,2.1,1
 negro,5.0,0
-tabby,3.2,1
+atigrado,3.2,1
 ```
 
 Podemos usar la function `data.frame` para crearlo.
 
 ```{r}
-gatos <- data.frame(capa = c("calico", "negro", "tabby"),
+gatos <- data.frame(color = c("calicó", "negro", "atigrado"),
                       peso = c(2.1, 5.0, 3.2),
-                      gusta_cuerdo = c(1, 0, 1))                    
+                      le_gusta_cuerda = c(1, 0, 1))                    
 gatos                   
 ```
 
@@ -63,7 +63,7 @@ Podemos empezar a explorar el **dataset** inmediatamente, proyectando las column
 
 ```{r}
 gatos$peso
-gatos$capa
+gatos$color
 ```
 
 Podemos hacer otras operaciones sobre las columnas:
@@ -76,13 +76,13 @@ gatos$peso + 2
 Podemos imprimir los resultados en una oración
 
 ```{r}
-paste("La capa del gato es", gatos$capa)
+paste("La color del gato es", gatos$color)
 ```
 
 Pero qué pasa con:
 
 ```{r}
-gatos$peso + gatos$capa
+gatos$peso + gatos$color
 ``` 
 
 Si adivinaste que el último comando iba a resultar en un error porque `2.1` más
@@ -98,7 +98,7 @@ Hay 5 tipos de datos principales: `double`, `integer`, `complex`, `logical` and 
 Podemos preguntar cuál es la estructura de datos si usamos la función `class`:
 
 ```{r}
-class(gatos$capa)
+class(gatos$color)
 class(gatos$peso)
 ```
 
@@ -198,18 +198,18 @@ deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos
 y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables!
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
-`gusta_cuerdo` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
+`le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
 (una forma habitual de representarlos). Deberíamos usar el tipo de datos
 **`logical`** en este caso, que tiene dos estados: **`TRUE`** o **`FALSE`**, que es exactamente
 lo que nuestros datos representan. Podemos convertir esta columna al tipo de datos **`logical`** 
 usando la función `as.logical`:
 
 ```{r}
-gatos$gusta_cuerdo
-class(gatos$gusta_cuerdo)
-gatos$gusta_cuerdo <- as.logical(gatos$gusta_cuerdo)
-gatos$gusta_cuerdo
-class(gatos$gusta_cuerdo)
+gatos$le_gusta_cuerda
+class(gatos$le_gusta_cuerda)
+gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
+gatos$le_gusta_cuerda
+class(gatos$le_gusta_cuerda)
 ```
 
 La función **combine**, `c()`, también agregará elementos al final de un vector existente:
@@ -263,7 +263,7 @@ class(mySerie)
 Otra estructura de datos importante se llama **factor**. 
 
 ```{r}
-str(gatos$capa)
+str(gatos$color)
 ```
 
 
@@ -273,7 +273,7 @@ construyamos un vector de **strings** con etiquetas para las coloraciones para t
 gatos en nuestro estudio:
 
 ```{r}
-capas <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'negro', 'tabby')
+capas <- c('atigrado', 'tortoiseshell', 'tortoiseshell', 'negro', 'atigrado')
 capas
 str(capas)
 ```
@@ -311,14 +311,14 @@ class(categorias)
 > >
 > > ```{r, eval = FALSE}
 > > gatos <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
-> > str(gatos$capa)
+> > str(gatos$color)
 > > ```
 > > Otra solución es usar el argumento `colClasses`
 > > que permiten un control más fino.
 > >
 > > ```{r, eval = FALSE}
 > > gatos <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
-> > str(gatos$capa)
+> > str(gatos$color)
 > > ```
 > >
 > > Nota: Los nuevos estudiantes encuentran los archivos de ayuda difíciles de entender; asegúrese de hacerles saber 
@@ -375,7 +375,7 @@ ya hemos visto, cada columna del **data.frame** es un vector.
 
 
 ```{r}
-gatos$capa
+gatos$color
 gatos[,1]
 typeof(gatos[,1])
 str(gatos[,1])
@@ -396,8 +396,8 @@ str(gatos[1,])
 >
 > - `gatos[1]`
 > - `gatos[[1]]`
-> - `gatos$capa`
-> - `gatos["capa"]`
+> - `gatos$color`
+> - `gatos["color"]`
 > - `gatos[1, 1]`
 > - `gatos[, 1]`
 > - `gatos[1, ]`
@@ -420,21 +420,21 @@ str(gatos[1,])
 > > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
 > > es el contenido de la primera columna, un _vector_ de tipo _factor_.
 > > ```{r, eval=TRUE, echo=TRUE}
-> > gatos$capa
+> > gatos$color
 > > ```
 > > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _capa_ es la
 > > primer columna del marco de datos, de nuevo un _vector_ de tipo _factor_.
 > > ```{r, eval=TRUE, echo=TRUE}
-> > gatos["capa"]
+> > gatos["color"]
 > > ```
-> > Aquí estamos usando un solo corchete `["capa"]` reemplazando el número del índice con 
+> > Aquí estamos usando un solo corchete `["color"]` reemplazando el número del índice con 
 > > el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un _list_.
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos[1, 1]
 > > ```
 > > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
 > > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
-> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "calico" asociada con el valor entero.
+> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "calicó" asociada con el valor entero.
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos[, 1]
 > > ```
