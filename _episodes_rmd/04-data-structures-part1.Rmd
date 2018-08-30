@@ -30,7 +30,7 @@ Comencemos creando un **dataset** llamado `gatos` que se vea así.
 
 ```{r, eval=FALSE}
 color,peso,le_gusta_cuerda
-calicó,2.1,1
+mixto,2.1,1
 negro,5.0,0
 atigrado,3.2,1
 ```
@@ -38,7 +38,7 @@ atigrado,3.2,1
 Podemos usar la function `data.frame` para crearlo.
 
 ```{r}
-gatos <- data.frame(color = c("calicó", "negro", "atigrado"),
+gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
                       peso = c(2.1, 5.0, 3.2),
                       le_gusta_cuerda = c(1, 0, 1))                    
 gatos                   
@@ -434,7 +434,7 @@ str(gatos[1,])
 > > ```
 > > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
 > > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
-> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "calicó" asociada con el valor entero.
+> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "mixto" asociada con el valor entero.
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos[, 1]
 > > ```
