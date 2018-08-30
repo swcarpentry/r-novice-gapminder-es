@@ -28,10 +28,10 @@ Comencemos creando un **dataset** llamado `gatos` que se vea así.
 
 
 ~~~
-capa,peso,gusta_cuerdo
-calico,2.1,1
+color,peso,le_gusta_cuerda
+mixto,2.1,1
 negro,5.0,0
-tabby,3.2,1
+atigrado,3.2,1
 ~~~
 {: .language-r}
 
@@ -39,9 +39,9 @@ Podemos usar la function `data.frame` para crearlo.
 
 
 ~~~
-gatos <- data.frame(capa = c("calico", "negro", "tabby"),
+gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
                       peso = c(2.1, 5.0, 3.2),
-                      gusta_cuerdo = c(1, 0, 1))                    
+                      le_gusta_cuerda = c(1, 0, 1))                    
 gatos                   
 ~~~
 {: .language-r}
@@ -49,10 +49,10 @@ gatos
 
 
 ~~~
-    capa peso gusta_cuerdo
-1 calico  2.1            1
-2  negro  5.0            0
-3  tabby  3.2            1
+     color peso le_gusta_cuerda
+1    mixto  2.1               1
+2    negro  5.0               0
+3 atigrado  3.2               1
 ~~~
 {: .output}
 
@@ -86,15 +86,15 @@ gatos$peso
 
 
 ~~~
-gatos$capa
+gatos$color
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] calico negro  tabby 
-Levels: calico negro tabby
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -118,15 +118,15 @@ Podemos imprimir los resultados en una oración
 
 
 ~~~
-paste("La capa del gato es", gatos$capa)
+paste("La color del gato es", gatos$color)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] "La capa del gato es calico" "La capa del gato es negro" 
-[3] "La capa del gato es tabby" 
+[1] "La color del gato es mixto"    "La color del gato es negro"   
+[3] "La color del gato es atigrado"
 ~~~
 {: .output}
 
@@ -134,14 +134,14 @@ Pero qué pasa con:
 
 
 ~~~
-gatos$peso + gatos$capa
+gatos$peso + gatos$color
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Warning in Ops.factor(gatos$peso, gatos$capa): '+' not meaningful for
+Warning in Ops.factor(gatos$peso, gatos$color): '+' not meaningful for
 factors
 ~~~
 {: .error}
@@ -167,7 +167,7 @@ Podemos preguntar cuál es la estructura de datos si usamos la función `class`:
 
 
 ~~~
-class(gatos$capa)
+class(gatos$color)
 ~~~
 {: .language-r}
 
@@ -400,7 +400,7 @@ deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos
 y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables!
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
-`gusta_cuerdo` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
+`le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
 (una forma habitual de representarlos). Deberíamos usar el tipo de datos
 **`logical`** en este caso, que tiene dos estados: **`TRUE`** o **`FALSE`**, que es exactamente
 lo que nuestros datos representan. Podemos convertir esta columna al tipo de datos **`logical`** 
@@ -408,7 +408,7 @@ usando la función `as.logical`:
 
 
 ~~~
-gatos$gusta_cuerdo
+gatos$le_gusta_cuerda
 ~~~
 {: .language-r}
 
@@ -422,7 +422,7 @@ gatos$gusta_cuerdo
 
 
 ~~~
-class(gatos$gusta_cuerdo)
+class(gatos$le_gusta_cuerda)
 ~~~
 {: .language-r}
 
@@ -436,8 +436,8 @@ class(gatos$gusta_cuerdo)
 
 
 ~~~
-gatos$gusta_cuerdo <- as.logical(gatos$gusta_cuerdo)
-gatos$gusta_cuerdo
+gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
+gatos$le_gusta_cuerda
 ~~~
 {: .language-r}
 
@@ -451,7 +451,7 @@ gatos$gusta_cuerdo
 
 
 ~~~
-class(gatos$gusta_cuerdo)
+class(gatos$le_gusta_cuerda)
 ~~~
 {: .language-r}
 
@@ -610,14 +610,14 @@ Otra estructura de datos importante se llama **factor**.
 
 
 ~~~
-str(gatos$capa)
+str(gatos$color)
 ~~~
 {: .language-r}
 
 
 
 ~~~
- Factor w/ 3 levels "calico","negro",..: 1 2 3
+ Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ~~~
 {: .output}
 
@@ -629,7 +629,7 @@ gatos en nuestro estudio:
 
 
 ~~~
-capas <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'negro', 'tabby')
+capas <- c('atigrado', 'tortoiseshell', 'tortoiseshell', 'negro', 'atigrado')
 capas
 ~~~
 {: .language-r}
@@ -637,8 +637,8 @@ capas
 
 
 ~~~
-[1] "tabby"         "tortoiseshell" "tortoiseshell" "negro"        
-[5] "tabby"        
+[1] "atigrado"      "tortoiseshell" "tortoiseshell" "negro"        
+[5] "atigrado"     
 ~~~
 {: .output}
 
@@ -652,7 +652,7 @@ str(capas)
 
 
 ~~~
- chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "negro" "tabby"
+ chr [1:5] "atigrado" "tortoiseshell" "tortoiseshell" "negro" ...
 ~~~
 {: .output}
 
@@ -683,7 +683,7 @@ str(categorias)
 
 
 ~~~
- Factor w/ 3 levels "negro","tabby",..: 2 3 3 1 2
+ Factor w/ 3 levels "atigrado","negro",..: 1 3 3 2 1
 ~~~
 {: .output}
 
@@ -734,7 +734,7 @@ class(categorias)
 > > 
 > > ~~~
 > > gatos <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
-> > str(gatos$capa)
+> > str(gatos$color)
 > > ~~~
 > > {: .language-r}
 > > Otra solución es usar el argumento `colClasses`
@@ -743,7 +743,7 @@ class(categorias)
 > > 
 > > ~~~
 > > gatos <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
-> > str(gatos$capa)
+> > str(gatos$color)
 > > ~~~
 > > {: .language-r}
 > >
@@ -859,15 +859,15 @@ ya hemos visto, cada columna del **data.frame** es un vector.
 
 
 ~~~
-gatos$capa
+gatos$color
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] calico negro  tabby 
-Levels: calico negro tabby
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -881,8 +881,8 @@ gatos[,1]
 
 
 ~~~
-[1] calico negro  tabby 
-Levels: calico negro tabby
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -910,7 +910,7 @@ str(gatos[,1])
 
 
 ~~~
- Factor w/ 3 levels "calico","negro",..: 1 2 3
+ Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ~~~
 {: .output}
 
@@ -926,8 +926,8 @@ gatos[1,]
 
 
 ~~~
-    capa peso gusta_cuerdo
-1 calico  2.1         TRUE
+  color peso le_gusta_cuerda
+1 mixto  2.1            TRUE
 ~~~
 {: .output}
 
@@ -956,9 +956,9 @@ str(gatos[1,])
 
 ~~~
 'data.frame':	1 obs. of  3 variables:
- $ capa        : Factor w/ 3 levels "calico","negro",..: 1
- $ peso        : num 2.1
- $ gusta_cuerdo: logi TRUE
+ $ color          : Factor w/ 3 levels "atigrado","mixto",..: 2
+ $ peso           : num 2.1
+ $ le_gusta_cuerda: logi TRUE
 ~~~
 {: .output}
 
@@ -968,8 +968,8 @@ str(gatos[1,])
 >
 > - `gatos[1]`
 > - `gatos[[1]]`
-> - `gatos$capa`
-> - `gatos["capa"]`
+> - `gatos$color`
+> - `gatos["color"]`
 > - `gatos[1, 1]`
 > - `gatos[, 1]`
 > - `gatos[1, ]`
@@ -989,10 +989,10 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >     capa
-> > 1 calico
-> > 2  negro
-> > 3  tabby
+> >      color
+> > 1    mixto
+> > 2    negro
+> > 3 atigrado
 > > ~~~
 > > {: .output}
 > > Podemos interpretar un **data frame** como una lista de vectores. Un único par de corchetes `[1]`
@@ -1007,43 +1007,43 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico negro  tabby 
-> > Levels: calico negro tabby
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
 > > es el contenido de la primera columna, un _vector_ de tipo _factor_.
 > > 
 > > ~~~
-> > gatos$capa
+> > gatos$color
 > > ~~~
 > > {: .language-r}
 > > 
 > > 
 > > 
 > > ~~~
-> > [1] calico negro  tabby 
-> > Levels: calico negro tabby
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _capa_ es la
 > > primer columna del marco de datos, de nuevo un _vector_ de tipo _factor_.
 > > 
 > > ~~~
-> > gatos["capa"]
+> > gatos["color"]
 > > ~~~
 > > {: .language-r}
 > > 
 > > 
 > > 
 > > ~~~
-> >     capa
-> > 1 calico
-> > 2  negro
-> > 3  tabby
+> >      color
+> > 1    mixto
+> > 2    negro
+> > 3 atigrado
 > > ~~~
 > > {: .output}
-> > Aquí estamos usando un solo corchete `["capa"]` reemplazando el número del índice con 
+> > Aquí estamos usando un solo corchete `["color"]` reemplazando el número del índice con 
 > > el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un _list_.
 > > 
 > > ~~~
@@ -1054,13 +1054,13 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico
-> > Levels: calico negro tabby
+> > [1] mixto
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
 > > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
-> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "calico" asociada con el valor entero.
+> > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "mixto" asociada con el valor entero.
 > > 
 > > ~~~
 > > gatos[, 1]
@@ -1070,8 +1070,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico negro  tabby 
-> > Levels: calico negro tabby
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Al igual que en el ejemplo anterior, utilizamos corchetes simples y proporcionamos 
@@ -1086,8 +1086,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >     capa peso gusta_cuerdo
-> > 1 calico  2.1         TRUE
+> >   color peso le_gusta_cuerda
+> > 1 mixto  2.1            TRUE
 > > ~~~
 > > {: .output}
 > > De nuevo, utilizamos el corchete simple con las coordenadas de fila y columna. 
