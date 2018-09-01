@@ -9,14 +9,14 @@ questions:
 objectives:
 - "Poder agregar y quitar filas y columnas."
 - "Poder quitar filas con valores `NA`."
-- "Poder anexar dos *data frame*."
+- "Poder anexar dos *data frames*."
 - "Poder articular qué es un `factor` y cómo convertir entre `factor` y `character`."
 - "Poder entender las propiedades básicas de un *data frame*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
 keypoints:
-- "Usar `cbind()` para agregar una nueva columna a un *data frame*."
-- "Usar `rbind()` para agregar una nueva fila a un *data frame*."
-- "Quitar filas de un *data frame*."
-- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`."
+- "Usar `cbind()` para agregar una nueva columna a un *data frame*"
+- "Usar `rbind()` para agregar una nueva fila a un *data frame*"
+- "Quitar filas de un *data frame*"
+- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`"
 - "Usar `levels()` y `as.character()` para explorar y manipular columnas de clase *factor*"
 - "Usar `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` y `typeof()` para entender la estructura de un *data frame*"
 - "Leer un archivo csv usando `read.csv()`"
@@ -26,7 +26,7 @@ source: Rmd
 
 
   
-A esta altura, ya viste todo - en la última lección, donde recorrimos las estructuras básicas de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En ésta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
+A esta altura, ya viste todo - en la última lección, recorrimos todos los tipos y estructuras de datos básicos de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En esta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
   
 > ## Palabras clave 
 >
@@ -56,10 +56,10 @@ gatos
 
 
 ~~~
-    capa peso gusta_cuerdo
-1 calico  2.1            1
-2  negro  5.0            0
-3  tabby  3.2            1
+  color peso e_gusta_la_cuerda
+1 mixto  2.1                 1
+2 negro  5.0                 0
+3 tabby  3.2                 1
 ~~~
 {: .output}
 
@@ -82,10 +82,10 @@ cbind(gatos, edad)
 
 
 ~~~
-    capa peso gusta_cuerdo edad
-1 calico  2.1            1    2
-2  negro  5.0            0    3
-3  tabby  3.2            1    5
+  color peso e_gusta_la_cuerda edad
+1 mixto  2.1                 1    2
+2 negro  5.0                 0    3
+3 tabby  3.2                 1    5
 ~~~
 {: .output}
 
@@ -122,7 +122,7 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-Para que funcione, no debemos tener `nrow(gatos)` = `length(edad)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+Para que funcione, debemos tener `nrow(gatos)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 
 ~~~
@@ -135,10 +135,10 @@ gatos
 
 
 ~~~
-    capa peso gusta_cuerdo edad
-1 calico  2.1            1    2
-2  negro  5.0            0    3
-3  tabby  3.2            1    5
+  color peso e_gusta_la_cuerda edad
+1 mixto  2.1                 1    2
+2 negro  5.0                 0    3
+3 tabby  3.2                 1    5
 ~~~
 {: .output}
 
@@ -173,32 +173,93 @@ Warning in `[<-.factor`(`*tmp*`, ri, value = "tortoiseshell"): invalid
 factor level, NA generated
 ~~~
 {: .error}
-
-## Factors
-
-Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente estaba allí cuando cargamos los datos. Por ejemplo, en nuestro caso
-'negro', 'calico' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
-
-La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*capa*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *capa*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 
 
 ~~~
-levels(gatos$capa)
+colores <- factor(c("negro","canela","canela","negro"))
+levels(colores)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] "calico" "negro"  "tabby" 
+[1] "canela" "negro" 
 ~~~
 {: .output}
 
 
 
 ~~~
-levels(gatos$capa) <- c(levels(gatos$capa), 'tortoiseshell')
+nlevels(colores)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 2
+~~~
+{: .output}
+El orden de los factores puede reorganizar también.
+
+
+~~~
+colores ## el orden actual
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] negro  canela canela negro 
+Levels: canela negro
+~~~
+{: .output}
+
+
+
+~~~
+colores <- factor(colores, levels = c("negro", "canela"))
+colores # despues de re-organizar
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] negro  canela canela negro 
+Levels: negro canela
+~~~
+{: .output}
+
+## Factors
+
+Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
+estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
+'black', 'calicó' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
+
+La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *e_gusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+
+
+~~~
+levels(gatos$color)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "mixto" "negro" "tabby"
+~~~
+{: .output}
+
+
+
+~~~
+levels(gatos$color) <- c(levels(gatos$color), 'tortoiseshell')
 gatos <- rbind(gatos, list("tortoiseshell", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
@@ -215,17 +276,17 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ capa        : Factor w/ 4 levels "calico","negro",..: 1 2 3 NA NA 4
- $ peso        : num  2.1 5 3.2 3.3 3.3 3.3
- $ gusta_cuerdo: num  1 0 1 1 1 1
- $ edad        : num  2 3 5 9 9 9
+ $ color            : Factor w/ 4 levels "mixto","negro",..: 1 2 3 NA NA 4
+ $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
+ $ e_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
 
 
 
 ~~~
-gatos$capa <- as.character(gatos$capa)
+gatos$color <- as.character(gatos$color)
 str(gatos)
 ~~~
 {: .language-r}
@@ -234,10 +295,10 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ capa        : chr  "calico" "negro" "tabby" NA ...
- $ peso        : num  2.1 5 3.2 3.3 3.3 3.3
- $ gusta_cuerdo: num  1 0 1 1 1 1
- $ edad        : num  2 3 5 9 9 9
+ $ color            : chr  "mixto" "negro" "tabby" NA ...
+ $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
+ $ e_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
 
@@ -267,13 +328,13 @@ gatos
 
 
 ~~~
-           capa peso gusta_cuerdo edad
-1        calico  2.1            1    2
-2         negro  5.0            0    3
-3         tabby  3.2            1    5
-4          <NA>  3.3            1    9
-5          <NA>  3.3            1    9
-6 tortoiseshell  3.3            1    9
+          color peso e_gusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3         tabby  3.2                 1    5
+4          <NA>  3.3                 1    9
+5          <NA>  3.3                 1    9
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -288,12 +349,12 @@ gatos[-4,]
 
 
 ~~~
-           capa peso gusta_cuerdo edad
-1        calico  2.1            1    2
-2         negro  5.0            0    3
-3         tabby  3.2            1    5
-5          <NA>  3.3            1    9
-6 tortoiseshell  3.3            1    9
+          color peso e_gusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3         tabby  3.2                 1    5
+5          <NA>  3.3                 1    9
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -310,11 +371,11 @@ na.omit(gatos)
 
 
 ~~~
-           capa peso gusta_cuerdo edad
-1        calico  2.1            1    2
-2         negro  5.0            0    3
-3         tabby  3.2            1    5
-6 tortoiseshell  3.3            1    9
+          color peso e_gusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3         tabby  3.2                 1    5
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -328,7 +389,7 @@ gatos <- na.omit(gatos)
 
 ## Eliminando columnas
 
-También podemos eliminar columnas en un marco de datos. Hay dos formas de eliminar una columna: por número o nobre de índice.
+También podemos eliminar columnas en un *data frame*. Hay dos formas de eliminar una columna: por número o nombre de índice.
 
 
 ~~~
@@ -339,15 +400,15 @@ gatos[,-4]
 
 
 ~~~
-           capa peso gusta_cuerdo
-1        calico  2.1            1
-2         negro  5.0            0
-3         tabby  3.2            1
-6 tortoiseshell  3.3            1
+          color peso e_gusta_la_cuerda
+1         mixto  2.1                 1
+2         negro  5.0                 0
+3         tabby  3.2                 1
+6 tortoiseshell  3.3                 1
 ~~~
 {: .output}
 
-Observe la coma sin nada antes, lo que indica que queremos mantener todas las filas.
+Observa la coma sin nada antes, lo que indica que queremos mantener todas las filas.
 
 Alternativamente, podemos soltar la columna usando el nombre del índice.
 
@@ -361,15 +422,15 @@ gatos[,!drop]
 
 
 ~~~
-           capa peso gusta_cuerdo
-1        calico  2.1            1
-2         negro  5.0            0
-3         tabby  3.2            1
-6 tortoiseshell  3.3            1
+          color peso e_gusta_la_cuerda
+1         mixto  2.1                 1
+2         negro  5.0                 0
+3         tabby  3.2                 1
+6 tortoiseshell  3.3                 1
 ~~~
 {: .output}
 
-## Añadiendo a un data frame
+## Añadiendo filas o columnas a un data frame
 
 La clave que hay que recordar al añadir datos a un *data frame* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *data frames* usando `rbind` que significa unir las filas (verticalmente):
 
@@ -384,15 +445,15 @@ gatos
 
 
 ~~~
-            capa peso gusta_cuerdo edad
-1         calico  2.1            1    2
-2          negro  5.0            0    3
-3          tabby  3.2            1    5
-6  tortoiseshell  3.3            1    9
-11        calico  2.1            1    2
-21         negro  5.0            0    3
-31         tabby  3.2            1    5
-61 tortoiseshell  3.3            1    9
+           color peso e_gusta_la_cuerda edad
+1          mixto  2.1                 1    2
+2          negro  5.0                 0    3
+3          tabby  3.2                 1    5
+6  tortoiseshell  3.3                 1    9
+11         mixto  2.1                 1    2
+21         negro  5.0                 0    3
+31         tabby  3.2                 1    5
+61 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -408,15 +469,15 @@ gatos
 
 
 ~~~
-           capa peso gusta_cuerdo edad
-1        calico  2.1            1    2
-2         negro  5.0            0    3
-3         tabby  3.2            1    5
-4 tortoiseshell  3.3            1    9
-5        calico  2.1            1    2
-6         negro  5.0            0    3
-7         tabby  3.2            1    5
-8 tortoiseshell  3.3            1    9
+          color peso e_gusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3         tabby  3.2                 1    5
+4 tortoiseshell  3.3                 1    9
+5         mixto  2.1                 1    2
+6         negro  5.0                 0    3
+7         tabby  3.2                 1    5
+8 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -564,7 +625,7 @@ str(gapminder$country)
 
 
 También podemos interrogar al *data frame* por la información sobre sus dimensiones;
-recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿Qué piensas que el siguiente código producirá y por qué?
+recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿qué piensas que el siguiente código producirá y por qué?
 
 
 
@@ -750,19 +811,19 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >           country year      pop continent lifeExp gdpPercap
-> > 1334       Serbia 1957  7271135    Europe  61.685  4981.091
-> > 478   El Salvador 1997  5783439  Americas  69.535  5154.825
-> > 872       Lebanon 1987  3089353      Asia  67.926  5377.091
-> > 445       Ecuador 1952  3548753  Americas  48.357  3522.111
-> > 1318 Saudi Arabia 1997 21229759      Asia  70.533 20586.690
+> >              country year      pop continent lifeExp gdpPercap
+> > 726             Iran 1977 35480679      Asia  57.702 11888.595
+> > 837  Korea Dem. Rep. 1992 20711375      Asia  69.978  3726.064
+> > 859           Kuwait 1982  1497494      Asia  71.309 31354.036
+> > 386             Cuba 1957  6640752  Americas  62.325  6092.174
+> > 1503          Taiwan 1962 11918938      Asia  65.200  1822.879
 > > ~~~
 > > {: .output}
 > {: .solution}
 {: .challenge}
 
 Para que nuestro analisis sea reproducible debemos poner el código en un *script*
-entonces podemos volver y editar en el futuro.
+al que podremos volver y editar en el futuro.
 
 > ## Desafío 4
 >
