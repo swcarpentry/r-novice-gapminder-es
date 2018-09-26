@@ -83,11 +83,11 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 
 
 1. Probar y jugar dentro de la consola interactiva de R y luego copiar el código en un archivo .R para ejecutarlo más tarde.
-   *  Esto funciona bien cuando se hacen pequeñas pruebas y se está comenzando.
+   *  Esto funciona bien cuando se hacen pequeñas pruebas y/o se está comenzando.
    *  Rápidamente se vuelve laborioso. 
 2. Comienza a escribir un archivo en .R y usa las teclas de acceso directo de RStudio para ejecutar la línea actual, las líneas seleccionadas o modificadas en la consola interactiva.
    * Esta es una buena forma de comenzar; todo tu código estará guardado para después.
-   * Podrás ejecutar el archivo que crees desde RStudio o mediante la función `source ()` de R.
+   * Podrás ejecutar el archivo que quieres desde RStudio o mediante la función `source ()` de R.
 
 
 > ## Sugerencia: Ejecutando segmentos/secciones de tu código 
@@ -110,18 +110,18 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que obtendrías si escribieras `R` en la terminal de shell/linea de comandos.
 
 
-Lo primero que verás en la sesión interactiva R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar": tu escribes comandos, R intenta ejecutarlos y luego devuelve un resultado.
+Lo primero que verás en la sesión interactiva de R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar": tu escribes comandos, R intenta ejecutarlos y luego devuelve un resultado.
 
 
 ## Usando R como una calculadora
-Lo más simple que podrías hacer con R es hacer aritmética:
+Lo más simple que podrías hacer con R es aritmética:
 
 
 ```{r}
 1 + 100
 ```
 
-Y R te mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
+R te mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
 
 
 Al igual que bash, si escribes un comando incompleto, R esperará a que lo completes:
@@ -415,7 +415,7 @@ Entonces la recomendación es usar `<-`.
 > > .mass
 > > ```
 > >
-> > Los siguientes no son nombres de variables válidos en RÑ
+> > Los siguientes no son nombres de variables válidos en R:
 > > ```{r ch1pt3-sol, eval=FALSE}
 > > _age
 > > min-length
@@ -447,11 +447,11 @@ Esto es increíblemente poderoso; discutiremos esto en una próxima lección.
 ## Administrando tu entorno
 
 
-Hay algunos comandos útiles que puedes usar para interactuar con la sesión R.
+Hay algunos comandos útiles que puedes usar para interactuar con la sesión de R.
 
 
 `ls` listará todas las variables y funciones almacenadas en el entorno global
-(tu sesión R de trabajo):
+(tu sesión de trabajo en R):
 
 
 ```{r}
@@ -527,10 +527,10 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 
 * Puedes ver qué paquetes están instalados escribiendo `installed.packages()`
-* Puedes instalar paquetes escribiendo `install.packages("packagename")`, donde `packagename` es el nombre del paquete entre comillas.
+* Puedes instalar paquetes escribiendo `install.packages("nombre_de_paquete")`
 * Puedes actualizar los paquetes instalados escribiendo `update.packages()`
-* Puedes eliminar un paquete con `remove.packages("packagename")`
-* Puedes hacer que un paquete esté disponible para su uso con `library(packagename)`
+* Puedes eliminar un paquete con `remove.packages("nombre_de_paquete")`
+* Puedes hacer que un paquete esté disponible para su uso con `library(nombre_de_paquete)`
 
 > ## Desafío 2
 >
