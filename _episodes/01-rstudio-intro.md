@@ -34,15 +34,15 @@ source: Rmd
 ## Motivación
 
 
-La Ciencia es un proceso de varios pasos: una vez que hayas diseñado un experimento y recopilado datos, ¡comienza la verdadera diversión! Esta lección te enseñará cómo comenzar este proceso usando R y RStudio. Comenzaremos con datos brutos, realizaremos análisis exploratorios y aprenderemos a trazar gráficamente los resultados. Este ejemplo comienza con un conjunto de datos de [gapminder.org] (https://www.gapminder.org) que contiene información sobre la población de muchos países a lo largo del tiempo. ¿Puedes leer estos datos en R? ¿Puedes hacer un gráfico de la población de Senegal? ¿Puedes calcular el ingreso promedio de los países del continente asiático? Al final de estas lecciones, ¡podrás hacer cosas como graficar datos de poblaciones de estos países en menos de un minuto!
+La ciencia es un proceso de varios pasos: una vez que hayas diseñado un experimento y recopilado datos, ¡comienza la verdadera diversión! Esta lección te enseñará cómo comenzar este proceso usando R y RStudio. Comenzaremos con datos brutos, realizaremos análisis exploratorios y aprenderemos a trazar gráficamente los resultados. Este ejemplo comienza con un conjunto de datos de [gapminder.org](https://www.gapminder.org) que contiene información sobre la población de muchos países a lo largo del tiempo. ¿Puedes leer estos datos en R? ¿Puedes hacer un gráfico de la población de Senegal? ¿Puedes calcular el ingreso promedio de los países del continente asiático? Al final de estas lecciones, ¡podrás hacer cosas como graficar datos de poblaciones de estos países en menos de un minuto!
 
 
 ## Antes de empezar el taller 
 
 Asegúrate de tener instalada la última versión de R y RStudio en tu máquina. Esto es importante, ya que algunos paquetes utilizados en el taller pueden no instalarse correctamente (o no funcionar) si R no está actualizado.
 
-[Download and install the latest version of R here](https://www.r-project.org/)
-[Download and install RStudio here](https://www.rstudio.com/)
+[Descarga e instala la última versión de R aquí](https://www.r-project.org/), 
+[descarga e instala RStudio aquí](https://www.rstudio.com/)
 
 
 ## Introducción a RStudio
@@ -54,7 +54,7 @@ Bienvenido a la parte R del taller de Software Carpentry.
 A lo largo de esta lección, vamos a enseñarte algunos de los fundamentos del lenguaje R, así como algunas buenas prácticas para organizar el código de proyectos científicos que harán tu vida más fácil.
 
 
-Usaremos RStudio: un entorno de desarrollo integrado y gratuito de código abierto. Proporciona un editor incorporado, funciona en todas las plataformas (incluso en servidores) y ofrece muchas ventajas, como la integración de control de versiones y gestión de proyectos.
+Usaremos RStudio: un entorno de desarrollo integrado y gratuito de código abierto. RStudio proporciona un editor incorporado, funciona en todas las plataformas (incluso en servidores) y ofrece muchas ventajas, como la integración de control de versiones y gestión de proyectos.
 
 
 **Diseño básico**
@@ -71,7 +71,7 @@ Cuando abres por primera vez el RStudio, serás recibido por tres paneles:
 ![RStudio layout](../fig/01-rstudio.png)
 
 
-Una vez que abres archivos, como los scripts R, también se abrirá un panel de editor en la esquina superior izquierda.
+Si abres archivos, como los scripts R, también se abrirá un panel de editor en la esquina superior izquierda.
 
 
 ![RStudio layout with .R file open](../fig/01-rstudio-script.png)
@@ -83,7 +83,7 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 
 1. Probar y jugar dentro de la consola interactiva de R y luego copiar el código en un archivo .R para ejecutarlo más tarde.
    *  Esto funciona bien cuando se hacen pequeñas pruebas y/o se está comenzando.
-   *  Rápidamente se vuelve laborioso.  
+   *  Rápidamente se vuelve laborioso. 
 2. Comienza a escribir un archivo en .R y usa las teclas de acceso directo de RStudio para ejecutar la línea actual, las líneas seleccionadas o modificadas en la consola interactiva.
    * Esta es una buena forma de comenzar; todo tu código estará guardado para después.
    * Podrás ejecutar el archivo que quieres desde RStudio o mediante la función `source ()` de R.
@@ -109,7 +109,7 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que obtendrías si escribieras `R` en la terminal de shell/linea de comandos.
 
 
-Lo primero que verás en la sesión interactiva de R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar": tu escribes comandos, R intenta ejecutarlos y luego devuelve un resultado.
+Lo primero que verás en la sesión interactiva de R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar" (tú escribes comandos, R intenta ejecutarlos y luego devuelve un resultado).
 
 
 ## Usando R como una calculadora
@@ -129,10 +129,10 @@ Lo más simple que podrías hacer con R es aritmética:
 ~~~
 {: .output}
 
-R te mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso, como parte de la salida.
+R te mostrará la respuesta, precedido de un "[1]". No te preocupes por esto por ahora, lo explicaremos más adelante. Por ahora piensa en eso como parte de la salida.
 
 
-Al igual que bash, si escribes un comando incompleto, R esperará a que lo completes:
+Al igual que bash, si escribes un comando incompleto R esperará a que lo completes:
 
 
 ~~~
@@ -155,7 +155,7 @@ Cada vez que presionas Enter y R te muestra un "+" en lugar de ">", significa qu
 > ## Sugerencia: Cancelando comandos
 >
 > Si usas R desde la línea de comandos en lugar de estar dentro de RStudio, 
-> debe usar `Ctrl + C` en lugar de` Esc` para cancelar el comando. 
+> debes usar `Ctrl + C` en lugar de` Esc` para cancelar el comando. 
 > ¡Esto se aplica también a los usuarios de Mac!
 >
 > La cancelación de un comando no sólo es útil para matar comandos incompletos: 
@@ -247,7 +247,7 @@ Los números pequeños o grandes tienen una notación científica:
 {: .output}
 
 
-Es la abreviatura de "multiplicado por` 10 ^ XX` ". Entonces `2e-4` es la abreviatura de `2 * 10^(-4)`.
+Es la abreviatura de "multiplicado por `10 ^ XX` ". Entonces `2e-4` es la abreviatura de `2 * 10^(-4)`.
 
 
 Tú también puedes escribir números en notación científica:
@@ -269,7 +269,7 @@ Tú también puedes escribir números en notación científica:
 ## Funciones matemáticas
 
 
-R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre, seguido de paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llama argumentos de la función:
+R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre seguido de paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llaman argumentos de la función:
 
 
 
@@ -327,10 +327,10 @@ exp(0.5) # e^(1/2)
 {: .output}
 
 
-No te preocupes si no recuerdas todas las funciones en R. Simplemente puede buscarlas en Google, o si puedes recordar el comienzo del nombre de la función, usa el tabulador para completar su nombre en RStudio.
+No te preocupes si no recuerdas todas las funciones en R. Simplemente puedes buscarlas en Google, o si puedes recordar el comienzo del nombre de la función, puedes usar el tabulador para completar su nombre en RStudio.
 
 
-Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de autocompletado que te permiten buscar funciones más fácilmente, sus argumentos y los valores que toman.
+Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de autocompletado que te permiten buscar funciones, sus argumentos y los valores que toman más fácilmente.
 
 
 Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para ese comando. Además de proporcionar una descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante.
@@ -438,9 +438,7 @@ Podemos realizar comparaciones en R:
 > cuando se muestran por R, pueden tener diferentes representaciones 
 > subyacentes y por lo tanto ser diferentes por un pequeño margen de error 
 > (llamado tolerancia numérica de la máquina).
-{: .callout}
-
-
+>
 > En su lugar, debes usar la función `all.equal`.
 >
 > Lectura adicional: [http://floating-point-gui.de/](http://floating-point-gui.de/)
@@ -451,7 +449,7 @@ Podemos realizar comparaciones en R:
 ## Variables y asignaciones
 
 
-Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos ejemplos:
+Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos un ejemplo:
 
 
 
@@ -460,7 +458,7 @@ x <- 1/40
 ~~~
 {: .language-r}
 
-Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante, en algo llamado **variable**. `x` ahora contiene el **valor** `0.025`:
+Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante en algo llamado **variable**. `x` ahora contiene el **valor** `0.025`:
 
 
 
@@ -477,7 +475,7 @@ x
 {: .output}
 
 
-Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción, llamado [número de coma flotante o **floating point**] (http://en.wikipedia.org/wiki/Floating_point).
+Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción, llamado [número de coma flotante o **floating point**](http://en.wikipedia.org/wiki/Floating_point).
 
 
 Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que` x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
@@ -526,11 +524,11 @@ Los nombres de las variables pueden contener letras, números, guiones bajos y p
 
 
   * puntos.entre.palabras
-  * guiones bajos_entre_palabras
+  * guiones_bajos_entre_palabras
   * MayúsculasMinúsculasParaSepararPalabras
 
 
-Lo que uses depende de tí, pero **sé consistente**.
+Lo que uses depende de ti, pero **sé consistente**.
 
 
 También es posible utilizar el operador `=` para la asignación:
@@ -598,7 +596,7 @@ Entonces la recomendación es usar `<-`.
 ## Vectorización
 
 
-Muy importante para tomar en cuenta, es que R es *vectorizado*, lo que significa que las variables y funciones pueden tener vectores como valores y R puede operar en vectores completos a la vez. 
+Es muy importante tener en cuenta que R es *vectorizado*, lo que significa que las variables y funciones pueden tener vectores como valores y R puede operar en vectores completos a la vez. 
 En contraste con los conceptos de vectores de física y matemáticas, un vector en R describe un conjunto de valores del
 mismo tipo de datos en un cierto orden. Por ejemplo:
 
@@ -726,7 +724,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x7fb6f66f2ae0>
+<bytecode: 0x7fca71b63ee0>
 <environment: namespace:base>
 ~~~
 {: .output}
@@ -795,10 +793,10 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 
 * Puedes ver qué paquetes están instalados escribiendo `installed.packages()`
-* Puedes instalar paquetes escribiendo `install.packages("nombre_del_paquete")`
+* Puedes instalar paquetes escribiendo `install.packages("nombre_de_paquete")`
 * Puedes actualizar los paquetes instalados escribiendo `update.packages()`
-* Puedes eliminar un paquete con `remove.packages("nombre_del_paquete")`
-* Puedes hacer que un paquete esté disponible para su uso con `library(nombre_del_paquete)`
+* Puedes eliminar un paquete con `remove.packages("nombre_de_paquete")`
+* Puedes hacer que un paquete esté disponible para su uso con `library(nombre_de_paquete)`
 
 > ## Desafío 2
 >
@@ -883,8 +881,8 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 > ## Desafío 4
 >
-> > Limpia tu entorno de trabajo borrando las variables de mass y age.
-> >
+> Limpia tu entorno de trabajo borrando las variables de mass y age.
+> 
 > > ## Solución al desafío 4
 > >
 > > Podemos usar el comando `rm` para realizar esta tarea
