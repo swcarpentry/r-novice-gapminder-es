@@ -94,6 +94,13 @@ library("dplyr")
 ~~~
 {: .language-r}
 
+
+
+~~~
+Warning: package 'dplyr' was built under R version 3.5.1
+~~~
+{: .error}
+
 ## Usando select()
 
 Si por ejemplo queremos continuar el trabajo con sólo unas pocas de las variables de nuestro **data frame** podemos usar la función `select()`. Esto guardará sólo las variables que seleccionemos.

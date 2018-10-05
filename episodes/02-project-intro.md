@@ -26,11 +26,12 @@ eventualmente todo está mezclado.
 <blockquote class="twitter-tweet"><p>Managing your projects in a reproducible fashion doesn't just make your science reproducible, it makes your life easier.</p>— Vince Buffalo (@vsbuffalo) <a href="https://twitter.com/vsbuffalo/status/323638476153167872">April 15, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
 La mayoría de la gente tiende a organizar sus proyectos de esta manera:
 
 ![](../fig/bad_layout.png)
 
-Hay muchas razones de porqué debemos *siempre* evitar esto:
+Hay muchas razones de porqué debemos **siempre** evitar esto:
 
 1. Es realmente difícil saber cuál versión de tus datos es 
 la original y cuál es la modificada;
@@ -38,7 +39,7 @@ la original y cuál es la modificada;
 extensiones juntas;
 3. Probablemente te lleve mucho tiempo encontrar realmente
 cosas, y relacionar las figuras correctas con el código exacto
-que ha sido utilizado para generarlas;
+que ha sido utilizado para generarlas.
 
 Un buen diseño del proyecto finalmente hará tu vida más fácil:
 
@@ -67,7 +68,7 @@ Uno de los aspectos más poderosos y útiles de RStudio es su funcionalidad de g
 > 6. Hacer clic en el botón "Create Project".
 {: .challenge}
 
-Ahora cuando inicie R en este directorio de proyectos, o abra este proyecto con RStudio, todo nuestro trabajo en este proyecto estará completamente autocontenido en este directorio.
+Ahora cuando inicies R en este directorio de proyectos, o abras este proyecto con RStudio, todo nuestro trabajo estará completamente autocontenido en este directorio.
 
 ## Mejores prácticas para la organización del proyecto
 
@@ -83,8 +84,8 @@ Por lo tanto, es una buena idea manejar tus datos como de "sólo lectura".
 ### Limpieza de datos
 
 En muchos casos tus datos estarán "sucios": y necesitarán un preprocesamiento significativo
-para  obtener un formato R (o cualquier otro lenguaje de programación) que te resulte útil. Esta
-tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "sólo lectura" para contener los **datasets** "limpios"
+para obtener un formato R (o cualquier otro lenguaje de programación) que te resulte útil. Esta
+tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "sólo lectura" para contener los **datasets** "limpios".
 
 ### Tratar la salida generada como disponible
 
@@ -110,15 +111,15 @@ y no terminan siendo utilizados en el proyecto final, y algunos de los análisis
 
 > ## Tip: ProjectTemplate - una posible solución
 >
-> Una manera de automatizar la gestión de un proyecto es instalar el paquete, `ProjectTemplate`.
+> Una manera de automatizar la gestión de un proyecto es instalar el paquete `ProjectTemplate`.
 > Este paquete configurará una estructura de directorios ideal para la gestión de proyectos.
 > Esto es muy útil ya que te permite tener tu **pipeline/workflow** de análisis organizado y estructurado.
 > Junto con la funcionalidad predeterminada del proyecto RStudio y Git, podrás realizar el seguimiento de tu
 > trabajo y compartirlo con colaboradores.
 >
-> 1. Instalar `ProjectTemplate`.
-> 2. Cargar la librería
-> 3. Inicializar el proyecto:
+> 1. Instala `ProjectTemplate`.
+> 2. Carga la librería
+> 3. Inicializa el proyecto:
 >
 > 
 > 
@@ -142,7 +143,7 @@ propias funciones. Es buena idea separar estas funciones en dos carpetas separad
 para guardar funciones útiles que reutilizarás a través del análisis y proyectos, y
 una para guardar los **scripts** de análisis.
 
-> ## Tip: evitando la duplicación
+> ## Tip: Evitando la duplicación
 >
 > Puedes encontrarte utilizando datos o **scripts** de análisis a través de varios proyectos.
 > Normalmente, deseas evitar la duplicación para ahorrar espacio y evitar
@@ -191,7 +192,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-r--r--  1 raynamharris  staff    80K Jul  6 10:56 data/gapminder-FiveYearData.csv
+> > -rw-r--r--  1 raynamharris  staff    80K Sep 25 21:34 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 

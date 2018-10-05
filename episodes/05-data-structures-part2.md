@@ -811,12 +811,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >              country year      pop continent lifeExp gdpPercap
-> > 726             Iran 1977 35480679      Asia  57.702 11888.595
-> > 837  Korea Dem. Rep. 1992 20711375      Asia  69.978  3726.064
-> > 859           Kuwait 1982  1497494      Asia  71.309 31354.036
-> > 386             Cuba 1957  6640752  Americas  62.325  6092.174
-> > 1503          Taiwan 1962 11918938      Asia  65.200  1822.879
+> >            country year       pop continent lifeExp  gdpPercap
+> > 1611 United States 1962 186538000  Americas  70.210 16173.1459
+> > 1081   Netherlands 1952  10381988    Europe  72.130  8941.5719
+> > 1125         Niger 1992   8392818    Africa  47.391   581.1827
+> > 1364     Singapore 1987   2794552      Asia  73.560 18861.5308
+> > 738           Iraq 1977  11882916      Asia  60.413 14688.2351
 > > ~~~
 > > {: .output}
 > {: .solution}
