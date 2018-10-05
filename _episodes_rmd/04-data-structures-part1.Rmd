@@ -14,7 +14,7 @@ objectives:
 keypoints:
 - "Usar `read.csv` para leer los datos tabulares en R."
 - "Los tipos de datos básicos en R son **double**, **integer**, **complex**, **logical**, y **character**."
-- "Usa **factors** para representar categorías en R."
+- "Usar **factors** para representar categorías en R."
 source: Rmd
 ---
 
@@ -24,7 +24,7 @@ knitr_fig_path("04-")
 
 ```
 
-Una de las características más poderosas de R es su habilidad de manejar datos tabulares -
+Una de las características más poderosas de R es su habilidad para manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. 
 Comencemos creando un **dataset** llamado `gatos` que se vea así. 
 
@@ -59,15 +59,14 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 {: .callout}
 
 
-Podemos empezar a explorar el **dataset** inmediatamente, proyectando las columnas usando el operador `$`:
+Podemos empezar a explorar el **dataset** inmediatamente proyectando las columnas usando el operador `$`:
 
 ```{r}
 gatos$peso
 gatos$color
 ```
 
-Podemos hacer otras operaciones sobre las columnas:
-Por ejemplo, podemos aumentar el peso de todos los gatos con:
+Podemos hacer otras operaciones sobre las columnas. Por ejemplo, podemos aumentar el peso de todos los gatos con:
 
 ```{r}
 gatos$peso + 2
@@ -76,7 +75,7 @@ gatos$peso + 2
 Podemos imprimir los resultados en una oración
 
 ```{r}
-paste("La color del gato es", gatos$color)
+paste("El color del gato es", gatos$color)
 ```
 
 Pero qué pasa con:
@@ -89,7 +88,7 @@ Si adivinaste que el último comando iba a resultar en un error porque `2.1` má
 `"negro"` no tiene sentido, estás en lo cierto - y ya tienes alguna intuición sobre un concepto
 importante en programación que se llama *tipos de datos*. 
 
-No importa cuan complicado sea nuestro análisis, todos los datos en R se interpretan con uno de estos
+No importa cuán complicado sea nuestro análisis, todos los datos en R se interpretan con uno de estos
 tipos de datos básicos. Este rigor tiene algunas consecuencias importantes.
 
 
@@ -102,7 +101,7 @@ class(gatos$color)
 class(gatos$peso)
 ```
 
-Tambien, sodemos ver que es un **data.frame** si usamos la función `class`:
+También podemos ver que `gatos` es un **data.frame** si usamos la función `class`:
 
 ```{r}
 class(gatos)
@@ -130,7 +129,7 @@ str(gatos$peso)
 ```
 
 Las columnas de datos que cargamos en **data.frames** de R son todas vectores
-y este es el motivo por el cuál R requiere 
+y este es el motivo por el cual R requiere 
 que todas las columnas sean del mismo tipo de datos básico.
 
 
@@ -172,24 +171,25 @@ los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mez
 Considera:
 
 ```{r}
-coercion_vector <- c('a', TRUE)
-str(coercion_vector)
-another_coercion_vector <- c(0, TRUE)
-str(another_coercion_vector)
+vector_coercion <- c('a', TRUE)
+str(vector_coercion)
+otro_vector_coercion <- c(0, TRUE)
+str(otro_vector_coercion)
 ```
 
 Las reglas de coerción son: `logical` -> `integer` -> `numeric` -> `complex` ->
 `character`, donde -> se puede leer como *se transforma en*.
 Puedes intentar forzar la coerción de acuerdo a esta cadena usando las funciones `as.`:
 
+
 ```{r}
-character_vector <- c('0','2','4')
-character_vector
-str(character_vector)
-character_coerced_a_numeric <- as.numeric(character_vector)
-character_coerced_a_numeric
-numeric_coerced_a_logical <- as.logical(character_coerced_a_numeric)
-numeric_coerced_a_logical
+vector_caracteres <- c('0','2','4')
+vector_caracteres
+str(vector_caracteres)
+caracteres_coercionados_numerico <- as.numeric(vector_caracteres)
+caracteres_coercionados_numerico
+numerico_coercionado_logico <- as.logical(caracteres_coercionados_numerico)
+numerico_coercionado_logico
 ```
 
 Como puedes ver, ¡algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
@@ -221,7 +221,7 @@ abc <- c(ab, 'c')
 abc
 ```
 
-También puedes hacer una serie de números asií:
+También puedes hacer una serie de números así:
 
 ```{r}
 mySerie <- 1:5
@@ -267,9 +267,8 @@ str(gatos$color)
 ```
 
 
-Factores usualmente
-parecen caracteres, pero se usan para representar información categórica. Por ejemplo,
-construyamos un vector de **strings** con etiquetas para las coloraciones para todos los
+Los factores usualmente parecen caracteres, pero se usan para representar información categórica.
+Por ejemplo, construyamos un vector de **strings** con etiquetas para las coloraciones para todos los
 gatos en nuestro estudio:
 
 ```{r}
@@ -289,8 +288,8 @@ str(categorias)
 
 
 Ahora R puede interpretar que hay tres posibles categorías en nuestros datos - pero también
-hizo algo sorprendente; en lugar de imprimir los **strings** como se las dimos, imprimió una
-serie de números. R ha reemplazado las categorías con índices numéricos, lo cuál es necesario porque
+hizo algo sorprendente: en lugar de imprimir los **strings** como se las dimos, imprimió una
+serie de números. R ha reemplazado las categorías con índices numéricos, lo cual es necesario porque
 muchos cálculos estadísticos usan esa representación para datos categóricos:
 
 ```{r}
@@ -343,8 +342,8 @@ resultados de modelos estadísticos!
 
 ## Listas
 
-Otra estructura de datos que quedrás en tu bolsa de trucos es `list`. Una lista
-es más simple, en algunos aspectos que los otros tipos, porque puedes poner cualquier cosa
+Otra estructura de datos que querrás en tu bolsa de trucos es `list`. Una lista
+es más simple en algunos aspectos que los otros tipos, porque puedes poner cualquier cosa
 que tú quieras en ella:
 
 
@@ -453,7 +452,8 @@ str(gatos[1,])
 
 ## Matrices
 
-Por último, pero no menos importante están las matrices. Podemos declarar una matriz llena de ceros:
+Por último, pero no menos importante, están las matrices. Podemos declarar una matriz llena de ceros de
+la siguiente forma:
 
 ```{r}
 matrix_example <- matrix(0, ncol=6, nrow=3)
