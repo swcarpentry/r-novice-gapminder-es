@@ -18,6 +18,16 @@ source("../bin/chunk-options.R")
 knitr_fig_path("03-")
 ```
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `help` : ayuda
+>
+> `vignette` : viñeta
+>
+{: .checklist}
+
 ## Lectura de archivos de ayuda
 
 R, y cada paquete, proporciona archivos de ayuda para las funciones. La sintaxis general 

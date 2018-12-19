@@ -24,6 +24,23 @@ knitr_fig_path("13-")
 gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
 ```
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `filter` : filtrar
+>
+> `select` : seleccionar
+>
+> `summarize` : resumir
+>
+> `count` : contar
+>
+> `mean` : media
+>
+> `mutate` : mutar
+{: .checklist}
+
 La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
 
 ```{r}
