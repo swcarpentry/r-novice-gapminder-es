@@ -192,10 +192,7 @@ numerico_coercionado_logico <- as.logical(caracteres_coercionados_numerico)
 numerico_coercionado_logico
 ```
 
-Como puedes ver, ¡algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
-Dejando de lado los detalles de la coerción, la cuestión es: si tus datos no lucen como pensabas que
-deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos los elementos de tus vectores
-y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables!
+Como puedes ver, algunas cosas sorprendentes ocurren cuando R fuerza la conversión de un tipo de datos en otro tipo. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
 `le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
