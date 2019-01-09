@@ -31,8 +31,8 @@ gatos <- data.frame(color = c("mixto", "negro", "tabby"),
                       e_gusta_la_cuerda = c(1, 0, 1))
 gatos 
 ```
-  
-A esta altura, ya viste todo - en la última lección, recorrimos todos los tipos y estructuras de datos básicos de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En esta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
+
+A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo que hagas va a ser una manipulación de esas herramientas. Ahora pasaremos a aprender un par de cosas sobre cómo trabajar con la clase *data frame* (la estructura de datos que usarás la mayoría del tiempo y que será la estrella del show). Un *data frame* es la tabla que creamos al cargar información de un archivo csv. 
   
 > ## Palabras clave 
 >
