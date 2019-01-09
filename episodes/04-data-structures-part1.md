@@ -22,6 +22,21 @@ source: Rmd
 
 
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `data set` : conjunto de datos
+>
+> `c` : combinar
+>
+> `dim` : dimensión
+>
+> `nrow` : número de filas
+>
+> `ncol`: número de columnas
+{: .checklist}
+
 Una de las características más poderosas de R es su habilidad para manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. 
 Comencemos creando un **dataset** llamado `gatos` que se vea así. 
@@ -394,10 +409,7 @@ numerico_coercionado_logico
 ~~~
 {: .output}
 
-Como puedes ver, ¡algunas cosas sorprendentes ocurren cuando R forza un tipo de datos en otro tipo!
-Dejando de lado los detalles de la coerción, la cuestión es: si tus datos no lucen como pensabas que
-deberían lucir, puede ser culpa de la coerción de tipos;  asegúrate que todos los elementos de tus vectores
-y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables!
+Como puedes ver, algunas cosas sorprendentes ocurren cuando R fuerza la conversión de un tipo de datos en otro tipo. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
 `le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
