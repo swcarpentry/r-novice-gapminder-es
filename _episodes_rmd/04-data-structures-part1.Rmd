@@ -24,6 +24,21 @@ knitr_fig_path("04-")
 
 ```
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `data set` : conjunto de datos
+>
+> `c` : combinar
+>
+> `dim` : dimensión
+>
+> `nrow` : número de filas
+>
+> `ncol`: número de columnas
+{: .checklist}
+
 Una de las características más poderosas de R es su habilidad para manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. 
 Comencemos creando un **dataset** llamado `gatos` que se vea así. 
