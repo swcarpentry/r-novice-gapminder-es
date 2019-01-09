@@ -23,6 +23,23 @@ source: Rmd
 
 
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `stopifnot` : para si no
+>
+> `NULL` :  nulo
+>
+> `paste` : pegar
+>
+> `TRUE` : verdadero
+>
+> `FALSE` : falso
+>
+> `source` : fuente
+{: .checklist}
+
 Si tuviéramos un único conjunto de datos para analizar, probablemente sería más rápido cargar el archivo en una hoja de cálculo y usarla para graficar estadísticas simples. Sin embargo, los datos `gapminder` son actualizados periódicamente, y podríamos querer volver a bajar esta información actualizada más adelante y re-analizar los datos. También podríamos obtener datos similares de una fuente distinta en el futuro. 
 
 En esta lección, aprenderás cómo escribir una función de forma que seamos capaces de repetir varias operaciones con un comando único. 
