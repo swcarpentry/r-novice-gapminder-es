@@ -25,8 +25,8 @@ source: Rmd
 ---
 
 
-  
-A esta altura, ya viste todo - en la última lección, recorrimos todos los tipos y estructuras de datos básicos de R. Todo lo que hagas va a ser una manipulación de esas herramientas. Pero la mayoría del tiempo, la estrella del show va a ser el *data frame* - la tabla que creamos al cargar información de un archivo csv. En esta lección, vamos a aprender un par de cosas sobre cómo trabajar con la clase *data frame*.
+
+A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo que hagas va a ser una manipulación de esas herramientas. Ahora pasaremos a aprender un par de cosas sobre cómo trabajar con la clase *data frame* (la estructura de datos que usarás la mayoría del tiempo y que será la estrella del show). Un *data frame* es la tabla que creamos al cargar información de un archivo csv. 
   
 > ## Palabras clave 
 >
@@ -811,12 +811,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >            country year       pop continent lifeExp  gdpPercap
-> > 1611 United States 1962 186538000  Americas  70.210 16173.1459
-> > 1081   Netherlands 1952  10381988    Europe  72.130  8941.5719
-> > 1125         Niger 1992   8392818    Africa  47.391   581.1827
-> > 1364     Singapore 1987   2794552      Asia  73.560 18861.5308
-> > 738           Iraq 1977  11882916      Asia  60.413 14688.2351
+> >                 country year      pop continent lifeExp  gdpPercap
+> > 515            Ethiopia 2002 67946797    Africa  50.725   530.0535
+> > 334     Congo Dem. Rep. 1997 47798986    Africa  42.587   312.1884
+> > 440  Dominican Republic 1987  6655297  Americas  66.046  2899.8422
+> > 1256        Puerto Rico 1987  3444468  Americas  74.630 12281.3419
+> > 87              Bahrain 1962   171863      Asia  56.923 12753.2751
 > > ~~~
 > > {: .output}
 > {: .solution}

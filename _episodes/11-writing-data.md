@@ -16,6 +16,13 @@ source: Rmd
 
 
 
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `write.table` : escribir tabla
+{: .checklist}
+
 ## Guardando gráficos
 
 Ya hemos visto como guardar el gráfico más reciente que creaste con el paquete `ggplot2`
