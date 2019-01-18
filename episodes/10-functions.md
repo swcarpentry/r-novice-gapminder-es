@@ -46,7 +46,7 @@ En esta lección, aprenderás cómo escribir una función de forma que seamos ca
 
 > ## ¿Qué es una función?
 >
-> Las funciones reunen una secuencia de operaciones como un todo, almacenandola para
+> Las funciones reúnen una secuencia de operaciones como un todo, almacenandola para
 > su uso continuo. Las funciones proveen:
 >
 > * un nombre que podemos recordar y usar para invocarla
@@ -54,7 +54,7 @@ En esta lección, aprenderás cómo escribir una función de forma que seamos ca
 > * un conjunto definido de **inputs** y **outputs** esperados
 > * una mayor conexión con el ambiente de programación
 >
-> Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen > la "programación" de cualquier abstracción que puedas hacer. Si has escrito una función, eres ya todo un programador.
+> Como el componente básico de la mayoría de los lenguajes de programación, las funciones definidas por el usuario constituyen la "programación" de cualquier abstracción que puedas hacer. Si has escrito una función, eres ya todo un programador.
 {: .callout}
 
 ## Definiendo una función
@@ -86,7 +86,7 @@ fahr_to_kelvin <- function(temp) {
 Definimos `fahr_a_kelvin()` asignándola al __output__ de `function`. La
 lista de los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
 [cuerpo]({{ page.root }}/reference/#function-body) de la función--los
-comandos que son ejecutados cuando se corre--se encuentran entre paréntesis curvos
+comandos que son ejecutados cuando se corre--se encuentran entre llaves
 (`{}`). Los comandos en el cuerpo se indentan con dos espacios. Esto hace que
 el código sea legible sin afectar su funcionalidad.
 
@@ -112,7 +112,7 @@ Llamamos nuestra propia función de la misma manera que llamamos cualquier otra:
 
 
 ~~~
-# freezing point of water
+# punto de congelación del agua
 fahr_to_kelvin(32)
 ~~~
 {: .language-r}
@@ -126,7 +126,7 @@ fahr_to_kelvin(32)
 
 
 ~~~
-# boiling point of water
+# punto de ebullición del agua
 fahr_to_kelvin(212)
 ~~~
 {: .language-r}
@@ -278,7 +278,7 @@ Aún funciona si se le da un __input__ adecuado.
 
 
 ~~~
-# freezing point of water
+# punto de congelación del agua
 fahr_to_kelvin(temp = 32)
 ~~~
 {: .language-r}
@@ -294,7 +294,7 @@ Pero falla instantáneamente si se le da un __input__ inapropiado.
 
 
 ~~~
-# Metric is a factor instead of numeric
+# La métrica es un factor en lugar de numeric
 fahr_to_kelvin(temp = as.factor(32))
 ~~~
 {: .language-r}
@@ -342,8 +342,8 @@ Gross Domestic Product) de un país a partir de los datos disponibles en nuestro
 
 
 ~~~
-# Takes a dataset and multiplies the population column
-# with the GDP per capita column.
+# Toma un dataset y multiplica la columna de población
+# por la columna de GDP per capita
 calcGDP <- function(dat) {
   gdp <- dat$pop * dat$gdpPercap
   return(gdp)
@@ -353,8 +353,8 @@ calcGDP <- function(dat) {
 
 Definimos `calcGDP()` asignándola al __output__ de `function`. La lista de
 los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
-cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- se encuentran entre paréntesis curvos
-(`{}`). 
+cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- 
+se encuentran entre llaves (`{}`). 
 
 Hemos indentado los comandos en el cuerpo con dos espacios. Esto hace que el código 
 sea mas fácil de leer sin afectar su funcionamiento. 
@@ -385,8 +385,8 @@ por año y país.
 
 
 ~~~
-# Takes a dataset and multiplies the population column
-# with the GDP per capita column.
+# Toma un dataset y multiplica la columna de población
+# por la columna de GDP per capita
 calcGDP <- function(dat, year=NULL, country=NULL) {
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]

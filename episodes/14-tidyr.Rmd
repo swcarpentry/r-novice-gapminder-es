@@ -103,7 +103,7 @@ columna. Esto es por que las 3 variables de observación tienen unidades diferen
 
 A menudo queremos hacer operaciones matemáticas con valores que usen las mismas
 unidades, esto facilita el uso de funciones en R, que a menudo se basan en vectores. Por ejemplo, si utilizamos el formato largo y calculamos un promedio de todos los
-los valores de población ` pop`, esperanza de vida `lifeExp` y el PIB ` gdpPercap` este resultado no tendría sentido, ya que
+los valores de población `pop`, esperanza de vida `lifeExp` y el PIB ` gdpPercap` este resultado no tendría sentido, ya que
 devolvería una incongruencia de valores con 3 unidades incompatibles. La solución es que primero manipulamos los datos agrupando (ver la lección sobre `dplyr`), o
 cambiamos la estructura del marco de datos. **Nota:** Algunas funciones de gráficos en R (por ejemplo con `ggplot2`) realmente funcionan mejor con los datos de formato ancho.
 
