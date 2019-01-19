@@ -70,7 +70,6 @@ Abre este documento y echa un vistazo.
 >
 > Vuelve a escribir el comando 'pdf', pero esta vez emplea el término **facet** (sugerencia: usa `facet_grid`) con los
 > mismos datos. Esto te permitirá visualizar en un gráfico los datos por continente y guardarlos en un pdf.
-> > ## Solution to challenge 1
 > > ## Solución al desafío 1
 > >
 > >

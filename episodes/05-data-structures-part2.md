@@ -56,10 +56,10 @@ gatos
 
 
 ~~~
-  color peso e_gusta_la_cuerda
-1 mixto  2.1                 1
-2 negro  5.0                 0
-3 tabby  3.2                 1
+  color peso le_gusta_la_cuerda
+1 mixto     2.1                 1
+2 negro     5.0                 0
+3 atigrado  3.2                 1
 ~~~
 {: .output}
 
@@ -82,10 +82,10 @@ cbind(gatos, edad)
 
 
 ~~~
-  color peso e_gusta_la_cuerda edad
-1 mixto  2.1                 1    2
-2 negro  5.0                 0    3
-3 tabby  3.2                 1    5
+  color peso le_gusta_la_cuerda edad
+1 mixto     2.1                 1    2
+2 negro     5.0                 0    3
+3 atigrado  3.2                 1    5
 ~~~
 {: .output}
 
@@ -135,10 +135,10 @@ gatos
 
 
 ~~~
-  color peso e_gusta_la_cuerda edad
-1 mixto  2.1                 1    2
-2 negro  5.0                 0    3
-3 tabby  3.2                 1    5
+  color peso le_gusta_la_cuerda edad
+1 mixto     2.1                 1    2
+2 negro     5.0                 0    3
+3 atigrado  3.2                 1    5
 ~~~
 {: .output}
 
@@ -238,10 +238,10 @@ Levels: negro canela
 
 Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
-'black', 'calicó' y 'tabby'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
+'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *e_gusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
@@ -252,7 +252,7 @@ levels(gatos$color)
 
 
 ~~~
-[1] "mixto" "negro" "tabby"
+[1] "mixto" "negro" "atigrado"
 ~~~
 {: .output}
 
@@ -278,7 +278,7 @@ str(gatos)
 'data.frame':	6 obs. of  4 variables:
  $ color            : Factor w/ 4 levels "mixto","negro",..: 1 2 3 NA NA 4
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ e_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ le_gusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
@@ -295,9 +295,9 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : chr  "mixto" "negro" "tabby" NA ...
+ $ color            : chr  "mixto" "negro" "atigrado" NA ...
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ e_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ le_gusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
@@ -328,13 +328,13 @@ gatos
 
 
 ~~~
-          color peso e_gusta_la_cuerda edad
-1         mixto  2.1                 1    2
-2         negro  5.0                 0    3
-3         tabby  3.2                 1    5
-4          <NA>  3.3                 1    9
-5          <NA>  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+          color peso le_gusta_la_cuerda edad
+1         mixto     2.1                 1    2
+2         negro     5.0                 0    3
+3         atigrado  3.2                 1    5
+4          <NA>     3.3                 1    9
+5          <NA>     3.3                 1    9
+6 tortoiseshell     3.3                 1    9
 ~~~
 {: .output}
 
@@ -349,12 +349,12 @@ gatos[-4,]
 
 
 ~~~
-          color peso e_gusta_la_cuerda edad
-1         mixto  2.1                 1    2
-2         negro  5.0                 0    3
-3         tabby  3.2                 1    5
-5          <NA>  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+          color peso le_gusta_la_cuerda edad
+1         mixto     2.1                 1    2
+2         negro     5.0                 0    3
+3         atigrado  3.2                 1    5
+5          <NA>     3.3                 1    9
+6 tortoiseshell     3.3                 1    9
 ~~~
 {: .output}
 
@@ -371,11 +371,11 @@ na.omit(gatos)
 
 
 ~~~
-          color peso e_gusta_la_cuerda edad
-1         mixto  2.1                 1    2
-2         negro  5.0                 0    3
-3         tabby  3.2                 1    5
-6 tortoiseshell  3.3                 1    9
+          color peso le_gusta_la_cuerda edad
+1         mixto     2.1                 1    2
+2         negro     5.0                 0    3
+3         atigrado  3.2                 1    5
+6 tortoiseshell     3.3                 1    9
 ~~~
 {: .output}
 
@@ -400,11 +400,11 @@ gatos[,-4]
 
 
 ~~~
-          color peso e_gusta_la_cuerda
-1         mixto  2.1                 1
-2         negro  5.0                 0
-3         tabby  3.2                 1
-6 tortoiseshell  3.3                 1
+          color peso le_gusta_la_cuerda
+1         mixto     2.1                 1
+2         negro     5.0                 0
+3         atigrado  3.2                 1
+6 tortoiseshell     3.3                 1
 ~~~
 {: .output}
 
@@ -422,11 +422,11 @@ gatos[,!drop]
 
 
 ~~~
-          color peso e_gusta_la_cuerda
-1         mixto  2.1                 1
-2         negro  5.0                 0
-3         tabby  3.2                 1
-6 tortoiseshell  3.3                 1
+          color peso le_gusta_la_cuerda
+1         mixto     2.1                 1
+2         negro     5.0                 0
+3         atigrado  3.2                 1
+6 tortoiseshell     3.3                 1
 ~~~
 {: .output}
 
@@ -445,15 +445,15 @@ gatos
 
 
 ~~~
-           color peso e_gusta_la_cuerda edad
-1          mixto  2.1                 1    2
-2          negro  5.0                 0    3
-3          tabby  3.2                 1    5
-6  tortoiseshell  3.3                 1    9
-11         mixto  2.1                 1    2
-21         negro  5.0                 0    3
-31         tabby  3.2                 1    5
-61 tortoiseshell  3.3                 1    9
+           color peso le_gusta_la_cuerda edad
+1          mixto      2.1                 1    2
+2          negro      5.0                 0    3
+3          atigrado   3.2                 1    5
+6  tortoiseshell      3.3                 1    9
+11         mixto      2.1                 1    2
+21         negro      5.0                 0    3
+31         atigrado   3.2                 1    5
+61 tortoiseshell      3.3                 1    9
 ~~~
 {: .output}
 
@@ -469,15 +469,15 @@ gatos
 
 
 ~~~
-          color peso e_gusta_la_cuerda edad
-1         mixto  2.1                 1    2
-2         negro  5.0                 0    3
-3         tabby  3.2                 1    5
-4 tortoiseshell  3.3                 1    9
-5         mixto  2.1                 1    2
-6         negro  5.0                 0    3
-7         tabby  3.2                 1    5
-8 tortoiseshell  3.3                 1    9
+          color peso le_gusta_la_cuerda edad
+1         mixto     2.1                 1    2
+2         negro     5.0                 0    3
+3         atigrado  3.2                 1    5
+4 tortoiseshell     3.3                 1    9
+5         mixto     2.1                 1    2
+6         negro     5.0                 0    3
+7         atigrado  3.2                 1    5
+8 tortoiseshell     3.3                 1    9
 ~~~
 {: .output}
 
@@ -822,7 +822,7 @@ head(gapminder)
 > {: .solution}
 {: .challenge}
 
-Para que nuestro analisis sea reproducible debemos poner el código en un *script*
+Para que nuestro análisis sea reproducible debemos poner el código en un *script*
 al que podremos volver y editar en el futuro.
 
 > ## Desafío 4
@@ -843,8 +843,6 @@ al que podremos volver y editar en el futuro.
 > > ~~~
 > > {: .language-r}
 > > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
-> > 
-> > To run the script and load the data into the `gapminder` variable:
 > > 
 > > ~~~
 > > source(file = "scripts/load-gapminder.R")

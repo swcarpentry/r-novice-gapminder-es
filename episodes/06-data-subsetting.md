@@ -181,14 +181,15 @@ un valor faltante.
 
 
 ~~~
-x[0]
+x[6]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-named numeric(0)
+<NA> 
+  NA 
 ~~~
 {: .output}
 
@@ -1443,10 +1444,10 @@ con el tercer argumento, `drop = FALSE`).
 >
 >
 > 
-> ~~~
+>    ~~~
 >    gapminder[,-1:4]
-> ~~~
-> {: .language-r}
+>    ~~~
+>    {: .language-r}
 >
 > 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
 >
@@ -1513,7 +1514,7 @@ con el tercer argumento, `drop = FALSE`).
 > >    {: .language-r}
 > >
 > > 4. Extraer la primer fila, y la cuarta y quinta columna
-> >   (`lifeExp` y `gdpPercap`).
+> >    (`lifeExp` y `gdpPercap`).
 > >
 > >
 > >    
