@@ -215,7 +215,7 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 > >
 > > Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. ¿Qué sucede?
 > >
-> > 
+> >
 > > ~~~
 > > ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 > >  geom_point() + geom_line(aes(color=continent))
@@ -316,34 +316,29 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > >  geom_point(size=3, color="orange") + scale_x_log10() +
 > >  geom_smooth(method="lm", size=1.5)
-> > ```> {: .solution}
-> > {: .challenge}
+> > ~~~
+> > {: .language-r}
 > > 
-> > 
-> > > ## Desafío 4b
-> > >
-> > > Modifica tu solución al Desafío 4a de manera que ahora los puntos
-> > > tengan una forma diferente y estén coloreados de acuerdo al continente
-> > > incluyendo líneas de tendencia.
-> > >
-> > > Pista: El argumento color puede ser usado dentro de **aesthetic**
-> > >
+> > <img src="../fig/rmd-08-ch4a-sol-1.png" title="plot of chunk ch4a-sol" alt="plot of chunk ch4a-sol" style="display: block; margin: auto;" />
+> {: .solution}
+{: .challenge}
+
+> ## Desafío 4b
+> 
+> Modifica tu solución al Desafío 4a de manera que ahora los puntos
+> tengan una forma diferente y estén coloreados de acuerdo al continente
+> incluyendo líneas de tendencia.
+> 
+> Pista: El argumento color puede ser usado dentro de **aesthetic**
+> 
 > > ## Solución al desafío 4b
 > > 
 > > Modifica tu solución al Desafío 4a de manera que ahora los puntos
 > > tengan una forma diferente y estén coloreados de acuerdo al continente
 > > incluyendo líneas de tendencia.
-> > 
+> >
 > > Pista: El argumento color puede ser usado dentro de **aesthetic**
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error: attempt to use zero-length variable name
-> > ~~~
-> > {: .error}
+> >
 > >
 > >~~~
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
@@ -360,7 +355,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 ## Figuras en múltiples paneles
 
 Anteriormente visualizamos el cambio en la esperanza de vida a lo largo del tiempo para cada uno de los países 
-en un solo gráfico. Como una alternativa, podemos dividir este gráfice en múltiples paneles al agregar una capa **facet**,
+en un solo gráfico. Como una alternativa, podemos dividir este gráfico en múltiples paneles al agregar una capa **facet**,
 enfocándonos únicamente en aquellos países con nombres que empiezan con la letra "A" o "Z".
 
 > ## Pista
