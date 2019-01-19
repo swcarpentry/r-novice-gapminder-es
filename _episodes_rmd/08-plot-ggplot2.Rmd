@@ -264,7 +264,8 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > >  geom_point(size=3, color="orange") + scale_x_log10() +
 > >  geom_smooth(method="lm", size=1.5)
-> > ```> {: .solution}
+> > ```
+> {: .solution}
 {: .challenge}
 
 

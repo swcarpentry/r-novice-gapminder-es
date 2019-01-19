@@ -215,7 +215,7 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 > >
 > > Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. ¿Qué sucede?
 > >
-> >
+> > 
 > > ~~~
 > > ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 > >  geom_point() + geom_line(aes(color=continent))
@@ -323,20 +323,21 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > {: .solution}
 {: .challenge}
 
+
 > ## Desafío 4b
-> 
+>
 > Modifica tu solución al Desafío 4a de manera que ahora los puntos
 > tengan una forma diferente y estén coloreados de acuerdo al continente
 > incluyendo líneas de tendencia.
-> 
+>
 > Pista: El argumento color puede ser usado dentro de **aesthetic**
-> 
+>
 > > ## Solución al desafío 4b
-> > 
+> >
 > > Modifica tu solución al Desafío 4a de manera que ahora los puntos
 > > tengan una forma diferente y estén coloreados de acuerdo al continente
 > > incluyendo líneas de tendencia.
-> >
+> > 
 > > Pista: El argumento color puede ser usado dentro de **aesthetic**
 > >
 > >
@@ -414,6 +415,43 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 {: .language-r}
 
 <img src="../fig/rmd-08-theme-1.png" title="plot of chunk theme" alt="plot of chunk theme" style="display: block; margin: auto;" />
+
+## Exportando una gráfica
+
+La función `ggsave()` permite exportar una gráfica creada con ggplot. Puedes especificar la dimensión y la resolución de
+tu gráfica  ajustando los argumentos apropiados (`width`, `height` y `dpi`) para crear gráficas de gran calidad para publicar.
+Para poder guardar la gráfica de arriba, primero tenemos que asignarla a una variable `lifeExp_plot`, y luego decirle a
+`ggsave` que guarde la gráfica en formato `png` a un directorio llamado `results`. (Asegúrate de que tienes una carpeta
+llamada `results/` en tu directorio de trabajo.)
+
+
+
+~~~
+lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+        x = "Year",              # título del eje x
+        y = "Life expectancy",   # título del eje y
+        title = "Figure 1",   # título principal de la figura
+        color = "Continent"   # título de la leyenda
+  ) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in grDevices::dev.off(): QuartzBitmap_Output - unable to open file 'results/lifeExp.png'
+~~~
+{: .error}
+
+Hay dos cosas agradables acerca de `ggsave`. Primero, usa la última gráfica por default, así que si omites el argumento `plot`,
+`ggsave` automáticamente guardará la última gráfica que creaste con `ggplot`.
+En segundo lugar, `ggsave` trata de determinar el formato en que quieres guardar la gráfica a partir de la extensión provista
+en el nombre del archivo (por ejemplo `.png` or `.pdf`). Si es necesario, puedes especificar el formato explícitamente
+en el argumento `device`.
 
 
 Esta lección es una prueba de lo que puedes hacer utilizando `ggplot2`. RStudio proporciona

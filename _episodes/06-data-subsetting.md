@@ -193,6 +193,22 @@ x[6]
 ~~~
 {: .output}
 
+
+~~~
+<NA> 
+  NA 
+~~~
+{: .language-r}
+
+
+
+~~~
+Error: <text>:1:1: unexpected '<'
+1: <
+    ^
+~~~
+{: .error}
+
 Este es un vector de longitud uno que contiene un `NA`, cuyo nombre también es
 `NA`.
 
@@ -1444,10 +1460,10 @@ con el tercer argumento, `drop = FALSE`).
 >
 >
 > 
->    ~~~
+> ~~~
 >    gapminder[,-1:4]
->    ~~~
->    {: .language-r}
+> ~~~
+> {: .language-r}
 >
 > 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
 >
@@ -1514,7 +1530,7 @@ con el tercer argumento, `drop = FALSE`).
 > >    {: .language-r}
 > >
 > > 4. Extraer la primer fila, y la cuarta y quinta columna
-> >    (`lifeExp` y `gdpPercap`).
+> >   (`lifeExp` y `gdpPercap`).
 > >
 > >
 > >    

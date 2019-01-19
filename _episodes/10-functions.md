@@ -86,7 +86,7 @@ fahr_to_kelvin <- function(temp) {
 Definimos `fahr_a_kelvin()` asignándola al __output__ de `function`. La
 lista de los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
 [cuerpo]({{ page.root }}/reference/#function-body) de la función--los
-comandos que son ejecutados cuando se corre--se encuentran entre llaves
+comandos que son ejecutados cuando se corre--se encuentran entre paréntesis curvos
 (`{}`). Los comandos en el cuerpo se indentan con dos espacios. Esto hace que
 el código sea legible sin afectar su funcionalidad.
 
@@ -112,7 +112,7 @@ Llamamos nuestra propia función de la misma manera que llamamos cualquier otra:
 
 
 ~~~
-# punto de congelación del agua
+# Punto de congelación del agua
 fahr_to_kelvin(32)
 ~~~
 {: .language-r}
@@ -126,7 +126,7 @@ fahr_to_kelvin(32)
 
 
 ~~~
-# punto de ebullición del agua
+# Punto de ebullición del agua
 fahr_to_kelvin(212)
 ~~~
 {: .language-r}
@@ -278,7 +278,7 @@ Aún funciona si se le da un __input__ adecuado.
 
 
 ~~~
-# punto de congelación del agua
+# Punto de congelación del agua
 fahr_to_kelvin(temp = 32)
 ~~~
 {: .language-r}
@@ -353,8 +353,7 @@ calcGDP <- function(dat) {
 
 Definimos `calcGDP()` asignándola al __output__ de `function`. La lista de
 los nombres de los argumentos se encuentran entre paréntesis. Luego, el 
-cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- 
-se encuentran entre llaves (`{}`). 
+cuerpo de la función--las instrucciones que se ejecutan cuando se llama a la función-- se encuentran entre llaves (`{}`). 
 
 Hemos indentado los comandos en el cuerpo con dos espacios. Esto hace que el código 
 sea mas fácil de leer sin afectar su funcionamiento. 
