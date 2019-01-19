@@ -56,9 +56,9 @@ gatos
 
 
 ~~~
-  color peso le_gusta_la_cuerda
-1 mixto     2.1                 1
-2 negro     5.0                 0
+     color peso legusta_la_cuerda
+1    mixto  2.1                 1
+2    negro  5.0                 0
 3 atigrado  3.2                 1
 ~~~
 {: .output}
@@ -82,9 +82,9 @@ cbind(gatos, edad)
 
 
 ~~~
-  color peso le_gusta_la_cuerda edad
-1 mixto     2.1                 1    2
-2 negro     5.0                 0    3
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
 3 atigrado  3.2                 1    5
 ~~~
 {: .output}
@@ -135,9 +135,9 @@ gatos
 
 
 ~~~
-  color peso le_gusta_la_cuerda edad
-1 mixto     2.1                 1    2
-2 negro     5.0                 0    3
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
 3 atigrado  3.2                 1    5
 ~~~
 {: .output}
@@ -241,7 +241,7 @@ estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *legusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
@@ -252,7 +252,7 @@ levels(gatos$color)
 
 
 ~~~
-[1] "mixto" "negro" "atigrado"
+[1] "atigrado" "mixto"    "negro"   
 ~~~
 {: .output}
 
@@ -276,9 +276,9 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : Factor w/ 4 levels "mixto","negro",..: 1 2 3 NA NA 4
+ $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA NA 4
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ le_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
@@ -297,7 +297,7 @@ str(gatos)
 'data.frame':	6 obs. of  4 variables:
  $ color            : chr  "mixto" "negro" "atigrado" NA ...
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ le_gusta_la_cuerda: num  1 0 1 1 1 1
+ $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
 ~~~
 {: .output}
@@ -328,13 +328,13 @@ gatos
 
 
 ~~~
-          color peso le_gusta_la_cuerda edad
-1         mixto     2.1                 1    2
-2         negro     5.0                 0    3
-3         atigrado  3.2                 1    5
-4          <NA>     3.3                 1    9
-5          <NA>     3.3                 1    9
-6 tortoiseshell     3.3                 1    9
+          color peso legusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3      atigrado  3.2                 1    5
+4          <NA>  3.3                 1    9
+5          <NA>  3.3                 1    9
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -349,12 +349,12 @@ gatos[-4,]
 
 
 ~~~
-          color peso le_gusta_la_cuerda edad
-1         mixto     2.1                 1    2
-2         negro     5.0                 0    3
-3         atigrado  3.2                 1    5
-5          <NA>     3.3                 1    9
-6 tortoiseshell     3.3                 1    9
+          color peso legusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3      atigrado  3.2                 1    5
+5          <NA>  3.3                 1    9
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -371,11 +371,11 @@ na.omit(gatos)
 
 
 ~~~
-          color peso le_gusta_la_cuerda edad
-1         mixto     2.1                 1    2
-2         negro     5.0                 0    3
-3         atigrado  3.2                 1    5
-6 tortoiseshell     3.3                 1    9
+          color peso legusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3      atigrado  3.2                 1    5
+6 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -400,11 +400,11 @@ gatos[,-4]
 
 
 ~~~
-          color peso le_gusta_la_cuerda
-1         mixto     2.1                 1
-2         negro     5.0                 0
-3         atigrado  3.2                 1
-6 tortoiseshell     3.3                 1
+          color peso legusta_la_cuerda
+1         mixto  2.1                 1
+2         negro  5.0                 0
+3      atigrado  3.2                 1
+6 tortoiseshell  3.3                 1
 ~~~
 {: .output}
 
@@ -422,11 +422,11 @@ gatos[,!drop]
 
 
 ~~~
-          color peso le_gusta_la_cuerda
-1         mixto     2.1                 1
-2         negro     5.0                 0
-3         atigrado  3.2                 1
-6 tortoiseshell     3.3                 1
+          color peso legusta_la_cuerda
+1         mixto  2.1                 1
+2         negro  5.0                 0
+3      atigrado  3.2                 1
+6 tortoiseshell  3.3                 1
 ~~~
 {: .output}
 
@@ -445,15 +445,15 @@ gatos
 
 
 ~~~
-           color peso le_gusta_la_cuerda edad
-1          mixto      2.1                 1    2
-2          negro      5.0                 0    3
-3          atigrado   3.2                 1    5
-6  tortoiseshell      3.3                 1    9
-11         mixto      2.1                 1    2
-21         negro      5.0                 0    3
-31         atigrado   3.2                 1    5
-61 tortoiseshell      3.3                 1    9
+           color peso legusta_la_cuerda edad
+1          mixto  2.1                 1    2
+2          negro  5.0                 0    3
+3       atigrado  3.2                 1    5
+6  tortoiseshell  3.3                 1    9
+11         mixto  2.1                 1    2
+21         negro  5.0                 0    3
+31      atigrado  3.2                 1    5
+61 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -469,15 +469,15 @@ gatos
 
 
 ~~~
-          color peso le_gusta_la_cuerda edad
-1         mixto     2.1                 1    2
-2         negro     5.0                 0    3
-3         atigrado  3.2                 1    5
-4 tortoiseshell     3.3                 1    9
-5         mixto     2.1                 1    2
-6         negro     5.0                 0    3
-7         atigrado  3.2                 1    5
-8 tortoiseshell     3.3                 1    9
+          color peso legusta_la_cuerda edad
+1         mixto  2.1                 1    2
+2         negro  5.0                 0    3
+3      atigrado  3.2                 1    5
+4 tortoiseshell  3.3                 1    9
+5         mixto  2.1                 1    2
+6         negro  5.0                 0    3
+7      atigrado  3.2                 1    5
+8 tortoiseshell  3.3                 1    9
 ~~~
 {: .output}
 
@@ -811,12 +811,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                 country year      pop continent lifeExp  gdpPercap
-> > 515            Ethiopia 2002 67946797    Africa  50.725   530.0535
-> > 334     Congo Dem. Rep. 1997 47798986    Africa  42.587   312.1884
-> > 440  Dominican Republic 1987  6655297  Americas  66.046  2899.8422
-> > 1256        Puerto Rico 1987  3444468  Americas  74.630 12281.3419
-> > 87              Bahrain 1962   171863      Asia  56.923 12753.2751
+> >           country year      pop continent lifeExp gdpPercap
+> > 1195     Paraguay 1982  3366439  Americas  66.874  4258.504
+> > 973     Mauritius 1952   516556    Africa  50.986  1967.956
+> > 1219  Philippines 1982 53456774      Asia  62.082  2603.274
+> > 233      Cameroon 1972  7021028    Africa  47.049  1684.147
+> > 1352 Sierra Leone 1987  3868905    Africa  40.006  1294.448
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -842,6 +842,8 @@ al que podremos volver y editar en el futuro.
 > > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
 > > ~~~
 > > {: .language-r}
+> > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
+> > 
 > > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
 > > 
 > > ~~~
