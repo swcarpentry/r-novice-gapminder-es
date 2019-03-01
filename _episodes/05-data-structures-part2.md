@@ -811,12 +811,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >           country year      pop continent lifeExp gdpPercap
-> > 1195     Paraguay 1982  3366439  Americas  66.874  4258.504
-> > 973     Mauritius 1952   516556    Africa  50.986  1967.956
-> > 1219  Philippines 1982 53456774      Asia  62.082  2603.274
-> > 233      Cameroon 1972  7021028    Africa  47.049  1684.147
-> > 1352 Sierra Leone 1987  3868905    Africa  40.006  1294.448
+> >       country year      pop continent lifeExp  gdpPercap
+> > 1134  Nigeria 1977 62209173    Africa  44.514  1981.9518
+> > 828     Kenya 2007 35610177    Africa  54.110  1463.2493
+> > 287     Chile 2002 15497046  Americas  77.860 10778.7838
+> > 220  Cambodia 1967  6960067      Asia  45.415   523.4323
+> > 985    Mexico 1952 30144317  Americas  50.789  3478.1255
 > > ~~~
 > > {: .output}
 > {: .solution}

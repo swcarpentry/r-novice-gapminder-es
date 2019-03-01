@@ -131,9 +131,9 @@ sessionInfo()
 
 
 ~~~
-R version 3.5.0 (2018-04-23)
+R version 3.5.2 (2018-12-20)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS  10.14.2
+Running under: macOS Mojave 10.14.2
 
 Matrix products: default
 BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
@@ -149,7 +149,7 @@ other attached packages:
 [1] checkpoint_0.4.5 stringr_1.3.1    knitr_1.21      
 
 loaded via a namespace (and not attached):
-[1] compiler_3.5.0 magrittr_1.5   tools_3.5.0    stringi_1.2.4 
+[1] compiler_3.5.2 magrittr_1.5   tools_3.5.2    stringi_1.2.4 
 [5] xfun_0.3       evaluate_0.11 
 ~~~
 {: .output}
