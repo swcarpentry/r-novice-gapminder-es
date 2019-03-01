@@ -31,57 +31,66 @@ el sistema de ploteo [base][base], el paquete [lattice][lattice]
 [lattice]: http://www.statmethods.net/advgraphs/trellis.html
 [ggplot2]: http://www.statmethods.net/advgraphs/ggplot2.html
 
-Hoy aprenderemos un poco acerca del paquete ggplot2, ya que este sistema es el
-más efectivo para crear gráficos con calidad para publicación.
+Hoy aprenderemos acerca de **`ggplot2`**, que permite de manera sencilla crear gráficos 
+complejos a partir de un conjunto de datos. Este paquete provee una estructura para que podamos especificar 
+qué variables graficar, cómo deben ser presentadas y otras propiedades visuales generales. 
+De esta manera, sólo necesitamos realizar cambios mínimos si los datos sufren alguna modificación
+o si decidimos pasar, por ejemplo, de un gráfico de barras a un diagrama de dispersión. 
+Esto ayuda a crear gráficos con calidad para publicación con pocos ajustes adicionales.
 
-ggplot2 se construyó basándose en la gramática de gráficos, es decir,
-en la idea de que cualquier gráfico puede expresarse a partir del mismo set de componentes:
-un set de **datos**, un **sistema de coordenadas**, y un set de **geoms** -- que corresponden a la representación visual de cada dato.
+**`ggplot2`** se basa en la *gramática de gráficos*, una idea que plantea que 
+cualquier gráfico puede expresarse a partir de la combinación de estos componentes:
+un conjunto de **datos**, un **sistema de coordenadas** y un conjunto de **geoms** (que determinan la representación visual de los datos). 
 
-La clave para entender ggplot2 es pensar en una figura como un conjunto de capas.
+La clave para entender **`ggplot2`** es pensar en una figura como un conjunto de capas.
 Esta idea podría resultarte familiar si has usado un programa de edición de imágenes como 
-Photoshop, Illustrator, o Inkscape.
+Photoshop, Illustrator o Inkscape. Esto quiere decir que los gráficos de **`ggplot2`** 
+se construyen paso a paso agregando nuevos elementos o capas,
+resultando en una gran flexibilidad para la personalización de los mismos.
 
+Para construir un ggplot, emplearemos esta plantilla básica que puede usarse para distintos tipos de 
+gráficos:
 
-Comencemos con un ejemplo:
-
-
-```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
-library("ggplot2")
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
-  geom_point()
+```
+ggplot(data = <DATOS>, mapping = aes(<MAPEOS>)) +  <GEOM_FUNCIÓN>()
 ```
 
-La primera cosa que hacemos es llamar a la función `ggplot`. Esta función
-le dice a R que estamos creando un nuevo gráfico, todos los argumentos
-que le pasemos a la función `ggplot` serán considerados como opciones *globales* en nuestro gráfico:
-lo cual significa que estas opciones son válidas para todas las capas del gráfico.
+- Usa la función `ggplot()` para vincular el gráfico a un conjunto de datos específico a través 
+del argumento `data`. A las funciones de **`ggplot2`** les gusta trabajar con datos en *formato largo*, es decir, una columna para cada variable y una fila para cada observación. Tener datos bien estructurados te ahorrará mucho tiempo a la hora de realizar gráficos con **`ggplot2`**. Además, todos los argumentos
+que le pasemos a la función `ggplot()` serán considerados como opciones *globales* en nuestro gráfico,
+lo cual significa que estas opciones son válidas para todas sus capas:
 
-En este ejemplo, le hemos pasado dos argumentos a `ggplot`. Primero, le decimos a `ggplot`
-cuáles son los datos que queremos mostrar en nuestra figura, en este ejemplo usaremos los datos
-de gapminder que cargamos anteriormente. Como segundo argumento, le pasamos la función `aes`,
-la cual le dice a `ggplot` cómo es que cada una de las variables en los **datos** se relacionan con las propiedades
-**aesthetic** (estéticas) de la figura, en este caso los valores que tomarán **x** y **y**. En este ejemplo, le dijimos a 
-`ggplot` que queremos graficar la columna "gdpPercap" del **data frame** gapminder en el eje X, y la columna
+```{r, eval=T, echo=FALSE}
+library("ggplot2")
+```
+```{r build-ggplot-1, eval=FALSE, purl=FALSE}
+library("ggplot2")
+ggplot(data = gapminder)
+```
+
+- Define un mapeo (usando la función `aes()` dentro de `ggplot()`) para seleccionar las variables a graficar y especificar cómo deben ser presentadas, por ejemplo, en los ejes x/y o como característicales tales como tamaño, forma, color, etc. `aes()` le dice a `ggplot` cómo se relaciona cada una de las variables en los **datos** con las propiedades
+**aesthetic** (estéticas) de la figura. En este caso, le decimos a `ggplot` que queremos graficar la columna "gdpPercap" del **data frame** gapminder en el eje X, y la columna
 "lifeExp" en el eje Y. Nota que no necesitamos indicar explícitamente estas columnas en la función `aes` 
 (e.g. `x = gapminder[, "gdpPercap"]`), ¡esto es debido a que `ggplot` es suficientemente listo para 
-buscar esa columna en los **datos**!
+buscar esa columna en los **datos**!:
 
-Por sí mismo, llamar a la función `ggplot` no es suficiente para dibujar una figura:
-
-```{r}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+```{r build-ggplot-2, eval=FALSE, purl=FALSE}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
 ```
 
-Necesitamos decirle a `ggplot` cómo queremos representar visualmente los datos, 
-esto lo hacemos al agregar una nueva capa **geom**. En nuestro ejemplo, usamos `geom_point`,
-la cual le indica a `ggplot` que queremos representar visualmente la relación entre **x** y **y**
-como un gráfico de dispersión de los puntos (**scatterplot**).
+- Agrega *geoms*, que indican cómo se representan de los datos en el gráfico (puntos, líneas, barras). **`ggplot2`** ofrece muchos geoms diferentes, algunos comúnmente utilizados son:
+  
+      * `geom_point()` para diagramas de dispersión, gráficos de puntos, etc.
+      * `geom_boxplot()` para diagramas de caja y bigotes.
+      * `geom_line()` para líneas de tendencias, series de tiempo, etc.  
 
-```{r lifeExp-vs-gdpPercap-scatter2}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+    Para agregar un geom, usa el operador `+`. ¡Podemos agregar varios geoms unidos a través de múltiples operadores `+`! Observa que en la figura anterior, llamar a la función **`ggplot`** no fue suficiente para obtener un gráfico, debemos agregar un geom. Podemos usar **`geom_point`** para representar visualmente la relación entre **x** y **y** como un gráfico de dispersión de puntos (**scatterplot**).
+    
+```{r build-ggplot-3, purl=FALSE}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
+
 > ## Desafío 1
 >
 > Modifica el ejemplo anterior de manera que en la figura se muestre
