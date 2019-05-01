@@ -85,7 +85,7 @@ Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas c
 
 ## El paquete `dplyr`
 
-Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) proporciona un conjunto de funciones extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
+Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/package=dplyr) proporciona un conjunto de funciones extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
 
 Aquí vamos a revisar 6 de sus funciones más usadas, así como a usar los **pipes** (`%>%`) para combinarlas.
 
