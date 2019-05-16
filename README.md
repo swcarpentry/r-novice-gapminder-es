@@ -17,9 +17,9 @@ prácticas del cómputo científico: desglose del análisis en módulos,
 automatización tareas y encapsulamiento.
 
 Ten en cuenta que este taller se enfoca en los fundamentos del lenguaje de
-programación R, y no en el análisis estadídtico.
+programación R, y no en el análisis estadístico.
 
-A lo largo de este taller se utilizan una variedad de paquetes, desarrolados por terceros, los cuales no neceariamente son los mejores, ni se ven todas las funcionalidades de los mismos, pero son paquetes que consideramos útilies y han sido elegidos principalmente por su facilidad de uso.
+A lo largo de este taller se utilizan una variedad de paquetes, desarrollados por terceros, los cuales no necesariamente son los mejores, ni se ven todas las funcionalidades de los mismos, pero son paquetes que consideramos útiles y han sido elegidos principalmente por su facilidad de uso.
 
 La lección contiene más material de lo que se puede enseñar en un día. 
 [La página de notas del instructor]({{ page.root }}/guide)
