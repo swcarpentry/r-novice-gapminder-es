@@ -5,7 +5,7 @@ R para Análisis Científicos Reproducibles
 ======================================
 
 Una introducción a R para no-programadores utilizando los datos de  [Gapminder][gapminder].
-Consulta la página <https://swcarpentry.github.io/r-novice-gapminder> para visualizar el material y
+Consulta la página <https://swcarpentry.github.io/r-novice-gapminder-es> para visualizar el material y
 [la documentación de la plantilla de la lección][lesson-example]
 para obtener las instrucciones sobre cómo formatear, compilar y enviar material,
 o ejecuta `make` en este directorio para obtener una lista de comandos útiles.
