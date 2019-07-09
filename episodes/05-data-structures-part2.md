@@ -556,7 +556,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > ~~~
 > {: .language-r}
 >
-> * Puedes leer directamente planillas de Excel sin necesidad de convertirlas a texto plano usando el paquete [readxl](https://cran.r-project.org/web/packages/readxl/index.html).
+> * Puedes leer directamente planillas de Excel sin necesidad de convertirlas a texto plano usando el paquete [readxl](https://cran.r-project.org/package=readxl).
 {: .callout}
 
 Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ver cómo se ve el dataset usando `str`:
