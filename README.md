@@ -14,7 +14,7 @@ El objetivo de esta lección es enseñar a los programadores principiantes a esc
 
 La importancia de estos materiales es proporcionar a los asistentes una base sólida de los fundamentos de R, y enseñar las mejores
 prácticas del cómputo científico: desglose del análisis en módulos,
-automatización tareas y encapsulamiento.
+automatización de tareas y encapsulamiento.
 
 Ten en cuenta que este taller se enfoca en los fundamentos del lenguaje de
 programación R, y no en el análisis estadístico.
