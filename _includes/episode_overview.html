@@ -1,7 +1,8 @@
 {% comment %}
+
 Muestre los tiempos y los objetivos de aprendizaje de un episodio.
 
-    Regarding the `if page.*** == nil` below:
+Regarding the `if page.*** == nil` below:
     all-in-one page combines all episodes into one.
     It, therefore, does not define its own objectives, exercises,
     and questions, which 'normal' episodes define in the front matter.
@@ -46,7 +47,7 @@ Muestre los tiempos y los objetivos de aprendizaje de un episodio.
 
   <div class="row">
     <div class="col-md-3">
-        <strong>Leccion:</strong> {{ teaching_time }} min
+        <strong>Enseñando:</strong>  {{ teaching_time }} min
       <br/>
       <strong>Prácticas:</strong> {{ exercise_time }} min
     </div>

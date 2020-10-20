@@ -36,7 +36,7 @@
     {% else %}
       {% assign episode = lesson_episode %}
     {% endif %}
-    {% if episode.start %} {% comment %}  ¿Comenzando un nuevo día?  {% endcomment %}
+    {% if episode.start %} {% comment % } ¿Comenzando un nuevo día? {% endcomment %}
       {% assign day = day | plus: 1 %}
       {% if day > 1 %} {% comment %} Si está por comenzar el día 2 o más tarde, muestre el tiempo de finalización del día anterior {% endcomment %}
         {% assign hours = current | divided_by: 60 %}
