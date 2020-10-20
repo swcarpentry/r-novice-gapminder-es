@@ -1,4 +1,5 @@
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
+[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
+![Build and Deploy Website](https://github.com/swcarpentry/r-novice-gapminder-es/workflows/Build%20and%20Deploy%20Website/badge.svg)
  [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--gapminder--es-E01563.svg)](https://swcarpentry.slack.com/messages/C9X9DN84V)  [![DOI](https://zenodo.org/badge/126034528.svg)](https://zenodo.org/badge/latestdoi/126034528)
 
 R para Análisis Científicos Reproducibles
@@ -10,7 +11,7 @@ Consulta la página <https://swcarpentry.github.io/r-novice-gapminder-es> para v
 para obtener las instrucciones sobre cómo formatear, compilar y enviar material,
 o ejecuta `make` en este directorio para obtener una lista de comandos útiles.
 
-El objetivo de esta lección es enseñar a los programadores principiantes a escribir códigos modulares y las buenas prácticas en el uso de R para el análisis de datos. R y un conjunto de paquetes desarrollados por terceros, se usa comúnmente en diversas disciplinas científicas para el análisis estadístico. Encontramos que muchos científicos que asisten a los talleres de Software Carpentry utilizan R y quieren aprender más. 
+El objetivo de esta lección es enseñar a los programadores principiantes a escribir códigos modulares y las buenas prácticas en el uso de R para el análisis de datos. R y un conjunto de paquetes desarrollados por terceros, se usa comúnmente en diversas disciplinas científicas para el análisis estadístico. Encontramos que muchos científicos que asisten a los talleres de Software Carpentry utilizan R y quieren aprender más.
 
 La importancia de estos materiales es proporcionar a los asistentes una base sólida de los fundamentos de R, y enseñar las mejores
 prácticas del cómputo científico: desglose del análisis en módulos,
@@ -21,7 +22,7 @@ programación R, y no en el análisis estadístico.
 
 A lo largo de este taller se utilizan una variedad de paquetes, desarrollados por terceros, los cuales no necesariamente son los mejores, ni se ven todas las funcionalidades de los mismos, pero son paquetes que consideramos útiles y han sido elegidos principalmente por su facilidad de uso.
 
-La lección contiene más material de lo que se puede enseñar en un día. 
+La lección contiene más material de lo que se puede enseñar en un día.
 [La página de notas del instructor]({{ page.root }}/guide)
 tiene algunos planes de lecciones sugeridos adecuados para un taller de uno o medio día.
 
