@@ -616,7 +616,7 @@ lista, pero no quieres *extraer* un elemento, entonces probablemente usarás
 
 
 ```{r}
-xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
 xlist[1]
 ```
 
@@ -675,7 +675,7 @@ xlist$data
 >
 >
 > ```{r, eval=FALSE}
-> xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+> xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
 > ```
 >
 >
