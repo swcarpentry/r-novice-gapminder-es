@@ -1,0 +1,295 @@
+---
+title: "Manipulación de data frames usando tidyr"
+teaching: 30
+exercises: 15
+questions:
+- "¿Cómo puedo cambiar el formato de los data frames?"
+objectives:
+- "Entender los conceptos de formatos de datos largo y ancho y poder convertirlos al otro formato usando `tidyr`."
+keypoints:
+- "Usar el paquete `tidyr` para cambiar el diseño de los data frames."
+- "Usar `gather()` para invertir del formato ancho al formato largo."
+- "Usar `spread()` para invertir del formato largo al formato ancho."
+source: Rmd
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("14-")
+# Silently load in the data so the rest of the lesson works
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE, stringsAsFactors = FALSE)
+
+# To create gapminder_wide.csv:
+# library("dplyr")
+# library("tidyr")
+#
+# #transform the data to the wide format
+# gap_wide <- gapminder %>% gather(obs_type,obs_values,-continent,-country,-year) %>%
+#     unite(ID_var,continent,country,sep="_") %>%
+#     unite(var_names,obs_type,year,sep="_") %>%
+#     spread(var_names,obs_values) %>%
+#     separate(ID_var,into=c('continent','country'),sep='_')
+#
+# #write our the .csv so students can use it
+# write.csv(gap_wide_betterID,"data/gapminder_wide.csv",row.names = FALSE)
+
+#load the "student" data
+gap_wide <- read.csv("data/gapminder_wide.csv", header=TRUE, stringsAsFactors = FALSE)
+```
+
+
+Las investigadoras a menudo quieren manipular sus datos del formato "ancho" al "largo", o viceversa. El formato "largo" es donde:
+
+  - cada columna es una variable
+  - cada fila es una observación
+
+En el formato "largo", generalmente tienes una columna para la variable observada y las otras columnas son variables de ID.
+
+
+Para el formato "ancho", cada fila es un tema, por ejemplo un lugar o un paciente. Tendrás múltiples variables de observación, que contienen el mismo tipo de datos, para cada tema. Estas observaciones pueden ser
+repetidas a lo largo del tiempo, o puede ser la observación de múltiples variables (o
+una mezcla de ambos). Para algunas aplicaciones, es preferible el formato "ancho". Sin embargo, muchas de las funciones de `R` han
+sido diseñadas para datos de formato "largo". Este tutorial te ayudará a transformar tus datos de manera eficiente, independientemente del formato original.
+
+![](../fig/14-tidyr-fig1.png)
+
+Estos formatos de datos afectan principalmente a la legibilidad. Para los humanos, el formato "ancho" es
+a menudo más intuitivo ya que podemos ver más de los datos en la pantalla debido a su forma. Sin embargo, el formato "largo" es más legible para las máquinas y está más cerca
+al formateo de las bases de datos. Las variables de ID en nuestros marcos de datos son similares a
+los campos en una base de datos y las variables observadas son como los valores de la base de datos.
+
+## Empecemos
+
+Primero instala los paquetes necesarios, `tidyr` y `dplyr`. Si aún no lo has hecho, puedes también instalar el grupo de paquetes `tidyverse` que contiene varios paquetes incluyendo `tidyr` y `dplyr`.
+
+
+```{r,eval=FALSE}
+#install.packages("tidyr")
+#install.packages("dplyr")
+```
+
+Ahora carga los paquetes usando **library**.
+
+
+```{r,message=FALSE}
+library("tidyr")
+library("dplyr")
+```
+
+
+Primero, veamos la estructura **structure** del **data frame** gapminder:
+
+
+```{r}
+str(gapminder)
+```
+
+> ## Desafío 1
+>
+> ¿Crees que el data frame gapminder tiene un formato largo, ancho o algo intermedio?
+>
+>
+> > ## Solución del Desafío 1
+> >
+> > El data frame gapminder tiene un formato intermedio. No es completamente
+> > largo porque tiene múltiples observaciones por cada variable
+> > (`pop`,`lifeExp`,`gdpPercap`).
+> {: .solution}
+{: .challenge}
+
+
+A veces tenemos múltiples tipos de observaciones, como con el **data frame** gapminder. Entonces tendremos formatos de datos mixtos entre "largo" y "ancho". Nosotros tenemos 3 "variables de identificación" (`continente`,` país`, `año`) y 3 "variables de observación" (` pop`, `lifeExp`,`gdpPercap`). Generalmente, es preferible que los datos estén en este formato intermedio en la mayoría de los casos, a pesar de no tener TODAS las observaciones en una sola
+columna. Esto es por que las 3 variables de observación tienen unidades diferentes (y cada una corresponde a una columna con su propio tipo de datos).
+
+A menudo queremos hacer operaciones matemáticas con valores que usen las mismas
+unidades, esto facilita el uso de funciones en R, que a menudo se basan en vectores. Por ejemplo, si utilizamos el formato largo y calculamos un promedio de todos los
+los valores de población `pop`, esperanza de vida `lifeExp` y el PIB ` gdpPercap` este resultado no tendría sentido, ya que
+devolvería una incongruencia de valores con 3 unidades incompatibles. La solución es que primero manipulamos los datos agrupando (ver la lección sobre `dplyr`), o
+cambiamos la estructura del marco de datos. **Nota:** Algunas funciones de gráficos en R (por ejemplo con `ggplot2`) realmente funcionan mejor con los datos de formato ancho.
+
+## Del formato ancho al largo con gather()
+
+Hasta ahora, hemos estado utilizando el conjunto de datos gapminder original muy bien formateado, pero
+los datos "reales" (es decir, nuestros propios datos de investigación) nunca estarán tan bien organizados. Veamos un ejemplo con la versión de formato ancho del conjunto de datos gapminder.
+
+> Descarga la versión ancha de los datos de gapminder desde [aquí] (https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_wide.csv)
+y guarda el archivo csv en tu carpeta de datos.
+{: .callout}
+
+Cargaremos el archivo de datos para verlo. Nota: no queremos que las columnas de caracteres sean convertidas a factores, por lo que usamos el argumento `stringsAsFactors = FALSE` para para deshabilitar eso, más información en la ayuda `?read.csv ()`.
+
+
+```{r}
+gap_wide <- read.csv("data/gapminder_wide.csv", stringsAsFactors = FALSE)
+str(gap_wide)
+```
+
+![](../fig/14-tidyr-fig2.png)
+
+El primer paso es formatear los datos de ancho a largo. Usando el paquete `tidyr` y la función `gather()` podemos juntar las variables de observación en una sola variable.
+
+![](../fig/14-tidyr-fig3.png)
+
+
+```{r}
+gap_long <- gap_wide %>%
+    gather(obstype_year, obs_values, starts_with("pop"),
+           starts_with("lifeExp"), starts_with("gdpPercap"))
+str(gap_long)
+```
+
+
+Aquí hemos utilizado la sintaxis con **pipes** (%>%) igual a como lo que estábamos usando en el lección anterior con `dplyr`. De hecho, estos son compatibles y puedes usar una mezcla de las funciones `tidyr` y `dplyr`.
+
+Dentro de `gather()`, primero nombramos la nueva columna para la nueva variable de ID
+(`obstype_year`), el nombre de la nueva variable de observación conjunta
+(`obs_value`), luego los nombres de la antigua variable de observación. Nosotros podríamos tener escritas todas las variables de observación, pero como lo hacíamos en la función `select()` (ver la lección de `dplyr`), podemos usar el argumento `starts_with()` para seleccionar todas las variables que comiencen con la cadena de caracteres deseada. Reunir o **gather** también permite la 
+sintaxis alternativa del uso del símbolo `-` para identificar qué variables queremos excluir (por ejemplo, las variables de identificación o **ID**) 
+
+![](../fig/14-tidyr-fig4.png)
+
+
+```{r}
+gap_long <- gap_wide %>% gather(obstype_year, obs_values, -continent, -country)
+str(gap_long)
+```
+
+
+
+Eso puede parecer trivial con este **data frame** en particular, pero a veces tienes una variable de identificación **ID** y 40 variables de observación, con varios nombres de variables irregulares. La flexibilidad que nos da `tidyr` ¡es un gran ahorro de tiempo!
+
+
+Ahora, `obstype_year` en realidad contiene información en dos partes, la observación
+tipo (`pop`,` lifeExp`, o `gdpPercap`) y el año `year`. Podemos usar la función  `separate()` para dividir las cadenas de caracteres en múltiples variables.
+
+
+```{r}
+gap_long <- gap_long %>% separate(obstype_year, into = c("obs_type", "year"), sep = "_")
+gap_long$year <- as.integer(gap_long$year)
+```
+
+
+> ## Desafío 2
+>
+> Usando el **data frame** `gap_long`, calcula el promedio de esperanza de vida, población, y PIB por cada continente.
+>**Ayuda:** usa `group_by()` y `summarize()` que son las funciones de `dplyr` que aprendiste en el episodio anterior.
+>
+> > ## Solución al Desafío 2
+> >
+> > ```{r}
+> > gap_long %>% 
+> >     group_by(continent, obs_type) %>%
+> >     summarize(means = mean(obs_values))
+> > ```
+> {: .solution}
+{: .challenge}
+
+## Del formato largo a intermedio usando spread()
+
+Siempre es bueno detenerse y verificar el trabajo. Entonces, usemos el opuesto de `gather()` para separar nuestras variables de observación con la función `spread()`. Para expandir nuestro objeto `gap_long()` al formato intermedio original o al formato ancho usaremos esta nueva función. Comencemos con el formato intermedio.
+
+```{r}
+gap_normal <- gap_long %>% spread(obs_type,obs_values)
+dim(gap_normal)
+dim(gapminder)
+names(gap_normal)
+names(gapminder)
+```
+
+
+Ahora tenemos un marco de datos intermedio `gap_normal` con las mismas dimensiones que el `gapminder` original, pero el orden de las variables es diferente. Arreglemos
+eso antes de comprobar si son iguales con la función `all.equal()`.
+
+
+```{r}
+gap_normal <- gap_normal[,names(gapminder)]
+all.equal(gap_normal,gapminder)
+head(gap_normal)
+head(gapminder)
+```
+
+
+Ya casi, el **data frame** original está ordenado por `country`, `continent`, y
+`year`. Entonces probemos con la función `arrange()`.
+
+
+```{r}
+gap_normal <- gap_normal %>% arrange(country, continent, year)
+all.equal(gap_normal, gapminder)
+```
+
+¡Muy bien! Pasamos del formato largo al intermedio y no hemos
+tenido ningún error en nuestro código.
+
+Ahora pasemos a convertir del formato largo al ancho. En el formato ancho, nosotros
+mantendremos el país y el continente como variables de ID y esto va expandir las observaciones
+en las tres métricas (`pop`,` lifeExp`, `gdpPercap`) y año (` year`). Primero nosotros
+necesitamos crear etiquetas apropiadas para todas nuestras nuevas variables (combinaciones de métricas*año) y también necesitamos unificar nuestras variables de **ID** para simplificar el proceso de definir el nuevo objeto `gap_wide`.
+
+
+```{r}
+gap_temp <- gap_long %>% unite(var_ID, continent, country, sep = "_")
+str(gap_temp)
+
+gap_temp <- gap_long %>%
+    unite(ID_var, continent, country, sep = "_") %>%
+    unite(var_names, obs_type, year, sep = "_")
+str(gap_temp)
+```
+
+Usando la función `unite()` tenemos ahora un único **ID** que es la combinación de
+`continent`, `country`, y así definimos nuestras nuevas variables. Ahora podemos usar ese resultado con la función `spread()`.
+
+
+```{r}
+gap_wide_new <- gap_long %>%
+    unite(ID_var, continent, country, sep = "_") %>%
+    unite(var_names, obs_type, year,sep = "_") %>%
+    spread(var_names, obs_values)
+str(gap_wide_new)
+```
+
+
+
+
+> ## Desafío 3
+>
+> Crea un formato de datos `gap_super_wide` mediante la distribución por países, año y las tres métricas.
+> **Ayuda** este nuevo **data frame** sólo debe tener cinco filas.
+>
+> > ## Solución para el desafío 3
+> >
+> >```{r, results="hide"}
+> >gap_super_wide <- gap_long %>%
+> >    unite(var_names, obs_type, year, country, sep = "_") %>%
+> >    spread(var_names, obs_values)
+> >```
+> {: .solution}
+{: .challenge}
+
+Ahora tenemos un gran **data frame** con formato 'ancho', pero el `ID_var` podría ser más mejor, hay que separarlos en dos variables con `separate()`
+
+
+
+
+```{r}
+gap_wide_betterID <- separate(gap_wide_new, ID_var, c("continent", "country"), sep = "_")
+gap_wide_betterID <- gap_long %>%
+    unite(ID_var, continent, country, sep = "_") %>%
+    unite(var_names, obs_type, year, sep = "_") %>%
+    spread(var_names, obs_values) %>%
+    separate(ID_var, c("continent", "country"), sep = "_")
+str(gap_wide_betterID)
+```
+
+¡Muy bien hiciste el cambio de formato de ida y vuelta!
+
+
+## Otros recursos geniales
+
+* [R para Ciencia de datos] (r4ds.had.co.nz)
+* [Hoja de trucos para la conversión de datos] (https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+* [Introducción a tidyr] (https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)
+* [Manipulación de datos con R y RStudio] (https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/)
+
+{% include links.md %}

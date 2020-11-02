@@ -1,0 +1,180 @@
+---
+title: Guardando datos
+teaching: 10
+exercises: 10
+questions:
+- "¿Cómo puedo guardar gráficos y datos creados en R?"
+objectives:
+- "Ser capaz de guardar gráficos y datos desde R."
+keypoints:
+- "Guardar gráficos desde RStudio usando el botón de 'Export'."
+- "Usar `write.table` para guardar datos tabulares."
+source: Rmd
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("11-")
+# Silently load in the data so the rest of the lesson works
+library("ggplot2")
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+# Temporarily create a cleaned-data directory so that the writing examples work
+# The students should have created this in topic 2.
+dir.create("cleaned-data")
+```
+
+> ## Palabras clave
+>
+> Comando : Traducción
+>
+> `write.table` : escribir tabla
+{: .checklist}
+
+## Guardando gráficos
+
+Ya hemos visto como guardar el gráfico más reciente que creaste con el paquete `ggplot2`
+usando el comando `ggsave`. A manera de recordatorio, aquí está el código:
+
+```{r, eval=FALSE}
+ggsave("My_most_recent_plot.pdf")
+```
+Puedes guardar un gráfico desde Rstudio usando el botón de 'Export' en la
+ventana de 'Plot'. Esto te dará la opción de guardarlo como .pdf, .png, .jpg
+u otros formatos de imágenes.
+
+Puede que quieras guardar los gráficos sin visualizarlos previamente
+en la ventana de 'Plot'. Quizás quieras hacer un documento pdf con varias
+páginas: por ejemplo, cada una con un gráfico distinto. O quizás estás
+iterando sobre distintos subconjuntos de un archivo, graficando los datos
+de cada subconjunto y quieres guardar cada una de los gráficos. En estos casos obviamente no
+puedes detener la iteración en cada paso para dar clic en 'Export' para
+cada uno.
+
+En dicho caso conviene usar un método más flexible. La función `pdf` crea un
+nuevo pdf del cual puedes controlar el tamaño y la resolución usando los
+argumentos específicos de esta función.
+
+
+```{r, eval=FALSE}
+pdf("Life_Exp_vs_time.pdf", width=12, height=4)
+ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
+  geom_line() +
+  theme(legend.position = "none") 
+
+# ¡Tienes que asegurarte de cerrar el pdf! Para ello usas el comando:
+
+dev.off()
+```
+
+
+Abre este documento y echa un vistazo.
+
+> ## Desafío 1
+>
+> Vuelve a escribir el comando 'pdf', pero esta vez emplea el término **facet** (sugerencia: usa `facet_grid`) con los
+> mismos datos. Esto te permitirá visualizar en un gráfico los datos por continente y guardarlos en un pdf.
+> > ## Solución al desafío 1
+> >
+> >
+> > ```{r, eval = FALSE}
+> > pdf("Life_Exp_vs_time.pdf", width = 12, height = 4)
+> > p <- ggplot(data = gapminder, aes(x = year, y = lifeExp, colour = country)) +
+> >   geom_line() +
+> >   theme(legend.position = "none")
+> > p
+> > p + facet_grid(. ~continent)
+> > dev.off()
+> > ```
+> {: .solution}
+{: .challenge}
+
+
+Los comandos como `jpeg`y `png` entre otros son usados de manera similar para producir
+documentos en los correspondientes formatos.
+
+## Guardando datos
+
+En algún momento puede que también quieras guardar datos desde R.
+
+Para ello podes usar la función `write.table`, que es muy similar a la
+función `read.table` que se presentó anteriormente.
+
+Vamos a crear un **script** para limpiar datos. En este análisis, vamos a
+enfocarnos solamente en los datos de **gapminder** para Australia:
+
+
+```{r}
+aust_subset <- gapminder[gapminder$country == "Australia",]
+
+write.table(aust_subset,
+  file="cleaned-data/gapminder-aus.csv",
+  sep=","
+)
+```
+
+Ahora regresemos a la terminal para dar un vistazo a los datos y
+asegurarnos que se vean bien:
+
+```{r, engine='bash'}
+head cleaned-data/gapminder-aus.csv
+```
+
+Mmm, eso no era precisamente lo que queríamos. ¿De dónde vinieron todas
+esas comillas?. Los números de línea tampoco tienen sentido.
+
+Veamos el archivo de ayuda para investigar como podemos cambiar este
+comportamiento.
+
+```{r, eval=FALSE}
+?write.table
+```
+
+Salvo que configuremos otra cosa, los vectores **character** aparecen de forma predeterminada entre comillas cuando se
+guardan en un archivo. También se guardan los nombres de los renglones y las
+columnas.
+
+Cambiemos esto:
+
+```{r}
+write.table(
+  gapminder[gapminder$country == "Australia",],
+  file="cleaned-data/gapminder-aus.csv",
+  sep=",", quote=FALSE, row.names=FALSE
+)
+```
+
+Ahora echemos de nuevo un vistazo a los datos usando nuestras habilidades en
+la terminal:
+
+```{r, engine='bash'}
+head cleaned-data/gapminder-aus.csv
+```
+
+¡Ahora se ve mejor!
+
+> ## Desafío 2
+>
+> Escribe un **script** para limpiar estos datos, filtrando los datos de
+> **gapminder** que fueron colectados desde 1990.
+>
+> Usa este **script** para guardar este nuevo subconjunto de datos en el
+> directorio `cleaned-data`.
+> > ## Solución al desafío 2
+> >
+> > ```{r, eval = FALSE}
+> > write.table(
+> >   gapminder[gapminder$year > 1990, ],
+> >   file = "cleaned-data/gapminder-after1990.csv",
+> >   sep = ",", quote = FALSE, row.names = FALSE
+> > )
+> > ```
+> {: .solution}
+{: .challenge}
+
+```{r, echo=FALSE}
+# We remove after rendering the lesson, because we don't want this in the lesson
+# repository
+unlink("cleaned-data", recursive=TRUE)
+```
+
+{% include links.md %}

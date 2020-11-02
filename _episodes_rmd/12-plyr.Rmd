@@ -1,0 +1,246 @@
+---
+title: "División y combinación de data frames con plyr"
+teaching: 30
+exercises: 30
+questions:
+- "¿Cómo puedo hacer diferentes cálculos sobre diferentes conjuntos de datos?"
+objectives:
+- "Estar apto a usar la estrategia divide-aplica-combina para el análisis de datos."
+keypoints:
+- "Uso del paquete `plyr` para dividir datos, aplicar funciones sobre subconjuntos, y combinar los resultados"
+source: Rmd
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("12-")
+# Cargar los datos silenciosamente para que funcione el resto de la lección
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```
+
+Previamente vimos como puedes usar funciones para simplificar tu código.
+Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder, y multiplica la columna de población por la columna GDP per cápita. También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
+
+
+```{r}
+# Toma un dataset y multiplica la columna population con
+# la columna GDP per cápita.
+calcGDP <- function(dat, year=NULL, country=NULL) {
+  if(!is.null(year)) {
+    dat <- dat[dat$year %in% year, ]
+  }
+  if (!is.null(country)) {
+    dat <- dat[dat$country %in% country,]
+  }
+  gdp <- dat$pop * dat$gdpPercap
+
+  new <- cbind(dat, gdp=gdp)
+  return(new)
+}
+```
+
+Una tarea común que encontrarás mientras trabajes con datos, es que querrás hacer cálculos en diferentes grupos sobre los datos. En el ejemplo de arriba, simplemente calculamos  el GDP  por multiplicar dos columnas juntas.  ¿Pero qué tal si queremos calcular la media GDP por continente?  
+
+Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada continente:
+
+
+```{r}
+withGDP <- calcGDP(gapminder)
+mean(withGDP[withGDP$continent == "Africa", "gdp"])
+mean(withGDP[withGDP$continent == "Americas", "gdp"])
+mean(withGDP[withGDP$continent == "Asia", "gdp"])
+```
+
+Pero esto no es muy *bonito*. Sí, por usar una función, has reducido substancialmente la cantidad de repeticiones. Esto **es** bonito. Pero aún hay repeticiones. La repetición te costará tiempo, tanto ahora como más tarde, y potencialmente introducirás algunos errores desagradables.
+
+Podriamos escribir una nueva función que sea flexible como `calcGDP`,  pero esta también requiere una gran cantidad de esfuerzo y pruebas para hacerlo bien.
+
+El problema abstracto que estamos encontrando aquí es conocido como "divide-aplica-combina (*split-apply-combine*)":
+
+![Split apply combine](../fig/12-plyr-fig1.png)
+
+Nosotros queremos dividir (*split*) nuestros datos dentro de grupos, en este caso continentes, aplicar (*apply*) algunos cálculos sobre este grupo y, opcionalmente, combinar (*combine*) los resultados más tarde.
+
+
+## El paquete `plyr`
+
+Para aquellos que han usado antes R, es posible que estén familiarizados con la familia de funciones `apply`. Mientras que las funciones integradas de R funcionan, vamos a introducirte a otro método para resolver el problema
+"split-apply-combine". El paquete [plyr](http://had.co.nz/plyr/) proporciona un conjunto de funciones que encontramos más amigables de usar para resolver este problema.
+
+Instalamos este paquete en un desafío anterior. Vamos a cargarlo ahora:
+
+```{r}
+library("plyr")
+```
+
+Plyr tiene una función para operar sobre listas o `**lists**` , `**data.frames**` y `**arrays**` (matrices, o vectores n-dimensional). Cada función realiza:
+
+1. Una operación de división (**split**ting).
+2. Aplica (**apply**) una función sobre cada una de las partes a la vez.
+3. Recombina (re**combine**) los datos de salida como un simple objeto de datos.
+
+Las funciones se nombran en función de la estructura de datos que esperan como entrada, y la estructura de datos que desea devolver como salida: [a]rray, [l]ist, o [d]ata.frame. La primera letra corresponde a la estructura de datos de entrada, la segunda letra a la estructura de datos de salida, y luego el resto de la función se llama "ply".
+
+Esto nos da 9  funciones básicas **ply.  Hay adicionalmente un árbol de funciones  las cuales solo realizarán la división y aplicación de los pasos y ningún paso combinado. Ellas son nombradas por sus datos de entrada y representan una salida nula con un `_` (Ver tabla)
+
+Note que el uso de "array" de plyr es diferente a R, un array en ply puede  incluir a vector o matriz.
+
+![Full apply suite](../fig/12-plyr-fig2.png)
+
+Cada una de las funciones de xxply (`daply`,` ddply`, `llply`,` laply`, ...) tiene la misma estructura y 4 características clave:
+
+```{r, eval=FALSE}
+xxply(.data, .variables, .fun)
+```
+
+* La primera letra del nombre de la función da el tipo de la entrada y el segundo da el tipo de la salida.
+* `.data` – Es el objeto de datos a ser procesado
+* `.variables` – identifica la variable para hacer la división
+* `.fun` – Da la función a ser llamada para cada pieza
+
+Ahora podemos calcular rápidamente la media GDP por `"continent"`:
+
+
+``` {r}
+ddply(
+ .data = calcGDP(gapminder),
+ .variables = "continent",
+ .fun = function(x) mean(x$gdp)
+)
+```
+Veamos el código anterior:
+
+- La función  `ddply` recibe de entrada un  `data.frame` (La función empieza con una **d**)  y regresa  otro `data.frame` (la 2da letra es una  **d**)
+- El primer argumento que dimos fue el `data.frame` en el que queríamos operar: en este caso, los datos del `gapminder`. Primero llamamos a la función `calcGDP` para agregar la columna` gdp` a nuestra variable *data*.
+-  El segundo argumento indica nuestro criterio para dividir: En este caso la columna `"continent"`. Ten en cuenta que le dimos el nombre de la columna, no los valores de la columna como habíamos hecho previamente con los subconjuntos. `Plyr` se encarga de los detalles de la implementación por ti.
+- El tercer argumento es la función que queremos aplicar a cada grupo de datos. Tenemos que definir nuestra propia función corta aquí:  cada subconjunto de datos va almacenado en `x`, el primer argumento de la función. Esta es una  función anónima: no la hemos definido en otra parte y no tiene nombre. Solo existe en el ámbito de nuestro llamado a  `ddply`.
+
+¿Qué pasa si queremos un tipo diferente de estructura de datos de salida?:
+
+```{r}
+dlply(
+ .data = calcGDP(gapminder),
+ .variables = "continent",
+ .fun = function(x) mean(x$gdp)
+)
+```
+
+Llamamos a la misma función otra vez, pero cambiamos la segunda letra por una `l`,  asi que la salida fue regresada como una lista.
+
+Podemos especificar múltiples columnas para agrupar:
+
+``` {r}
+ddply(
+ .data = calcGDP(gapminder),
+ .variables = c("continent", "year"),
+ .fun = function(x) mean(x$gdp)
+)
+```
+
+
+```{r}
+daply(
+ .data = calcGDP(gapminder),
+ .variables = c("continent", "year"),
+ .fun = function(x) mean(x$gdp)
+)
+```
+
+Puedes usar estas funciones en lugar de ciclos `for` (y generalmente es mas rápido).
+Para remplazar un ciclo ‘for’,  pon el código que estaba en el cuerpo del ciclo `for`  dentro de la función anónima.
+
+
+```{r}
+d_ply(
+  .data=gapminder,
+  .variables = "continent",
+  .fun = function(x) {
+    meanGDPperCap <- mean(x$gdpPercap)
+    print(paste(
+      "La media GDP per cápita para", unique(x$continent),
+      "es", format(meanGDPperCap, big.mark=",")
+   ))
+  }
+)
+```
+
+> ## Sugerencia: Imprimiendo números
+>
+> La función  `format`  puede ser usada para imprimir los valores numéricos  
+> "bonitos" en los mensajes.
+{: .callout}
+
+
+> ## Desafío 1
+>
+> Calcula el promedio de vida esperado por `"continent"`. ¿Quién tiene el promedio mas alto?
+> ¿Quién tiene el mas pequeño?
+{: .challenge}
+
+> ## Desafío 2
+>
+> Calcula el promedio de vida esperado por `"continent"` y `"year"`. ¿Quién tiene el promedio mas
+> grande y mas corto en 2007? ¿Quién tiene el cambio mas grande entre 1952
+> y 2007?
+{: .challenge}
+
+
+> ## Desafío Avanzado
+>
+> Calcula la diferencia en la media de vida esperada entre los
+> años  1952 y 2007 a partir de la salida del desafío 2
+> usando una de las funciones `plyr`.
+{: .challenge}
+
+> ## Desafío alterno si la clase parece perdida
+>
+> Sin ejecutarlos, cuál de los siguientes calculará el promedio
+> de la esperanza de vida por continente:
+>
+> 1.
+> ```{r, eval=FALSE}
+> ddply(
+>   .data = gapminder,
+>   .variables = gapminder$continent,
+>   .fun = function(dataGroup) {
+>      mean(dataGroup$lifeExp)
+>   }
+> )
+> ```
+>
+> 2.
+>
+> ```{r, eval=FALSE}
+> ddply(
+>   .data = gapminder,
+>   .variables = "continent",
+>   .fun = mean(dataGroup$lifeExp)
+> )
+> ```
+>
+> 3.
+>
+> ```{r, eval=FALSE}
+> ddply(
+>   .data = gapminder,
+>   .variables = "continent",
+>   .fun = function(dataGroup) {
+>      mean(dataGroup$lifeExp)
+>   }
+> )
+> ```
+>
+> 4.
+> ```{r, eval=FALSE}
+> adply(
+>   .data = gapminder,
+>   .variables = "continent",
+>   .fun = function(dataGroup) {
+>      mean(dataGroup$lifeExp)
+>   }
+> )
+> ```
+>
+{: .challenge}
+
+{% include links.md %}

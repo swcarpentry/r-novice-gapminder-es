@@ -1,0 +1,403 @@
+---
+title: "Explorando data frames"
+teaching: 20
+exercises: 10
+questions:
+- "¿Cómo puedo manipular un *data frame*?"
+objectives:
+- "Poder agregar y quitar filas y columnas."
+- "Poder quitar filas con valores `NA`."
+- "Poder anexar dos *data frames*."
+- "Poder articular qué es un `factor` y cómo convertir entre `factor` y `character`."
+- "Poder entender las propiedades básicas de un *data frame*, incluyendo tamaño, clase o tipo de columnas, nombres y primeras filas."
+keypoints:
+- "Usar `cbind()` para agregar una nueva columna a un *data frame*"
+- "Usar `rbind()` para agregar una nueva fila a un *data frame*"
+- "Quitar filas de un *data frame*"
+- "Usar `na.omit()` para remover filas de un *data frame* con valores `NA`"
+- "Usar `levels()` y `as.character()` para explorar y manipular columnas de clase *factor*"
+- "Usar `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` y `typeof()` para entender la estructura de un *data frame*"
+- "Leer un archivo csv usando `read.csv()`"
+- "Entender el uso de `length()` en un *data frame*"
+source: Rmd
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("05-")
+
+gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
+                      peso = c(2.1, 5.0, 3.2),
+                      legusta_la_cuerda = c(1, 0, 1))
+gatos 
+```
+
+A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo que hagas va a ser una manipulación de esas herramientas. Ahora pasaremos a aprender un par de cosas sobre cómo trabajar con la clase *data frame* (la estructura de datos que usarás la mayoría del tiempo y que será la estrella del show). Un *data frame* es la tabla que creamos al cargar información de un archivo csv. 
+  
+> ## Palabras clave 
+>
+> Command : Translation
+>
+> `nrow`: número de filas
+>
+> `ncol`: número de columnas
+>
+> `rbind`: combinar filas
+>
+> `cbind`: combinar columnas
+>
+{: .checklist}  
+  
+## Agregando columnas y filas a un data frame
+
+Aprendimos que las columnas en un *data frame* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
+
+
+```{r}
+gatos
+edad <- c(2,3,5)
+```
+
+
+Podemos entonces agregarlo como una columna via:
+
+```{r, error=TRUE}
+cbind(gatos, edad)
+```
+
+Tenga en cuenta que fallará si tratamos de agregar un vector con un número diferente de entradas que el número de filas en el marco de datos.
+
+```{r}
+edad <- c(2, 3, 5, 12)
+cbind(gatos, edad)
+
+edad <- c(2, 3)
+cbind(gatos, edad)
+```
+
+¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
+
+Para que funcione, debemos tener `nrow(gatos)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+
+```{r}
+edad <- c(2, 3, 5)
+gatos <- cbind(gatos, edad)
+gatos
+```
+
+Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
+
+```{r}
+nueva_fila <- list("tortoiseshell", 3.3, TRUE, 9)
+gatos <- rbind(gatos, nueva_fila)
+gatos <- rbind(gatos, nueva_fila)
+```
+Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
+
+```{r}
+colores <- factor(c("negro","canela","canela","negro"))
+levels(colores)
+nlevels(colores)
+```
+El orden de los factores puede reorganizar también.
+
+```{r}
+colores ## el orden actual
+colores <- factor(colores, levels = c("negro", "canela"))
+colores # despues de re-organizar
+```
+
+## Factors
+
+Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
+estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
+'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
+
+La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *legusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+
+```{r}
+levels(gatos$color)
+levels(gatos$color) <- c(levels(gatos$color), 'tortoiseshell')
+gatos <- rbind(gatos, list("tortoiseshell", 3.3, TRUE, 9))
+```
+
+De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorías, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin problemas con los niveles del factor. 
+
+```{r}
+str(gatos)
+gatos$color <- as.character(gatos$color)
+str(gatos)
+```
+
+> ## Desafío 1
+> Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los gatos (La compañía Purina usa [un algoritmo más sofisticado](https://www.proplan.com/gatos/cat-edad-calculator)). 
+> 1. Crea un vector llamado `human.edad` multiplicando `gatos$edad` por 7.
+> 2. Convierte `human.edad` a *factor*.
+> 3. Convierte `human.edad` de nuevo a un vector numérico usando la función `as.numeric()`. Ahora, divide por 7 para regresar a las edades originales. Explica lo sucedido. 
+>
+> > ## Solución al Desafío 1
+> > 1. `human.edad <- gatos$edad * 7`
+> > 2. `human.edad <- factor(human.edad)` o `as.factor(human.edad)` las dos opciones funcionan igual de bien.
+> > 3. `as.numeric(human.edad)` produce `1 2 3 4 4` porque los factores se guardan como objetos de tipo entero *integer* (1:4), cada uno de los cuales tiene asociado una etiqueta *label* (28, 35, 56, y 63). Convertir un objeto de un tipo de datos a otro, por ejemplo de *factor* a *numeric* nos dá los enteros, no las etiquetas *labels*. Si queremos los números originales, necesitamos un paso intermedio, debemos convertir `human.edad` al tipo *character* y luego a *numeric* (¿cómo funciona esto?). Esto aparece en la vida real cuando accidentalmente incluimos un *character* en alguna columna de nuestro archivo .csv, que se suponía que únicamente contendría números. Tendremos este problema, si al leer el archivo olvidamos incluir `stringsAsFactors=FALSE`.
+> {: .solution}
+{: .challenge}
+
+## Quitando filas
+
+Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
+
+```{r}
+gatos
+```
+
+Podemos pedir el *data frame* sin la fila errónea: 
+
+```{r}
+gatos[-4,]
+```
+
+Notar que -4 significa que queremos remover la cuarta fila, la coma sin nada detrás indica que se aplica a todas las columnas. Podríamos remover ambas filas en un llamado usando ambos números dentro de un vector: `gatos[c(-4,-5),]`
+
+Alternativamente, podemos eliminar filas que contengan valores `NA`:
+  
+```{r}
+na.omit(gatos)
+```
+
+Volvamos a asignar el nuevo resultado *output* al *data frame* `gatos`, así nuestros cambios son permanentes:
+
+```{r}
+gatos <- na.omit(gatos)
+```
+
+## Eliminando columnas
+
+También podemos eliminar columnas en un *data frame*. Hay dos formas de eliminar una columna: por número o nombre de índice.
+
+```{r}
+gatos[,-4]
+```
+
+Observa la coma sin nada antes, lo que indica que queremos mantener todas las filas.
+
+Alternativamente, podemos soltar la columna usando el nombre del índice.
+
+```{r}
+drop <- names(gatos) %in% c("edad")
+gatos[,!drop]
+```
+
+## Añadiendo filas o columnas a un data frame
+
+La clave que hay que recordar al añadir datos a un *data frame* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *data frames* usando `rbind` que significa unir las filas (verticalmente):
+
+
+```{r}
+gatos <- rbind(gatos, gatos)
+gatos
+```
+
+Pero ahora los nombres de las filas *rownames* son complicados. Podemos removerlos y R los nombrará nuevamente, de manera secuencial:
+
+```{r}
+rownames(gatos) <- NULL
+gatos
+```
+
+> ## Desafío 2
+>
+> Puedes crear un nuevo *data frame* desde R con la siguiente sintaxis:
+> ```{r}
+> df <- data.frame(id = c('a', 'b', 'c'),
+>                  x = 1:3,
+>                  y = c(TRUE, TRUE, FALSE),
+>                  stringsAsFactors = FALSE)
+> ```
+> Crear un data frame que contenga la siguiente información personal:
+>
+> - nombre
+> - apellido
+> - número favorito
+>
+> Luego usa `rbind` para agregar una entrada para la gente sentada alrededor tuyo.
+> Finalmente, usa `cbind` para agregar una columna con espacio para que cada persona conteste a la siguiente pregunta: "¿Es hora de una pausa?"
+>
+> > ## Solución al Desafío 2
+> > ```{r}
+> > df <- data.frame(first = c('Grace'),
+> >                  apellido = c('Hopper'),
+> >                  numero_favorito = c(0),
+> >                  stringsAsFactors = FALSE)
+> > df <- rbind(df, list('Marie', 'Curie', 238) )
+> > df <- cbind(df, cafe = c(TRUE,TRUE))
+> > ```
+> {: .solution}
+{: .challenge}
+
+## Ejemplo realista
+
+Hasta ahora, hemos visto las manipulaciones básicas que pueden hacerse en un *data frame*. Ahora, vamos a extender esas habilidades con un ejemplo más real. Vamos a importar el **gapminder dataset** que descargamos previamente:
+
+La función `read.table` se usa para leer datos tabulares que están guardados en un archivo de texto,
+donde las columnas de datos están separadas por un signo de puntuación como en los archivos
+CSV (donde **csv** es **comma-separated values** en inglés, es decir, valores separados por comas).
+
+Los signos de puntuación más comunmente usados para separar o delimitar datos en archivos de texto son tabuladores y comas.
+Por conveniencia, R provee dos versiones de la función `read.table`. Estas versiones son: `read.csv`
+para archivos donde los datos están separados por comas y `read.delim` para archivos donde los datos están separados
+por tabuladores. De las tres variantes, `read.csv` es la más comúnmente usada. De ser necesario, es posible sobrescribir
+ el signo de puntuación usado por defecto para ambas funciones: `read.csv` y `read.delim`.
+
+```{r}
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+```
+
+> ## Tips misceláneos
+>
+> * Otro tipo de archivo que puedes encontrar es el separado por tabuladores (.tsv). Para especificar este separador, usa `"\t"` o `read.delim()`.
+>
+> * Los archivos pueden descargarse de Internet a una carpeta local usando `download.file`.
+> La función `read.csv` puede ser ejecutada para leer el archivo descargado, por ejemplo: 
+> ```{r eval=FALSE, echo=TRUE}
+> download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+> gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+> ```
+>
+> * De manera alternativa, puedes leer los archivos directamente en R, usando una dirección web y `read.csv`. Es importante notar que, si se hace esto último, no habrá una copia local del archivo csv en tu computadora. Por ejemplo,
+> 
+> ```{r eval=FALSE, echo=TRUE}
+> gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
+> ```
+>
+> * Puedes leer directamente planillas de Excel sin necesidad de convertirlas a texto plano usando el paquete [readxl](https://cran.r-project.org/package=readxl).
+{: .callout}
+
+Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ver cómo se ve el dataset usando `str`:
+
+```{r}
+str(gapminder)
+```
+
+También podemos examinar columnas individuales del *data frame* con la función `typeof`:
+  
+```{r}
+typeof(gapminder$year)
+typeof(gapminder$country)
+str(gapminder$country)
+```
+
+
+También podemos interrogar al *data frame* por la información sobre sus dimensiones;
+recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿qué piensas que el siguiente código producirá y por qué?
+
+
+```{r}
+length(gapminder)
+```
+
+Un intento certero hubiera sido decir que el largo (`length`) de un *data frame* es el número de filas (1704), pero no es el caso; recuerda, un *data frame es una lista de vectores y factors*. 
+
+```{r}
+typeof(gapminder)
+```
+
+
+Cuando `length` devuelve 6, es porque gapminder está construida por una lista de 6 columnas. Para conseguir el número de filas, intenta:
+
+```{r}
+nrow(gapminder)
+ncol(gapminder)
+```
+
+O, para obtener ambos de una vez:
+
+```{r}
+dim(gapminder)
+```
+
+Probablemente queremos saber los nombres de las columnas. Para hacerlo, podemos pedir: 
+  
+```{r}
+colnames(gapminder)
+```
+
+A esta altura, es importante preguntarnos si la estructura de R está en sintonía con nuestra intuición y nuestras expectativas, ¿tienen sentido los tipos de datos reportados para cada columna? Si no lo tienen, necesitamos resolver cualquier problema antes de que se conviertan en sorpresas ingratas luego. Podemos hacerlo usando lo que aprendimos sobre cómo R interpreta los datos y la importancia de la estricta consistencia con la que registramos los datos.
+
+Una vez que estamos contentos con el tipo de datos y que la estructura parece razonable, es tiempo de empezar a investigar nuestros datos. Mira las siguientes líneas:
+  
+
+```{r}
+head(gapminder)
+```
+
+> ## Desafío 3
+>
+> También es útil revisar algunas líneas en el medio y el final del **data frame** ¿Cómo harías eso?
+>
+> Buscar líneas exactamente en el medio no es tan difícil, pero simplemente revisar algunas lineas al azar es suficiente. ¿cómo harías eso?
+>
+> > ## Solución al desafío 3
+> > Para revisar las últimas líneas del *data frame* R tiene una función para esto:
+> > 
+> > ```{r}
+> > tail(gapminder)
+> > tail(gapminder, n = 15)
+> > ```
+> > 
+> > Para revisar algunas lineas al azar?
+> > ## sugerencia: Hay muchas maneras de hacer esto
+> > La solución que presentamos aquí utiliza funciones anidadas, por ejemplo una función es el argumento de otra función. Esto te puede parecer nuevo, pero ya lo haz usado.
+> > Recuerda *my_dataframe[rows, cols]* imprime el *data frame* con la sección de filas y columnas definidas (incluso puedes seleccionar un rando de filas y columnas usando **:** por ejemplo). Para obtener un número al azar o varios números al azar R tiene una función llamada *sample*.
+> >
+> > ```{r}
+> > gapminder[sample(nrow(gapminder), 5), ]
+> > ```
+> {: .solution}
+{: .challenge}
+
+Para que nuestro análisis sea reproducible debemos poner el código en un *script*
+al que podremos volver y editar en el futuro.
+
+> ## Desafío 4
+>
+> Ve a Archivo -> nuevo -> R script, y crea un script de R llamado load-gapminder.R
+> para cargar el dataset gapminder. Ponlo en el directorio `scripts/`
+> y agrégalo al control de versiones.
+>
+> Ejecuta el script usando la función `source`, usando el path como su argumento
+> o apretando el botón de "source" en RStudio.
+>
+> > ## Solución al desafío 4
+> > Los contenidos de `scripts/load-gapminder.R`:
+> > ```{r eval = FALSE}
+> > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+> > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+> > ```
+> > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
+> > 
+> > Para ejecutar el script y cargar los archivos en la variable `gapminder`:
+> > ```{r eval = FALSE}
+> > source(file = "scripts/load-gapminder.R")
+> > ```
+> {: .solution}
+{: .challenge}
+
+> ## Desafío 5
+>
+> Leer el output de `str(gapminder)` de nuevo;
+> esta vez, usar lo que has aprendido de factores, listas y vectores, las funciones como `colnames` y `dim`
+> para explicar qué significa el output de `str`.
+> Si hay partes que no puedes entender, discútelo con tus compañeros. 
+>
+> > ## Solución desafío 5
+> >
+> > El objeto `gapminder` es un data frame con columnas
+> > - `country` y `continent` como *factors*.
+> > - `year` como *integer vector*.
+> > - `pop`, `lifeExp`, and `gdpPercap` como *numeric vectors*.
+> >
+> {: .solution}
+{: .challenge}
+
+{% include links.md %}
