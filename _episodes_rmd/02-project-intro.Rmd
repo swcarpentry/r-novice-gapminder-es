@@ -3,7 +3,7 @@ title: "Gestión de proyectos con RStudio"
 teaching: 20
 exercises: 10
 questions:
-- "¿Cómo pudo gestionar mis proyectos en R?"
+- "¿Cómo puedo gestionar mis proyectos en R?"
 objectives:
 - Crear proyectos independientes en RStudio
 keypoints:
