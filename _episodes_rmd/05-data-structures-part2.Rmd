@@ -85,29 +85,29 @@ gatos <- cbind(gatos, edad)
 gatos
 ```
 
-Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
+Ahora, ¿qué tal si agregamos filas utilizando la función `rbind`?, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
 
 ```{r}
 nueva_fila <- list("tortoiseshell", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
-gatos <- rbind(gatos, nueva_fila)
 ```
-Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
+
+## Factors
+
+Un factor es un tipo de datos en R, el cual es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 
 ```{r}
 colores <- factor(c("negro","canela","canela","negro"))
 levels(colores)
 nlevels(colores)
 ```
-El orden de los factores puede reorganizar también.
+El orden de los factores tambien puede reorganizarse.
 
 ```{r}
 colores ## el orden actual
 colores <- factor(colores, levels = c("negro", "canela"))
 colores # despues de re-organizar
 ```
-
-## Factors
 
 Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
