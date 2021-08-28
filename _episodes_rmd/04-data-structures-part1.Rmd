@@ -41,7 +41,7 @@ knitr_fig_path("04-")
 
 Una de las características más poderosas de R es su habilidad para manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. 
-Comencemos creando un **dataset** llamado `gatos` que se vea así. 
+Comencemos creando un **dataset** llamado `gatos` que se vea de la siguiente forma:
 
 ```{r, eval=FALSE}
 color,peso,le_gusta_cuerda
@@ -50,7 +50,7 @@ negro,5.0,0
 atigrado,3.2,1
 ```
 
-Podemos usar la function `data.frame` para crearlo.
+Podemos usar la función `data.frame` para crearlo.
 
 ```{r}
 gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
@@ -60,7 +60,7 @@ gatos
 ```
 
 ```{r, include=FALSE}
-# save file for future lesson
+# guardar el archivo para usarlo en futuras lecciones
 write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)  
 ```
 
@@ -69,10 +69,24 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 >
 > Alternativamente, puedes crear el archivo `data/feline-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
-> Podemos leer el archivo en R con el siguiente comando:
-> `gatos <- read.csv(file = "data/feline-data.csv")` para leer el archivo.
 {: .callout}
 
+Podemos leer el archivo en R con el siguiente comando:
+
+```{r}
+gatos <- read.csv(file = "data/feline-data.csv")
+gatos
+```
+
+La función `read.table` se usa para leer datos tabulares almacenados en un archivo de 
+texto donde las columnas de datos están separadas por caracteres de puntuación, por ejemplo
+archivos CSV (csv = valores separados por comas). Las tabulaciones y las comas son los
+caracteres de puntuación más utilizados para separar o delimitar datos en archivos csv.
+Para mayor comodidad, R proporciona otras 2 versiones de "read.table". Estos son: `read.csv`
+para archivos donde los datos están separados por comas y `read.delim` para archivos
+donde los datos están separados por tabulaciones. De estas tres funciones, `read.csv` es
+el más utilizado. Si fuera necesario, es posible anular o modificar el delimitador predeterminado
+para `read.csv` y ` read.delim`.
 
 Podemos empezar a explorar el **dataset** inmediatamente proyectando las columnas usando el operador `$`:
 
@@ -207,7 +221,7 @@ numerico_coercionado_logico <- as.logical(caracteres_coercionados_numerico)
 numerico_coercionado_logico
 ```
 
-Como puedes ver, algunas cosas sorprendentes ocurren cuando R fuerza la conversión de un tipo de datos en otro tipo. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
+Como puedes notar, es sorprendete ver qué pasa cuando R forza la conversión de un tipo de datos a otro. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
 `le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
@@ -366,7 +380,7 @@ otra_lista <- list(title = "Numbers", numbers = 1:10, data = TRUE )
 otra_lista
 ```
 
-Ahora podemos entender algo un poco sorprendente en nuestro **data.frame**; ¿Qué pasa si corremos?
+Ahora veamos algo interesante acerca de nuestro **data.frame**; ¿Qué pasa si corremos la siguiente línea?
 
 
 ```{r}
@@ -403,7 +417,7 @@ str(gatos[1,])
 
 > ## Desafío 3
 >
-> Hay varias maneras sutílmente diferentes de indicar variables, observaciones y elementos de **data.frames**:
+> Hay varias maneras sutilmente diferentes de indicar variables, observaciones y elementos de **data.frames**:
 >
 > - `gatos[1]`
 > - `gatos[[1]]`
@@ -443,7 +457,7 @@ str(gatos[1,])
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos[1, 1]
 > > ```
-> > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
+> > Este ejemplo usa un solo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
 > > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
 > > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "mixto" asociada con el valor entero.
 > > ```{r, eval=TRUE, echo=TRUE}
