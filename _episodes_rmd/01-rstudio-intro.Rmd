@@ -268,7 +268,7 @@ Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para 
 descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente 
 se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante. 
 Puedes consultar también ![las guías rápidas](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf)
- disponibles en el sitio de de RStudio
+ disponibles en el sitio de RStudio
 
 
 ## Comparando
