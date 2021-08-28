@@ -35,12 +35,18 @@ knitr_fig_path("01-")
 ## Motivación
 
 
-La ciencia es un proceso de varios pasos: una vez que hayas diseñado un experimento y recopilado datos, ¡comienza la verdadera diversión! Esta lección te enseñará cómo comenzar este proceso usando R y RStudio. Comenzaremos con datos brutos, realizaremos análisis exploratorios y aprenderemos a trazar gráficamente los resultados. Este ejemplo comienza con un conjunto de datos de [gapminder.org](https://www.gapminder.org) que contiene información sobre la población de muchos países a lo largo del tiempo. ¿Puedes leer estos datos en R? ¿Puedes hacer un gráfico de la población de Senegal? ¿Puedes calcular el ingreso promedio de los países del continente asiático? Al final de estas lecciones, ¡podrás hacer cosas como graficar datos de poblaciones de estos países en menos de un minuto!
+La ciencia es un proceso de varios pasos: una vez que hayas diseñado un experimento y recopilado datos, ¡comienza la verdadera diversión! 
+Esta lección te enseñará cómo comenzar este proceso usando R y RStudio. Comenzaremos con datos brutos, realizaremos análisis exploratorios 
+y aprenderemos a trazar gráficamente los resultados. Este ejemplo comienza con un conjunto de datos de [gapminder.org](https://www.gapminder.org) 
+que contiene información sobre la población de muchos países a lo largo del tiempo. ¿Puedes leer estos datos en R? ¿Puedes hacer un gráfico de 
+la población de Senegal? ¿Puedes calcular el ingreso promedio de los países del continente asiático? Al final de estas lecciones, 
+¡podrás hacer cosas como graficar datos de poblaciones de estos países en menos de un minuto!
 
 
 ## Antes de empezar el taller
 
-Asegúrate de tener instalada la última versión de R y RStudio en tu máquina. Esto es importante, ya que algunos paquetes utilizados en el taller pueden no instalarse correctamente (o no funcionar) si R no está actualizado.
+Asegúrate de tener instalada la última versión de R y RStudio en tu máquina. Esto es importante, ya que algunos paquetes utilizados en el 
+taller pueden no instalarse correctamente (o no funcionar) si R no está actualizado.
 
 [Descarga e instala la última versión de R aquí](https://www.r-project.org/),
 [descarga e instala RStudio aquí](https://www.rstudio.com/)
@@ -52,10 +58,12 @@ Asegúrate de tener instalada la última versión de R y RStudio en tu máquina.
 Bienvenido a la parte R del taller de Software Carpentry.
 
 
-A lo largo de esta lección, vamos a enseñarte algunos de los fundamentos del lenguaje R, así como algunas buenas prácticas para organizar el código de proyectos científicos que harán tu vida más fácil.
+A lo largo de esta lección, vamos a enseñarte algunos de los fundamentos del lenguaje R, así como algunas buenas prácticas para organizar el 
+código de proyectos científicos que harán tu vida más fácil.
 
 
-Usaremos RStudio: un entorno de desarrollo integrado y gratuito de código abierto. RStudio proporciona un editor incorporado, funciona en todas las plataformas (incluso en servidores) y ofrece muchas ventajas, como la integración de control de versiones y gestión de proyectos.
+Usaremos RStudio: un entorno de desarrollo integrado y gratuito de código abierto. RStudio proporciona un editor incorporado, funciona en todas 
+las plataformas (incluso en servidores) y ofrece muchas ventajas, como la integración de control de versiones y gestión de proyectos.
 
 
 **Diseño básico**
@@ -107,10 +115,13 @@ Hay dos formas principales en que uno puede trabajar dentro de RStudio.
 ## Introducción a R
 
 
-Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que obtendrías si escribieras `R` en la terminal de shell/linea de comandos.
+Gran parte de tu tiempo en R lo gastarás en la consola interactiva de R. Aquí es donde ejecutarás todo tu código, 
+y puede ser un entorno útil para probar ideas antes de guardarlas en un script R. La consola en RStudio es la misma que 
+obtendrías si escribieras `R` en la terminal de shell/linea de comandos.
 
-
-Lo primero que verás en la sesión interactiva de R es un montón de información, seguido por un ">" y un cursor parpadeante. Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea de "leer, evaluar, mostrar" (tú escribes comandos, R intenta ejecutarlos y luego devuelve un resultado).
+Lo primero que verás en la sesión interactiva de R es un montón de información, seguido por un ">" y un cursor parpadeante. 
+Esto es similar al entorno de la terminal de shell que aprendiste durante las lecciones de shell: R opera con la misma idea 
+de "leer, evaluar, mostrar" (tú escribes comandos, R intenta ejecutarlos y luego devuelve un resultado).
 
 
 ## Usando R como una calculadora
@@ -223,7 +234,8 @@ Tú también puedes escribir números en notación científica:
 ## Funciones matemáticas
 
 
-R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre seguido de paréntesis ( ). Todo lo que escribas dentro de los paréntesis se llaman argumentos de la función:
+R tiene muchas funciones matemáticas integradas. Para llamar a una función, simplemente escribimos su nombre seguido de paréntesis ( ). 
+Todo lo que escribas dentro de los paréntesis se llaman argumentos de la función:
 
 
 ```{r}
@@ -245,13 +257,18 @@ exp(0.5) # e^(1/2)
 ```
 
 
-No te preocupes si no recuerdas todas las funciones en R. Simplemente puedes buscarlas en Google, o si puedes recordar el comienzo del nombre de la función, puedes usar el tabulador para completar su nombre en RStudio.
+No te preocupes si no recuerdas todas las funciones en R. Simplemente puedes buscarlas en Google, 
+o si puedes recordar el comienzo del nombre de la función, puedes usar el tabulador para completar su nombre en RStudio.
 
 
 Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de autocompletado que te permiten buscar funciones, sus argumentos y los valores que toman más fácilmente.
 
 
-Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para ese comando. Además de proporcionar una descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante.
+Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para ese comando. Además de proporcionar una 
+descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente 
+se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante. 
+Puedes consultar también ![las guías rápidas](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf)
+ disponibles en el sitio de de RStudio
 
 
 ## Comparando
