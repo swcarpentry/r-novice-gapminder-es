@@ -77,7 +77,7 @@ cbind(gatos, edad)
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-Para que funcione, debemos tener `nrow(gatos)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+Para que funcione, debemos tener `nrow(gatos)` = `length(edad)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 ```{r}
 edad <- c(2, 3, 5)
