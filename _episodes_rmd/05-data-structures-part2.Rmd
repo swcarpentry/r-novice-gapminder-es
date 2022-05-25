@@ -36,7 +36,7 @@ A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo
   
 > ## Palabras clave 
 >
-> Command : Translation
+> Comando : Traducción
 >
 > `nrow`: número de filas
 >
@@ -107,14 +107,14 @@ colores <- factor(colores, levels = c("negro", "canela"))
 colores # despues de re-organizar
 ```
 
-## Factors
+## Factores
 
 Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *legusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 ```{r}
 levels(gatos$color)
@@ -181,7 +181,7 @@ gatos[,-4]
 
 Observa la coma sin nada antes, lo que indica que queremos mantener todas las filas.
 
-Alternativamente, podemos soltar la columna usando el nombre del índice.
+Alternativamente, podemos quitar la columna usando el nombre del índice.
 
 ```{r}
 drop <- names(gatos) %in% c("edad")
