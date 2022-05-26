@@ -112,7 +112,7 @@ x > 2
 **Operadores Lógicos**
 
 ```{r}
-a <- x > 3  # or, for clarity, a <- (x > 3)
+a <- x > 3  # o, para más claridad, a <- (x > 3)
 a
 ```
 
