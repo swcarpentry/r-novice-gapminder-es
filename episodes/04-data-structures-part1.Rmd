@@ -26,9 +26,9 @@ knitr_fig_path("04-")
 
 > ## Palabras clave
 >
-> Palabra o comando : Significado
+> Comando : Significado
 >
-> *Data set* : conjunto de datos
+> *data set* : conjunto de datos
 >
 > `c` : combinar
 >
