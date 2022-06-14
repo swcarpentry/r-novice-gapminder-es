@@ -26,9 +26,9 @@ knitr_fig_path("04-")
 
 > ## Palabras clave
 >
-> Comando : Traducción
+> Palabra o comando : Significado
 >
-> `data set` : conjunto de datos
+> *Data set* : conjunto de datos
 >
 > `c` : combinar
 >
@@ -363,7 +363,7 @@ str(factor_orden)
 ```
 
 En este caso, le hemos dicho explícitamente a R que "control" debería estar representado por 1, y
-"case" por 2. Esta designación puede ser muy importante para interpretar los
+"caso" por 2. Esta designación puede ser muy importante para interpretar los
 resultados de modelos estadísticos!
 
 ## Listas
@@ -437,7 +437,7 @@ str(gatos[1,])
 > > gatos[1]
 > > ```
 > > Podemos interpretar un **data frame** como una lista de vectores. Un único par de corchetes `[1]`
-> resulta en la primer proyección de la lista, como otra lista. En este caso es la primer columna del
+> resulta en la primera proyección de la lista, como otra lista. En este caso es la primera columna del
 > **data frame**.
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos[[1]]
@@ -447,8 +447,8 @@ str(gatos[1,])
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos$color
 > > ```
-> > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _capa_ es la
-> > primer columna del marco de datos, de nuevo un _vector_ de tipo _factor_.
+> > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _color_ es la
+> > primera columna del _data frame_, de nuevo un _vector_ de tipo _factor_.
 > > ```{r, eval=TRUE, echo=TRUE}
 > > gatos["color"]
 > > ```
