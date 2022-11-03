@@ -38,7 +38,9 @@ source: Rmd
 > `mutate` : mutar
 {: .checklist}
 
-La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
+La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar 
+ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, 
+o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
 
 
 ~~~
@@ -81,11 +83,15 @@ mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 ~~~
 {: .output}
 
-Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta tiempo, tanto en el momento de hacerlo como en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
+Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta tiempo, tanto en el momento de hacerlo como 
+en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
 
 ## El paquete `dplyr`
 
-Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/package=dplyr) proporciona un conjunto de funciones extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
+Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/package=dplyr) proporciona un conjunto de funciones 
+(consulta la [guía rápida](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/data-transformation_es.pdf) ) 
+extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones , la probabilidad de cometer errores y 
+el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
 
 Aquí vamos a revisar 6 de sus funciones más usadas, así como a usar los **pipes** (`%>%`) para combinarlas.
 
@@ -199,7 +205,7 @@ str(gapminder %>% group_by(continent))
 
 
 ~~~
-tibble [1,704 × 6] (S3: grouped_df/tbl_df/tbl/data.frame)
+gropd_df [1,704 × 6] (S3: grouped_df/tbl_df/tbl/data.frame)
  $ country  : chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
  $ pop      : num [1:1704] 8425333 9240934 10267083 11537966 13079460 ...
@@ -235,13 +241,6 @@ gdp_bycontinents <- gapminder %>%
 ~~~
 {: .language-r}
 
-
-
-~~~
-`summarise()` ungrouping output (override with `.groups` argument)
-~~~
-{: .output}
-
 ![](../fig/13-dplyr-fig3.png)
 
 
@@ -271,19 +270,6 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >lifeExp_bycountry <- gapminder %>%
 > >    group_by(country) %>%
 > >    summarize(mean_lifeExp=mean(lifeExp))
-> >~~~
-> >{: .language-r}
-> >
-> >
-> >
-> >~~~
-> >`summarise()` ungrouping output (override with `.groups` argument)
-> >~~~
-> >{: .output}
-> >
-> >
-> >
-> >~~~
 > >lifeExp_bycountry %>%
 > >    filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
 > >~~~
@@ -292,7 +278,7 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 2 x 2
+> ># A tibble: 2 × 2
 > >  country      mean_lifeExp
 > >  <chr>               <dbl>
 > >1 Iceland              76.5
@@ -317,7 +303,7 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 1 x 2
+> ># A tibble: 1 × 2
 > >  country      mean_lifeExp
 > >  <chr>               <dbl>
 > >1 Sierra Leone         36.8
@@ -336,7 +322,7 @@ Esto nos ha permitido calcular la renta per cápita media para cada continente, 
 > >
 > >
 > >~~~
-> ># A tibble: 1 x 2
+> ># A tibble: 1 × 2
 > >  country mean_lifeExp
 > >  <chr>          <dbl>
 > >1 Iceland         76.5
@@ -358,7 +344,8 @@ gdp_bycontinents_byyear <- gapminder %>%
 
 
 ~~~
-`summarise()` regrouping output by 'continent' (override with `.groups` argument)
+`summarise()` has grouped output by 'continent'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -378,7 +365,8 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
 
 
 ~~~
-`summarise()` regrouping output by 'continent' (override with `.groups` argument)
+`summarise()` has grouped output by 'continent'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -421,14 +409,7 @@ gapminder %>%
 
 
 ~~~
-`summarise()` ungrouping output (override with `.groups` argument)
-~~~
-{: .output}
-
-
-
-~~~
-# A tibble: 5 x 2
+# A tibble: 5 × 2
   continent se_pop
   <chr>      <dbl>
 1 Africa     0.366
@@ -456,14 +437,7 @@ gapminder %>%
 
 
 ~~~
-`summarise()` ungrouping output (override with `.groups` argument)
-~~~
-{: .output}
-
-
-
-~~~
-# A tibble: 5 x 5
+# A tibble: 5 × 5
   continent mean_le min_le max_le se_le
   <chr>       <dbl>  <dbl>  <dbl> <dbl>
 1 Africa       48.9   23.6   76.4 0.366
@@ -495,7 +469,8 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
 
 
 ~~~
-`summarise()` regrouping output by 'continent' (override with `.groups` argument)
+`summarise()` has grouped output by 'continent'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -522,7 +497,8 @@ gdp_pop_bycontinents_byyear_above25 <- gapminder %>%
 
 
 ~~~
-`summarise()` regrouping output by 'continent' (override with `.groups` argument)
+`summarise()` has grouped output by 'continent'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -542,7 +518,8 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
 
 
 ~~~
-`summarise()` regrouping output by 'continent' (override with `.groups` argument)
+`summarise()` has grouped output by 'continent'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -632,13 +609,6 @@ Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not fin
 > >    arrange(desc(mean_lifeExp))
 > >~~~
 > >{: .language-r}
-> >
-> >
-> >
-> >~~~
-> >`summarise()` ungrouping output (override with `.groups` argument)
-> >~~~
-> >{: .output}
 > {: .solution}
 {: .challenge}
 

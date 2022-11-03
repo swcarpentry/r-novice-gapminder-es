@@ -261,14 +261,15 @@ gap_long$year <- as.integer(gap_long$year)
 > > 
 > > 
 > > ~~~
-> > `summarise()` regrouping output by 'continent' (override with `.groups` argument)
+> > `summarise()` has grouped output by 'continent'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
 > > 
 > > 
 > > ~~~
-> > # A tibble: 15 x 3
+> > # A tibble: 15 × 3
 > > # Groups:   continent [5]
 > >    continent obs_type       means
 > >    <chr>     <chr>          <dbl>

@@ -33,7 +33,9 @@ el sistema de ploteo [base][base], el paquete [lattice][lattice]
 
 Hoy aprenderemos acerca de **`ggplot2`**, que permite de manera sencilla crear gráficos 
 complejos a partir de un conjunto de datos. Este paquete provee una estructura para que podamos especificar 
-qué variables graficar, cómo deben ser presentadas y otras propiedades visuales generales. 
+qué variables graficar, cómo deben ser presentadas y otras propiedades visuales generales 
+([consulta la guía rápida de funciones](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/data-visualization_es.pdf)). 
+
 De esta manera, sólo necesitamos realizar cambios mínimos si los datos sufren alguna modificación
 o si decidimos pasar, por ejemplo, de un gráfico de barras a un diagrama de dispersión. 
 Esto ayuda a crear gráficos con calidad para publicación con pocos ajustes adicionales.

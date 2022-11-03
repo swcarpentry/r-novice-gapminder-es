@@ -257,7 +257,7 @@ También podemos saltar o no mostrar varios elementos:
 
 
 ~~~
-x[c(-1, -5)]  # or x[-c(1,5)]
+x[c(-1, -5)]  # o bien x[-c(1,5)]
 ~~~
 {: .language-r}
 
@@ -565,269 +565,140 @@ x[names(x) == "a"]
 > > ~~~
 > > x_subset <- x[x<7 & x>4]
 > > print(x_subset)
-> > ~~~
-> > {: .language-r}
+> > ```
+> > > {: .solution}
+> > {: .challenge}
 > > 
 > > 
+> > > ## Sugerencia: Nombres no únicos
+> > >
+> > > Debes tener en cuenta que es posible que múltiples elementos en un vector tengan el mismo nombre. (Para un
+> > > **data frame**, las columnas pueden tener el mismo nombre ---aunque R intenta evitarlo--- pero los nombres 
+> > > de las filas deben ser únicos).
+> > > Considera estos ejemplos:
+> > >
+> > >
+> > >```{r}
+> > > x <- 1:3
+> > > x
+> > > names(x) <- c('a', 'a', 'a')
+> > > x
+> > > x['a']  # solo devuelve el primer valor
+> > > x[names(x) == 'a']  # devuelve todos los tres valores
+> > > ```
+> > {: .callout}
 > > 
-> > ~~~
-> >   a   b   d 
-> > 5.4 6.2 4.8 
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-
-> ## Sugerencia: Nombres no únicos
->
-> Debes tener en cuenta que es posible que múltiples elementos en un vector tengan el mismo nombre. (Para un
-> **data frame**, las columnas pueden tener el mismo nombre ---aunque R intenta evitarlo--- pero los nombres 
-> de las filas deben ser únicos).
-> Considera estos ejemplos:
->
->
->
->~~~
-> x <- 1:3
-> x
->~~~
->{: .language-r}
->
->
->
->~~~
->[1] 1 2 3
->~~~
->{: .output}
->
->
->
->~~~
-> names(x) <- c('a', 'a', 'a')
-> x
->~~~
->{: .language-r}
->
->
->
->~~~
->a a a 
->1 2 3 
->~~~
->{: .output}
->
->
->
->~~~
-> x['a']  # solo devuelve el primer valor
->~~~
->{: .language-r}
->
->
->
->~~~
->a 
->1 
->~~~
->{: .output}
->
->
->
->~~~
-> x[names(x) == 'a']  # devuelve todos los tres valores
->~~~
->{: .language-r}
->
->
->
->~~~
->a a a 
->1 2 3 
->~~~
->{: .output}
-{: .callout}
-
-> ## Sugerencia: Obteniendo ayuda para los operadores
->
-> Recuerda que puedes obtener ayuda para los operadores empaquetándolos entre
-> comillas:
-> `help("%in%")` o `?"%in%"`.
->
-{: .callout}
-
-## Saltarse los elementos nombrados
-
-Saltarse o eliminar elementos con nombre es un poco más difícil. Si tratamos de omitir un elemento con nombre al negar la cadena, R se queja (de una manera un poco oscura) de que no sabe cómo tomar el valor negativo de una cadena:
-
-
-
-~~~
-x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # comenzamos nuevamente nombrando un vector en la misma línea
-x[-"a"]
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in -"a": invalid argument to unary operator
-~~~
-{: .error}
-
-Sin embargo, podemos usar el operador `!=` (no igual) para construir un vector
-con elementos lógicos, que es lo que nosotros queremos:
-
-
-
-~~~
-x[names(x) != "a"]
-~~~
-{: .language-r}
-
-
-
-~~~
-  b   c   d   e 
-6.2 7.1 4.8 7.5 
-~~~
-{: .output}
-
-Saltar varios índices con nombre es un poco más difícil. Supongamos
-que queremos excluir los elementos `"a"` y `"c"`, entonces intentamos lo siguiente:
-
-
-~~~
-x[names(x)!=c("a","c")]
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in names(x) != c("a", "c"): longer object length is not a multiple of
-shorter object length
-~~~
-{: .warning}
-
-
-
-~~~
-  b   c   d   e 
-6.2 7.1 4.8 7.5 
-~~~
-{: .output}
-
-R hizo *algo*, pero también nos lanzó una advertencia que debemos atender
--¡y aparentemente *nos dió la respuesta incorrecta*!
-(el elemento `"c"` se encuentra todavía en el vector).
-
-¿Entonces qué hizo el operador `!=` en este caso? Esa es una excelente
-pregunta.
-
-### Reciclando
-
-Tomemos un momento para observar al operador de comparación en este código:
-
-
-
-~~~
-names(x) != c("a", "c")
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in names(x) != c("a", "c"): longer object length is not a multiple of
-shorter object length
-~~~
-{: .warning}
-
-
-
-~~~
-[1] FALSE  TRUE  TRUE  TRUE  TRUE
-~~~
-{: .output}
-
-¿Por qué R devuelve `TRUE` como el tercer elemento de este vector, cuando
-`names(x)[3] != "c"` es obviamente falso?. Cuando tú usas `!=`, R trata
-de comparar cada elemento de la izquierda con el correspondiente elemento
-de la derecha. ¿Qué pasa cuando tu comparas dos elementos de diferentes
-longitudes?
-
-![Inequality testing](../fig/06-rmd-inequality.1.png)
-
-Cuando uno de los vectores es más corto que el otro, este se *recicla*:
-
-![Inequality testing: results of recycling](../fig/06-rmd-inequality.2.png)
-
-En este caso R **repite** `c("a", "c")` tantas veces como sea necesario
-para emparejar `names(x)`, i.e. tenemos `c("a","c","a","c","a")`. Ya que
-el valor reciclado `"a"`no es igual a `names(x)`, el valor de `!=` es
-`TRUE`. En este caso, donde el vector de mayor longitud (5) no es múltiplo
-del más pequeño (2), R lanza esta advertencia. Si
-hubiéramos sido lo suficientemente desafortunados y `names(x)` tuviese seis
-elementos, R *silenciosamente* hubiera hecho las cosas incorrectas (i.e.,
-no lo que deseábamos hacer). Esta regla de reciclaje puede introducir
-**bugs** difíciles de encontrar.
-
-La manera de hacer que R haga lo que en verdad queremos (emparejar *cada uno*
-de los elementos del argumento de la izquierda con *todos* los elementos del
-argumento de la derecha) es usando el operador `%in%`. El operador `%in%`
-toma cada uno de los elementos del argumento de la izquierda, en este caso
-los nombres de `x`, y pegunta, "¿este elemento ocurre en el segundo argumento?"
-Aquí, como queremos *excluir* los valores, nosotros también necesitamos el
-operador `!` para cambiar la inclusión por una *no* inclusión:
-
-
-~~~
-x[! names(x) %in% c("a","c") ]
-~~~
-{: .language-r}
-
-
-
-~~~
-  b   d   e 
-6.2 4.8 7.5 
-~~~
-{: .output}
-
-> ## Desafío 2
->
-> Seleccionar elementos de un vector que empareje con cualquier valor de
-> una lista es una tarea muy común en el análisis de datos. Por ejemplo,
-> el **data set** de *gapminder* contiene las variables `country` y
-> `continent`, pero no incluye información de la escala.
-> Supongamos que queremos extraer la información de el
-> sureste de Asia: ¿cómo podemos escribir una operación que resulte en un
-> vector lógico que sea `TRUE` para todos los países en el sureste de
-> Asia y `FALSE` en otros casos?
->
-> Supongamos que se tienen los siguientes datos:
->
->
->~~~
-> seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
-> ## leer los datos de gapminder que bajamos en el episodio 2
-> gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
-> ## extraer la columna `country` de la **data frame** (veremos esto luego);
-> ## convertir de factor a caracter;
-> ## y quedarse solo con los elementos no repetidos
-> countries <- unique(as.character(gapminder$country))
->~~~
->{: .language-r}
->
-> Existe una manera incorrecta (usando solamente `==`), la cual te
-> dará una advertencia (*warning*); una manera enredada de hacerlo
-> (usando los operadores lógicos `==` y `|`) y una manera elegante
-> (usando `%in%`). Prueba encontrar esas maneras y explica cómo
-> funcionan (o no).
->
+> > > ## Sugerencia: Obteniendo ayuda para los operadores
+> > >
+> > > Recuerda que puedes obtener ayuda para los operadores empaquetándolos entre
+> > > comillas:
+> > > `help("%in%")` o `?"%in%"`.
+> > >
+> > {: .callout}
+> > 
+> > ## Saltarse los elementos nombrados
+> > 
+> > Saltarse o eliminar elementos con nombre es un poco más difícil. Si tratamos de omitir un elemento con nombre al negar la cadena, R se queja (de una manera un poco oscura) de que no sabe cómo tomar el valor negativo de una cadena:
+> > 
+> > ```{r}
+> > x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # comenzamos nuevamente nombrando un vector en la misma línea
+> > x[-"a"]
+> > ```
+> > 
+> > Sin embargo, podemos usar el operador `!=` (no igual) para construir un vector
+> > con elementos lógicos, que es lo que nosotros queremos:
+> > 
+> > ```{r}
+> > x[names(x) != "a"]
+> > ```
+> > 
+> > Saltar varios índices con nombre es un poco más difícil. Supongamos
+> > que queremos excluir los elementos `"a"` y `"c"`, entonces intentamos lo siguiente:
+> > 
+> > ```{r}
+> > x[names(x)!=c("a","c")]
+> > ```
+> > 
+> > R hizo *algo*, pero también nos lanzó una advertencia que debemos atender
+> > -¡y aparentemente *nos dió la respuesta incorrecta*!
+> > (el elemento `"c"` se encuentra todavía en el vector).
+> > 
+> > ¿Entonces qué hizo el operador `!=` en este caso? Esa es una excelente
+> > pregunta.
+> > 
+> > ### Reciclando
+> > 
+> > Tomemos un momento para observar al operador de comparación en este código:
+> > 
+> > ```{r}
+> > names(x) != c("a", "c")
+> > ```
+> > 
+> > ¿Por qué R devuelve `TRUE` como el tercer elemento de este vector, cuando
+> > `names(x)[3] != "c"` es obviamente falso?. Cuando tú usas `!=`, R trata
+> > de comparar cada elemento de la izquierda con el correspondiente elemento
+> > de la derecha. ¿Qué pasa cuando tu comparas dos elementos de diferentes
+> > longitudes?
+> > 
+> > ![Inequality testing](../fig/06-rmd-inequality.1.png)
+> > 
+> > Cuando uno de los vectores es más corto que el otro, este se *recicla*:
+> > 
+> > ![Inequality testing: results of recycling](../fig/06-rmd-inequality.2.png)
+> > 
+> > En este caso R **repite** `c("a", "c")` tantas veces como sea necesario
+> > para emparejar `names(x)`, i.e. tenemos `c("a","c","a","c","a")`. Ya que
+> > el valor reciclado `"a"`no es igual a `names(x)`, el valor de `!=` es
+> > `TRUE`. En este caso, donde el vector de mayor longitud (5) no es múltiplo
+> > del más pequeño (2), R lanza esta advertencia. Si
+> > hubiéramos sido lo suficientemente desafortunados y `names(x)` tuviese seis
+> > elementos, R *silenciosamente* hubiera hecho las cosas incorrectas (i.e.,
+> > no lo que deseábamos hacer). Esta regla de reciclaje puede introducir
+> > **bugs** difíciles de encontrar.
+> > 
+> > La manera de hacer que R haga lo que en verdad queremos (emparejar *cada uno*
+> > de los elementos del argumento de la izquierda con *todos* los elementos del
+> > argumento de la derecha) es usando el operador `%in%`. El operador `%in%`
+> > toma cada uno de los elementos del argumento de la izquierda, en este caso
+> > los nombres de `x`, y pegunta, "¿este elemento ocurre en el segundo argumento?"
+> > Aquí, como queremos *excluir* los valores, nosotros también necesitamos el
+> > operador `!` para cambiar la inclusión por una *no* inclusión:
+> > 
+> > ```{r}
+> > x[! names(x) %in% c("a","c") ]
+> > ```
+> > 
+> > > ## Desafío 2
+> > >
+> > > Seleccionar elementos de un vector que empareje con cualquier valor de
+> > > una lista es una tarea muy común en el análisis de datos. Por ejemplo,
+> > > el **data set** de *gapminder* contiene las variables `country` y
+> > > `continent`, pero no incluye información de la escala.
+> > > Supongamos que queremos extraer la información de el
+> > > sureste de Asia: ¿cómo podemos escribir una operación que resulte en un
+> > > vector lógico que sea `TRUE` para todos los países en el sureste de
+> > > Asia y `FALSE` en otros casos?
+> > >
+> > > Supongamos que se tienen los siguientes datos:
+> > >
+> > >```{r}
+> > > seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
+> > > ## leer los datos de gapminder que bajamos en el episodio 2
+> > > gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+> > > ## extraer la columna `country` de la **data frame** (veremos esto luego);
+> > > ## convertir de factor a caracter;
+> > > ## y quedarse solo con los elementos no repetidos
+> > > countries <- unique(as.character(gapminder$country))
+> > > ```
+> > >
+> > > Existe una manera incorrecta (usando solamente `==`), la cual te
+> > > dará una advertencia (*warning*); una manera enredada de hacerlo
+> > > (usando los operadores lógicos `==` y `|`) y una manera elegante
+> > > (usando `%in%`). Prueba encontrar esas maneras y explica cómo
+> > > funcionan (o no).
+> > >
 > > ## Solución al desafío 2
-> >
+> > 
 > > - La manera **incorrecta** de hacer este problema es `countries==seAsia`.
 > > Esta lanza una advertencia (`"In countries == seAsia : longer object length is not a multiple of shorter object length"`)
 > > y la respuesta incorrecta (un vector con todos los valores `FALSE`), ya
@@ -835,12 +706,18 @@ x[! names(x) %in% c("a","c") ]
 > > para coincidir con los valores de `country`.
 > > - La manera **enredada** (pero técnicamente correcta) de resolver
 > > este problema es
-> >
-> >~~~
+> > ```{r results="hide"}
 > >  (countries=="Myanmar" | countries=="Thailand" |
 > >  countries=="Cambodia" | countries == "Vietnam" | countries=="Laos")
-> >~~~
-> >{: .language-r}
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > Error: attempt to use zero-length variable name
+> > ~~~
+> > {: .error}
 > > (o `countries==seAsia[1] | countries==seAsia[2] | ...`). Esto
 > > da los valores correctos, pero esperamos que veas lo raro que se ve
 > > (¿qué hubiera pasado si hubiéramos querido seleccionar países de una

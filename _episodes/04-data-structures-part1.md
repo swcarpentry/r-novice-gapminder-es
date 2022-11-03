@@ -24,9 +24,9 @@ source: Rmd
 
 > ## Palabras clave
 >
-> Comando : Traducción
+> Comando : Significado
 >
-> `data set` : conjunto de datos
+> *data set* : conjunto de datos
 >
 > `c` : combinar
 >
@@ -39,7 +39,7 @@ source: Rmd
 
 Una de las características más poderosas de R es su habilidad para manejar datos tabulares -
 como los que puedes tener en una planilla de cálculo o un archivo CSV. 
-Comencemos creando un **dataset** llamado `gatos` que se vea así. 
+Comencemos creando un **dataset** llamado `gatos` que se vea de la siguiente forma:
 
 
 ~~~
@@ -50,7 +50,7 @@ atigrado,3.2,1
 ~~~
 {: .language-r}
 
-Podemos usar la function `data.frame` para crearlo.
+Podemos usar la función `data.frame` para crearlo.
 
 
 ~~~
@@ -78,10 +78,36 @@ gatos
 >
 > Alternativamente, puedes crear el archivo `data/feline-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
-> Podemos leer el archivo en R con el siguiente comando:
-> `gatos <- read.csv(file = "data/feline-data.csv")` para leer el archivo.
 {: .callout}
 
+Podemos leer el archivo en R con el siguiente comando:
+
+
+~~~
+gatos <- read.csv(file = "data/feline-data.csv")
+gatos
+~~~
+{: .language-r}
+
+
+
+~~~
+    coat weight likes_string
+1 calico    2.1            1
+2  black    5.0            0
+3  tabby    3.2            1
+~~~
+{: .output}
+
+La función `read.table` se usa para leer datos tabulares almacenados en un archivo de 
+texto donde las columnas de datos están separadas por caracteres de puntuación, por ejemplo
+archivos CSV (csv = valores separados por comas). Las tabulaciones y las comas son los
+caracteres de puntuación más utilizados para separar o delimitar datos en archivos csv.
+Para mayor comodidad, R proporciona otras 2 versiones de "read.table". Estos son: `read.csv`
+para archivos donde los datos están separados por comas y `read.delim` para archivos
+donde los datos están separados por tabulaciones. De estas tres funciones, `read.csv` es
+el más utilizado. Si fuera necesario, es posible anular o modificar el delimitador predeterminado
+para `read.csv` y ` read.delim`.
 
 Podemos empezar a explorar el **dataset** inmediatamente proyectando las columnas usando el operador `$`:
 
@@ -94,7 +120,7 @@ gatos$peso
 
 
 ~~~
-[1] 2.1 5.0 3.2
+NULL
 ~~~
 {: .output}
 
@@ -108,7 +134,7 @@ gatos$color
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+NULL
 ~~~
 {: .output}
 
@@ -123,7 +149,7 @@ gatos$peso + 2
 
 
 ~~~
-[1] 4.1 7.0 5.2
+numeric(0)
 ~~~
 {: .output}
 
@@ -138,8 +164,7 @@ paste("El color del gato es", gatos$color)
 
 
 ~~~
-[1] "El color del gato es mixto"    "El color del gato es negro"   
-[3] "El color del gato es atigrado"
+[1] "El color del gato es "
 ~~~
 {: .output}
 
@@ -154,9 +179,9 @@ gatos$peso + gatos$color
 
 
 ~~~
-Error in gatos$peso + gatos$color: non-numeric argument to binary operator
+integer(0)
 ~~~
-{: .error}
+{: .output}
 
 Si adivinaste que el último comando iba a resultar en un error porque `2.1` más
 `"negro"` no tiene sentido, estás en lo cierto - y ya tienes alguna intuición sobre un concepto
@@ -179,7 +204,7 @@ class(gatos$color)
 
 
 ~~~
-[1] "character"
+[1] "NULL"
 ~~~
 {: .output}
 
@@ -193,7 +218,7 @@ class(gatos$peso)
 
 
 ~~~
-[1] "numeric"
+[1] "NULL"
 ~~~
 {: .output}
 
@@ -238,7 +263,7 @@ str(gatos$peso)
 
 
 ~~~
- num [1:3] 2.1 5 3.2
+ NULL
 ~~~
 {: .output}
 
@@ -400,7 +425,7 @@ numerico_coercionado_logico
 ~~~
 {: .output}
 
-Como puedes ver, algunas cosas sorprendentes ocurren cuando R fuerza la conversión de un tipo de datos en otro tipo. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
+Como puedes notar, es sorprendete ver qué pasa cuando R forza la conversión de un tipo de datos a otro. Es decir, si tus datos no lucen como pensabas que deberían lucir, puede ser culpa de la coerción de tipos. Por lo tanto, asegúrate que todos los elementos de tus vectores y las columnas de tus **data.frames** sean del mismo tipo o te encontrarás con sorpresas desagradables.
 
 Pero la coerción de tipos también puede ser muy útil. Por ejemplo, en los datos de `gatos`,
 `le_gusta_cuerda` es numérica, pero sabemos que los 1s y 0s en realidad representan **`TRUE`** y **`FALSE`**
@@ -418,7 +443,7 @@ gatos$le_gusta_cuerda
 
 
 ~~~
-[1] 1 0 1
+NULL
 ~~~
 {: .output}
 
@@ -432,7 +457,7 @@ class(gatos$le_gusta_cuerda)
 
 
 ~~~
-[1] "numeric"
+[1] "NULL"
 ~~~
 {: .output}
 
@@ -440,6 +465,19 @@ class(gatos$le_gusta_cuerda)
 
 ~~~
 gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in `$<-.data.frame`(`*tmp*`, le_gusta_cuerda, value = logical(0)): replacement has 0 rows, data has 3
+~~~
+{: .error}
+
+
+
+~~~
 gatos$le_gusta_cuerda
 ~~~
 {: .language-r}
@@ -447,7 +485,7 @@ gatos$le_gusta_cuerda
 
 
 ~~~
-[1]  TRUE FALSE  TRUE
+NULL
 ~~~
 {: .output}
 
@@ -461,7 +499,7 @@ class(gatos$le_gusta_cuerda)
 
 
 ~~~
-[1] "logical"
+[1] "NULL"
 ~~~
 {: .output}
 
@@ -620,7 +658,7 @@ str(gatos$color)
 
 
 ~~~
- chr [1:3] "mixto" "negro" "atigrado"
+ NULL
 ~~~
 {: .output}
 
@@ -775,7 +813,7 @@ str(factor_orden)
 {: .output}
 
 En este caso, le hemos dicho explícitamente a R que "control" debería estar representado por 1, y
-"case" por 2. Esta designación puede ser muy importante para interpretar los
+"caso" por 2. Esta designación puede ser muy importante para interpretar los
 resultados de modelos estadísticos!
 
 ## Listas
@@ -831,7 +869,7 @@ $data
 ~~~
 {: .output}
 
-Ahora podemos entender algo un poco sorprendente en nuestro **data.frame**; ¿Qué pasa si corremos?
+Ahora veamos algo interesante acerca de nuestro **data.frame**; ¿Qué pasa si corremos la siguiente línea?
 
 
 
@@ -868,7 +906,7 @@ gatos$color
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+NULL
 ~~~
 {: .output}
 
@@ -882,7 +920,7 @@ gatos[,1]
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+[1] "calico" "black"  "tabby" 
 ~~~
 {: .output}
 
@@ -910,7 +948,7 @@ str(gatos[,1])
 
 
 ~~~
- chr [1:3] "mixto" "negro" "atigrado"
+ chr [1:3] "calico" "black" "tabby"
 ~~~
 {: .output}
 
@@ -926,8 +964,8 @@ gatos[1,]
 
 
 ~~~
-  color peso le_gusta_cuerda
-1 mixto  2.1            TRUE
+    coat weight likes_string
+1 calico    2.1            1
 ~~~
 {: .output}
 
@@ -956,15 +994,15 @@ str(gatos[1,])
 
 ~~~
 'data.frame':	1 obs. of  3 variables:
- $ color          : chr "mixto"
- $ peso           : num 2.1
- $ le_gusta_cuerda: logi TRUE
+ $ coat        : chr "calico"
+ $ weight      : num 2.1
+ $ likes_string: int 1
 ~~~
 {: .output}
 
 > ## Desafío 3
 >
-> Hay varias maneras sutílmente diferentes de indicar variables, observaciones y elementos de **data.frames**:
+> Hay varias maneras sutilmente diferentes de indicar variables, observaciones y elementos de **data.frames**:
 >
 > - `gatos[1]`
 > - `gatos[[1]]`
@@ -989,14 +1027,14 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >      color
-> > 1    mixto
-> > 2    negro
-> > 3 atigrado
+> >     coat
+> > 1 calico
+> > 2  black
+> > 3  tabby
 > > ~~~
 > > {: .output}
 > > Podemos interpretar un **data frame** como una lista de vectores. Un único par de corchetes `[1]`
-> resulta en la primer proyección de la lista, como otra lista. En este caso es la primer columna del
+> resulta en la primera proyección de la lista, como otra lista. En este caso es la primera columna del
 > **data frame**.
 > > 
 > > ~~~
@@ -1007,7 +1045,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > [1] "calico" "black"  "tabby" 
 > > ~~~
 > > {: .output}
 > > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
@@ -1021,11 +1059,11 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > NULL
 > > ~~~
 > > {: .output}
-> > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _capa_ es la
-> > primer columna del marco de datos, de nuevo un _vector_ de tipo _factor_.
+> > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _color_ es la
+> > primera columna del _data frame_, de nuevo un _vector_ de tipo _factor_.
 > > 
 > > ~~~
 > > gatos["color"]
@@ -1035,12 +1073,9 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >      color
-> > 1    mixto
-> > 2    negro
-> > 3 atigrado
+> > Error in `[.data.frame`(gatos, "color"): undefined columns selected
 > > ~~~
-> > {: .output}
+> > {: .error}
 > > Aquí estamos usando un solo corchete `["color"]` reemplazando el número del índice con 
 > > el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un _list_.
 > > 
@@ -1052,10 +1087,10 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"
+> > [1] "calico"
 > > ~~~
 > > {: .output}
-> > Este ejemplo usa un sólo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
+> > Este ejemplo usa un solo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
 > > El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un _integer_ pero como 
 > > es parte de un _vector_ de tipo _factor_, R muestra la etiqueta "mixto" asociada con el valor entero.
 > > 
@@ -1067,7 +1102,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > [1] "calico" "black"  "tabby" 
 > > ~~~
 > > {: .output}
 > > Al igual que en el ejemplo anterior, utilizamos corchetes simples y proporcionamos 
@@ -1082,8 +1117,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >   color peso le_gusta_cuerda
-> > 1 mixto  2.1            TRUE
+> >     coat weight likes_string
+> > 1 calico    2.1            1
 > > ~~~
 > > {: .output}
 > > De nuevo, utilizamos el corchete simple con las coordenadas de fila y columna. 

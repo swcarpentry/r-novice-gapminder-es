@@ -5,7 +5,7 @@ title: "Gestión de proyectos con RStudio"
 teaching: 20
 exercises: 10
 questions:
-- "¿Cómo pudo gestionar mis proyectos en R?"
+- "¿Cómo puedo gestionar mis proyectos en R?"
 objectives:
 - Crear proyectos independientes en RStudio
 keypoints:
@@ -192,7 +192,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-r--r-- 1 runner docker 80K Nov  2 15:11 data/gapminder-FiveYearData.csv
+> > -rw-r--r-- 1 runner docker 80K Nov  3 00:34 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 

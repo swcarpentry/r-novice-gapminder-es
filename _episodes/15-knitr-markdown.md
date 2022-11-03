@@ -249,7 +249,7 @@ producidas, se incluyen enlaces a esas figuras.
 Los documentos **Markdown** y figura son entones procesados por la herramienta
 [pandoc](http://pandoc.org/), que convierte el archivo **Markdown** en un
 archivo **html**, con las figuras embebidas.
-<img src="../fig/rmd-15-rmd_to_html_fig-1.png" title="plot of chunk rmd_to_html_fig" alt="plot of chunk rmd_to_html_fig" width="576" style="display: block; margin: auto auto auto 0;" />
+<img src="../fig/rmd-15-rmd_to_html_fig-1.png" alt="plot of chunk rmd_to_html_fig" width="576" style="display: block; margin: auto auto auto 0;" />
 
 
 ## Opciones de fragmento

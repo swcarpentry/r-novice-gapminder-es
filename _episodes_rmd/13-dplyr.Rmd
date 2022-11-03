@@ -41,7 +41,9 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
 > `mutate` : mutar
 {: .checklist}
 
-La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
+La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar 
+ciertas observaciones (filas) o variables (columnas), otras veces deseamos agrupar los datos en función de una o más variables, 
+o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ello usando las habituales operaciones básicas de R:
 
 ```{r}
 mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
@@ -49,11 +51,15 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 ```
 
-Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta tiempo, tanto en el momento de hacerlo como en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
+Pero esto no es muy *elegante* porque hay demasiada repetición. Repetir cosas cuesta tiempo, tanto en el momento de hacerlo como 
+en el futuro, y aumenta la probabilidad de que se produzcan desagradables _bugs_ (errores).
 
 ## El paquete `dplyr`
 
-Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/package=dplyr) proporciona un conjunto de funciones extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
+Afortunadamente, el paquete [`dplyr`](https://cran.r-project.org/package=dplyr) proporciona un conjunto de funciones 
+(consulta la [guía rápida](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/data-transformation_es.pdf) ) 
+extremadamente útiles para manipular **data frames** y así reducir el número de repeticiones , la probabilidad de cometer errores y 
+el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de `dplyr` es más fácil de entender.
 
 Aquí vamos a revisar 6 de sus funciones más usadas, así como a usar los **pipes** (`%>%`) para combinarlas.
 

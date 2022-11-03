@@ -30,7 +30,7 @@ A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo
   
 > ## Palabras clave 
 >
-> Command : Translation
+> Comando : Traducción
 >
 > `nrow`: número de filas
 >
@@ -122,7 +122,7 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
 
-Para que funcione, debemos tener `nrow(gatos)` = `length(age)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
+Para que funcione, debemos tener `nrow(gatos)` = `length(edad)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 
 ~~~
@@ -212,14 +212,14 @@ Levels: negro canela
 ~~~
 {: .output}
 
-## Factors
+## Factores
 
 Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cuidado. Cuando R crea un *factor*, únicamente permite los valores que originalmente
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
 La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *legusta_la_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
@@ -394,7 +394,7 @@ gatos[,-4]
 
 Observa la coma sin nada antes, lo que indica que queremos mantener todas las filas.
 
-Alternativamente, podemos soltar la columna usando el nombre del índice.
+Alternativamente, podemos quitar la columna usando el nombre del índice.
 
 
 ~~~
@@ -790,12 +790,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                 country year      pop continent lifeExp  gdpPercap
-> > 1661 West Bank and Gaza 1972  1089572      Asia  56.532  3133.4093
-> > 943            Malaysia 1982 14441916      Asia  68.000  4920.3560
-> > 1592             Uganda 1987 15283050    Africa  51.509   617.7244
-> > 1170           Pakistan 1977 78152686      Asia  54.043  1175.9212
-> > 71            Australia 2002 19546792   Oceania  80.370 30687.7547
+> >          country year      pop continent lifeExp  gdpPercap
+> > 1678  Yemen Rep. 1997 15826497      Asia  58.020  2117.4845
+> > 232     Cameroon 1967  6335506    Africa  44.799  1508.4531
+> > 679      Hungary 1982 10705535    Europe  69.390 12545.9907
+> > 931       Malawi 1982  6502825    Africa  45.642   632.8039
+> > 1092 Netherlands 2007 16570613    Europe  79.762 36797.9333
 > > ~~~
 > > {: .output}
 > {: .solution}

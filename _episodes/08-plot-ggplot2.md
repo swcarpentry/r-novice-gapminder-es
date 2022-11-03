@@ -30,7 +30,9 @@ el sistema de ploteo [base][base], el paquete [lattice][lattice]
 
 Hoy aprenderemos acerca de **`ggplot2`**, que permite de manera sencilla crear gráficos 
 complejos a partir de un conjunto de datos. Este paquete provee una estructura para que podamos especificar 
-qué variables graficar, cómo deben ser presentadas y otras propiedades visuales generales. 
+qué variables graficar, cómo deben ser presentadas y otras propiedades visuales generales 
+([consulta la guía rápida de funciones](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/data-visualization_es.pdf)). 
+
 De esta manera, sólo necesitamos realizar cambios mínimos si los datos sufren alguna modificación
 o si decidimos pasar, por ejemplo, de un gráfico de barras a un diagrama de dispersión. 
 Esto ayuda a crear gráficos con calidad para publicación con pocos ajustes adicionales.
@@ -92,7 +94,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-build-ggplot-3-1.png" title="plot of chunk build-ggplot-3" alt="plot of chunk build-ggplot-3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-build-ggplot-3-1.png" alt="plot of chunk build-ggplot-3" width="612" style="display: block; margin: auto;" />
 
 > ## Desafío 1
 >
@@ -121,7 +123,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-08-ch1-sol-1.png" title="plot of chunk ch1-sol" alt="plot of chunk ch1-sol" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-08-ch1-sol-1.png" alt="plot of chunk ch1-sol" width="612" style="display: block; margin: auto;" />
 > >
 > {: .solution}
 {: .challenge}
@@ -148,7 +150,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-08-ch2-sol-1.png" title="plot of chunk ch2-sol" alt="plot of chunk ch2-sol" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-08-ch2-sol-1.png" alt="plot of chunk ch2-sol" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -166,7 +168,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-lifeExp-line-1.png" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lifeExp-line-1.png" alt="plot of chunk lifeExp-line" width="612" style="display: block; margin: auto;" />
 
 En vez de agregar una capa `geom_point`, hemos agregado una capa `geom_line`.
 Además, hemos agregado el argumento **aesthetic** **by**, el cual le dice a `ggplot` que
@@ -182,7 +184,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-lifeExp-line-point-1.png" title="plot of chunk lifeExp-line-point" alt="plot of chunk lifeExp-line-point" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lifeExp-line-point-1.png" alt="plot of chunk lifeExp-line-point" width="612" style="display: block; margin: auto;" />
 Es importante notar que cada capa se dibuja encima de la capa anterior. En este ejemplo, 
 los puntos se han dibujado *sobre* las líneas. A continuación observamos una demostración:
 
@@ -193,7 +195,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-lifeExp-layer-example-1-1.png" title="plot of chunk lifeExp-layer-example-1" alt="plot of chunk lifeExp-layer-example-1" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lifeExp-layer-example-1-1.png" alt="plot of chunk lifeExp-layer-example-1" width="612" style="display: block; margin: auto;" />
 
 En este ejemplo, el mapeo **aesthetic** de **color** se ha movido de las opciones globales de la gráfica en 
 `ggplot` a la capa `geom_line` y, por lo tanto, ya no es válido para los puntos. 
@@ -225,7 +227,7 @@ Ahora podemos ver claramente que los puntos se dibujan sobre las líneas.
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-08-ch3-sol-1.png" title="plot of chunk ch3-sol" alt="plot of chunk ch3-sol" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-08-ch3-sol-1.png" alt="plot of chunk ch3-sol" width="612" style="display: block; margin: auto;" />
 > >
 > > ¡Las líneas ahora están dibujadas sobre los puntos!
 > >
@@ -244,7 +246,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter3-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter3" alt="plot of chunk lifeExp-vs-gdpPercap-scatter3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lifeExp-vs-gdpPercap-scatter3-1.png" alt="plot of chunk lifeExp-vs-gdpPercap-scatter3" width="612" style="display: block; margin: auto;" />
 
 En este momento es difícil ver las relaciones entre los puntos debido a algunos 
 valores altamente atípicos de la variable GDP per capita. Podemos cambiar la escala de unidades del eje X
@@ -260,7 +262,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-axis-scale-1.png" title="plot of chunk axis-scale" alt="plot of chunk axis-scale" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-axis-scale-1.png" alt="plot of chunk axis-scale" width="612" style="display: block; margin: auto;" />
 La función `log10` aplica una transformación sobre los valores de la columna "gdpPercap"
 antes de presentarlos en el gráfico, de manera que cada múltiplo de 10 ahora
 corresponde a un incremento de 1 en la escala transformada, e.g. un GDP per capita de 1,000
@@ -293,7 +295,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .output}
 
-<img src="../fig/rmd-08-lm-fit-1.png" title="plot of chunk lm-fit" alt="plot of chunk lm-fit" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lm-fit-1.png" alt="plot of chunk lm-fit" width="612" style="display: block; margin: auto;" />
 Podemos hacer la línea más gruesa *configurando* el argumento **aesthetic** **tamaño** en la capa `geom_smooth`:
 
 
@@ -310,7 +312,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .output}
 
-<img src="../fig/rmd-08-lm-fit2-1.png" title="plot of chunk lm-fit2" alt="plot of chunk lm-fit2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-lm-fit2-1.png" alt="plot of chunk lm-fit2" width="612" style="display: block; margin: auto;" />
 
 Existen dos formas en las que un *aesthetic* puede ser especificado. Aquí *configuramos* el 
 **aesthetic** **tamaño** pasándolo como un argumento a `geom_smooth`. Previamente en la lección
@@ -343,7 +345,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > ~~~
 > > {: .output}
 > > 
-> > <img src="../fig/rmd-08-ch4a-sol-1.png" title="plot of chunk ch4a-sol" alt="plot of chunk ch4a-sol" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-08-ch4a-sol-1.png" alt="plot of chunk ch4a-sol" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -379,7 +381,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > >~~~
 > >{: .output}
 > >
-> ><img src="../fig/rmd-08-ch4b-sol-1.png" title="plot of chunk ch4b-sol" alt="plot of chunk ch4b-sol" width="612" style="display: block; margin: auto;" />
+> ><img src="../fig/rmd-08-ch4b-sol-1.png" alt="plot of chunk ch4b-sol" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -410,7 +412,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-facet-1.png" title="plot of chunk facet" alt="plot of chunk facet" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-facet-1.png" alt="plot of chunk facet" width="612" style="display: block; margin: auto;" />
 
 
 La capa `facet_wrap` toma una "fórmula" como argumento, lo cual se indica por el símbolo `~`.
@@ -445,7 +447,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-08-theme-1.png" title="plot of chunk theme" alt="plot of chunk theme" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-08-theme-1.png" alt="plot of chunk theme" width="612" style="display: block; margin: auto;" />
 
 ## Exportando una gráfica
 
@@ -519,7 +521,7 @@ te llevarán a Stack Overflow donde encuentras preguntas y respuestas ¡con cód
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-08-ch5-sol-1.png" title="plot of chunk ch5-sol" alt="plot of chunk ch5-sol" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-08-ch5-sol-1.png" alt="plot of chunk ch5-sol" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
