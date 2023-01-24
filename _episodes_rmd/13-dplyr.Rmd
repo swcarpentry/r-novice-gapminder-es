@@ -32,6 +32,8 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
 >
 > `select` : seleccionar
 >
+> `group_by` : agrupar  
+>
 > `summarize` : resumir
 >
 > `count` : contar

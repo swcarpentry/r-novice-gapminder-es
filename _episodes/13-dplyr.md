@@ -29,6 +29,8 @@ source: Rmd
 >
 > `select` : seleccionar
 >
+> `group_by` : agrupar  
+>
 > `summarize` : resumir
 >
 > `count` : contar

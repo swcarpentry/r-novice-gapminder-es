@@ -790,12 +790,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >          country year      pop continent lifeExp  gdpPercap
-> > 1678  Yemen Rep. 1997 15826497      Asia  58.020  2117.4845
-> > 232     Cameroon 1967  6335506    Africa  44.799  1508.4531
-> > 679      Hungary 1982 10705535    Europe  69.390 12545.9907
-> > 931       Malawi 1982  6502825    Africa  45.642   632.8039
-> > 1092 Netherlands 2007 16570613    Europe  79.762 36797.9333
+> >      country year      pop continent lifeExp gdpPercap
+> > 161 Botswana 1972   619351    Africa  56.024  2263.611
+> > 47    Angola 2002 10866106    Africa  41.003  2773.287
+> > 118  Belgium 1997 10199787    Europe  77.530 27561.197
+> > 425 Djibouti 1972   178848    Africa  44.366  3694.212
+> > 18   Albania 1977  2509048    Europe  68.930  3533.004
 > > ~~~
 > > {: .output}
 > {: .solution}

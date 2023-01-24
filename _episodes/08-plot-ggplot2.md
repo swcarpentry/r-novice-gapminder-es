@@ -291,7 +291,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 
 ~~~
-`geom_smooth()` using formula 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
 ~~~
 {: .output}
 
@@ -308,7 +308,15 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 
 ~~~
-`geom_smooth()` using formula 'y ~ x'
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+~~~
+{: .warning}
+
+
+
+~~~
+`geom_smooth()` using formula = 'y ~ x'
 ~~~
 {: .output}
 
@@ -341,7 +349,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > > 
 > > 
 > > ~~~
-> > `geom_smooth()` using formula 'y ~ x'
+> > `geom_smooth()` using formula = 'y ~ x'
 > > ~~~
 > > {: .output}
 > > 
@@ -377,7 +385,7 @@ habíamos usado la función `aes` para definir un *mapeo* entre alguna variable 
 > >
 > >
 > >~~~
-> >`geom_smooth()` using formula 'y ~ x'
+> >`geom_smooth()` using formula = 'y ~ x'
 > >~~~
 > >{: .output}
 > >
