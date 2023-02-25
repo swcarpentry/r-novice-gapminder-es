@@ -790,12 +790,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                  country year      pop continent lifeExp gdpPercap
-> > 1402             Somalia 1997  6633514    Africa  43.795  930.5964
-> > 1555 Trinidad and Tobago 1982  1116479  Americas  68.832 9119.5286
-> > 1556 Trinidad and Tobago 1987  1191336  Americas  69.582 7388.5978
-> > 1195            Paraguay 1982  3366439  Americas  66.874 4258.5036
-> > 1074               Nepal 1977 13933198      Asia  46.748  694.1124
+> >          country year      pop continent lifeExp gdpPercap
+> > 467        Egypt 2002 73312559    Africa  69.806  4754.604
+> > 1220 Philippines 1987 60017788      Asia  64.151  2189.635
+> > 381      Croatia 1992  4494013    Europe  72.527  8447.795
+> > 48        Angola 2007 12420476    Africa  42.731  4797.231
+> > 646        Haiti 1997  6913545  Americas  56.671  1341.727
 > > ~~~
 > > {: .output}
 > {: .solution}

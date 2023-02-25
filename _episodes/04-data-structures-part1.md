@@ -74,17 +74,19 @@ gatos
 
 
 
+
 > ## Consejo: Edición de archivos de texto en R
-> 
-> Alternativamente, puedes crear el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
+> Crea el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
+> Recuerda que debes tener creado el directorio data para poder guardar
+> dentro el archivo gatos-data.csv
 {: .callout}
 
 Podemos leer el archivo en R con el siguiente comando:
 
 
 ~~~
-gatos <- read.csv(file = "data/gatos-data.csv")
+gatos <- read.csv(file = "data/gatos-data.csv", stringsAsFactors = TRUE)
 gatos
 ~~~
 {: .language-r}
@@ -134,7 +136,8 @@ gatos$color
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -180,9 +183,16 @@ gatos$peso + gatos$color
 
 
 ~~~
-Error in gatos$peso + gatos$color: non-numeric argument to binary operator
+Warning in Ops.factor(gatos$peso, gatos$color): '+' not meaningful for factors
 ~~~
-{: .error}
+{: .warning}
+
+
+
+~~~
+[1] NA NA NA
+~~~
+{: .output}
 
 Si adivinaste que el último comando iba a resultar en un error porque `2.1` más
 `"negro"` no tiene sentido, estás en lo cierto - y ya tienes alguna intuición sobre un concepto
@@ -205,7 +215,7 @@ class(gatos$color)
 
 
 ~~~
-[1] "character"
+[1] "factor"
 ~~~
 {: .output}
 
@@ -646,7 +656,7 @@ str(gatos$color)
 
 
 ~~~
- chr [1:3] "mixto" "negro" "atigrado"
+ Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ~~~
 {: .output}
 
@@ -893,7 +903,8 @@ gatos$color
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -907,7 +918,8 @@ gatos[,1]
 
 
 ~~~
-[1] "mixto"    "negro"    "atigrado"
+[1] mixto    negro    atigrado
+Levels: atigrado mixto negro
 ~~~
 {: .output}
 
@@ -921,7 +933,7 @@ typeof(gatos[,1])
 
 
 ~~~
-[1] "character"
+[1] "integer"
 ~~~
 {: .output}
 
@@ -935,7 +947,7 @@ str(gatos[,1])
 
 
 ~~~
- chr [1:3] "mixto" "negro" "atigrado"
+ Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ~~~
 {: .output}
 
@@ -981,7 +993,7 @@ str(gatos[1,])
 
 ~~~
 'data.frame':	1 obs. of  3 variables:
- $ color          : chr "mixto"
+ $ color          : Factor w/ 3 levels "atigrado","mixto",..: 2
  $ peso           : num 2.1
  $ le_gusta_cuerda: logi TRUE
 ~~~
@@ -1032,7 +1044,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
@@ -1046,7 +1059,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _color_ es la
@@ -1077,7 +1091,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"
+> > [1] mixto
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa un solo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
@@ -1092,7 +1107,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "mixto"    "negro"    "atigrado"
+> > [1] mixto    negro    atigrado
+> > Levels: atigrado mixto negro
 > > ~~~
 > > {: .output}
 > > Al igual que en el ejemplo anterior, utilizamos corchetes simples y proporcionamos 
