@@ -74,7 +74,7 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 Podemos leer el archivo en R con el siguiente comando:
 
 ```{r}
-gatos <- read.csv(file = "data/feline-data.csv")
+gatos <- read.csv(file = "data/gatos-data.csv")
 gatos
 ```
 
