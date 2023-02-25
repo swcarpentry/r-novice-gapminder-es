@@ -75,8 +75,8 @@ gatos
 
 
 > ## Consejo: Edición de archivos de texto en R
->
-> Alternativamente, puedes crear el archivo `data/feline-data.csv` usando un editor de texto (Nano),
+> 
+> Alternativamente, puedes crear el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
 {: .callout}
 
@@ -657,7 +657,7 @@ gatos en nuestro estudio:
 
 
 ~~~
-capas <- c('atigrado', 'tortoiseshell', 'tortoiseshell', 'negro', 'atigrado')
+capas <- c('atigrado', 'carey', 'carey', 'negro', 'atigrado')
 capas
 ~~~
 {: .language-r}
@@ -665,8 +665,7 @@ capas
 
 
 ~~~
-[1] "atigrado"      "tortoiseshell" "tortoiseshell" "negro"        
-[5] "atigrado"     
+[1] "atigrado" "carey"    "carey"    "negro"    "atigrado"
 ~~~
 {: .output}
 
@@ -680,7 +679,7 @@ str(capas)
 
 
 ~~~
- chr [1:5] "atigrado" "tortoiseshell" "tortoiseshell" "negro" "atigrado"
+ chr [1:5] "atigrado" "carey" "carey" "negro" "atigrado"
 ~~~
 {: .output}
 
@@ -711,7 +710,7 @@ str(categorias)
 
 
 ~~~
- Factor w/ 3 levels "atigrado","negro",..: 1 3 3 2 1
+ Factor w/ 3 levels "atigrado","carey",..: 1 2 2 3 1
 ~~~
 {: .output}
 
