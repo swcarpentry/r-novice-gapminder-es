@@ -66,8 +66,8 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 
 
 > ## Consejo: Edición de archivos de texto en R
->
-> Alternativamente, puedes crear el archivo `data/feline-data.csv` usando un editor de texto (Nano),
+> 
+> Alternativamente, puedes crear el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
 {: .callout}
 
@@ -298,7 +298,7 @@ Por ejemplo, construyamos un vector de **strings** con etiquetas para las colora
 gatos en nuestro estudio:
 
 ```{r}
-capas <- c('atigrado', 'tortoiseshell', 'tortoiseshell', 'negro', 'atigrado')
+capas <- c('atigrado', 'carey', 'carey', 'negro', 'atigrado')
 capas
 str(capas)
 ```
