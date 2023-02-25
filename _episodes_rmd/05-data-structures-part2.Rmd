@@ -92,7 +92,6 @@ Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las f
 ```{r}
 nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
-gatos <- rbind(gatos, nueva_fila)
 ```
 Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 

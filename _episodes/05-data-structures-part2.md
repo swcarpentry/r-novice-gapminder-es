@@ -158,21 +158,6 @@ Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
 generated
 ~~~
 {: .warning}
-
-
-
-~~~
-gatos <- rbind(gatos, nueva_fila)
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
-generated
-~~~
-{: .warning}
 Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 
 
@@ -275,11 +260,11 @@ str(gatos)
 
 
 ~~~
-'data.frame':	6 obs. of  4 variables:
- $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA NA 4
- $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ legusta_la_cuerda: num  1 0 1 1 1 1
- $ edad             : num  2 3 5 9 9 9
+'data.frame':	5 obs. of  4 variables:
+ $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA 4
+ $ peso             : num  2.1 5 3.2 3.3 3.3
+ $ legusta_la_cuerda: num  1 0 1 1 1
+ $ edad             : num  2 3 5 9 9
 ~~~
 {: .output}
 
@@ -294,11 +279,11 @@ str(gatos)
 
 
 ~~~
-'data.frame':	6 obs. of  4 variables:
+'data.frame':	5 obs. of  4 variables:
  $ color            : chr  "mixto" "negro" "atigrado" NA ...
- $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
- $ legusta_la_cuerda: num  1 0 1 1 1 1
- $ edad             : num  2 3 5 9 9 9
+ $ peso             : num  2.1 5 3.2 3.3 3.3
+ $ legusta_la_cuerda: num  1 0 1 1 1
+ $ edad             : num  2 3 5 9 9
 ~~~
 {: .output}
 
@@ -333,8 +318,7 @@ gatos
 2    negro  5.0                 0    3
 3 atigrado  3.2                 1    5
 4     <NA>  3.3                 1    9
-5     <NA>  3.3                 1    9
-6    carey  3.3                 1    9
+5    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -353,8 +337,7 @@ gatos[-4,]
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
 3 atigrado  3.2                 1    5
-5     <NA>  3.3                 1    9
-6    carey  3.3                 1    9
+5    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -375,7 +358,7 @@ na.omit(gatos)
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
 3 atigrado  3.2                 1    5
-6    carey  3.3                 1    9
+5    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -404,7 +387,7 @@ gatos[,-4]
 1    mixto  2.1                 1
 2    negro  5.0                 0
 3 atigrado  3.2                 1
-6    carey  3.3                 1
+5    carey  3.3                 1
 ~~~
 {: .output}
 
@@ -426,7 +409,7 @@ gatos[,!drop]
 1    mixto  2.1                 1
 2    negro  5.0                 0
 3 atigrado  3.2                 1
-6    carey  3.3                 1
+5    carey  3.3                 1
 ~~~
 {: .output}
 
@@ -449,11 +432,11 @@ gatos
 1     mixto  2.1                 1    2
 2     negro  5.0                 0    3
 3  atigrado  3.2                 1    5
-6     carey  3.3                 1    9
+5     carey  3.3                 1    9
 11    mixto  2.1                 1    2
 21    negro  5.0                 0    3
 31 atigrado  3.2                 1    5
-61    carey  3.3                 1    9
+51    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -811,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >               country year       pop continent lifeExp gdpPercap
-> > 483 Equatorial Guinea 1962    249220    Africa  37.485   582.842
-> > 175            Brazil 1982 128962939  Americas  63.336  7030.836
-> > 723              Iran 1962  22874000      Asia  49.325  4187.330
-> > 61          Australia 1952   8691212   Oceania  69.120 10039.596
-> > 301          Colombia 1952  12350771  Americas  50.643  2144.115
+> >          country year      pop continent lifeExp  gdpPercap
+> > 246       Canada 1977 23796400  Americas  74.210 22090.8831
+> > 866      Lebanon 1957  1647412      Asia  59.489  6089.7869
+> > 1292      Rwanda 1987  6349365    Africa  44.020   847.9912
+> > 1330     Senegal 1997  9535314    Africa  60.187  1392.3683
+> > 1482 Switzerland 1977  6316424    Europe  75.390 26982.2905
 > > ~~~
 > > {: .output}
 > {: .solution}
