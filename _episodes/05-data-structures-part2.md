@@ -148,9 +148,31 @@ Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las f
 ~~~
 nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
+generated
+~~~
+{: .warning}
+
+
+
+~~~
 gatos <- rbind(gatos, nueva_fila)
 ~~~
 {: .language-r}
+
+
+
+~~~
+Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
+generated
+~~~
+{: .warning}
 Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 
 
@@ -230,7 +252,7 @@ levels(gatos$color)
 
 
 ~~~
-NULL
+[1] "atigrado" "mixto"    "negro"   
 ~~~
 {: .output}
 
@@ -241,14 +263,6 @@ levels(gatos$color) <- c(levels(gatos$color), 'carey')
 gatos <- rbind(gatos, list("carey", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in `[<-.factor`(`*tmp*`, ri, value = structure(c("mixto", "negro", :
-invalid factor level, NA generated
-~~~
-{: .warning}
 
 De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorías, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin problemas con los niveles del factor. 
 
@@ -262,7 +276,7 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : Factor w/ 1 level "carey": NA NA NA 1 1 1
+ $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA NA 4
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
  $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
@@ -281,7 +295,7 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : chr  NA NA NA "carey" ...
+ $ color            : chr  "mixto" "negro" "atigrado" NA ...
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
  $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
@@ -314,13 +328,13 @@ gatos
 
 
 ~~~
-  color peso legusta_la_cuerda edad
-1  <NA>  2.1                 1    2
-2  <NA>  5.0                 0    3
-3  <NA>  3.2                 1    5
-4 carey  3.3                 1    9
-5 carey  3.3                 1    9
-6 carey  3.3                 1    9
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
+3 atigrado  3.2                 1    5
+4     <NA>  3.3                 1    9
+5     <NA>  3.3                 1    9
+6    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -335,12 +349,12 @@ gatos[-4,]
 
 
 ~~~
-  color peso legusta_la_cuerda edad
-1  <NA>  2.1                 1    2
-2  <NA>  5.0                 0    3
-3  <NA>  3.2                 1    5
-5 carey  3.3                 1    9
-6 carey  3.3                 1    9
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
+3 atigrado  3.2                 1    5
+5     <NA>  3.3                 1    9
+6    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -357,10 +371,11 @@ na.omit(gatos)
 
 
 ~~~
-  color peso legusta_la_cuerda edad
-4 carey  3.3                 1    9
-5 carey  3.3                 1    9
-6 carey  3.3                 1    9
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
+3 atigrado  3.2                 1    5
+6    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -385,10 +400,11 @@ gatos[,-4]
 
 
 ~~~
-  color peso legusta_la_cuerda
-4 carey  3.3                 1
-5 carey  3.3                 1
-6 carey  3.3                 1
+     color peso legusta_la_cuerda
+1    mixto  2.1                 1
+2    negro  5.0                 0
+3 atigrado  3.2                 1
+6    carey  3.3                 1
 ~~~
 {: .output}
 
@@ -406,10 +422,11 @@ gatos[,!drop]
 
 
 ~~~
-  color peso legusta_la_cuerda
-4 carey  3.3                 1
-5 carey  3.3                 1
-6 carey  3.3                 1
+     color peso legusta_la_cuerda
+1    mixto  2.1                 1
+2    negro  5.0                 0
+3 atigrado  3.2                 1
+6    carey  3.3                 1
 ~~~
 {: .output}
 
@@ -428,13 +445,15 @@ gatos
 
 
 ~~~
-   color peso legusta_la_cuerda edad
-4  carey  3.3                 1    9
-5  carey  3.3                 1    9
-6  carey  3.3                 1    9
-41 carey  3.3                 1    9
-51 carey  3.3                 1    9
-61 carey  3.3                 1    9
+      color peso legusta_la_cuerda edad
+1     mixto  2.1                 1    2
+2     negro  5.0                 0    3
+3  atigrado  3.2                 1    5
+6     carey  3.3                 1    9
+11    mixto  2.1                 1    2
+21    negro  5.0                 0    3
+31 atigrado  3.2                 1    5
+61    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -450,13 +469,15 @@ gatos
 
 
 ~~~
-  color peso legusta_la_cuerda edad
-1 carey  3.3                 1    9
-2 carey  3.3                 1    9
-3 carey  3.3                 1    9
-4 carey  3.3                 1    9
-5 carey  3.3                 1    9
-6 carey  3.3                 1    9
+     color peso legusta_la_cuerda edad
+1    mixto  2.1                 1    2
+2    negro  5.0                 0    3
+3 atigrado  3.2                 1    5
+4    carey  3.3                 1    9
+5    mixto  2.1                 1    2
+6    negro  5.0                 0    3
+7 atigrado  3.2                 1    5
+8    carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -790,12 +811,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >          country year      pop continent lifeExp gdpPercap
-> > 467        Egypt 2002 73312559    Africa  69.806  4754.604
-> > 1220 Philippines 1987 60017788      Asia  64.151  2189.635
-> > 381      Croatia 1992  4494013    Europe  72.527  8447.795
-> > 48        Angola 2007 12420476    Africa  42.731  4797.231
-> > 646        Haiti 1997  6913545  Americas  56.671  1341.727
+> >               country year       pop continent lifeExp gdpPercap
+> > 483 Equatorial Guinea 1962    249220    Africa  37.485   582.842
+> > 175            Brazil 1982 128962939  Americas  63.336  7030.836
+> > 723              Iran 1962  22874000      Asia  49.325  4187.330
+> > 61          Australia 1952   8691212   Oceania  69.120 10039.596
+> > 301          Colombia 1952  12350771  Americas  50.643  2144.115
 > > ~~~
 > > {: .output}
 > {: .solution}
