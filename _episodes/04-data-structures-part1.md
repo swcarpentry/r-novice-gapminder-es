@@ -84,7 +84,7 @@ Podemos leer el archivo en R con el siguiente comando:
 
 
 ~~~
-gatos <- read.csv(file = "data/feline-data.csv")
+gatos <- read.csv(file = "data/gatos-data.csv")
 gatos
 ~~~
 {: .language-r}
@@ -92,10 +92,10 @@ gatos
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
+     color peso le_gusta_cuerda
+1    mixto  2.1               1
+2    negro  5.0               0
+3 atigrado  3.2               1
 ~~~
 {: .output}
 
@@ -120,7 +120,7 @@ gatos$peso
 
 
 ~~~
-NULL
+[1] 2.1 5.0 3.2
 ~~~
 {: .output}
 
@@ -134,7 +134,7 @@ gatos$color
 
 
 ~~~
-NULL
+[1] "mixto"    "negro"    "atigrado"
 ~~~
 {: .output}
 
@@ -149,7 +149,7 @@ gatos$peso + 2
 
 
 ~~~
-numeric(0)
+[1] 4.1 7.0 5.2
 ~~~
 {: .output}
 
@@ -164,7 +164,8 @@ paste("El color del gato es", gatos$color)
 
 
 ~~~
-[1] "El color del gato es "
+[1] "El color del gato es mixto"    "El color del gato es negro"   
+[3] "El color del gato es atigrado"
 ~~~
 {: .output}
 
@@ -179,9 +180,9 @@ gatos$peso + gatos$color
 
 
 ~~~
-integer(0)
+Error in gatos$peso + gatos$color: non-numeric argument to binary operator
 ~~~
-{: .output}
+{: .error}
 
 Si adivinaste que el último comando iba a resultar en un error porque `2.1` más
 `"negro"` no tiene sentido, estás en lo cierto - y ya tienes alguna intuición sobre un concepto
@@ -204,7 +205,7 @@ class(gatos$color)
 
 
 ~~~
-[1] "NULL"
+[1] "character"
 ~~~
 {: .output}
 
@@ -218,7 +219,7 @@ class(gatos$peso)
 
 
 ~~~
-[1] "NULL"
+[1] "numeric"
 ~~~
 {: .output}
 
@@ -263,7 +264,7 @@ str(gatos$peso)
 
 
 ~~~
- NULL
+ num [1:3] 2.1 5 3.2
 ~~~
 {: .output}
 
@@ -443,7 +444,7 @@ gatos$le_gusta_cuerda
 
 
 ~~~
-NULL
+[1] 1 0 1
 ~~~
 {: .output}
 
@@ -457,7 +458,7 @@ class(gatos$le_gusta_cuerda)
 
 
 ~~~
-[1] "NULL"
+[1] "integer"
 ~~~
 {: .output}
 
@@ -465,19 +466,6 @@ class(gatos$le_gusta_cuerda)
 
 ~~~
 gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in `$<-.data.frame`(`*tmp*`, le_gusta_cuerda, value = logical(0)): replacement has 0 rows, data has 3
-~~~
-{: .error}
-
-
-
-~~~
 gatos$le_gusta_cuerda
 ~~~
 {: .language-r}
@@ -485,7 +473,7 @@ gatos$le_gusta_cuerda
 
 
 ~~~
-NULL
+[1]  TRUE FALSE  TRUE
 ~~~
 {: .output}
 
@@ -499,7 +487,7 @@ class(gatos$le_gusta_cuerda)
 
 
 ~~~
-[1] "NULL"
+[1] "logical"
 ~~~
 {: .output}
 
@@ -658,7 +646,7 @@ str(gatos$color)
 
 
 ~~~
- NULL
+ chr [1:3] "mixto" "negro" "atigrado"
 ~~~
 {: .output}
 
@@ -906,7 +894,7 @@ gatos$color
 
 
 ~~~
-NULL
+[1] "mixto"    "negro"    "atigrado"
 ~~~
 {: .output}
 
@@ -920,7 +908,7 @@ gatos[,1]
 
 
 ~~~
-[1] "calico" "black"  "tabby" 
+[1] "mixto"    "negro"    "atigrado"
 ~~~
 {: .output}
 
@@ -948,7 +936,7 @@ str(gatos[,1])
 
 
 ~~~
- chr [1:3] "calico" "black" "tabby"
+ chr [1:3] "mixto" "negro" "atigrado"
 ~~~
 {: .output}
 
@@ -964,8 +952,8 @@ gatos[1,]
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1            1
+  color peso le_gusta_cuerda
+1 mixto  2.1            TRUE
 ~~~
 {: .output}
 
@@ -994,9 +982,9 @@ str(gatos[1,])
 
 ~~~
 'data.frame':	1 obs. of  3 variables:
- $ coat        : chr "calico"
- $ weight      : num 2.1
- $ likes_string: int 1
+ $ color          : chr "mixto"
+ $ peso           : num 2.1
+ $ le_gusta_cuerda: logi TRUE
 ~~~
 {: .output}
 
@@ -1027,10 +1015,10 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >     coat
-> > 1 calico
-> > 2  black
-> > 3  tabby
+> >      color
+> > 1    mixto
+> > 2    negro
+> > 3 atigrado
 > > ~~~
 > > {: .output}
 > > Podemos interpretar un **data frame** como una lista de vectores. Un único par de corchetes `[1]`
@@ -1045,7 +1033,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "calico" "black"  "tabby" 
+> > [1] "mixto"    "negro"    "atigrado"
 > > ~~~
 > > {: .output}
 > > El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En este caso, 
@@ -1059,7 +1047,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > NULL
+> > [1] "mixto"    "negro"    "atigrado"
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa el caracter `$` para direccionar elementos por nombre. _color_ es la
@@ -1073,9 +1061,12 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > Error in `[.data.frame`(gatos, "color"): undefined columns selected
+> >      color
+> > 1    mixto
+> > 2    negro
+> > 3 atigrado
 > > ~~~
-> > {: .error}
+> > {: .output}
 > > Aquí estamos usando un solo corchete `["color"]` reemplazando el número del índice con 
 > > el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un _list_.
 > > 
@@ -1087,7 +1078,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "calico"
+> > [1] "mixto"
 > > ~~~
 > > {: .output}
 > > Este ejemplo usa un solo corchete, pero esta vez proporcionamos coordenadas de fila y columna. 
@@ -1102,7 +1093,7 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> > [1] "calico" "black"  "tabby" 
+> > [1] "mixto"    "negro"    "atigrado"
 > > ~~~
 > > {: .output}
 > > Al igual que en el ejemplo anterior, utilizamos corchetes simples y proporcionamos 
@@ -1117,8 +1108,8 @@ str(gatos[1,])
 > > 
 > > 
 > > ~~~
-> >     coat weight likes_string
-> > 1 calico    2.1            1
+> >   color peso le_gusta_cuerda
+> > 1 mixto  2.1            TRUE
 > > ~~~
 > > {: .output}
 > > De nuevo, utilizamos el corchete simple con las coordenadas de fila y columna. 
