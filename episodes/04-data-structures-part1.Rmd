@@ -335,14 +335,14 @@ class(categorias)
 > > Una solución es usar el argumento `stringAsFactors`:
 > >
 > > ```{r, eval = FALSE}
-> > gatos <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
+> > gatos <- read.csv(file="data/gatos-data.csv", stringsAsFactors=FALSE)
 > > str(gatos$color)
 > > ```
 > > Otra solución es usar el argumento `colClasses`
 > > que permiten un control más fino.
 > >
 > > ```{r, eval = FALSE}
-> > gatos <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
+> > gatos <- read.csv(file="data/gatos-data.csv", colClasses=c(NA, NA, "character"))
 > > str(gatos$color)
 > > ```
 > >
