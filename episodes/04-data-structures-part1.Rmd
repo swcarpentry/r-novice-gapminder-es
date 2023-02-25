@@ -59,6 +59,7 @@ gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
 gatos                   
 ```
 
+
 ```{r, include=FALSE}
 # guardar el archivo para usarlo en futuras lecciones
 write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)  
@@ -66,15 +67,16 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 
 
 > ## Consejo: Edición de archivos de texto en R
-> 
-> Alternativamente, puedes crear el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
+> Crea el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
 > o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
+> Recuerda que debes tener creado el directorio data para poder guardar
+> dentro el archivo gatos-data.csv
 {: .callout}
 
 Podemos leer el archivo en R con el siguiente comando:
 
 ```{r}
-gatos <- read.csv(file = "data/gatos-data.csv")
+gatos <- read.csv(file = "data/gatos-data.csv", stringsAsFactors = TRUE)
 gatos
 ```
 
