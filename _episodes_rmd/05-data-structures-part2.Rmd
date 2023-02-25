@@ -88,7 +88,7 @@ gatos
 Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
 
 ```{r}
-nueva_fila <- list("tortoiseshell", 3.3, TRUE, 9)
+nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
 gatos <- rbind(gatos, nueva_fila)
 ```
@@ -99,7 +99,7 @@ colores <- factor(c("negro","canela","canela","negro"))
 levels(colores)
 nlevels(colores)
 ```
-El orden de los factores puede reorganizar también.
+Se puede reorganizar el orden de los factores para que en lugar de que aparezcan por orden alfabético sigan el orden elegido por el usuario.
 
 ```{r}
 colores ## el orden actual
@@ -113,13 +113,13 @@ Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cui
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
-La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+La advertencia (*Warning*) nos está diciendo que agregamos 'carey' a nuestro factor
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'carey' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'carey' como un nuevo nivel (*level*) en el factor:
 
 ```{r}
 levels(gatos$color)
-levels(gatos$color) <- c(levels(gatos$color), 'tortoiseshell')
-gatos <- rbind(gatos, list("tortoiseshell", 3.3, TRUE, 9))
+levels(gatos$color) <- c(levels(gatos$color), 'carey')
+gatos <- rbind(gatos, list("carey", 3.3, TRUE, 9))
 ```
 
 De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorías, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin problemas con los niveles del factor. 
@@ -145,7 +145,7 @@ str(gatos)
 
 ## Quitando filas
 
-Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
+Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'carey' agregamos una fila que no sirve.
 
 ```{r}
 gatos

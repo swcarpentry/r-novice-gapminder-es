@@ -146,7 +146,7 @@ Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las f
 
 
 ~~~
-nueva_fila <- list("tortoiseshell", 3.3, TRUE, 9)
+nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
 gatos <- rbind(gatos, nueva_fila)
 ~~~
@@ -180,7 +180,7 @@ nlevels(colores)
 [1] 2
 ~~~
 {: .output}
-El orden de los factores puede reorganizar también.
+Se puede reorganizar el orden de los factores para que en lugar de que aparezcan por orden alfabético sigan el orden elegido por el usuario.
 
 
 ~~~
@@ -218,8 +218,8 @@ Los objetos de la clase *factor* son otro tipo de datos que debemos usar con cui
 estaban allí cuando cargamos los datos. Por ejemplo, en nuestro caso
 'negro', 'canela' y 'atigrado'. Cualquier categoría nueva que no entre en esas categorías será rechazada (y se conviertirá en NA).
 
-La advertencia (*Warning*) nos está diciendo que agregamos 'tortoiseshell' a nuestro factor
-*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'tortoiseshell' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'tortoiseshell' como un nuevo nivel (*level*) en el factor:
+La advertencia (*Warning*) nos está diciendo que agregamos 'carey' a nuestro factor
+*color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le_gusta_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'carey' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'carey' como un nuevo nivel (*level*) en el factor:
 
 
 ~~~
@@ -237,8 +237,8 @@ NULL
 
 
 ~~~
-levels(gatos$color) <- c(levels(gatos$color), 'tortoiseshell')
-gatos <- rbind(gatos, list("tortoiseshell", 3.3, TRUE, 9))
+levels(gatos$color) <- c(levels(gatos$color), 'carey')
+gatos <- rbind(gatos, list("carey", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
 
@@ -262,7 +262,7 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : Factor w/ 1 level "tortoiseshell": NA NA NA 1 1 1
+ $ color            : Factor w/ 1 level "carey": NA NA NA 1 1 1
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
  $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
@@ -281,7 +281,7 @@ str(gatos)
 
 ~~~
 'data.frame':	6 obs. of  4 variables:
- $ color            : chr  NA NA NA "tortoiseshell" ...
+ $ color            : chr  NA NA NA "carey" ...
  $ peso             : num  2.1 5 3.2 3.3 3.3 3.3
  $ legusta_la_cuerda: num  1 0 1 1 1 1
  $ edad             : num  2 3 5 9 9 9
@@ -303,7 +303,7 @@ str(gatos)
 
 ## Quitando filas
 
-Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'tortoiseshell' agregamos una fila que no sirve.
+Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'carey' agregamos una fila que no sirve.
 
 
 ~~~
@@ -314,13 +314,13 @@ gatos
 
 
 ~~~
-          color peso legusta_la_cuerda edad
-1          <NA>  2.1                 1    2
-2          <NA>  5.0                 0    3
-3          <NA>  3.2                 1    5
-4 tortoiseshell  3.3                 1    9
-5 tortoiseshell  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+  color peso legusta_la_cuerda edad
+1  <NA>  2.1                 1    2
+2  <NA>  5.0                 0    3
+3  <NA>  3.2                 1    5
+4 carey  3.3                 1    9
+5 carey  3.3                 1    9
+6 carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -335,12 +335,12 @@ gatos[-4,]
 
 
 ~~~
-          color peso legusta_la_cuerda edad
-1          <NA>  2.1                 1    2
-2          <NA>  5.0                 0    3
-3          <NA>  3.2                 1    5
-5 tortoiseshell  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+  color peso legusta_la_cuerda edad
+1  <NA>  2.1                 1    2
+2  <NA>  5.0                 0    3
+3  <NA>  3.2                 1    5
+5 carey  3.3                 1    9
+6 carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -357,10 +357,10 @@ na.omit(gatos)
 
 
 ~~~
-          color peso legusta_la_cuerda edad
-4 tortoiseshell  3.3                 1    9
-5 tortoiseshell  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+  color peso legusta_la_cuerda edad
+4 carey  3.3                 1    9
+5 carey  3.3                 1    9
+6 carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -385,10 +385,10 @@ gatos[,-4]
 
 
 ~~~
-          color peso legusta_la_cuerda
-4 tortoiseshell  3.3                 1
-5 tortoiseshell  3.3                 1
-6 tortoiseshell  3.3                 1
+  color peso legusta_la_cuerda
+4 carey  3.3                 1
+5 carey  3.3                 1
+6 carey  3.3                 1
 ~~~
 {: .output}
 
@@ -406,10 +406,10 @@ gatos[,!drop]
 
 
 ~~~
-          color peso legusta_la_cuerda
-4 tortoiseshell  3.3                 1
-5 tortoiseshell  3.3                 1
-6 tortoiseshell  3.3                 1
+  color peso legusta_la_cuerda
+4 carey  3.3                 1
+5 carey  3.3                 1
+6 carey  3.3                 1
 ~~~
 {: .output}
 
@@ -428,13 +428,13 @@ gatos
 
 
 ~~~
-           color peso legusta_la_cuerda edad
-4  tortoiseshell  3.3                 1    9
-5  tortoiseshell  3.3                 1    9
-6  tortoiseshell  3.3                 1    9
-41 tortoiseshell  3.3                 1    9
-51 tortoiseshell  3.3                 1    9
-61 tortoiseshell  3.3                 1    9
+   color peso legusta_la_cuerda edad
+4  carey  3.3                 1    9
+5  carey  3.3                 1    9
+6  carey  3.3                 1    9
+41 carey  3.3                 1    9
+51 carey  3.3                 1    9
+61 carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -450,13 +450,13 @@ gatos
 
 
 ~~~
-          color peso legusta_la_cuerda edad
-1 tortoiseshell  3.3                 1    9
-2 tortoiseshell  3.3                 1    9
-3 tortoiseshell  3.3                 1    9
-4 tortoiseshell  3.3                 1    9
-5 tortoiseshell  3.3                 1    9
-6 tortoiseshell  3.3                 1    9
+  color peso legusta_la_cuerda edad
+1 carey  3.3                 1    9
+2 carey  3.3                 1    9
+3 carey  3.3                 1    9
+4 carey  3.3                 1    9
+5 carey  3.3                 1    9
+6 carey  3.3                 1    9
 ~~~
 {: .output}
 
@@ -790,12 +790,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >         country year      pop continent lifeExp gdpPercap
-> > 432    Djibouti 2007   496374    Africa  54.791 2082.4816
-> > 1521   Tanzania 1992 26605473    Africa  50.440  825.6825
-> > 347  Congo Rep. 2002  3328795    Africa  52.970 3484.0620
-> > 1129    Nigeria 1952 33119096    Africa  36.324 1077.2819
-> > 374     Croatia 1957  3991242    Europe  64.770 4338.2316
+> >                  country year      pop continent lifeExp gdpPercap
+> > 1402             Somalia 1997  6633514    Africa  43.795  930.5964
+> > 1555 Trinidad and Tobago 1982  1116479  Americas  68.832 9119.5286
+> > 1556 Trinidad and Tobago 1987  1191336  Americas  69.582 7388.5978
+> > 1195            Paraguay 1982  3366439  Americas  66.874 4258.5036
+> > 1074               Nepal 1977 13933198      Asia  46.748  694.1124
 > > ~~~
 > > {: .output}
 > {: .solution}
