@@ -29,7 +29,9 @@ knitr_fig_path("05-")
 gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
                       peso = c(2.1, 5.0, 3.2),
                       legusta_la_cuerda = c(1, 0, 1))
+gatos$color<-as.factor(gatos$color) 
 gatos 
+
 ```
 
 A esta altura, ya viste los tipos y estructuras de datos básicos de R y todo lo que hagas va a ser una manipulación de esas herramientas. Ahora pasaremos a aprender un par de cosas sobre cómo trabajar con la clase *data frame* (la estructura de datos que usarás la mayoría del tiempo y que será la estrella del show). Un *data frame* es la tabla que creamos al cargar información de un archivo csv. 
