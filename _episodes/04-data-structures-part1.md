@@ -760,7 +760,7 @@ class(categorias)
 > >
 > > 
 > > ~~~
-> > gatos <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
+> > gatos <- read.csv(file="data/gatos-data.csv", stringsAsFactors=FALSE)
 > > str(gatos$color)
 > > ~~~
 > > {: .language-r}
@@ -769,7 +769,7 @@ class(categorias)
 > >
 > > 
 > > ~~~
-> > gatos <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
+> > gatos <- read.csv(file="data/gatos-data.csv", colClasses=c(NA, NA, "character"))
 > > str(gatos$color)
 > > ~~~
 > > {: .language-r}

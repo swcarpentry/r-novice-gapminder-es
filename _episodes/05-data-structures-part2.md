@@ -790,12 +790,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >       country year       pop continent lifeExp  gdpPercap
-> > 1241 Portugal 1972   8970450    Europe  69.260  9022.2474
-> > 571   Germany 1982  78335266    Europe  73.800 22031.5327
-> > 855    Kuwait 1962    358266      Asia  60.470 95458.1118
-> > 1174 Pakistan 1997 135564834      Asia  61.818  2049.3505
-> > 271      Chad 1982   4875118    Africa  49.517   797.9081
+> >         country year      pop continent lifeExp gdpPercap
+> > 432    Djibouti 2007   496374    Africa  54.791 2082.4816
+> > 1521   Tanzania 1992 26605473    Africa  50.440  825.6825
+> > 347  Congo Rep. 2002  3328795    Africa  52.970 3484.0620
+> > 1129    Nigeria 1952 33119096    Africa  36.324 1077.2819
+> > 374     Croatia 1957  3991242    Europe  64.770 4338.2316
 > > ~~~
 > > {: .output}
 > {: .solution}
