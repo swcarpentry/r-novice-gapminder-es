@@ -349,7 +349,7 @@ Esta es una de las ventajas que RStudio tiene sobre R, tiene capacidades de auto
 Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para ese comando. Además de proporcionar una 
 descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente 
 se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante. 
-Puedes consultar también ![las guías rápidas](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf)
+Puedes consultar también [las guías rápidas](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf)
  disponibles en el sitio de RStudio
 
 
@@ -741,7 +741,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x55d7e93cc408>
+<bytecode: 0x555cde08c3d8>
 <environment: namespace:base>
 ~~~
 {: .output}
