@@ -2,8 +2,7 @@
 layout: lesson
 root: .
 ---
-El objetivo de esta lección es enseñar a las programadoras principiantes a escribir códigos modulares y adoptar buenas prácticas en el uso de R para el análisis de datos. R nos provee un conjunto de paquetes desarrollados por terceros que se usan comúnmente en diversas disciplinas científicas para el análisis estadístico. Encontramos que muchos científicos que asisten a los talleres de Software Carpentry utilizan R y quieren aprender más. Nuestros materiales son relevantes ya que proporcionan a los asistentes una base sólida en los fundamentos de R y enseñan las mejores prácticas del cómputo científico: desglose del análisis en módulos,
-automatización tareas y encapsulamiento.
+El objetivo de esta lección es enseñar a las personas programadoras principiantes a escribir códigos modulares y adoptar buenas prácticas en el uso de R para el análisis de datos. R nos provee un conjunto de paquetes desarrollados por terceros que se usan comúnmente en diversas disciplinas científicas para el análisis estadístico. Encontramos que muchos científicos que asisten a los talleres de Software Carpentry utilizan R y quieren aprender más. Nuestros materiales son relevantes ya que proporcionan a los asistentes una base sólida en los fundamentos de R y enseñan las mejores prácticas del cómputo científico: desglose del análisis en módulos, automatización tareas y encapsulamiento.
 
 Ten en cuenta que este taller se enfoca en los fundamentos del lenguaje de programación R y no en el análisis estadístico.
 
