@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
-# stub: activesupport 7.0.4.2 ruby lib
+# stub: activesupport 7.0.4.3 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "activesupport".freeze
-  s.version = "7.0.4.2"
+  s.version = "7.0.4.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
-  s.metadata = { "bug_tracker_uri" => "https://github.com/rails/rails/issues", "changelog_uri" => "https://github.com/rails/rails/blob/v7.0.4.2/activesupport/CHANGELOG.md", "documentation_uri" => "https://api.rubyonrails.org/v7.0.4.2/", "mailing_list_uri" => "https://discuss.rubyonrails.org/c/rubyonrails-talk", "rubygems_mfa_required" => "true", "source_code_uri" => "https://github.com/rails/rails/tree/v7.0.4.2/activesupport" } if s.respond_to? :metadata=
+  s.metadata = { "bug_tracker_uri" => "https://github.com/rails/rails/issues", "changelog_uri" => "https://github.com/rails/rails/blob/v7.0.4.3/activesupport/CHANGELOG.md", "documentation_uri" => "https://api.rubyonrails.org/v7.0.4.3/", "mailing_list_uri" => "https://discuss.rubyonrails.org/c/rubyonrails-talk", "rubygems_mfa_required" => "true", "source_code_uri" => "https://github.com/rails/rails/tree/v7.0.4.3/activesupport" } if s.respond_to? :metadata=
   s.require_paths = ["lib".freeze]
   s.authors = ["David Heinemeier Hansson".freeze]
-  s.date = "2023-01-25"
+  s.date = "2023-03-13"
   s.description = "A toolkit of support libraries and Ruby core extensions extracted from the Rails framework. Rich support for multibyte strings, internationalization, time zones, and testing.".freeze
   s.email = "david@loudthinking.com".freeze
   s.homepage = "https://rubyonrails.org".freeze

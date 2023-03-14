@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >          country year      pop continent lifeExp  gdpPercap
-> > 246       Canada 1977 23796400  Americas  74.210 22090.8831
-> > 866      Lebanon 1957  1647412      Asia  59.489  6089.7869
-> > 1292      Rwanda 1987  6349365    Africa  44.020   847.9912
-> > 1330     Senegal 1997  9535314    Africa  60.187  1392.3683
-> > 1482 Switzerland 1977  6316424    Europe  75.390 26982.2905
+> >        country year      pop continent lifeExp gdpPercap
+> > 462      Egypt 1977 38783863    Africa  53.319  2785.494
+> > 134    Bolivia 1957  3211738  Americas  41.890  2127.686
+> > 984  Mauritius 2007  1250882    Africa  72.801 10956.991
+> > 1475    Sweden 2002  8954175    Europe  80.040 29341.631
+> > 1422     Spain 1977 36439000    Europe  74.390 13236.921
 > > ~~~
 > > {: .output}
 > {: .solution}
