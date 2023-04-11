@@ -327,7 +327,6 @@ output_vector2
 > > ```{r ch10pt12-sol, eval=FALSE}
 > > output_matrix[j, i] <- temp_output
 > > ```
-> > {: .r}
 > {: .solution}
 {: .challenge}
 
