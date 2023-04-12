@@ -428,7 +428,6 @@ output_vector2
 > > ```r
 > > output_matrix[j, i] <- temp_output
 > > ```
-> > {: .r}
 > {: .solution}
 {: .challenge}
 
