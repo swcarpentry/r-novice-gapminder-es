@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                       country year      pop continent lifeExp gdpPercap
-> > 257  Central African Republic 1972  1927260    Africa  43.457 1070.0133
-> > 213                   Burundi 1992  5809236    Africa  44.736  631.6999
-> > 1535                 Thailand 2002 62806748      Asia  68.564 5913.1875
-> > 369             Cote d'Ivoire 1992 12772596    Africa  52.044 1648.0738
-> > 1542                     Togo 1977  2308582    Africa  52.887 1532.7770
+> >                  country year      pop continent lifeExp gdpPercap
+> > 1560 Trinidad and Tobago 2007  1056608  Americas  69.819 18008.509
+> > 13               Albania 1952  1282697    Europe  55.230  1601.056
+> > 477          El Salvador 1992  5274649  Americas  66.798  4444.232
+> > 840      Korea Dem. Rep. 2007 23301725      Asia  67.297  1593.065
+> > 1550 Trinidad and Tobago 1957   764900  Americas  61.800  4100.393
 > > ~~~
 > > {: .output}
 > {: .solution}

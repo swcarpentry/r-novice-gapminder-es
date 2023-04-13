@@ -1,5 +1,5 @@
 current directory: /home/runner/work/r-novice-gapminder-es/r-novice-gapminder-es/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
-/opt/hostedtoolcache/Ruby/2.7.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.8/x64/lib/ruby/2.7.0 -r ./siteconf20230413-3276-181no06.rb extconf.rb
+/opt/hostedtoolcache/Ruby/2.7.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.8/x64/lib/ruby/2.7.0 -r ./siteconf20230413-3114-1qie2pq.rb extconf.rb
 creating Makefile
 
 current directory: /home/runner/work/r-novice-gapminder-es/r-novice-gapminder-es/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
@@ -225,5 +225,5 @@ make[1]: Entering directory '/home/runner/work/r-novice-gapminder-es/r-novice-ga
 Makefile:261: warning: overriding recipe for target 'commonmarker.so'
 make[1]: Entering directory '/home/runner/work/r-novice-gapminder-es/r-novice-gapminder-es/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker'
 :261: warning: ignoring old recipe for target 'commonmarker.so'
-/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20230413-3276-1dh1o1b/commonmarker
+/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20230413-3114-1duvyz/commonmarker
 make[1]: Leaving directory '/home/runner/work/r-novice-gapminder-es/r-novice-gapminder-es/.vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker'
