@@ -350,7 +350,7 @@ Escribir un `?` antes del nombre de un comando abrirá la página de ayuda para 
 descripción detallada del comando y cómo funciona, al desplazarse hacia la parte inferior de la página de ayuda generalmente 
 se mostrarán ejemplos que ilustran el uso del comando. Veremos un ejemplo más adelante. 
 Puedes consultar también [las guías rápidas](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf)
- disponibles en el sitio de RStudio
+ disponibles en el sitio de RStudio.
 
 
 ## Comparando
@@ -466,7 +466,7 @@ Podemos realizar comparaciones en R:
 ## Variables y asignaciones
 
 
-Podemos almacenar valores en variables usando el operador de asignación `<-`, veamos un ejemplo:
+Podemos almacenar valores en variables usando el operador de asignación `<-`. Veamos un ejemplo:
 
 
 
@@ -495,7 +495,7 @@ x
 Más precisamente, el valor almacenado es una *aproximación decimal* de esta fracción, llamado [número de coma flotante o **floating point**](http://en.wikipedia.org/wiki/Floating_point).
 
 
-Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que` x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
+Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que `x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
 
 
 
@@ -741,7 +741,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x564a85440498>
+<bytecode: 0x558c1007d498>
 <environment: namespace:base>
 ~~~
 {: .output}
@@ -758,7 +758,7 @@ rm(x)
 
 
 Si tienes muchas cosas en tu entorno y deseas borrarlas todas,
-puedes pasar los resultados de `ls` y mandarlos a la función` rm`:
+puedes pasar los resultados de `ls` y mandarlos a la función `rm`:
 
 
 
@@ -805,7 +805,7 @@ Error in rm(list <- ls()): ... must contain names or character strings
 
 
 Es posible agregar funciones a R escribiendo un paquete u obteniendo un paquete escrito
-por otra persona. Hay más de 10,000 paquetes disponibles en CRAN (la red completa de archivos R).
+por otra persona. Hay más de 10.000 paquetes disponibles en CRAN (la red completa de archivos R).
 R y RStudio tienen funcionalidad para administrar paquetes:
 
 
@@ -871,7 +871,7 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 > ## Desafío 3
 >
-> Ejecuta el código del desafío anterior y escribe un comando para comparar la variable mass con age.
+> Ejecuta el código del desafío anterior y escribe un comando para comparar la variable `mass` con `age`.
 > ¿Es la variable `mass` más grande que `age`?
 >
 > > ## Solución del desafío 3
@@ -891,18 +891,18 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 > > ~~~
 > > {: .output}
 > >
-> > Esto debería dar un valor booleano TRUE ya que 109.25 es mayor que 102.
+> > Esto debería dar un valor booleano `TRUE` ya que 109.25 es mayor que 102.
 > {: .solution}
 {: .challenge}
 
 
 > ## Desafío 4
 >
-> Limpia tu entorno de trabajo borrando las variables de mass y age.
+> Limpia tu entorno de trabajo borrando las variables de `mass` y `age`.
 >
 > > ## Solución al desafío 4
 > >
-> > Podemos usar el comando `rm` para realizar esta tarea
+> > Podemos usar el comando `rm` para realizar esta tarea:
 > >
 > > 
 > > ~~~
@@ -915,7 +915,7 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 
 > ## Desafío 5
 >
-> Instala los siguientes paquetes: `ggplot2`, `plyr`, `gapminder`
+> Instala los siguientes paquetes: `ggplot2`, `plyr`, `gapminder`.
 >
 > > ## Solución al desafío 5
 > >
