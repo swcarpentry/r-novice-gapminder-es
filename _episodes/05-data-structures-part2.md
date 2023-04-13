@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >          country year      pop continent lifeExp gdpPercap
-> > 1488 Switzerland 2007  7554661    Europe  81.701 37506.419
-> > 727         Iran 1982 43072751      Asia  59.620  7608.335
-> > 1635   Venezuela 1962  8143375  Americas  60.770  8422.974
-> > 1503      Taiwan 1962 11918938      Asia  65.200  1822.879
-> > 1492       Syria 1967  5680812      Asia  53.655  1881.924
+> >          country year       pop continent lifeExp gdpPercap
+> > 34       Algeria 1997  29072015    Africa  69.152  4797.295
+> > 797        Japan 1972 107188273      Asia  73.420 14778.786
+> > 1033  Mozambique 1952   6446316    Africa  31.286   468.526
+> > 1679  Yemen Rep. 2002  18701257      Asia  60.308  2234.821
+> > 1477 Switzerland 1952   4815000    Europe  69.620 14734.233
 > > ~~~
 > > {: .output}
 > {: .solution}
