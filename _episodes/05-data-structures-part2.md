@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >       country year      pop continent lifeExp  gdpPercap
-> > 78    Austria 1977  7568430    Europe  72.170 19749.4223
-> > 1466   Sweden 1957  7363802    Europe  72.490  9911.8782
-> > 1649  Vietnam 1972 44655014      Asia  50.254   699.5016
-> > 1200 Paraguay 2007  6667147  Americas  71.752  4172.8385
-> > 683   Hungary 2002 10083313    Europe  72.590 14843.9356
+> >              country year      pop continent lifeExp gdpPercap
+> > 1372 Slovak Republic 1967  4442238    Europe   70.98  8412.902
+> > 746          Ireland 1957  2878220    Europe   68.90  5599.078
+> > 1601  United Kingdom 1972 56079000    Europe   72.01 15895.116
+> > 1141          Norway 1952  3327728    Europe   72.67 10095.422
+> > 13           Albania 1952  1282697    Europe   55.23  1601.056
 > > ~~~
 > > {: .output}
 > {: .solution}
