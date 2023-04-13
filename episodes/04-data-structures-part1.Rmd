@@ -68,10 +68,9 @@ write.csv(gatos, "data/gatos-data.csv", row.names = FALSE)
 
 
 > ## Consejo: Edición de archivos de texto en R
-> Crea el archivo `data/gatos-data.csv` usando un editor de texto (Nano),
-> o en RStudio usando el ítem del Menú  **File -> New File -> Text File**.
-> Recuerda que debes tener creado el directorio data para poder guardar
-> dentro el archivo gatos-data.csv
+> Crea el archivo `data/gatos-data.csv` en RStudio usando el ítem del Menú  **Files -> New folder**.
+> Ahid debes crear el directorio data para poder guardar dentro el archivo gatos-data.csv. 
+> Ahora sí usa `write.csv(gatos, "data/gatos-data.csv", row.names=FALSE)` para crear el archivo
 {: .callout}
 
 Podemos leer el archivo en R con el siguiente comando:
