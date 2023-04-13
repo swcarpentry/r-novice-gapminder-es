@@ -13,8 +13,9 @@ objectives:
 - "Conocer y entender qué es coerción y cuáles son los distintos tipos de coerciones."
 keypoints:
 - "Usar `read.csv` para leer los datos tabulares en R."
+- "Los vectores, factores, listas y dataframes son estructuras de datos en R"
 - "Los tipos de datos básicos en R son **double**, **integer**, **complex**, **logical**, y **character**."
-- "Usar **factors** para representar categorías en R."
+- "Los **factors** representan variables categóricas en R."
 source: Rmd
 ---
 
