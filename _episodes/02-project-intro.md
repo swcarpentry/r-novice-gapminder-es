@@ -192,7 +192,7 @@ Ahora que tenemos una buena estructura de directorios colocaremos/guardaremos lo
 > > 
 > > 
 > > ~~~
-> > -rw-r--r-- 1 runner docker 80K Apr 13 16:49 data/gapminder-FiveYearData.csv
+> > -rw-r--r-- 1 runner docker 80K Apr 13 22:38 data/gapminder-FiveYearData.csv
 > > ~~~
 > > {: .output}
 > > 

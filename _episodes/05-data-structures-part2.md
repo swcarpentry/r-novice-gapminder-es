@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >        country year      pop continent lifeExp gdpPercap
-> > 67   Australia 1982 15184200   Oceania  74.740 19477.009
-> > 640      Haiti 1967  4318137  Americas  46.243  1452.058
-> > 1365 Singapore 1992  3235865      Asia  75.788 24769.891
-> > 815     Jordan 2002  5307470      Asia  71.263  3844.917
-> > 496    Eritrea 1967  1820319    Africa  42.189   468.795
+> >                       country year      pop continent lifeExp gdpPercap
+> > 257  Central African Republic 1972  1927260    Africa  43.457 1070.0133
+> > 213                   Burundi 1992  5809236    Africa  44.736  631.6999
+> > 1535                 Thailand 2002 62806748      Asia  68.564 5913.1875
+> > 369             Cote d'Ivoire 1992 12772596    Africa  52.044 1648.0738
+> > 1542                     Togo 1977  2308582    Africa  52.887 1532.7770
 > > ~~~
 > > {: .output}
 > {: .solution}
