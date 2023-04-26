@@ -1,1 +1,100 @@
-{"contributors":[{"type":"Editor","name":"Rayna Harris"},{"type":"Editor","name":"Verónica Jiménez"},{"type":"Editor","name":"Silvana Pereyra"},{"type":"Editor","name":"Heladia Salgado"}],"creators":[{"name":"Rayna M Harris"},{"name":"Paula Andrea Martinez"},{"name":"Laura-Gomez"},{"name":"Silvana Pereyra"},{"name":"Hely Salgado"},{"name":"raynamharris"},{"name":"Alejandra Gonzalez-Beltran"},{"name":"Shirley Alquicira Hernandez"},{"name":"Juan M. Barrios"},{"name":"Guillermina Actis"},{"name":"Ivan Ogasawara"},{"name":"Kevin Alquicira"},{"name":"Leticia Vega"},{"name":"Ana Beatriz Villaseñor Altamirano"},{"name":"juli arancio"},{"name":"Kevin Martínez-Folgar"},{"name":"Laura Angelone"},{"name":"Marcela Alfaro Córdoba"},{"name":"Marceline Abadeer"},{"name":"Maria Florencia D'Andrea"},{"name":"Romualdo Zayas-Lagunas"},{"name":"0xgc"},{"name":"A. s"},{"name":"Cynthia Monastirsky"},{"name":"David Pérez-Suárez"},{"name":"EuniceML"},{"name":"Guillermo Movia"},{"name":"Ivonne Lujano"},{"name":"Matias Andina"},{"name":"Paola Prieto"},{"name":"saynomoregrl"},{"name":"Veronica Jimenez"},{"name":"François Michonneau"},{"name":"Naupaka Zimmerman"},{"name":"David Mawdsley"},{"name":"Jeff Oliver"},{"name":"Raniere Silva"},{"name":"Erin Becker"},{"name":"Katrin Leinweber"},{"name":"Marie-Helene Burle"},{"name":"Gordon McDonald"},{"name":"Ido Bar"},{"name":"Jamie McDevitt-Irwin"},{"name":"Jonah Duckles"},{"name":"Tobin Magle"},{"name":"Antonio"},{"name":"AntonioJBT"},{"name":"Belinda Weaver"},{"name":"Claudia Engel"},{"name":"Daniel Beiter"},{"name":"James J Balamuta"},{"name":"Marieke Frassl"},{"name":"Murray Cadzow"},{"name":"Narayanan Raghupathy"},{"name":"Richard Barnes"},{"name":"Richard McCosh"},{"name":"Sandra Brosda"},{"name":"Sasha Lavrentovich"}],"license":{"id":"CC-BY-4.0"}}
+{
+  "contributors": [
+    {
+      "type": "Editor",
+      "name": "Nelly Selem",
+      "orcid": "0000-0003-1697-3862"
+    },
+    {
+      "type": "Editor",
+      "name": "Veronica Jimenez-Jacinto",
+      "orcid": "0000-0001-6742-1537"
+    },
+    {
+      "type": "Editor",
+      "name": "Heladia Salgado Osorio",
+      "orcid": "0000-0002-3166-5801"
+    },
+    {
+      "type": "Editor",
+      "name": "Silvana Pereyra"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Rayna M Harris",
+      "orcid": "0000-0002-7943-5650"
+    },
+    {
+      "name": "Nelly Selem",
+      "orcid": "0000-0003-1697-3862"
+    },
+    {
+      "name": "Silvana Pereyra"
+    },
+    {
+      "name": "Heladia Salgado Osorio",
+      "orcid": "0000-0002-3166-5801"
+    },
+    {
+      "name": "Macarena Sol Quiroga"
+    },
+    {
+      "name": "Jose Carlos Lopez Rodriguez"
+    },
+    {
+      "name": "Juan Jose Garcia Mesa"
+    },
+    {
+      "name": "Luis D. Verde Arregoitia",
+      "orcid": "0000-0001-9520-6543"
+    },
+    {
+      "name": "Andree Valle Campos"
+    },
+    {
+      "name": "Claudia Zirion Martinez"
+    },
+    {
+      "name": "Darío Hereñú"
+    },
+    {
+      "name": "Katrin Leinweber"
+    },
+    {
+      "name": "Leonardo Ulises Spairani",
+      "orcid": "0000-0002-8876-9046"
+    },
+    {
+      "name": "Linda Cabrera"
+    },
+    {
+      "name": "flor14"
+    },
+    {
+      "name": "Miguel González"
+    },
+    {
+      "name": "Monica Alonso"
+    },
+    {
+      "name": "Rocio T. Martinez Nunez"
+    },
+    {
+      "name": "Sebastian"
+    },
+    {
+      "name": "Yanina Ditz"
+    },
+    {
+      "name": "marthavi"
+    },
+    {
+      "name": "Marcos Miguel Prunello",
+      "orcid": "0000-0002-9611-527X"
+    }
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  }
+}
