@@ -794,12 +794,12 @@ head(gapminder)
 > > 
 > > 
 > > ~~~
-> >                  country year      pop continent lifeExp gdpPercap
-> > 1560 Trinidad and Tobago 2007  1056608  Americas  69.819 18008.509
-> > 13               Albania 1952  1282697    Europe  55.230  1601.056
-> > 477          El Salvador 1992  5274649  Americas  66.798  4444.232
-> > 840      Korea Dem. Rep. 2007 23301725      Asia  67.297  1593.065
-> > 1550 Trinidad and Tobago 1957   764900  Americas  61.800  4100.393
+> >           country year      pop continent lifeExp gdpPercap
+> > 750       Ireland 1977  3271900    Europe  72.030 11150.981
+> > 360    Costa Rica 2007  4133884  Americas  78.782  9645.061
+> > 171        Brazil 1962 76039390  Americas  55.665  3336.586
+> > 1415 South Africa 2002 44433622    Africa  53.365  7710.946
+> > 190      Bulgaria 1997  8066057    Europe  70.320  5970.389
 > > ~~~
 > > {: .output}
 > {: .solution}

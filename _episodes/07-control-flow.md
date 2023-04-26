@@ -520,7 +520,7 @@ output_vector2
 > > ```
 > > 
 > > ```
-> > ## Error in unique(gapminder$country): object 'gapminder' not found
+> > ## Error in eval(expr, envir, enclos): object 'gapminder' not found
 > > ```
 > {: .solution}
 {: .challenge}
