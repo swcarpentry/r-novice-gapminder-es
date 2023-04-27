@@ -253,85 +253,84 @@ Recuerda que las matrices son realmente vectores atómicos, y que los
 
 ## Glosario
 
-{:auto\_ids}
-argument
+[argument]{#argument}
 :   Un valor dado a una función o programa cuando se ejecuta.
 El término a menudo se usa indistintamente (y de manera inconsistente) con [parámetro](#parameter).
 
-assign
+[assign]{#assign}
 :   Para darle a un valor un nombre asociandolo a una variable.
 
-body
+[body]{#body}
 :   (de una función): las instrucciones que se ejecutan cuando se ejecuta una función.
 
-comment
+[comment]{#comment}
 :   Una observación en un programa que pretende ayudar a los lectores humanos a comprender lo que está sucediendo,
 pero es ignorado por la computadora.
 Los comentarios en Python, R y el shell de Unix comienzan con un caracter `#` y se ejecutan hasta el final de la linea;
 los comentarios en SQL comienzan con `--`,
 y otros idiomas tienen otras convenciones.
 
-comma-separated values
+[comma-separated values]{#comma-separated-values}
 :   (CSV) Una representación textual común para tablas
 en el cual los valores en cada fila están separados por comas.
 
-delimiter
+[delimiter]{#delimiter}
 :   Un caracter or caracteres usados para separar valores individuales,
 tales como las comas entre columnas en un archivo [CSV](#comma-separated-values).
 
-documentation
+[documentation]{#documentation}
 :   Texto en lenguaje humano escrito para explicar lo que hace el software
 cómo funciona, o cómo usarlo.
 
-floating-point number
+[floating-point number]{#floating-point-number}
 :   Un número que contiene una parte fraccionaria y un exponente.
 Ver también: [integer](#integer).
 
-for loop
+[for loop]{#for-loop}
 :   Un ciclo que se ejecuta una vez para cada valor en algún tipo de conjunto, lista o rango.
 Ver también: [while loop](#while-loop).
 
-index
+[index]{#index}
 :   Un subíndice que especifica la ubicación de un único valor en una colección,
 como un solo píxel en una imagen.
 
-integer
+[integer]{#integer}
 :   Un número entero, como -12343.
 Ver también: [floating-point number](#floating-point-number).
 
-library
+[library]{#library}
 :   En R, es el directorio(s) donde los [paquetes](#package) son almacenados.
 
-package
+[package]{#package}
 :   Una colección de funciones R, datos y código compilado en un formato bien definido. Los paquetes se almacenan en una [biblioteca](#library) y se cargan usando la función de library().
 
-parameter
+[parameter]{#parameter}
 :   Nombre de variable en la declaración de la función que se usa para guardar un valor cuando la función es llamada.
 El término a menudo se usa indistintamente (y de manera inconsistente) con [argumento](#argumento).
 
-return statement
+[return statement]{#return-statement}
 :   Una declaración que hace que una función deje de ejecutarse y devuelva un valor en donde fue llamada.
 
-sequence
+[sequence]{#sequence}
 :   Una colección de información que se presenta en un orden específico.
 
-shape
+[shape]{#shape}
 :   Las dimensiones de una matriz, representadas como un vector.
 Por ejemplo, una forma de matriz de 5 × 3 es `(5,3)`.
 
-string
+[string]{#string}
 :   Abreviatura de "cadena de caracteres",
 una [secuencia](#sequence) de cero o más caracteres.
 
-syntax error
+[syntax error]{#syntax-error}
 :  Un error de programación que ocurre cuando las instrucciones están en un orden o contienen caracteres no esperados por el lenguaje de programación.
 
-type
+[type]{#type}
 :   La clasificación de algo en un programa (por ejemplo, el contenido de una variable)
 como un tipo de número (por ejemplo [floating-point](#float), [integer](#integer)), [string](#string),
 o algo más. En R el comando typeof() se usa para consultar el tipo de una variable.
 
-while loop
+[while loop]{#while-loop}
 :   Un bucle que se ejecuta siempre que una condición dada sea verdadera.
 Ver también: [for loop](#for-loop).
 

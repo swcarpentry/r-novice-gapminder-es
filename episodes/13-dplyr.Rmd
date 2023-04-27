@@ -43,7 +43,6 @@ Comando : Traducción
 
 `mutate` : mutar
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 La manipulación de **data frames** significa distintas cosas para distintos investigadores. A veces queremos seleccionar
@@ -195,24 +194,24 @@ lifeExp_bycountry %>%
    filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
 ```
 
-:::::::::::::::::::::::::
-
 Otro modo de hacer esto es usando la función `arrange()` del paquete `dplyr`,
 que distribuye las filas de un **data frame** en función del orden de una
 o más variables del **data frame**. Tiene una sintaxis similar a otras funciones
 del paquete `dplyr`. Se puede usar `desc()` dentro de `arrange()` para
 ordenar de modo descendente.
 
-> ```{r}
-> lifeExp_bycountry %>%
->    arrange(mean_lifeExp) %>%
->    head(1)
-> lifeExp_bycountry %>%
->    arrange(desc(mean_lifeExp)) %>%
->    head(1)
-> ```
+```{r}
+lifeExp_bycountry %>%
+   arrange(mean_lifeExp) %>%
+   head(1)
+lifeExp_bycountry %>%
+   arrange(desc(mean_lifeExp)) %>%
+   head(1)
+```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::
 
 La función `group_by()` nos permite agrupar en función de varias variables. Vamos a agrupar por `year` y `continent`.
 
@@ -379,8 +378,6 @@ lifeExp_2countries_bycontinents <- gapminder %>%
 - [Data Wrangling Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 - [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html)
 - [Data wrangling with R and RStudio](https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/)
-
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

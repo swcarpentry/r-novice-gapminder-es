@@ -121,8 +121,8 @@ No se preocupes por no equivocarte o conocer el material de pies a cabeza. Usa
 los errores como momentos de aprendizaje: la habilidad más importante que puedes
 enseñar es cómo eliminar errores (**debug**) y recuperarse de errores inesperados.
 
-[gapminder-data]: https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv
-[gapminder-data-wide]: https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_wide.csv
+[gapminder-data]: data/gapminder-FiveYearData.csv
+[gapminder-data-wide]: data/gapminder_wide.csv
 
 
 

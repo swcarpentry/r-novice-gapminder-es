@@ -341,7 +341,7 @@ código.
 
 Puedes hacer cada número de tu informe reproducible. Usa
 <code>\`r</code> y <code>\`</code> para un fragmento de código en línea,
-al igual que: <code>\`r round(some\_value, 2)\`</code>. El código será
+al igual que: ``` ``r "r round(some_value, 2)"`` ```. El código será
 ejecutado y reemplazado con el *valor* del resultado.
 
 No dejes que estos fragmentos en línea se dividan en líneas.

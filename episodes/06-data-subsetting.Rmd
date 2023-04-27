@@ -99,11 +99,6 @@ un valor faltante.
 x[6]
 ```
 
-```{r}
-<NA> 
-  NA 
-```
-
 Este es un vector de longitud uno que contiene un `NA`, cuyo nombre también es
 `NA`.
 
