@@ -2,28 +2,25 @@
 title: Haciendo subconjuntos de datos
 teaching: 35
 exercises: 15
-questions:
-- "¿Cómo puedo trabajar con subconjuntos de datos en R?"
-objectives:
-- "Ser capaz de hacer subconjuntos de vectores, factores, matrices, listas y
-   _data frames_."
-- "Ser capaz de extraer uno o multiples elementos: por posición, por nombre,
-   o usando operaciones de comparación."
-- "Ser capaz de saltar y quitar elementos de diferentes estructuras de datos."
-keypoints:
-- "Los índices en R comienzan con 1, no con 0."
-- "Acceso a un elemento por posición usando `[]`."
-- "Acceso a un rango de datos usando `[min:max]`."
-- "Acceso a subconjuntos arbitrarios usando `[c(...)]`."
-- "Usar operaciones lógicas y vectores lógicos para acceder a subconjuntos de datos"
 source: Rmd
 ---
 
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Ser capaz de hacer subconjuntos de vectores, factores, matrices, listas y *data frames*.
+- Ser capaz de extraer uno o multiples elementos: por posición, por nombre, o usando operaciones de comparación.
+- Ser capaz de saltar y quitar elementos de diferentes estructuras de datos.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- ¿Cómo puedo trabajar con subconjuntos de datos en R?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("06-")
-# Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header = TRUE)
 ```
 
 R dispone de muchas operaciones para generar subconjuntos. Dominarlas
@@ -35,19 +32,21 @@ para las diferentes estructuras de datos.
 
 Empecemos con el caballito de batalla de R: un vector numérico.
 
-
-
 ```{r}
 x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
 names(x) <- c('a', 'b', 'c', 'd', 'e')
 x
 ```
 
-> ## Vectores atómicos
->
-> En R, un vector puede contener palabras, números o valores lógicos. Estos son
-> llamados vectores *atómicos* ya que no se pueden simplificar más.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Vectores atómicos
+
+En R, un vector puede contener palabras, números o valores lógicos. Estos son
+llamados vectores *atómicos* ya que no se pueden simplificar más.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Ya que creamos un vector ejemplo juguemos con él, ¿cómo podemos acceder a su contenido?
 
@@ -55,7 +54,6 @@ Ya que creamos un vector ejemplo juguemos con él, ¿cómo podemos acceder a su 
 
 Para extraer elementos o datos de un vector podemos usar su índice correspondiente, empezando
 por uno:
-
 
 ```{r}
 x[1]
@@ -69,7 +67,6 @@ No lo parece, pero el operador corchetes es una función. Para los vectores
 (y las matrices), esto significa "dame el n-ésimo elemento".
 
 También podemos pedir varios elementos al mismo tiempo:
-
 
 ```{r}
 x[c(1, 3)]
@@ -89,9 +86,7 @@ la derecha.
 c(1, 2, 3, 4)
 ```
 
-
 También podemos pedir el mismo elemento varias veces:
-
 
 ```{r}
 x[c(1,1,3)]
@@ -114,16 +109,19 @@ Este es un vector de longitud uno que contiene un `NA`, cuyo nombre también es
 
 Si pedimos el elemento en el índice 0, obtendremos un vector vacío.
 
-
 ```{r}
 x[0]
 ```
 
-> ## La numeración de R comienza en 1
->
-> En varios lenguajes de programación (C y Python por ejemplo), el primer
-> elemento de un vector tiene índice 0. En R, el primer elemento tiene el índice 1.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## La numeración de R comienza en 1
+
+En varios lenguajes de programación (C y Python por ejemplo), el primer
+elemento de un vector tiene índice 0. En R, el primer elemento tiene el índice 1.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Saltando y quitando elementos
 
@@ -135,90 +133,92 @@ x[-2]
 
 También podemos saltar o no mostrar varios elementos:
 
-
 ```{r}
 x[c(-1, -5)]  # o bien x[-c(1,5)]
 ```
 
-> ## Sugerencia: Orden de las operaciones
->
-> Un pequeño obstáculo para los novatos ocurre cuando tratan de saltar rangos
-> de elementos de un vector. Es natural tratar de filtrar una sucesión de la
-> siguiente manera:
->
->
-> ```{r, error=TRUE, eval=FALSE}
-> x[-1:3]
-> ```
->
-> Esto nos devuelve un error algo críptico:
->
->
-> ```{r, error=TRUE, echo=FALSE}
-> x[-1:3]
-> ```
->
-> Pero recuerda el orden de las operaciones. `:` es en realidad una función. Toma
-> como primer elemento -1 y como segundo 3, por lo que se genera la sucesión
-> de números: `c(-1, 0, 1, 2, 3)`.
->
-> La solución correcta sería empaquetar la llamada de la función dentro de
-> paréntesis, de está manera el operador `-` se aplica al resultado:
->
->
-> ```{r}
-> x[-(1:3)]
-> ```
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
+## Sugerencia: Orden de las operaciones
+
+Un pequeño obstáculo para los novatos ocurre cuando tratan de saltar rangos
+de elementos de un vector. Es natural tratar de filtrar una sucesión de la
+siguiente manera:
+
+```{r, error=TRUE, eval=FALSE}
+x[-1:3]
+```
+
+Esto nos devuelve un error algo críptico:
+
+```{r, error=TRUE, echo=FALSE}
+x[-1:3]
+```
+
+Pero recuerda el orden de las operaciones. `:` es en realidad una función. Toma
+como primer elemento -1 y como segundo 3, por lo que se genera la sucesión
+de números: `c(-1, 0, 1, 2, 3)`.
+
+La solución correcta sería empaquetar la llamada de la función dentro de
+paréntesis, de está manera el operador `-` se aplica al resultado:
+
+```{r}
+x[-(1:3)]
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Para quitar los elementos de un vector, será necesario que asignes el resultado
 de vuelta a la variable:
-
 
 ```{r}
 x <- x[-4]
 x
 ```
 
-> ## Desafío 1
->
-> Dado el siguiente código:
->
-> ```{r}
-> x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
-> names(x) <- c('a', 'b', 'c', 'd', 'e')
-> print(x)
-> ```
->
->
-> Encuentra al menos 3 comandos distintos que produzcan la siguiente salida:
->
->
-> ```{r, echo=FALSE}
-> x[2:4]
-> ```
->
-> Después de encontrar los tres comandos distintos, compáralos con los de tu vecino. ¿Tuvieron distintas estrategias?
->
-> > ## Solución al desafío 1
-> >
-> >
-> > ```{r}
-> > x[2:4]
-> > ```
-> > ```{r}
-> > x[-c(1,5)]
-> > ```
-> > ```{r}
-> > x[c("b", "c", "d")]
-> > ```
-> > ```{r}
-> > x[c(2,3,4)]
-> > ```
-> >
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Desafío 1
+
+Dado el siguiente código:
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+```
+
+Encuentra al menos 3 comandos distintos que produzcan la siguiente salida:
+
+```{r, echo=FALSE}
+x[2:4]
+```
+
+Después de encontrar los tres comandos distintos, compáralos con los de tu vecino. ¿Tuvieron distintas estrategias?
+
+:::::::::::::::  solution
+
+## Solución al desafío 1
+
+```{r}
+x[2:4]
+```
+
+```{r}
+x[-c(1,5)]
+```
+
+```{r}
+x[c("b", "c", "d")]
+```
+
+```{r}
+x[c(2,3,4)]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Haciendo subconjuntos por nombre
 
@@ -236,7 +236,6 @@ de subconjuntos, ¡pero los nombres siempre permanecen iguales!
 ## Creando subconjuntos usando operaciones lógicas
 
 También podemos usar un vector con elementos lógicos para hacer subconjuntos:
-
 
 ```{r}
 x[c(FALSE, FALSE, TRUE, FALSE, TRUE)]
@@ -261,88 +260,99 @@ Podemos usar `==` para imitar el método anterior de indexar con nombre
 x[names(x) == "a"]
 ```
 
-> ## Sugerencia: Combinando condiciones lógicas
->
-> Muchas veces queremos combinar varios criterios lógicos. Por ejemplo, tal vez
-> queramos encontrar todos los países en Asia *o* (en inglés **or**) Europe *y* (en
-> inglés **and**) con esperanza de vida en cierto rango. Existen muchas operaciones
-> para combinar vectores con elementos lógicos en R:
->
->  * `&`, el operador "lógico AND": regresa `TRUE` si tanto la derecha y la izquierda
->    son `TRUE`.
->  * `|`, el operador "lógico OR": regresa `TRUE`, si la derecha o la izquierda
->    (o ambos) son `TRUE`.
->
-> A veces encontrarás `&&` y `̣||` en vez de `&` y `|`. Los operadores de dos caracteres
-> solo comparan los primeros elementos de cada vector e ignoran las demás elementos. En
-> general no debes usar los operadores de dos caracteres en el análisis de datos; déjalos
-> para la programación, i.e. para decir cuando se ejecutara una instrucción.
->
->  * `!`, el operador "lógico NOT": convierte `TRUE` a `FALSE` y `FALSE` a
->    `TRUE`. Puede negar una sola condición lógica (e.g. `!TRUE` se vuelve
->    `FALSE`), o un vector **logical** (e.g. `!c(TRUE, FALSE)` se vuelve
->    `c(FALSE, TRUE)`).
->
-> Más aún, puedes comparar todos los elementos de un vector entre ellos usando
-> la función `all` (que regresa `TRUE` si todos los elementos del vector son
-> `TRUE`) y la función `any` (que regresa `TRUE` si uno o más elementos del vector
-> son `TRUE`).
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-> ## Desafío 3
->
-> Dado el siguiente código:
->
-> ```{r}
-> x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
-> names(x) <- c('a', 'b', 'c', 'd', 'e')
-> print(x)
-> ```
->
-> Escribe un comando para crear el subconjunto de valores de `x` que sean mayores
-> a 4 pero menores que 7.
->
-> > ## Solución al desafío 3
-> >
-> >
-> > ```{r}
-> > x_subset <- x[x<7 & x>4]
-> > print(x_subset)
-> >```
-> {: .solution}
-{: .challenge}
+## Sugerencia: Combinando condiciones lógicas
+
+Muchas veces queremos combinar varios criterios lógicos. Por ejemplo, tal vez
+queramos encontrar todos los países en Asia *o* (en inglés **or**) Europe *y* (en
+inglés **and**) con esperanza de vida en cierto rango. Existen muchas operaciones
+para combinar vectores con elementos lógicos en R:
+
+- `&`, el operador "lógico AND": regresa `TRUE` si tanto la derecha y la izquierda
+  son `TRUE`.
+- `|`, el operador "lógico OR": regresa `TRUE`, si la derecha o la izquierda
+  (o ambos) son `TRUE`.
+
+A veces encontrarás `&&` y `̣||` en vez de `&` y `|`. Los operadores de dos caracteres
+solo comparan los primeros elementos de cada vector e ignoran las demás elementos. En
+general no debes usar los operadores de dos caracteres en el análisis de datos; déjalos
+para la programación, i.e. para decir cuando se ejecutara una instrucción.
+
+- `!`, el operador "lógico NOT": convierte `TRUE` a `FALSE` y `FALSE` a
+  `TRUE`. Puede negar una sola condición lógica (e.g. `!TRUE` se vuelve
+  `FALSE`), o un vector **logical** (e.g. `!c(TRUE, FALSE)` se vuelve
+  `c(FALSE, TRUE)`).
+
+Más aún, puedes comparar todos los elementos de un vector entre ellos usando
+la función `all` (que regresa `TRUE` si todos los elementos del vector son
+`TRUE`) y la función `any` (que regresa `TRUE` si uno o más elementos del vector
+son `TRUE`).
 
 
-> ## Sugerencia: Nombres no únicos
->
-> Debes tener en cuenta que es posible que múltiples elementos en un vector tengan el mismo nombre. (Para un
-> **data frame**, las columnas pueden tener el mismo nombre ---aunque R intenta evitarlo--- pero los nombres 
-> de las filas deben ser únicos).
-> Considera estos ejemplos:
->
->
->```{r}
-> x <- 1:3
-> x
-> names(x) <- c('a', 'a', 'a')
-> x
-> x['a']  # solo devuelve el primer valor
-> x[names(x) == 'a']  # devuelve todos los tres valores
-> ```
-{: .callout}
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-> ## Sugerencia: Obteniendo ayuda para los operadores
->
-> Recuerda que puedes obtener ayuda para los operadores empaquetándolos entre
-> comillas:
-> `help("%in%")` o `?"%in%"`.
->
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Desafío 3
+
+Dado el siguiente código:
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+```
+
+Escribe un comando para crear el subconjunto de valores de `x` que sean mayores
+a 4 pero menores que 7.
+
+:::::::::::::::  solution
+
+## Solución al desafío 3
+
+```{r}
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Sugerencia: Nombres no únicos
+
+Debes tener en cuenta que es posible que múltiples elementos en un vector tengan el mismo nombre. (Para un
+**data frame**, las columnas pueden tener el mismo nombre ---aunque R intenta evitarlo--- pero los nombres
+de las filas deben ser únicos).
+Considera estos ejemplos:
+
+```{r}
+x <- 1:3
+x
+names(x) <- c('a', 'a', 'a')
+x
+x['a']  # solo devuelve el primer valor
+x[names(x) == 'a']  # devuelve todos los tres valores
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Sugerencia: Obteniendo ayuda para los operadores
+
+Recuerda que puedes obtener ayuda para los operadores empaquetándolos entre
+comillas:
+`help("%in%")` o `?"%in%"`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Saltarse los elementos nombrados
 
 Saltarse o eliminar elementos con nombre es un poco más difícil. Si tratamos de omitir un elemento con nombre al negar la cadena, R se queja (de una manera un poco oscura) de que no sabe cómo tomar el valor negativo de una cadena:
-
 
 ```{r}
 x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # comenzamos nuevamente nombrando un vector en la misma línea
@@ -351,7 +361,6 @@ x[-"a"]
 
 Sin embargo, podemos usar el operador `!=` (no igual) para construir un vector
 con elementos lógicos, que es lo que nosotros queremos:
-
 
 ```{r}
 x[names(x) != "a"]
@@ -365,7 +374,7 @@ x[names(x)!=c("a","c")]
 ```
 
 R hizo *algo*, pero también nos lanzó una advertencia que debemos atender
--¡y aparentemente *nos dió la respuesta incorrecta*!
+\-¡y aparentemente *nos dió la respuesta incorrecta*!
 (el elemento `"c"` se encuentra todavía en el vector).
 
 ¿Entonces qué hizo el operador `!=` en este caso? Esa es una excelente
@@ -374,7 +383,6 @@ pregunta.
 ### Reciclando
 
 Tomemos un momento para observar al operador de comparación en este código:
-
 
 ```{r}
 names(x) != c("a", "c")
@@ -386,11 +394,11 @@ de comparar cada elemento de la izquierda con el correspondiente elemento
 de la derecha. ¿Qué pasa cuando tu comparas dos elementos de diferentes
 longitudes?
 
-![Inequality testing](../fig/06-rmd-inequality.1.png)
+![](fig/06-rmd-inequality.1.png){alt='Inequality testing'}
 
 Cuando uno de los vectores es más corto que el otro, este se *recicla*:
 
-![Inequality testing: results of recycling](../fig/06-rmd-inequality.2.png)
+![](fig/06-rmd-inequality.2.png){alt='Inequality testing: results of recycling'}
 
 En este caso R **repite** `c("a", "c")` tantas veces como sea necesario
 para emparejar `names(x)`, i.e. tenemos `c("a","c","a","c","a")`. Ya que
@@ -414,56 +422,67 @@ operador `!` para cambiar la inclusión por una *no* inclusión:
 x[! names(x) %in% c("a","c") ]
 ```
 
-> ## Desafío 2
->
-> Seleccionar elementos de un vector que empareje con cualquier valor de
-> una lista es una tarea muy común en el análisis de datos. Por ejemplo,
-> el **data set** de *gapminder* contiene las variables `country` y
-> `continent`, pero no incluye información de la escala.
-> Supongamos que queremos extraer la información de el
-> sureste de Asia: ¿cómo podemos escribir una operación que resulte en un
-> vector lógico que sea `TRUE` para todos los países en el sureste de
-> Asia y `FALSE` en otros casos?
->
-> Supongamos que se tienen los siguientes datos:
->
->```{r}
-> seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
-> ## leer los datos de gapminder que bajamos en el episodio 2
-> gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
-> ## extraer la columna `country` de la **data frame** (veremos esto luego);
-> ## convertir de factor a caracter;
-> ## y quedarse solo con los elementos no repetidos
-> countries <- unique(as.character(gapminder$country))
-> ```
->
-> Existe una manera incorrecta (usando solamente `==`), la cual te
-> dará una advertencia (*warning*); una manera enredada de hacerlo
-> (usando los operadores lógicos `==` y `|`) y una manera elegante
-> (usando `%in%`). Prueba encontrar esas maneras y explica cómo
-> funcionan (o no).
->
-> > ## Solución al desafío 2
-> >
-> > - La manera **incorrecta** de hacer este problema es `countries==seAsia`.
-> > Esta lanza una advertencia (`"In countries == seAsia : longer object length is not a multiple of shorter object length"`)
-> > y la respuesta incorrecta (un vector con todos los valores `FALSE`), ya
-> > que ninguno de los valores reciclados de `seAsia` se emparejaron correctamente
-> > para coincidir con los valores de `country`.
-> > - La manera **enredada** (pero técnicamente correcta) de resolver
-> > este problema es
-> >```{r results="hide"}
-> >  (countries=="Myanmar" | countries=="Thailand" |
-> >  countries=="Cambodia" | countries == "Vietnam" | countries=="Laos")
-> > ```
-> > (o `countries==seAsia[1] | countries==seAsia[2] | ...`). Esto
-> > da los valores correctos, pero esperamos que veas lo raro que se ve
-> > (¿qué hubiera pasado si hubiéramos querido seleccionar países de una
-> > lista mucho más larga?).
-> > - La mejor manera de resolver este problema es `countries %in% seAsia`,
-> > la cual es la correcta y la más sencilla de escribir (y leer).
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Desafío 2
+
+Seleccionar elementos de un vector que empareje con cualquier valor de
+una lista es una tarea muy común en el análisis de datos. Por ejemplo,
+el **data set** de *gapminder* contiene las variables `country` y
+`continent`, pero no incluye información de la escala.
+Supongamos que queremos extraer la información de el
+sureste de Asia: ¿cómo podemos escribir una operación que resulte en un
+vector lógico que sea `TRUE` para todos los países en el sureste de
+Asia y `FALSE` en otros casos?
+
+Supongamos que se tienen los siguientes datos:
+
+```{r}
+seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
+## leer los datos de gapminder que bajamos en el episodio 2
+gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+## extraer la columna `country` de la **data frame** (veremos esto luego);
+## convertir de factor a caracter;
+## y quedarse solo con los elementos no repetidos
+countries <- unique(as.character(gapminder$country))
+```
+
+Existe una manera incorrecta (usando solamente `==`), la cual te
+dará una advertencia (*warning*); una manera enredada de hacerlo
+(usando los operadores lógicos `==` y `|`) y una manera elegante
+(usando `%in%`). Prueba encontrar esas maneras y explica cómo
+funcionan (o no).
+
+:::::::::::::::  solution
+
+## Solución al desafío 2
+
+- La manera **incorrecta** de hacer este problema es `countries==seAsia`.
+  Esta lanza una advertencia (`"In countries == seAsia : longer object length is not a multiple of shorter object length"`)
+  y la respuesta incorrecta (un vector con todos los valores `FALSE`), ya
+  que ninguno de los valores reciclados de `seAsia` se emparejaron correctamente
+  para coincidir con los valores de `country`.
+- La manera **enredada** (pero técnicamente correcta) de resolver
+  este problema es
+
+```{r, results="hide"}
+ (countries=="Myanmar" | countries=="Thailand" |
+ countries=="Cambodia" | countries == "Vietnam" | countries=="Laos")
+```
+
+(o `countries==seAsia[1] | countries==seAsia[2] | ...`). Esto
+da los valores correctos, pero esperamos que veas lo raro que se ve
+(¿qué hubiera pasado si hubiéramos querido seleccionar países de una
+lista mucho más larga?).
+
+- La mejor manera de resolver este problema es `countries %in% seAsia`,
+  la cual es la correcta y la más sencilla de escribir (y leer).
+  
+  
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Manejando valores especiales
 
@@ -472,12 +491,12 @@ faltantes, infinito o datos indefinidos.
 
 Existen algunas funciones especiales que puedes usar para filtrar estos datos:
 
- * `is.na` regresa todas las posiciones de un **vector**, **matrix** o **data frame**
-   que contengan `NA` (o `NaN`)
- * de la misma manera, `is.nan` y `is.infinite` hacen lo mismo para `NaN` e `Inf`.
- * `is.finite` regresa todas las posiciones de un **vector**, **matrix** o **data frame**
-   que no contengan `NA`, `NaN` o `Inf`.
- * `na.omit` filtra todos los valores faltantes de un vector
+- `is.na` regresa todas las posiciones de un **vector**, **matrix** o **data frame**
+  que contengan `NA` (o `NaN`)
+- de la misma manera, `is.nan` y `is.infinite` hacen lo mismo para `NaN` e `Inf`.
+- `is.finite` regresa todas las posiciones de un **vector**, **matrix** o **data frame**
+  que no contengan `NA`, `NaN` o `Inf`.
+- `na.omit` filtra todos los valores faltantes de un vector
 
 ## Haciendo subconjuntos de factores
 
@@ -506,7 +525,6 @@ También podemos hacer subconjuntos de matrices usando la función `[`  En este
 caso toma dos argumentos: el primero se aplica a las filas y el segundo
 a las columnas:
 
-
 ```{r}
 set.seed(1)
 m <- matrix(rnorm(6*4), ncol=4, nrow=6)
@@ -515,7 +533,6 @@ m[3:4, c(3,1)]
 
 Siempre puedes dejar el primer o segundo argumento vacío para obtener todas las filas
 o columnas respectivamente:
-
 
 ```{r}
 m[, c(3,4)]
@@ -542,23 +559,23 @@ columna fuera de la matriz, R arrojará un error:
 m[, c(3,6)]
 ```
 
-> ## Sugerencia: **Arrays** de más dimensiones
->
-> Cuando estamos lidiando con **arrays** multi-dimensionales, cada uno de los
-> argumentos de `[` corresponden a una dimensión. Por ejemplo,en un **array**
-> 3D, los primeros tres argumentos corresponden a las filas, columnas y
-> profundidad.
->
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Sugerencia: **Arrays** de más dimensiones
+
+Cuando estamos lidiando con **arrays** multi-dimensionales, cada uno de los
+argumentos de `[` corresponden a una dimensión. Por ejemplo,en un **array**
+3D, los primeros tres argumentos corresponden a las filas, columnas y
+profundidad.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Como las matrices son vectores, podemos también hacer subconjuntos usando
 solo un argumento:
 
-
 ```{r}
 m[5]
 ```
-
 
 Normalmente esto no es tan útil y muchas veces difícil de leer. Sin embargo
 es útil notar que las matrices están acomodadas en un formato **column-major** por defecto. Esto significa que los elementos del vector están acomodados por columnas:
@@ -566,7 +583,6 @@ es útil notar que las matrices están acomodadas en un formato **column-major**
 ```{r}
 matrix(1:6, nrow=2, ncol=3)
 ```
-
 
 Si quisieramos llenar una matriz por filas, usamos `byrow=TRUE`:
 
@@ -577,32 +593,38 @@ matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
 Podemos también hacer subconjuntos de las matrices usando los nombres de
 sus filas y de sus columnas en vez de usar sus índices.
 
-> ## Desafío 4
->
-> Dado el siguiente código:
->
->
-> ```{r}
-> m <- matrix(1:18, nrow=3, ncol=6)
-> print(m)
-> ```
->
-> 1. ¿Cuál de los siguientes comandos extraerá los valores 11 y 14?
->
-> A. `m[2,4,2,5]`
->
-> B. `m[2:5]`
->
-> C. `m[4:5,2]`
->
-> D. `m[2,c(4,5)]`
->
-> > ## Solución al desafío 4
-> >
-> > D
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
+## Desafío 4
+
+Dado el siguiente código:
+
+```{r}
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+```
+
+1. ¿Cuál de los siguientes comandos extraerá los valores 11 y 14?
+
+A. `m[2,4,2,5]`
+
+B. `m[2:5]`
+
+C. `m[4:5,2]`
+
+D. `m[2,c(4,5)]`
+
+:::::::::::::::  solution
+
+## Solución al desafío 4
+
+D
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Haciendo subconjuntos de listas
 
@@ -613,7 +635,6 @@ aprendimos los vectores atómicos y las matrices: `[`, `[[` y `$`.
 Usando `[` siempre se obtiene una lista. Si quieres un *subconjunto* de una
 lista, pero no quieres *extraer* un elemento, entonces probablemente usarás
 `[`.
-
 
 ```{r}
 xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
@@ -627,8 +648,6 @@ con los vectores atómicos usando `[`. Las operaciones de comparación sin
 embargo no funcionan, ya que no son recursivas, estas probarán la
 condición en la estructura de datos de los elementos de la lista,
 y no en los elementos individuales de dichas estructuras de datos.
-
-
 
 ```{r}
 xlist[1:2]
@@ -645,7 +664,6 @@ Nota que ahora el resultados es un vector, no una lista.
 
 No puedes extraer más de un elemento al mismo tiempo:
 
-
 ```{r, error=TRUE}
 xlist[[1:2]]
 ```
@@ -658,7 +676,6 @@ xlist[[-1]]
 
 Pero tú puedes usar los nombres para hacer subconjuntos y extraer elementos:
 
-
 ```{r}
 xlist[["a"]]
 ```
@@ -669,62 +686,72 @@ La función `$` es una manera abreviada para extraer elementos por nombre:
 xlist$data
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Desafío 5
-> Dada la siguiente lista:
->
->
-> ```{r, eval=FALSE}
-> xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
-> ```
->
->
-> Usando tu conocimiento para hacer subconjuntos de listas y vectores, extrae
-> el número 2 de `xlist`.
-> Pista: el número 2 está contenido en el elemento "b" de la lista.
->
-> > ## Solución al desafío 5
-> >
-> >
-> > ```{r}
-> > xlist$b[2]
-> > ```
-> > ```{r}
-> > xlist[[2]][2]
-> > ```
-> > ```{r}
-> > xlist[["b"]][2]
-> > ```
-> {: .solution}
-{: .challenge}
+## Desafío 5
 
+Dada la siguiente lista:
 
-> ## Desafío 6
-> Dado un modelo lineal:
->
-> ```{r, eval=FALSE}
-> mod <- aov(pop ~ lifeExp, data=gapminder)
-> ```
->
-> Extrae los grados de libertad residuales (pista: `attributes()` te puede
-> ayudar)
->
-> > ## Solución del desafío 6
-> >
-> >
-> > ```{r, eval=FALSE}
-> > attributes(mod) ## `df.residual` es uno de los nombres de `mod`
-> > ```
-> > ```{r, eval=FALSE}
-> > mod$df.residual
-> > ```
-> {: .solution}
-{: .challenge}
+```{r, eval=FALSE}
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
+```
 
+Usando tu conocimiento para hacer subconjuntos de listas y vectores, extrae
+el número 2 de `xlist`.
+Pista: el número 2 está contenido en el elemento "b" de la lista.
+
+:::::::::::::::  solution
+
+## Solución al desafío 5
+
+```{r}
+xlist$b[2]
+```
+
+```{r}
+xlist[[2]][2]
+```
+
+```{r}
+xlist[["b"]][2]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Desafío 6
+
+Dado un modelo lineal:
+
+```{r, eval=FALSE}
+mod <- aov(pop ~ lifeExp, data=gapminder)
+```
+
+Extrae los grados de libertad residuales (pista: `attributes()` te puede
+ayudar)
+
+:::::::::::::::  solution
+
+## Solución del desafío 6
+
+```{r, eval=FALSE}
+attributes(mod) ## `df.residual` es uno de los nombres de `mod`
+```
+
+```{r, eval=FALSE}
+mod$df.residual
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Data frames
 
-Recordemos que las **data frames** son listas, por lo que aplican reglas similares. 
+Recordemos que las **data frames** son listas, por lo que aplican reglas similares.
 Sin embargo estos también son objetos de dos dimensiones:
 
 `[` con un argumento funcionará de la misma manera que para las listas,
@@ -750,7 +777,6 @@ gapminder[1:3,]
 Si nuestro subconjunto es una sola fila, el resultado será una **data frame**
 (porque los elementos son de distintos tipos):
 
-
 ```{r}
 gapminder[3,]
 ```
@@ -758,118 +784,130 @@ gapminder[3,]
 Pero para una sola columna el resultado será un vector (esto puede cambiarse
 con el tercer argumento, `drop = FALSE`).
 
-> ## Desafío 7
->
-> Corrige cada uno de los siguientes errores para hacer subconjuntos de
-> **data frames**:
->
-> 1. Extraer observaciones colectadas en el año 1957
->
->    ```{r, eval=FALSE}
->    gapminder[gapminder$year = 1957,]
->    ```
->
-> 2. Extraer todas las columnas excepto de la 1 a la 4
->
->
-> ```{r, eval=FALSE}
->    gapminder[,-1:4]
->    ```
->
-> 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
->
->
->    ```{r, eval=FALSE}
->    gapminder[gapminder$lifeExp > 80]
->    ```
->
-> 4. Extraer la primer fila, y la cuarta y quinta columna
->   (`lifeExp` y `gdpPercap`).
->
->
->    ```{r, eval=FALSE}
->    gapminder[1, 4, 5]
->    ```
->
-> 5. Avanzado: extraer las filas que contienen información para los años 2002
->    y 2007
->
->
->    ```{r, eval=FALSE}
->    gapminder[gapminder$year == 2002 | 2007,]
->    ```
->
-> > ## Solución del desafío 7
-> >
-> > Corrige cada uno de los siguientes errores para hacer subconjuntos de
-> > **data frames**:
-> >
-> > 1. Extraer observaciones colectadas en el año 1957
-> >
-> >
-> >    ```{r, eval=FALSE}
-> >    # gapminder[gapminder$year = 1957,]
-> >    gapminder[gapminder$year == 1957,]
-> >    ```
-> >
-> > 2. Extraer todas las columnas excepto de la 1 a la 4
-> >
-> >
-> >    ```{r, eval=FALSE}
-> >    # gapminder[,-1:4]
-> >    gapminder[,-c(1:4)]
-> >    ```
-> >
-> > 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
-> >
-> >
-> >    ```{r, eval=FALSE}
-> >    # gapminder[gapminder$lifeExp > 80]
-> >    gapminder[gapminder$lifeExp > 80,]
-> >    ```
-> >
-> > 4. Extraer la primer fila, y la cuarta y quinta columna
-> >   (`lifeExp` y `gdpPercap`).
-> >
-> >
-> >    ```{r, eval=FALSE}
-> >    # gapminder[1, 4, 5]
-> >    gapminder[1, c(4, 5)]
-> >    ```
-> >
-> > 5. Avanzado: extraer las filas que contienen información para los años 2002
-> >    y 2007
-> >
-> >
-> >     ```{r, eval=FALSE}
-> >     # gapminder[gapminder$year == 2002 | 2007,]
-> >     gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
-> >     gapminder[gapminder$year %in% c(2002, 2007),]
-> >     ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Desafío 8
->
-> 1. ¿Por qué `gapminder[1:20]` regresa un error? ¿En qué difiere de `gapminder[1:20, ]`?
->
->
-> 2. Crea un `data.frame` llamado `gapminder_small` que solo contenga las filas del 1
->    al 9 y del 19 al 23. Puedes hacerlo en uno o dos pasos.
->
-> > ## Solución al desafío 8
-> >
-> > 1. `gapminder` es un `data.frame` por lo que para hacer un subconjunto necesita dos
-> >    dimensiones. `gapminder[1:20, ]` genera un subconjunto de los datos de las primeras
-> >    20 filas y todas las columnas.
-> >
-> > 2.
-> >
-> >
-> > ```{r}
-> > gapminder_small <- gapminder[c(1:9, 19:23),]
-> > ```
-> {: .solution}
-{: .challenge}
+## Desafío 7
 
-{% include links.md %}
+Corrige cada uno de los siguientes errores para hacer subconjuntos de
+**data frames**:
+
+1. Extraer observaciones colectadas en el año 1957
+  
+  ```{r, eval=FALSE}
+  gapminder[gapminder$year = 1957,]
+  ```
+
+2. Extraer todas las columnas excepto de la 1 a la 4
+
+```{r, eval=FALSE}
+   gapminder[,-1:4]
+```
+
+3. Extraer las filas donde la esperanza de vida es mayor a 80 años
+  
+  ```{r, eval=FALSE}
+  gapminder[gapminder$lifeExp > 80]
+  ```
+
+4. Extraer la primer fila, y la cuarta y quinta columna
+  (`lifeExp` y `gdpPercap`).
+  
+  ```{r, eval=FALSE}
+  gapminder[1, 4, 5]
+  ```
+
+5. Avanzado: extraer las filas que contienen información para los años 2002
+  y 2007
+  
+  ```{r, eval=FALSE}
+  gapminder[gapminder$year == 2002 | 2007,]
+  ```
+
+:::::::::::::::  solution
+
+## Solución del desafío 7
+
+Corrige cada uno de los siguientes errores para hacer subconjuntos de
+**data frames**:
+
+1. Extraer observaciones colectadas en el año 1957
+  
+  ```{r, eval=FALSE}
+  # gapminder[gapminder$year = 1957,]
+  gapminder[gapminder$year == 1957,]
+  ```
+
+2. Extraer todas las columnas excepto de la 1 a la 4
+  
+  ```{r, eval=FALSE}
+  # gapminder[,-1:4]
+  gapminder[,-c(1:4)]
+  ```
+
+3. Extraer las filas donde la esperanza de vida es mayor a 80 años
+  
+  ```{r, eval=FALSE}
+  # gapminder[gapminder$lifeExp > 80]
+  gapminder[gapminder$lifeExp > 80,]
+  ```
+
+4. Extraer la primer fila, y la cuarta y quinta columna
+  (`lifeExp` y `gdpPercap`).
+  
+  ```{r, eval=FALSE}
+  # gapminder[1, 4, 5]
+  gapminder[1, c(4, 5)]
+  ```
+
+5. Avanzado: extraer las filas que contienen información para los años 2002
+  y 2007
+  
+  ```{r, eval=FALSE}
+  # gapminder[gapminder$year == 2002 | 2007,]
+  gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+  gapminder[gapminder$year %in% c(2002, 2007),]
+  ```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Desafío 8
+
+1. ¿Por qué `gapminder[1:20]` regresa un error? ¿En qué difiere de `gapminder[1:20, ]`?
+
+2. Crea un `data.frame` llamado `gapminder_small` que solo contenga las filas del 1
+  al 9 y del 19 al 23. Puedes hacerlo en uno o dos pasos.
+
+:::::::::::::::  solution
+
+## Solución al desafío 8
+
+1. `gapminder` es un `data.frame` por lo que para hacer un subconjunto necesita dos
+  dimensiones. `gapminder[1:20, ]` genera un subconjunto de los datos de las primeras
+  20 filas y todas las columnas.
+
+2. 
+```{r}
+gapminder_small <- gapminder[c(1:9, 19:23),]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Los índices en R comienzan con 1, no con 0.
+- Acceso a un elemento por posición usando `[]`.
+- Acceso a un rango de datos usando `[min:max]`.
+- Acceso a subconjuntos arbitrarios usando `[c(...)]`.
+- Usar operaciones lógicas y vectores lógicos para acceder a subconjuntos de datos
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

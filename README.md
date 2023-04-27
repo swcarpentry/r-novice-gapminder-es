@@ -1,12 +1,11 @@
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
 ![Build and Deploy Website](https://github.com/swcarpentry/r-novice-gapminder-es/workflows/Build%20and%20Deploy%20Website/badge.svg)
- [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--gapminder--es-E01563.svg)](https://swcarpentry.slack.com/messages/C9X9DN84V)  [![DOI](https://zenodo.org/badge/126034528.svg)](https://zenodo.org/badge/latestdoi/126034528)
+[![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--gapminder--es-E01563.svg)](https://swcarpentry.slack.com/messages/C9X9DN84V)  [![DOI](https://zenodo.org/badge/126034528.svg)](https://zenodo.org/badge/latestdoi/126034528)
 
-R para Análisis Científicos Reproducibles
-======================================
+# R para Análisis Científicos Reproducibles
 
 Una introducción a R para no-programadores utilizando los datos de  [Gapminder][gapminder].
-Consulta la página <https://swcarpentry.github.io/r-novice-gapminder-es> para visualizar el material y
+Consulta la página [https://swcarpentry.github.io/r-novice-gapminder-es](https://swcarpentry.github.io/r-novice-gapminder-es) para visualizar el material y
 [la documentación de la plantilla de la lección][lesson-example]
 para obtener las instrucciones sobre cómo formatear, compilar y enviar material,
 o ejecuta `make` en este directorio para obtener una lista de comandos útiles.
@@ -28,11 +27,14 @@ tiene algunos planes de lecciones sugeridos adecuados para un taller de uno o me
 
 **Maintainers**:
 
-* [Rayna Harris][harris_rayna]: [@raynamharris](https://github.com/raynamharris)
-* Veronica Jimenez: [@vjimenez9](https://github.com/vjimenez9)
-* Silvana Pereyra: [@spereyra](https://github.com/spereyra)
-* Heladia Saldago: [@Helysalgado](https://github.com/Helysalgado)
+- [Rayna Harris][harris_rayna]: [@raynamharris](https://github.com/raynamharris)
+- Veronica Jimenez: [@vjimenez9](https://github.com/vjimenez9)
+- Silvana Pereyra: [@spereyra](https://github.com/spereyra)
+- Heladia Saldago: [@Helysalgado](https://github.com/Helysalgado)
 
-[harris_rayna]: http://software-carpentry.org/team/#harris_rayna
-[gapminder]: http://www.gapminder.org/
+[gapminder]: https://www.gapminder.org/
 [lesson-example]: https://swcarpentry.github.io/lesson-example
+[harris_rayna]: https://software-carpentry.org/team/#harris_rayna
+
+
+
