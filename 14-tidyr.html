@@ -439,12 +439,12 @@ incluyendo <code>tidyr</code> y <code>dplyr</code>.</p>
  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="desafío-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-1" class="callout-inner">
-<h3 class="callout-title">Desafío 1<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Desafío 1<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-1"></a>
 </h3>
 <div class="callout-content">
 <p>¿Crees que el data frame gapminder tiene un formato largo, ancho o
@@ -459,7 +459,7 @@ algo intermedio?</p>
   Solución del Desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>El data frame gapminder tiene un formato intermedio. No es
 completamente largo porque tiene múltiples observaciones por cada
@@ -637,12 +637,12 @@ en múltiples variables.</p>
 <code class="sourceCode R"><span><span class="va">gap_long</span> <span class="op">&lt;-</span> <span class="va">gap_long</span> <span class="op">%&gt;%</span> <span class="fu">separate</span><span class="op">(</span><span class="va">obstype_year</span>, into <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"obs_type"</span>, <span class="st">"year"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
 <span><span class="va">gap_long</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu">as.integer</span><span class="op">(</span><span class="va">gap_long</span><span class="op">$</span><span class="va">year</span><span class="op">)</span></span></code></pre>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="desafío-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-2" class="callout-inner">
-<h3 class="callout-title">Desafío 2<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Desafío 2<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-2"></a>
 </h3>
 <div class="callout-content">
 <p>Usando el <strong>data frame</strong> <code>gap_long</code>, calcula
@@ -660,7 +660,7 @@ aprendiste en el episodio anterior.</p>
   Solución al Desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -925,12 +925,12 @@ podemos usar ese resultado con la función <code>spread()</code>.</p>
  $ pop_2002      : num  31287142 10866106 7026113 1630347 12251209 ...
  $ pop_2007      : num  33333216 12420476 8078314 1639131 14326203 ...</code></pre>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="desafío-3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-3" class="callout-inner">
-<h3 class="callout-title">Desafío 3<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Desafío 3<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-3"></a>
 </h3>
 <div class="callout-content">
 <p>Crea un formato de datos <code>gap_super_wide</code> mediante la
@@ -946,7 +946,7 @@ este nuevo <strong>data frame</strong> sólo debe tener cinco filas.</p>
   Solución para el desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1072,7 +1072,7 @@ formato ancho.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1096,7 +1096,7 @@ formato ancho.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/14-tidyr.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2023-04-27",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-24"
 }
 
   </script><script>

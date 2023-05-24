@@ -475,12 +475,12 @@ de dispersión de puntos (<strong>scatterplot</strong>).</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>, y <span class="op">=</span> <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge1" class="callout challenge">
+<figure><img src="../fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="desafío-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-1" class="callout-inner">
-<h3 class="callout-title">Desafío 1<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Desafío 1<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-1"></a>
 </h3>
 <div class="callout-content">
 <p>Modifica el ejemplo anterior de manera que en la figura se muestre
@@ -518,12 +518,12 @@ esperanza de vida ha cambiado a través del tiempo:</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="desafío-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-2" class="callout-inner">
-<h3 class="callout-title">Desafío 2<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Desafío 2<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-2"></a>
 </h3>
 <div class="callout-content">
 <p>En los ejemplos y desafíos anteriores hemos usado la función
@@ -606,13 +606,13 @@ líneas. A continuación observamos una demostración:</p>
 gráfica en <code>ggplot</code> a la capa <code>geom_line</code> y, por
 lo tanto, ya no es válido para los puntos. Ahora podemos ver claramente
 que los puntos se dibujan sobre las líneas.</p>
-<div id="callout1" class="callout callout">
+<div id="sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout-inner">
 <h3 class="callout-title">Sugerencia: Asignando un
-<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a>
 </h3>
 <div class="callout-content">
 <p>Hasta ahora, hemos visto cómo usar un <strong>aesthetic</strong>
@@ -629,12 +629,12 @@ función <code>aes()</code>, de esta manera:
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="desafío-3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-3" class="callout-inner">
-<h3 class="callout-title">Desafío 3<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Desafío 3<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-3"></a>
 </h3>
 <div class="callout-content">
 <p>Intercambia el orden de las capas de los puntos y líneas del ejemplo
@@ -699,13 +699,13 @@ en la escala transformada, e.g. un GDP per capita de 1,000 se convierte
 en un 3 en el eje Y, un valor de 10,000 corresponde a un valor de 4 en
 el eje Y, y así sucesivamente. Esto facilita visualizar la dispersión de
 los datos sobre el eje X.</p>
-<div id="callout2" class="callout callout">
+<div id="sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout-inner">
 <h3 class="callout-title">Sugerencia Recordatorio: Asignando un
-<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a>
 </h3>
 <div class="callout-content">
 <p>Nota que usamos <code>geom_point(alpha = 0.5)</code>. Como menciona
@@ -763,12 +763,12 @@ especificado. Aquí <em>configuramos</em> el <strong>aesthetic</strong>
 <code>geom_smooth</code>. Previamente en la lección habíamos usado la
 función <code>aes</code> para definir un <em>mapeo</em> entre alguna
 variable de los datos y su representación visual.</p>
-<div id="challenge4" class="callout challenge">
+<div id="desafío-4a" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-4a" class="callout-inner">
-<h3 class="callout-title">Desafío 4a<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Desafío 4a<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-4a"></a>
 </h3>
 <div class="callout-content">
 <p>Modifica el color y el tamaño de los puntos en la capa puntos en el
@@ -806,12 +806,12 @@ ejemplo anterior</p>
 </div>
 </div>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="desafío-4b" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-4b" class="callout-inner">
-<h3 class="callout-title">Desafío 4b<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Desafío 4b<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-4b"></a>
 </h3>
 <div class="callout-content">
 <p>Modifica tu solución al Desafío 4a de manera que ahora los puntos
@@ -860,12 +860,12 @@ largo del tiempo para cada uno de los países en un solo gráfico. Como
 una alternativa, podemos dividir este gráfico en múltiples paneles al
 agregar una capa <strong>facet</strong>, enfocándonos únicamente en
 aquellos países con nombres que empiezan con la letra “A” o “Z”.</p>
-<div id="callout3" class="callout callout">
+<div id="pista" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="pista" class="callout-inner">
-<h3 class="callout-title">Pista<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Pista<a class="anchor" aria-label="anchor" href="#pista"></a>
 </h3>
 <div class="callout-content">
 <p>Empezamos por subdividir los datos. Usamos la función
@@ -972,12 +972,12 @@ documentación más extensa se encuentra disponible en el <a href="https://docs.
 Finalmente, si no tienen idea de cómo cambiar algún detalle, una
 búsqueda rápida en Google te llevarán a Stack Overflow donde encuentras
 preguntas y respuestas ¡con código reusable que puedes modificar!</p>
-<div id="challenge6" class="callout challenge">
+<div id="desafío-5" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-5" class="callout-inner">
-<h3 class="callout-title">Desafío 5<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Desafío 5<a class="anchor" aria-label="anchor" href="#desaf%C3%ADo-5"></a>
 </h3>
 <div class="callout-content">
 <p>Crea una gráfica de densidad de GDP per cápita, en la que el color
@@ -1061,7 +1061,7 @@ transformaciones de escala, y agrupamiento.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1085,7 +1085,7 @@ transformaciones de escala, y agrupamiento.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/08-plot-ggplot2.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2023-04-27",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-24"
 }
 
   </script><script>
