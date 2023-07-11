@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```{.output}
-          country year       pop continent  lifeExp gdpPercap
-477   El Salvador 1992   5274649  Americas 66.79800  4444.232
-387          Cuba 1962   7254373  Americas 65.24600  5180.756
-1090  Netherlands 1997  15604464    Europe 78.03000 30246.131
-290         China 1957 637408000      Asia 50.54896   575.987
-1415 South Africa 2002  44433622    Africa 53.36500  7710.946
+         country year     pop continent lifeExp  gdpPercap
+17       Albania 1972 2263554    Europe  67.690  3313.4222
+373      Croatia 1952 3882229    Europe  61.210  3119.2365
+61     Australia 1952 8691212   Oceania  69.120 10039.5956
+1294      Rwanda 1997 7212583    Africa  36.087   589.9445
+1259 Puerto Rico 2002 3859606  Americas  77.778 18855.6062
 ```
 
 :::::::::::::::::::::::::
