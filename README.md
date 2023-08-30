@@ -1,6 +1,6 @@
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
+[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://slack-invite.carpentries.org/)
 ![Build and Deploy Website](https://github.com/swcarpentry/r-novice-gapminder-es/workflows/Build%20and%20Deploy%20Website/badge.svg)
-[![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--gapminder--es-E01563.svg)](https://swcarpentry.slack.com/messages/C9X9DN84V)  [![DOI](https://zenodo.org/badge/126034528.svg)](https://zenodo.org/badge/latestdoi/126034528)
+[![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--gapminder--es-E01563.svg)](https://carpentries.slack.com/messages/C9X9DN84V)  [![DOI](https://zenodo.org/badge/126034528.svg)](https://zenodo.org/badge/latestdoi/126034528)
 
 # R para Análisis Científicos Reproducibles
 
