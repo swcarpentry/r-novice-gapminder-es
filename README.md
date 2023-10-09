@@ -27,9 +27,8 @@ tiene algunos planes de lecciones sugeridos adecuados para un taller de uno o me
 
 **Maintainers**:
 
-- [Rayna Harris][harris_rayna]: [@raynamharris](https://github.com/raynamharris)
 - Veronica Jimenez: [@vjimenez9](https://github.com/vjimenez9)
-- Silvana Pereyra: [@spereyra](https://github.com/spereyra)
+- Nelly Sélem: [@nselem](https://github.com/nselem)
 - Heladia Saldago: [@Helysalgado](https://github.com/Helysalgado)
 
 [gapminder]: https://www.gapminder.org/
