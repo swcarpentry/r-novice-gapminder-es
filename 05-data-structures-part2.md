@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```{.output}
-            country year      pop continent lifeExp gdpPercap
-1606 United Kingdom 1997 58808266    Europe  77.218 26074.531
-978       Mauritius 1977   913025    Africa  64.930  3710.983
-1340         Serbia 1987  9230783    Europe  71.218 15870.879
-886         Lesotho 1997  1982823    Africa  55.558  1186.148
-1114      Nicaragua 1997  4609572  Americas  68.426  2253.023
+                 country year      pop continent lifeExp  gdpPercap
+1387            Slovenia 1982  1861252    Europe  71.063 17866.7218
+1457           Swaziland 1972   480105    Africa  49.552  3364.8366
+1649             Vietnam 1972 44655014      Asia  50.254   699.5016
+1560 Trinidad and Tobago 2007  1056608  Americas  69.819 18008.5092
+1291              Rwanda 1982  5507565    Africa  46.218   881.5706
 ```
 
 :::::::::::::::::::::::::
