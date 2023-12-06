@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```{.output}
-     country year       pop continent lifeExp  gdpPercap
-702    India 1977 634000000      Asia  54.208   813.3373
-1026 Morocco 1977  18396941    Africa  55.730  2370.6200
-1078   Nepal 1997  23001113      Asia  59.426  1010.8921
-858   Kuwait 1977   1140357      Asia  69.343 59265.4771
-1338  Serbia 1977   8686367    Europe  70.300 12980.6696
+        country year      pop continent lifeExp gdpPercap
+1037 Mozambique 1972  9809596    Africa  40.328  724.9178
+1357  Singapore 1952  1127000      Asia  60.396 2315.1382
+1078      Nepal 1997 23001113      Asia  59.426 1010.8921
+1547       Togo 2002  4977378    Africa  57.561  886.2206
+1580     Turkey 1987 52881328    Europe  63.108 5089.0437
 ```
 
 :::::::::::::::::::::::::
