@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```{.output}
-     country year      pop continent lifeExp  gdpPercap
-265     Chad 1952  2682462    Africa  38.092  1178.6659
-1329 Senegal 1992  8307920    Africa  58.196  1367.8994
-215  Burundi 2002  7021078    Africa  47.360   446.4035
-464    Egypt 1987 52799062    Africa  59.797  3885.4607
-252   Canada 2007 33390141  Americas  80.653 36319.2350
+                    country year      pop continent lifeExp gdpPercap
+1179                 Panama 1962  1215725  Americas  61.817  3536.540
+1532               Thailand 1987 52910342      Asia  66.084  2982.654
+566                 Germany 1957 71019069    Europe  69.100 10187.827
+1691                 Zambia 2002 10595811    Africa  39.193  1071.614
+154  Bosnia and Herzegovina 1997  3607000    Europe  73.244  4766.356
 ```
 
 :::::::::::::::::::::::::
