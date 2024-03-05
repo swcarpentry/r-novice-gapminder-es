@@ -353,7 +353,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Creando gráficas con calidad para publicación con ggplot2</h1>
-        <p>Última actualización: 2024-02-27 |
+        <p>Última actualización: 2024-03-05 |
         
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/08-plot-ggplot2.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -951,7 +951,9 @@ directorio de trabajo.)</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in grid.newpage(): could not open file 'results/lifeExp.png'</code></pre>
+<pre class="error" tabindex="0"><code>Error in `ggsave()`:
+! Cannot find directory 'results'.
+ℹ Please supply an existing directory or use `create.dir = TRUE`.</code></pre>
 </div>
 <p>Hay dos cosas agradables acerca de <code>ggsave</code>. Primero, usa
 la última gráfica por default, así que si omites el argumento
@@ -1084,7 +1086,7 @@ transformaciones de escala, y agrupamiento.</li>
   "url": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/08-plot-ggplot2.html",
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/08-plot-ggplot2.html",
   "dateCreated": "2018-03-20",
-  "dateModified": "2024-02-27",
+  "dateModified": "2024-03-05",
   "datePublished": "2024-03-05"
 }
 
