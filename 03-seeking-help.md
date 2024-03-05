@@ -151,8 +151,8 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] compiler_4.3.2 tools_4.3.2    yaml_2.3.8     knitr_1.45     xfun_0.41     
-[6] renv_1.0.4     evaluate_0.23 
+[1] compiler_4.3.2 tools_4.3.2    yaml_2.3.8     knitr_1.45     xfun_0.42     
+[6] renv_1.0.5     evaluate_0.23 
 ```
 
 Imprimirá tu versión actual de R, así como cualquier paquete que hayas

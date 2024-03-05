@@ -486,7 +486,9 @@ ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height
 ```
 
 ```{.error}
-Error in grid.newpage(): could not open file 'results/lifeExp.png'
+Error in `ggsave()`:
+! Cannot find directory 'results'.
+ℹ Please supply an existing directory or use `create.dir = TRUE`.
 ```
 
 Hay dos cosas agradables acerca de `ggsave`. Primero, usa la última gráfica por default, así que si omites el argumento `plot`,
