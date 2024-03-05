@@ -414,11 +414,11 @@ elemento de <code>y</code>:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">:</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span>  <span class="sc">+</span>  <span class="sc">+</span>  <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y<span class="sc">:</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span>  <span class="dv">9</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---------------</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">7</span>  <span class="dv">9</span> <span class="dv">11</span> <span class="dv">13</span></span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>x<span class="sc">:</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    <span class="sc">+</span>  <span class="sc">+</span>  <span class="sc">+</span>  <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>y<span class="sc">:</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span>  <span class="dv">9</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="sc">---------------</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    <span class="dv">7</span>  <span class="dv">9</span> <span class="dv">11</span> <span class="dv">13</span></span></code></pre>
 </div>
 <div id="desafío-1" class="callout challenge">
 <div class="callout-square">
@@ -442,7 +442,7 @@ frame</strong> para asegurar que funcionó.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solución al desafío 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Intenta esto en la columna <code>pop</code> del
 <strong>dataset</strong> <code>gapminder</code>.</p>
@@ -493,7 +493,7 @@ Nuevamente, no te preocupes acerca de cuál es cuál.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solución al desafío 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Recuerda tus habilidades de graficación al crear una gráfica con la
 población en millones en comparación con el año.</p>
@@ -544,14 +544,13 @@ funciones también están vectorizadas:</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
 </div>
-<div id="sugerencia-algunas-funciones-útiles-para-vectores-lógicos" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="sugerencia-algunas-funciones-útiles-para-vectores-lógicos" class="callout-inner">
-<h3 class="callout-title">Sugerencia: algunas funciones útiles para
-vectores lógicos<a class="anchor" aria-label="anclaje" href="#sugerencia-algunas-funciones-%C3%BAtiles-para-vectores-l%C3%B3gicos"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="sugerencia-algunas-funciones-útiles-para-vectores-lógicos">Sugerencia: algunas funciones útiles para
+vectores lógicos<a class="anchor" aria-label="anchor" href="#sugerencia-algunas-funciones-%C3%BAtiles-para-vectores-l%C3%B3gicos"></a></h3>
 <div class="callout-content">
 <p><code>any()</code> devuelve <code>TRUE</code> si <em>algún</em>
 elemento del vector es <code>TRUE</code> <code>all()</code> devuelve
@@ -591,14 +590,13 @@ los vectores:</p>
 [2,]   -2   -5   -8  -11
 [3,]   -3   -6   -9  -12</code></pre>
 </div>
-<div id="sugerencia-multiplicación-elemento-por-elemento-vs.-multiplicación-de-matriz" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="sugerencia-multiplicación-elemento-por-elemento-vs.-multiplicación-de-matriz" class="callout-inner">
-<h3 class="callout-title">Sugerencia: multiplicación elemento por
-elemento vs. multiplicación de matriz<a class="anchor" aria-label="anclaje" href="#sugerencia-multiplicaci%C3%B3n-elemento-por-elemento-vs.-multiplicaci%C3%B3n-de-matriz"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="sugerencia-multiplicación-elemento-por-elemento-vs--multiplicación-de-matriz">Sugerencia: multiplicación elemento por
+elemento vs. multiplicación de matriz<a class="anchor" aria-label="anchor" href="#sugerencia-multiplicaci%C3%B3n-elemento-por-elemento-vs--multiplicaci%C3%B3n-de-matriz"></a></h3>
 <div class="callout-content">
 <p>Muy importante: el operador<code>*</code> te da una multiplicación de
 elemento por elemento! Para hacer multiplicación de matrices, necesitás
@@ -673,7 +671,7 @@ ayudante!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solución al desafío 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Dada la siguiente matriz:</p>
 <div class="codewrapper sourceCode" id="cb24">
@@ -750,7 +748,7 @@ cuando n=10.000?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solución al desafío 4</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Estamos interesados en encontrar la suma de la siguiente secuencia de
 fracciones:</p>
@@ -913,7 +911,7 @@ cuando n=10,000?</p>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/09-vectorization.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

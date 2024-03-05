@@ -396,17 +396,17 @@ condicionales, los enfoques más comúnmente utilizados son los
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (la condición es verdad) {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  realizar una acción</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># if ... else</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (la condición es verdad) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  realizar una acción</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {  <span class="co"># es decir, si la condición es falsa,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  realizar una acción alternativa</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># if</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span> (la condición es verdad) {</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  realizar una acción</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co"># if ... else</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="cf">if</span> (la condición es verdad) {</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  realizar una acción</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>} <span class="cf">else</span> {  <span class="co"># es decir, si la condición es falsa,</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>  realizar una acción alternativa</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>}</span></code></pre>
 </div>
 <p>Digamos, por ejemplo, que queremos que R imprima un mensaje si una
 variable <code>x</code> tiene un valor en particular:</p>
@@ -523,7 +523,7 @@ haz lo mismo para el año 2012.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solución al Desafío 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Primero veremos una solución al Desafío 1 que no usa la función
 <code>any()</code>. Primero obtenemos un vector lógico que describe que
@@ -585,13 +585,14 @@ caso la condición lógica se puede expresar como:</p>
 lógico, la función <code>if()</code> todavía se ejecutará, pero solo
 evaluará la condición en el primer elemento. Aquí debes asegurarte que
 tu condición sea de longitud 1.</p>
-<div id="tip-any-y-all" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-any-y-all" class="callout-inner">
-<h3 class="callout-title">Tip:<code>any()</code>y<code>all()</code><a class="anchor" aria-label="anclaje" href="#tip-any-y-all"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-any-y-all">Tip: <code>any()</code> y
+<code>all()</code>
+<a class="anchor" aria-label="anchor" href="#tip-any-y-all"></a></h3>
 <div class="callout-content">
 <p>La función <code>any()</code> devolverá TRUE si hay al menos un valor
 TRUE dentro del vector, en caso contrario devolverá <code>FALSE</code>.
@@ -616,9 +617,9 @@ dependa del resultado de la iteración previa.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(iterador <span class="cf">in</span> conjunto de valores){</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  haz alguna acción</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="cf">for</span>(iterador <span class="cf">in</span> conjunto de valores){</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  haz alguna acción</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>}</span></code></pre>
 </div>
 <p>Por ejemplo:</p>
 <div class="codewrapper sourceCode" id="cb19">
@@ -712,13 +713,12 @@ guardarlos en un nuevo objeto.</p>
 resultados (es decir, construir el objeto resultante de forma
 incremental) es computacionalmente ineficiente por lo que conviene
 evitarlo cuando estés iterando a través de muchos valores.</p>
-<div id="tip-no-incrementes-tus-resultados" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-no-incrementes-tus-resultados" class="callout-inner">
-<h3 class="callout-title">Tip: no incrementes tus resultados<a class="anchor" aria-label="anclaje" href="#tip-no-incrementes-tus-resultados"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-no-incrementes-tus-resultados">Tip: no incrementes tus resultados<a class="anchor" aria-label="anchor" href="#tip-no-incrementes-tus-resultados"></a></h3>
 <div class="callout-content">
 <p>Una de las cosas que más frecuentemente hace tropezar tanto a los
 principiantes como a los usuarios experimentados de R es la construcción
@@ -759,13 +759,12 @@ es aún más eficiente.</p>
 [13] "3 c" "4 c" "5 c" "1 d" "2 d" "3 d" "4 d" "5 d" "1 e" "2 e" "3 e" "4 e"
 [25] "5 e"</code></pre>
 </div>
-<div id="tip-bucles-while" class="callout callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-bucles-while" class="callout-inner">
-<h3 class="callout-title">Tip: Bucles While<a class="anchor" aria-label="anclaje" href="#tip-bucles-while"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-bucles-while">Tip: Bucles While<a class="anchor" aria-label="anchor" href="#tip-bucles-while"></a></h3>
 <div class="callout-content">
 <p>Algunas veces tendrás la necesidad de repetir una operación hasta que
 cierta condición se cumpla. Puedes hacer esto con un bucle
@@ -773,9 +772,9 @@ cierta condición se cumpla. Puedes hacer esto con un bucle
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(mientras esta condición es verdad){</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  haz algo</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="cf">while</span>(mientras esta condición es verdad){</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  haz algo</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>}</span></code></pre>
 </div>
 <p>A modo de ejemplo aquí hay un bucle while que genera números
 aleatorios a partir de una distribución uniforme (la función
@@ -816,7 +815,7 @@ output_vector2 igual a output_vector?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solución al Desafío 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Podemos verificar si dos vectores son idénticos usando la función
 <code>all()</code> :</p>
@@ -900,7 +899,7 @@ vida media es menor o mayor de 50 años.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solución al Desafío 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p><strong>Paso 1</strong>: Queremos asegurarnos de que podamos extraer
 todos los valores únicos del vector continente</p>
@@ -981,7 +980,7 @@ mayor que 70.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solución al Desafío 4</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Modificamos nuestra solución al Reto 3 agregando ahora dos umbrales,
 <code>lowerThreshold</code> y<code>upperThreshold</code> y extendiendo
@@ -1038,7 +1037,7 @@ menor de 50 años.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solución para el Desafío 5</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Lo primero que vamos a hacer es usar el comando <code>grep</code> que
 se introdujo en la lección Shell de Unix para encontrar países que
@@ -1170,7 +1169,7 @@ elecciones.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/07-control-flow.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

@@ -486,14 +486,13 @@ por separado. Esto hace que sea más fácil después, ya que muchos de
 nuestros análisis son exploratorios y no terminan siendo utilizados en
 el proyecto final, y algunos de los análisis se comparten entre
 proyectos.</p>
-<div id="tip-good-enough-practices-for-scientific-computing" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-good-enough-practices-for-scientific-computing" class="callout-inner">
-<h3 class="callout-title">Tip: Good Enough Practices for Scientific
-Computing<a class="anchor" aria-label="anclaje" href="#tip-good-enough-practices-for-scientific-computing"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-good-enough-practices-for-scientific-computing">Tip: Good Enough Practices for Scientific
+Computing<a class="anchor" aria-label="anchor" href="#tip-good-enough-practices-for-scientific-computing"></a></h3>
 <div class="callout-content">
 <p><a href="https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf" class="external-link">Good
 Enough Practices for Scientific Computing</a> brinda las siguientes
@@ -513,14 +512,13 @@ función.</li>
 </ol></div>
 </div>
 </div>
-<div id="tip-projecttemplate---una-posible-solución" class="callout callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-projecttemplate---una-posible-solución" class="callout-inner">
-<h3 class="callout-title">Tip: ProjectTemplate - una posible
-solución<a class="anchor" aria-label="anclaje" href="#tip-projecttemplate---una-posible-soluci%C3%B3n"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-projecttemplate---una-posible-solución">Tip: ProjectTemplate - una posible
+solución<a class="anchor" aria-label="anchor" href="#tip-projecttemplate---una-posible-soluci%C3%B3n"></a></h3>
 <div class="callout-content">
 <p>Una manera de automatizar la gestión de un proyecto es instalar el
 paquete <code>ProjectTemplate</code>. Este paquete configurará una
@@ -560,13 +558,12 @@ reutilizables podrán ser llevados a sus propias funciones. Es buena idea
 separar estas funciones en dos carpetas separadas; una para guardar
 funciones útiles que reutilizarás a través del análisis y proyectos, y
 una para guardar los <strong>scripts</strong> de análisis.</p>
-<div id="tip-evitando-la-duplicación" class="callout callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-evitando-la-duplicación" class="callout-inner">
-<h3 class="callout-title">Tip: Evitando la duplicación<a class="anchor" aria-label="anclaje" href="#tip-evitando-la-duplicaci%C3%B3n"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-evitando-la-duplicación">Tip: Evitando la duplicación<a class="anchor" aria-label="anchor" href="#tip-evitando-la-duplicaci%C3%B3n"></a></h3>
 <div class="callout-content">
 <p>Puedes encontrarte utilizando datos o <strong>scripts</strong> de
 análisis a través de varios proyectos. Normalmente, deseas evitar la
@@ -636,7 +633,7 @@ comandos para contestar las siguientes preguntas:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> data/gapminder-FiveYearData.csv</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> data/gapminder-FiveYearData.csv</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -647,7 +644,7 @@ comandos para contestar las siguientes preguntas:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/gapminder-FiveYearData.csv</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/gapminder-FiveYearData.csv</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -658,7 +655,7 @@ comandos para contestar las siguientes preguntas:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> data/gapminder-FiveYearData.csv</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">head</span> data/gapminder-FiveYearData.csv</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -678,13 +675,12 @@ Afghanistan,1992,16317921,Asia,41.674,649.3413952</code></pre>
 </div>
 </div>
 </div>
-<div id="tip-línea-de-comandos-en-r-studio" class="callout callout">
+<div id="callout4" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="tip-línea-de-comandos-en-r-studio" class="callout-inner">
-<h3 class="callout-title">Tip: Línea de comandos en R Studio<a class="anchor" aria-label="anclaje" href="#tip-l%C3%ADnea-de-comandos-en-r-studio"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="tip-línea-de-comandos-en-r-studio">Tip: Línea de comandos en R Studio<a class="anchor" aria-label="anchor" href="#tip-l%C3%ADnea-de-comandos-en-r-studio"></a></h3>
 <div class="callout-content">
 <p>Puedes abrir rápidamente una terminal en RStudio usando la opción del
 menú <strong>Tools -&gt; Shell…</strong>.</p>
@@ -773,7 +769,7 @@ consistente.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/02-project-intro.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

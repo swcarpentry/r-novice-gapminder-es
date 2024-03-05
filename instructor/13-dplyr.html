@@ -563,7 +563,7 @@ por qué?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solución al Reto 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -669,13 +669,13 @@ aplicarles funciones (por ejemplo, <code>mean()</code> o
 <figure><img src="../fig/13-dplyr-fig3.png" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>continent mean_gdpPercap</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="sc">&lt;</span>fctr<span class="sc">&gt;</span>          <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    Africa       <span class="fl">2193.755</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  Americas       <span class="fl">7136.110</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>      Asia       <span class="fl">7902.150</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    Europe      <span class="fl">14469.476</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   Oceania      <span class="fl">18621.609</span></span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>continent mean_gdpPercap</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>     <span class="sc">&lt;</span>fctr<span class="sc">&gt;</span>          <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="dv">1</span>    Africa       <span class="fl">2193.755</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="dv">2</span>  Americas       <span class="fl">7136.110</span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="dv">3</span>      Asia       <span class="fl">7902.150</span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="dv">4</span>    Europe      <span class="fl">14469.476</span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="dv">5</span>   Oceania      <span class="fl">18621.609</span></span></code></pre>
 </div>
 <p>Esto nos ha permitido calcular la renta per cápita media para cada
 continente, pero puede ser todavía mucho mejor.</p>
@@ -697,7 +697,7 @@ esperanza de vida media mayor y cuál la menor?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solución al Reto 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1046,7 +1046,7 @@ del paquete <code>dplyr</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solución al Reto Avanzado</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1150,7 +1150,7 @@ trabajar con subconjuntos de datos.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/13-dplyr.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
