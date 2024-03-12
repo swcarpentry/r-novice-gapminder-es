@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```{.output}
-             country year      pop continent lifeExp gdpPercap
-1218     Philippines 1977 46850962      Asia  60.060  2373.204
-1635       Venezuela 1962  8143375  Americas  60.770  8422.974
-665  Hong Kong China 1972  4115700      Asia  72.000  8315.928
-748          Ireland 1967  2900100    Europe  71.080  7655.569
-1654         Vietnam 1997 76048996      Asia  70.672  1385.897
+            country year      pop continent lifeExp  gdpPercap
+939        Malaysia 1962  8906385      Asia  55.737  2036.8849
+1294         Rwanda 1997  7212583    Africa  36.087   589.9445
+1601 United Kingdom 1972 56079000    Europe  72.010 15895.1164
+1155           Oman 1962   628164      Asia  43.165  2924.6381
+882         Lesotho 1977  1251524    Africa  52.208   745.3695
 ```
 
 :::::::::::::::::::::::::
