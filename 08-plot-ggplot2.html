@@ -509,7 +509,7 @@ llamada “year”, la cual debe aparecer en el eje X.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solución al desafío 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Modifica el ejemplo de manera que en la figura se muestre como la
 esperanza de vida ha cambiado a través del tiempo:</p>
@@ -548,7 +548,7 @@ esperabas?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solución al desafío 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>En los ejemplos y desafios anteriores hemos usado la función
 <code>aes</code> para decirle al <code>geom_point</code> cuáles serán
@@ -610,13 +610,13 @@ líneas. A continuación observamos una demostración:</p>
 gráfica en <code>ggplot</code> a la capa <code>geom_line</code> y, por
 lo tanto, ya no es válido para los puntos. Ahora podemos ver claramente
 que los puntos se dibujan sobre las líneas.</p>
-<div id="callout1" class="callout">
+<div id="sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo">Sugerencia: Asignando un
-<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a></h3>
+<div id="sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout-inner">
+<h3 class="callout-title">Sugerencia: Asignando un<strong>aesthetic</strong>a un valor en vez de a un mapeo<a class="anchor" aria-label="anclaje" href="#sugerencia-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a>
+</h3>
 <div class="callout-content">
 <p>Hasta ahora, hemos visto cómo usar un <strong>aesthetic</strong>
 (como <strong>color</strong>) como un <em>mapeo</em> entre una variable
@@ -650,7 +650,7 @@ anterior. ¿Qué sucede?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solución a desafío 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Intercambia el orden de las capas de los puntos y líneas del ejemplo
 anterior. ¿Qué sucede?</p>
@@ -700,13 +700,13 @@ en la escala transformada, e.g. un GDP per capita de 1,000 se convierte
 en un 3 en el eje Y, un valor de 10,000 corresponde a un valor de 4 en
 el eje Y, y así sucesivamente. Esto facilita visualizar la dispersión de
 los datos sobre el eje X.</p>
-<div id="callout2" class="callout">
+<div id="sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo">Sugerencia Recordatorio: Asignando un
-<strong>aesthetic</strong> a un valor en vez de a un mapeo<a class="anchor" aria-label="anchor" href="#sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a></h3>
+<div id="sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo" class="callout-inner">
+<h3 class="callout-title">Sugerencia Recordatorio: Asignando un<strong>aesthetic</strong>a un valor en vez de a un mapeo<a class="anchor" aria-label="anclaje" href="#sugerencia-recordatorio-asignando-un-aesthetic-a-un-valor-en-vez-de-a-un-mapeo"></a>
+</h3>
 <div class="callout-content">
 <p>Nota que usamos <code>geom_point(alpha = 0.5)</code>. Como menciona
 la sugerencia anterior, cambiar una especificación afuera de la función
@@ -782,7 +782,7 @@ ejemplo anterior</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solución al desafío 4a</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Modifica el color y el tamaño de los puntos en la capa puntos en el
 ejemplo anterior</p>
@@ -825,7 +825,7 @@ incluyendo líneas de tendencia.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solución al desafío 4b</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Modifica tu solución al Desafío 4a de manera que ahora los puntos
 tengan una forma diferente y estén coloreados de acuerdo al continente
@@ -856,12 +856,13 @@ largo del tiempo para cada uno de los países en un solo gráfico. Como
 una alternativa, podemos dividir este gráfico en múltiples paneles al
 agregar una capa <strong>facet</strong>, enfocándonos únicamente en
 aquellos países con nombres que empiezan con la letra “A” o “Z”.</p>
-<div id="callout3" class="callout">
+<div id="pista" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="pista">Pista<a class="anchor" aria-label="anchor" href="#pista"></a></h3>
+<div id="pista" class="callout-inner">
+<h3 class="callout-title">Pista<a class="anchor" aria-label="anclaje" href="#pista"></a>
+</h3>
 <div class="callout-content">
 <p>Empezamos por subdividir los datos. Usamos la función
 <code>substr</code> para extraer una parte de una secuencia de
@@ -992,7 +993,7 @@ densidad con un panel para cada año.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Solución al desafío 5</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Crea una gráfica de densidad de GDP per cápita, en la que el color
 del relleno cambie por continente.</p>
@@ -1062,7 +1063,7 @@ transformaciones de escala, y agrupamiento.</li>
         <p>Materiales bajo la <a href="LICENSE.html">CC-BY 4.0</a> por the authors</p>
         
         <p>Plantilla compartida bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> por <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
+        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.3" class="external-link">sandpaper (0.16.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1085,7 +1086,7 @@ transformaciones de escala, y agrupamiento.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/08-plot-ggplot2.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-03-12",
-  "datePublished": "2024-03-12"
+  "datePublished": "2024-03-19"
 }
 
   </script><script>
