@@ -658,11 +658,11 @@ gapminder[sample(nrow(gapminder), 5), ]
 
 ```{.output}
             country year      pop continent lifeExp  gdpPercap
-939        Malaysia 1962  8906385      Asia  55.737  2036.8849
-1294         Rwanda 1997  7212583    Africa  36.087   589.9445
-1601 United Kingdom 1972 56079000    Europe  72.010 15895.1164
-1155           Oman 1962   628164      Asia  43.165  2924.6381
-882         Lesotho 1977  1251524    Africa  52.208   745.3695
+406  Czech Republic 1997 10300707    Europe  74.010 16048.5142
+684         Hungary 2007  9956108    Europe  73.338 18008.9444
+1111      Nicaragua 1982  2979423  Americas  59.298  3470.3382
+1561        Tunisia 1952  3647735    Africa  44.600  1468.4756
+193    Burkina Faso 1952  4469979    Africa  31.975   543.2552
 ```
 
 :::::::::::::::::::::::::
