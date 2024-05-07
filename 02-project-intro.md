@@ -209,8 +209,8 @@ Al ejecutar estos comandos en la terminal:
 ls -lh data/gapminder-FiveYearData.csv
 ```
 
-```{.output}
--rw-r--r-- 1 runner docker 80K Apr  2 01:05 data/gapminder-FiveYearData.csv
+```output
+-rw-r--r-- 1 runner docker 80K May  7 20:12 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.
@@ -220,7 +220,7 @@ El tamaño del archivo es 80K.
 wc -l data/gapminder-FiveYearData.csv
 ```
 
-```{.output}
+```output
 1705 data/gapminder-FiveYearData.csv
 ```
 
@@ -231,7 +231,7 @@ Hay 1705 líneas. Los datos se ven así:
 head data/gapminder-FiveYearData.csv
 ```
 
-```{.output}
+```output
 country,year,pop,continent,lifeExp,gdpPercap
 Afghanistan,1952,8425333,Asia,28.801,779.4453145
 Afghanistan,1957,9240934,Asia,30.332,820.8530296

@@ -63,7 +63,7 @@ Primero, veamos la estructura **structure** del **data frame** gapminder:
 str(gapminder)
 ```
 
-```{.output}
+```output
 'data.frame':	1704 obs. of  6 variables:
  $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -123,7 +123,7 @@ gap_wide <- read.csv("data/gapminder_wide.csv", stringsAsFactors = FALSE)
 str(gap_wide)
 ```
 
-```{.output}
+```output
 'data.frame':	142 obs. of  38 variables:
  $ continent     : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country       : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -179,7 +179,7 @@ gap_long <- gap_wide %>%
 str(gap_long)
 ```
 
-```{.output}
+```output
 'data.frame':	5112 obs. of  4 variables:
  $ continent   : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country     : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -202,7 +202,7 @@ gap_long <- gap_wide %>% gather(obstype_year, obs_values, -continent, -country)
 str(gap_long)
 ```
 
-```{.output}
+```output
 'data.frame':	5112 obs. of  4 variables:
  $ continent   : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country     : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -239,12 +239,12 @@ gap_long %>%
     summarize(means = mean(obs_values))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 15 × 3
 # Groups:   continent [5]
    continent obs_type       means
@@ -280,7 +280,7 @@ gap_normal <- gap_long %>% spread(obs_type,obs_values)
 dim(gap_normal)
 ```
 
-```{.output}
+```output
 [1] 1704    6
 ```
 
@@ -288,7 +288,7 @@ dim(gap_normal)
 dim(gapminder)
 ```
 
-```{.output}
+```output
 [1] 1704    6
 ```
 
@@ -296,7 +296,7 @@ dim(gapminder)
 names(gap_normal)
 ```
 
-```{.output}
+```output
 [1] "continent" "country"   "year"      "gdpPercap" "lifeExp"   "pop"      
 ```
 
@@ -304,7 +304,7 @@ names(gap_normal)
 names(gapminder)
 ```
 
-```{.output}
+```output
 [1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
 ```
 
@@ -317,7 +317,7 @@ gap_normal <- gap_normal[,names(gapminder)]
 all.equal(gap_normal,gapminder)
 ```
 
-```{.output}
+```output
 [1] "Component \"country\": 1704 string mismatches"              
 [2] "Component \"pop\": Mean relative difference: 1.634504"      
 [3] "Component \"continent\": 1212 string mismatches"            
@@ -329,7 +329,7 @@ all.equal(gap_normal,gapminder)
 head(gap_normal)
 ```
 
-```{.output}
+```output
   country year      pop continent lifeExp gdpPercap
 1 Algeria 1952  9279525    Africa  43.077  2449.008
 2 Algeria 1957 10270856    Africa  45.685  3013.976
@@ -343,7 +343,7 @@ head(gap_normal)
 head(gapminder)
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -362,7 +362,7 @@ gap_normal <- gap_normal %>% arrange(country, continent, year)
 all.equal(gap_normal, gapminder)
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -380,7 +380,7 @@ gap_temp <- gap_long %>% unite(var_ID, continent, country, sep = "_")
 str(gap_temp)
 ```
 
-```{.output}
+```output
 'data.frame':	5112 obs. of  4 variables:
  $ var_ID    : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ obs_type  : chr  "gdpPercap" "gdpPercap" "gdpPercap" "gdpPercap" ...
@@ -395,7 +395,7 @@ gap_temp <- gap_long %>%
 str(gap_temp)
 ```
 
-```{.output}
+```output
 'data.frame':	5112 obs. of  3 variables:
  $ ID_var    : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ var_names : chr  "gdpPercap_1952" "gdpPercap_1952" "gdpPercap_1952" "gdpPercap_1952" ...
@@ -414,7 +414,7 @@ gap_wide_new <- gap_long %>%
 str(gap_wide_new)
 ```
 
-```{.output}
+```output
 'data.frame':	142 obs. of  37 variables:
  $ ID_var        : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ gdpPercap_1952: num  2449 3521 1063 851 543 ...
@@ -490,7 +490,7 @@ gap_wide_betterID <- gap_long %>%
 str(gap_wide_betterID)
 ```
 
-```{.output}
+```output
 'data.frame':	142 obs. of  38 variables:
  $ continent     : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country       : chr  "Algeria" "Angola" "Benin" "Botswana" ...

@@ -118,7 +118,7 @@ Lo más simple que podrías hacer con R es aritmética:
 1 + 100
 ```
 
-```{.output}
+```output
 [1] 101
 ```
 
@@ -167,7 +167,7 @@ De mayor a menor precedencia:
 3 + 5 * 2
 ```
 
-```{.output}
+```output
 [1] 13
 ```
 
@@ -178,7 +178,7 @@ Usa paréntesis para agrupar las operaciones a fin de forzar el orden de la eval
 (3 + 5) * 2
 ```
 
-```{.output}
+```output
 [1] 16
 ```
 
@@ -201,7 +201,7 @@ Los números pequeños o grandes tienen una notación científica:
 2/10000
 ```
 
-```{.output}
+```output
 [1] 2e-04
 ```
 
@@ -214,7 +214,7 @@ Tú también puedes escribir números en notación científica:
 5e3  # nota la falta del signo menos aquí
 ```
 
-```{.output}
+```output
 [1] 5000
 ```
 
@@ -228,7 +228,7 @@ Todo lo que escribas dentro de los paréntesis se llaman argumentos de la funci�
 sin(1)  # función trigonométrica
 ```
 
-```{.output}
+```output
 [1] 0.841471
 ```
 
@@ -237,7 +237,7 @@ sin(1)  # función trigonométrica
 log(1)  # logaritmo natural
 ```
 
-```{.output}
+```output
 [1] 0
 ```
 
@@ -246,7 +246,7 @@ log(1)  # logaritmo natural
 log10(10) # logaritmo en base-10
 ```
 
-```{.output}
+```output
 [1] 1
 ```
 
@@ -255,7 +255,7 @@ log10(10) # logaritmo en base-10
 exp(0.5) # e^(1/2)
 ```
 
-```{.output}
+```output
 [1] 1.648721
 ```
 
@@ -279,7 +279,7 @@ Podemos realizar comparaciones en R:
 1 == 1  # igualdad (observa dos signos iguales, se lee como "es igual a")
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -288,7 +288,7 @@ Podemos realizar comparaciones en R:
 1 != 2  # desigualdad (leída como "no es igual a")
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -297,7 +297,7 @@ Podemos realizar comparaciones en R:
 1 < 2  # menor que
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -306,7 +306,7 @@ Podemos realizar comparaciones en R:
 1 <= 1  # menor o igual que
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -315,7 +315,7 @@ Podemos realizar comparaciones en R:
 1 > 0  # mayor que
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -324,7 +324,7 @@ Podemos realizar comparaciones en R:
 1 >= -9 # mayor o igual que
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -365,7 +365,7 @@ Observa que la asignación no muestra el valor. En cambio, lo almacena para más
 x
 ```
 
-```{.output}
+```output
 [1] 0.025
 ```
 
@@ -378,7 +378,7 @@ Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que `
 log(x)
 ```
 
-```{.output}
+```output
 [1] -3.688879
 ```
 
@@ -485,7 +485,7 @@ mismo tipo de datos en un cierto orden. Por ejemplo:
 1:5
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4 5
 ```
 
@@ -493,7 +493,7 @@ mismo tipo de datos en un cierto orden. Por ejemplo:
 2^(1:5)
 ```
 
-```{.output}
+```output
 [1]  2  4  8 16 32
 ```
 
@@ -502,7 +502,7 @@ x <- 1:5
 2^x
 ```
 
-```{.output}
+```output
 [1]  2  4  8 16 32
 ```
 
@@ -520,7 +520,7 @@ Hay algunos comandos útiles que puedes usar para interactuar con la sesión de 
 ls()
 ```
 
-```{.output}
+```output
 [1] "x" "y"
 ```
 
@@ -543,7 +543,7 @@ Si escribimos `ls` nada más, ¡R mostrará el código fuente de esa función!
 ls
 ```
 
-```{.output}
+```output
 function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
     pattern, sorted = TRUE) 
 {
@@ -575,7 +575,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x5607bf4499a8>
+<bytecode: 0x562114383918>
 <environment: namespace:base>
 ```
 
@@ -605,7 +605,7 @@ Si, en cambio, usamos `<-`, habrá efectos secundarios no deseados, o puedes rec
 rm(list <- ls())
 ```
 
-```{.error}
+```error
 Error in rm(list <- ls()): ... must contain names or character strings
 ```
 
@@ -707,7 +707,7 @@ Una forma de responder esta pregunta en R es usar `>` para hacer lo siguiente:
 mass > age
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 

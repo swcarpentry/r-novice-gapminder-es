@@ -123,7 +123,7 @@ Llamamos nuestra propia función de la misma manera que llamamos cualquier otra:
 fahr_to_kelvin(32)
 ```
 
-```{.output}
+```output
 [1] 273.15
 ```
 
@@ -133,7 +133,7 @@ fahr_to_kelvin(32)
 fahr_to_kelvin(212)
 ```
 
-```{.output}
+```output
 [1] 373.15
 ```
 
@@ -282,7 +282,7 @@ Aún funciona si se le da un **input** adecuado.
 fahr_to_kelvin(temp = 32)
 ```
 
-```{.output}
+```output
 [1] 273.15
 ```
 
@@ -294,7 +294,7 @@ Pero falla instantáneamente si se le da un **input** inapropiado.
 fahr_to_kelvin(temp = as.factor(32))
 ```
 
-```{.error}
+```error
 Error in fahr_to_kelvin(temp = as.factor(32)): is.numeric(temp) is not TRUE
 ```
 
@@ -364,7 +364,7 @@ comando que se ejecute en la última línea de la función.
 calcGDP(head(gapminder))
 ```
 
-```{.output}
+```output
 [1]  6567086330  7585448670  8758855797  9648014150  9678553274 11697659231
 ```
 
@@ -413,7 +413,7 @@ Veamos qué sucede cuando especificamos el año:
 head(calcGDP(gapminder, year=2007))
 ```
 
-```{.output}
+```output
        country year      pop continent lifeExp  gdpPercap          gdp
 12 Afghanistan 2007 31889923      Asia  43.828   974.5803  31079291949
 24     Albania 2007  3600523    Europe  76.423  5937.0295  21376411360
@@ -430,7 +430,7 @@ O para un país específico:
 calcGDP(gapminder, country="Australia")
 ```
 
-```{.output}
+```output
      country year      pop continent lifeExp gdpPercap          gdp
 61 Australia 1952  8691212   Oceania  69.120  10039.60  87256254102
 62 Australia 1957  9712569   Oceania  70.330  10949.65 106349227169
@@ -453,7 +453,7 @@ O ambos:
 calcGDP(gapminder, year=2007, country="Australia")
 ```
 
-```{.output}
+```output
      country year      pop continent lifeExp gdpPercap          gdp
 72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
 ```
@@ -576,7 +576,7 @@ best_practice <- c("Write", "programs", "for", "people", "not", "computers")
 paste(best_practice, collapse=" ")
 ```
 
-```{.output}
+```output
 [1] "Write programs for people not computers"
 ```
 
@@ -610,7 +610,7 @@ best_practice <- c("Write", "programs", "for", "people", "not", "computers")
 fence(text=best_practice, wrapper="***")
 ```
 
-```{.output}
+```output
 [1] "*** Write programs for people not computers ***"
 ```
 

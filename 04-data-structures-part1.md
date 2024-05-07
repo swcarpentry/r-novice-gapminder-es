@@ -65,7 +65,7 @@ gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
 gatos                   
 ```
 
-```{.output}
+```output
      color peso le_gusta_cuerda
 1    mixto  2.1               1
 2    negro  5.0               0
@@ -93,7 +93,7 @@ gatos <- read.csv(file = "data/gatos-data.csv", stringsAsFactors = TRUE)
 gatos
 ```
 
-```{.output}
+```output
      color peso le_gusta_cuerda
 1    mixto  2.1               1
 2    negro  5.0               0
@@ -117,7 +117,7 @@ Podemos empezar a explorar el **dataset** inmediatamente proyectando las columna
 gatos$peso
 ```
 
-```{.output}
+```output
 [1] 2.1 5.0 3.2
 ```
 
@@ -125,7 +125,7 @@ gatos$peso
 gatos$color
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -137,7 +137,7 @@ Podemos hacer otras operaciones sobre las columnas. Por ejemplo, podemos aumenta
 gatos$peso + 2
 ```
 
-```{.output}
+```output
 [1] 4.1 7.0 5.2
 ```
 
@@ -148,7 +148,7 @@ Podemos imprimir los resultados en una oración
 paste("El color del gato es", gatos$color)
 ```
 
-```{.output}
+```output
 [1] "El color del gato es mixto"    "El color del gato es negro"   
 [3] "El color del gato es atigrado"
 ```
@@ -160,11 +160,11 @@ Pero qué pasa con:
 gatos$peso + gatos$color
 ```
 
-```{.warning}
+```warning
 Warning in Ops.factor(gatos$peso, gatos$color): '+' not meaningful for factors
 ```
 
-```{.output}
+```output
 [1] NA NA NA
 ```
 
@@ -184,7 +184,7 @@ Podemos preguntar cuál es la estructura de datos si usamos la función `class`:
 class(gatos$color)
 ```
 
-```{.output}
+```output
 [1] "factor"
 ```
 
@@ -192,7 +192,7 @@ class(gatos$color)
 class(gatos$peso)
 ```
 
-```{.output}
+```output
 [1] "numeric"
 ```
 
@@ -203,7 +203,7 @@ También podemos ver que `gatos` es un **data.frame** si usamos la función `cla
 class(gatos)
 ```
 
-```{.output}
+```output
 [1] "data.frame"
 ```
 
@@ -227,7 +227,7 @@ Podemos ver que `gatos$peso` es un vector usando la funcion `str`.
 str(gatos$peso)
 ```
 
-```{.output}
+```output
  num [1:3] 2.1 5 3.2
 ```
 
@@ -267,7 +267,7 @@ mi_vector <- c(2,6,3)
 mi_vector
 ```
 
-```{.output}
+```output
 [1] 2 6 3
 ```
 
@@ -275,7 +275,7 @@ mi_vector
 str(mi_vector)
 ```
 
-```{.output}
+```output
  num [1:3] 2 6 3
 ```
 
@@ -297,7 +297,7 @@ vector_coercion <- c('a', TRUE)
 str(vector_coercion)
 ```
 
-```{.output}
+```output
  chr [1:2] "a" "TRUE"
 ```
 
@@ -306,7 +306,7 @@ otro_vector_coercion <- c(0, TRUE)
 str(otro_vector_coercion)
 ```
 
-```{.output}
+```output
  num [1:2] 0 1
 ```
 
@@ -320,7 +320,7 @@ vector_caracteres <- c('0','2','4')
 vector_caracteres
 ```
 
-```{.output}
+```output
 [1] "0" "2" "4"
 ```
 
@@ -328,7 +328,7 @@ vector_caracteres
 str(vector_caracteres)
 ```
 
-```{.output}
+```output
  chr [1:3] "0" "2" "4"
 ```
 
@@ -337,7 +337,7 @@ caracteres_coercionados_numerico <- as.numeric(vector_caracteres)
 caracteres_coercionados_numerico
 ```
 
-```{.output}
+```output
 [1] 0 2 4
 ```
 
@@ -346,7 +346,7 @@ numerico_coercionado_logico <- as.logical(caracteres_coercionados_numerico)
 numerico_coercionado_logico
 ```
 
-```{.output}
+```output
 [1] FALSE  TRUE  TRUE
 ```
 
@@ -364,7 +364,7 @@ usando la función `as.logical`:
 gatos$le_gusta_cuerda
 ```
 
-```{.output}
+```output
 [1] 1 0 1
 ```
 
@@ -372,7 +372,7 @@ gatos$le_gusta_cuerda
 class(gatos$le_gusta_cuerda)
 ```
 
-```{.output}
+```output
 [1] "integer"
 ```
 
@@ -381,7 +381,7 @@ gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
 gatos$le_gusta_cuerda
 ```
 
-```{.output}
+```output
 [1]  TRUE FALSE  TRUE
 ```
 
@@ -389,7 +389,7 @@ gatos$le_gusta_cuerda
 class(gatos$le_gusta_cuerda)
 ```
 
-```{.output}
+```output
 [1] "logical"
 ```
 
@@ -401,7 +401,7 @@ ab <- c('a', 'b')
 ab
 ```
 
-```{.output}
+```output
 [1] "a" "b"
 ```
 
@@ -410,7 +410,7 @@ abc <- c(ab, 'c')
 abc
 ```
 
-```{.output}
+```output
 [1] "a" "b" "c"
 ```
 
@@ -422,7 +422,7 @@ mySerie <- 1:5
 mySerie
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4 5
 ```
 
@@ -430,7 +430,7 @@ mySerie
 str(mySerie)
 ```
 
-```{.output}
+```output
  int [1:5] 1 2 3 4 5
 ```
 
@@ -438,7 +438,7 @@ str(mySerie)
 class(mySerie)
 ```
 
-```{.output}
+```output
 [1] "integer"
 ```
 
@@ -450,7 +450,7 @@ names(mySerie) <- c("a", "b", "c", "d", "e")
 mySerie
 ```
 
-```{.output}
+```output
 a b c d e 
 1 2 3 4 5 
 ```
@@ -459,7 +459,7 @@ a b c d e
 str(mySerie)
 ```
 
-```{.output}
+```output
  Named int [1:5] 1 2 3 4 5
  - attr(*, "names")= chr [1:5] "a" "b" "c" "d" ...
 ```
@@ -468,7 +468,7 @@ str(mySerie)
 class(mySerie)
 ```
 
-```{.output}
+```output
 [1] "integer"
 ```
 
@@ -504,7 +504,7 @@ Otra estructura de datos importante se llama **factor**.
 str(gatos$color)
 ```
 
-```{.output}
+```output
  Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ```
 
@@ -518,7 +518,7 @@ capas <- c('atigrado', 'carey', 'carey', 'negro', 'atigrado')
 capas
 ```
 
-```{.output}
+```output
 [1] "atigrado" "carey"    "carey"    "negro"    "atigrado"
 ```
 
@@ -526,7 +526,7 @@ capas
 str(capas)
 ```
 
-```{.output}
+```output
  chr [1:5] "atigrado" "carey" "carey" "negro" "atigrado"
 ```
 
@@ -538,7 +538,7 @@ categorias <- factor(capas)
 class(categorias)
 ```
 
-```{.output}
+```output
 [1] "factor"
 ```
 
@@ -546,7 +546,7 @@ class(categorias)
 str(categorias)
 ```
 
-```{.output}
+```output
  Factor w/ 3 levels "atigrado","carey",..: 1 2 2 3 1
 ```
 
@@ -560,7 +560,7 @@ muchos cálculos estadísticos usan esa representación para datos categóricos:
 class(capas)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -568,7 +568,7 @@ class(capas)
 class(categorias)
 ```
 
-```{.output}
+```output
 [1] "factor"
 ```
 
@@ -623,7 +623,7 @@ factor_orden <- factor(misdatos, levels = c("control", "caso"))
 str(factor_orden)
 ```
 
-```{.output}
+```output
  Factor w/ 2 levels "control","caso": 2 1 1 2
 ```
 
@@ -643,7 +643,7 @@ lista <- list(1, "a", TRUE, 1+4i)
 lista
 ```
 
-```{.output}
+```output
 [[1]]
 [1] 1
 
@@ -662,7 +662,7 @@ otra_lista <- list(title = "Numbers", numbers = 1:10, data = TRUE )
 otra_lista
 ```
 
-```{.output}
+```output
 $title
 [1] "Numbers"
 
@@ -680,7 +680,7 @@ Ahora veamos algo interesante acerca de nuestro **data.frame**; ¿Qué pasa si c
 typeof(gatos)
 ```
 
-```{.output}
+```output
 [1] "list"
 ```
 
@@ -699,7 +699,7 @@ ya hemos visto, cada columna del **data.frame** es un vector.
 gatos$color
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -708,7 +708,7 @@ Levels: atigrado mixto negro
 gatos[,1]
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -717,7 +717,7 @@ Levels: atigrado mixto negro
 typeof(gatos[,1])
 ```
 
-```{.output}
+```output
 [1] "integer"
 ```
 
@@ -725,7 +725,7 @@ typeof(gatos[,1])
 str(gatos[,1])
 ```
 
-```{.output}
+```output
  Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ```
 
@@ -737,7 +737,7 @@ por lo tanto puede estar compuesto de elementos de diferentes tipos.
 gatos[1,]
 ```
 
-```{.output}
+```output
   color peso le_gusta_cuerda
 1 mixto  2.1            TRUE
 ```
@@ -746,7 +746,7 @@ gatos[1,]
 typeof(gatos[1,])
 ```
 
-```{.output}
+```output
 [1] "list"
 ```
 
@@ -754,7 +754,7 @@ typeof(gatos[1,])
 str(gatos[1,])
 ```
 
-```{.output}
+```output
 'data.frame':	1 obs. of  3 variables:
  $ color          : Factor w/ 3 levels "atigrado","mixto",..: 2
  $ peso           : num 2.1
@@ -788,7 +788,7 @@ Investiga cada uno de los ejemplos anteriores y explica el resultado de cada uno
 gatos[1]
 ```
 
-```{.output}
+```output
      color
 1    mixto
 2    negro
@@ -804,7 +804,7 @@ resulta en la primera proyección de la lista, como otra lista. En este caso es 
 gatos[[1]]
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -817,7 +817,7 @@ es el contenido de la primera columna, un *vector* de tipo *factor*.
 gatos$color
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -830,7 +830,7 @@ primera columna del *data frame*, de nuevo un *vector* de tipo *factor*.
 gatos["color"]
 ```
 
-```{.output}
+```output
      color
 1    mixto
 2    negro
@@ -845,7 +845,7 @@ el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un *list*.
 gatos[1, 1]
 ```
 
-```{.output}
+```output
 [1] mixto
 Levels: atigrado mixto negro
 ```
@@ -859,7 +859,7 @@ es parte de un *vector* de tipo *factor*, R muestra la etiqueta "mixto" asociada
 gatos[, 1]
 ```
 
-```{.output}
+```output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -873,7 +873,7 @@ R interpreta este valor faltante como todos los elementos en este *column* *vect
 gatos[1, ]
 ```
 
-```{.output}
+```output
   color peso le_gusta_cuerda
 1 mixto  2.1            TRUE
 ```
@@ -897,7 +897,7 @@ matrix_example <- matrix(0, ncol=6, nrow=3)
 matrix_example
 ```
 
-```{.output}
+```output
      [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    0    0    0    0    0    0
 [2,]    0    0    0    0    0    0
@@ -911,7 +911,7 @@ Y de manera similar a otras estructuras de datos, podemos preguntar cosas sobre 
 class(matrix_example)
 ```
 
-```{.output}
+```output
 [1] "matrix" "array" 
 ```
 
@@ -919,7 +919,7 @@ class(matrix_example)
 typeof(matrix_example)
 ```
 
-```{.output}
+```output
 [1] "double"
 ```
 
@@ -927,7 +927,7 @@ typeof(matrix_example)
 str(matrix_example)
 ```
 
-```{.output}
+```output
  num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
 ```
 
@@ -935,7 +935,7 @@ str(matrix_example)
 dim(matrix_example)
 ```
 
-```{.output}
+```output
 [1] 3 6
 ```
 
@@ -943,7 +943,7 @@ dim(matrix_example)
 nrow(matrix_example)
 ```
 
-```{.output}
+```output
 [1] 3
 ```
 
@@ -951,7 +951,7 @@ nrow(matrix_example)
 ncol(matrix_example)
 ```
 
-```{.output}
+```output
 [1] 6
 ```
 
@@ -977,7 +977,7 @@ matrix_example <- matrix(0, ncol=6, nrow=3)
 length(matrix_example)
 ```
 
-```{.output}
+```output
 [1] 18
 ```
 
@@ -1058,7 +1058,7 @@ para recordar la importancia de estos elementos básicos.
 Considera la salida de R para la siguiente matriz:
 
 
-```{.output}
+```output
      [,1] [,2]
 [1,]    4    1
 [2,]    9    5
@@ -1081,7 +1081,7 @@ Piensa en qué matrices producirán los otros comandos.
 Considera la salida de R para la siguiente matriz:
 
 
-```{.output}
+```output
      [,1] [,2]
 [1,]    4    1
 [2,]    9    5

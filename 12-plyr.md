@@ -50,7 +50,7 @@ withGDP <- calcGDP(gapminder)
 mean(withGDP[withGDP$continent == "Africa", "gdp"])
 ```
 
-```{.output}
+```output
 [1] 20904782844
 ```
 
@@ -58,7 +58,7 @@ mean(withGDP[withGDP$continent == "Africa", "gdp"])
 mean(withGDP[withGDP$continent == "Americas", "gdp"])
 ```
 
-```{.output}
+```output
 [1] 379262350210
 ```
 
@@ -66,7 +66,7 @@ mean(withGDP[withGDP$continent == "Americas", "gdp"])
 mean(withGDP[withGDP$continent == "Asia", "gdp"])
 ```
 
-```{.output}
+```output
 [1] 227233738153
 ```
 
@@ -129,7 +129,7 @@ ddply(
 )
 ```
 
-```{.output}
+```output
   continent           V1
 1    Africa  20904782844
 2  Americas 379262350210
@@ -156,7 +156,7 @@ dlply(
 )
 ```
 
-```{.output}
+```output
 $Africa
 [1] 20904782844
 
@@ -196,7 +196,7 @@ ddply(
 )
 ```
 
-```{.output}
+```output
    continent year           V1
 1     Africa 1952   5992294608
 2     Africa 1957   7359188796
@@ -269,7 +269,7 @@ daply(
 )
 ```
 
-```{.output}
+```output
           year
 continent          1952         1957         1962         1967         1972
   Africa     5992294608   7359188796   8784876958  11443994101  15072241974
@@ -311,7 +311,7 @@ d_ply(
 )
 ```
 
-```{.output}
+```output
 [1] "La media GDP per cápita para Africa es 2,193.755"
 [1] "La media GDP per cápita para Americas es 7,136.11"
 [1] "La media GDP per cápita para Asia es 7,902.15"

@@ -37,7 +37,7 @@ names(x) <- c('a', 'b', 'c', 'd', 'e')
 x
 ```
 
-```{.output}
+```output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -64,7 +64,7 @@ por uno:
 x[1]
 ```
 
-```{.output}
+```output
   a 
 5.4 
 ```
@@ -74,7 +74,7 @@ x[1]
 x[4]
 ```
 
-```{.output}
+```output
   d 
 4.8 
 ```
@@ -89,7 +89,7 @@ También podemos pedir varios elementos al mismo tiempo:
 x[c(1, 3)]
 ```
 
-```{.output}
+```output
   a   c 
 5.4 7.1 
 ```
@@ -101,7 +101,7 @@ O podemos tomar un rango del vector:
 x[1:4]
 ```
 
-```{.output}
+```output
   a   b   c   d 
 5.4 6.2 7.1 4.8 
 ```
@@ -114,7 +114,7 @@ la derecha.
 1:4
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4
 ```
 
@@ -122,7 +122,7 @@ la derecha.
 c(1, 2, 3, 4)
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4
 ```
 
@@ -133,7 +133,7 @@ También podemos pedir el mismo elemento varias veces:
 x[c(1,1,3)]
 ```
 
-```{.output}
+```output
   a   a   c 
 5.4 5.4 7.1 
 ```
@@ -146,7 +146,7 @@ un valor faltante.
 x[6]
 ```
 
-```{.output}
+```output
 <NA> 
   NA 
 ```
@@ -161,7 +161,7 @@ Si pedimos el elemento en el índice 0, obtendremos un vector vacío.
 x[0]
 ```
 
-```{.output}
+```output
 named numeric(0)
 ```
 
@@ -184,7 +184,7 @@ Si usamos un valor negativo como índice para un vector, R regresará cada eleme
 x[-2]
 ```
 
-```{.output}
+```output
   a   c   d   e 
 5.4 7.1 4.8 7.5 
 ```
@@ -196,7 +196,7 @@ También podemos saltar o no mostrar varios elementos:
 x[c(-1, -5)]  # o bien x[-c(1,5)]
 ```
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -217,7 +217,7 @@ x[-1:3]
 Esto nos devuelve un error algo críptico:
 
 
-```{.error}
+```error
 Error in x[-1:3]: only 0's may be mixed with negative subscripts
 ```
 
@@ -233,7 +233,7 @@ paréntesis, de está manera el operador `-` se aplica al resultado:
 x[-(1:3)]
 ```
 
-```{.output}
+```output
   d   e 
 4.8 7.5 
 ```
@@ -249,7 +249,7 @@ x <- x[-4]
 x
 ```
 
-```{.output}
+```output
   a   b   c   e 
 5.4 6.2 7.1 7.5 
 ```
@@ -267,7 +267,7 @@ names(x) <- c('a', 'b', 'c', 'd', 'e')
 print(x)
 ```
 
-```{.output}
+```output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -275,7 +275,7 @@ print(x)
 Encuentra al menos 3 comandos distintos que produzcan la siguiente salida:
 
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -291,7 +291,7 @@ Después de encontrar los tres comandos distintos, compáralos con los de tu vec
 x[2:4]
 ```
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -301,7 +301,7 @@ x[2:4]
 x[-c(1,5)]
 ```
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -311,7 +311,7 @@ x[-c(1,5)]
 x[c("b", "c", "d")]
 ```
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -321,7 +321,7 @@ x[c("b", "c", "d")]
 x[c(2,3,4)]
 ```
 
-```{.output}
+```output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -340,7 +340,7 @@ x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # podemos nombrar un vector en la mism
 x[c("a", "c")]
 ```
 
-```{.output}
+```output
   a   c 
 5.4 7.1 
 ```
@@ -358,7 +358,7 @@ También podemos usar un vector con elementos lógicos para hacer subconjuntos:
 x[c(FALSE, FALSE, TRUE, FALSE, TRUE)]
 ```
 
-```{.output}
+```output
   c   e 
 7.1 7.5 
 ```
@@ -372,7 +372,7 @@ tiene el mismo resultado que el anterior.
 x[x > 7]
 ```
 
-```{.output}
+```output
   c   e 
 7.1 7.5 
 ```
@@ -389,7 +389,7 @@ Podemos usar `==` para imitar el método anterior de indexar con nombre
 x[names(x) == "a"]
 ```
 
-```{.output}
+```output
   a 
 5.4 
 ```
@@ -439,7 +439,7 @@ names(x) <- c('a', 'b', 'c', 'd', 'e')
 print(x)
 ```
 
-```{.output}
+```output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -457,7 +457,7 @@ x_subset <- x[x<7 & x>4]
 print(x_subset)
 ```
 
-```{.output}
+```output
   a   b   d 
 5.4 6.2 4.8 
 ```
@@ -481,7 +481,7 @@ x <- 1:3
 x
 ```
 
-```{.output}
+```output
 [1] 1 2 3
 ```
 
@@ -490,7 +490,7 @@ names(x) <- c('a', 'a', 'a')
 x
 ```
 
-```{.output}
+```output
 a a a 
 1 2 3 
 ```
@@ -499,7 +499,7 @@ a a a
 x['a']  # solo devuelve el primer valor
 ```
 
-```{.output}
+```output
 a 
 1 
 ```
@@ -508,7 +508,7 @@ a
 x[names(x) == 'a']  # devuelve todos los tres valores
 ```
 
-```{.output}
+```output
 a a a 
 1 2 3 
 ```
@@ -535,7 +535,7 @@ x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # comenzamos nuevamente nombrando un v
 x[-"a"]
 ```
 
-```{.error}
+```error
 Error in -"a": invalid argument to unary operator
 ```
 
@@ -547,7 +547,7 @@ con elementos lógicos, que es lo que nosotros queremos:
 x[names(x) != "a"]
 ```
 
-```{.output}
+```output
   b   c   d   e 
 6.2 7.1 4.8 7.5 
 ```
@@ -560,12 +560,12 @@ que queremos excluir los elementos `"a"` y `"c"`, entonces intentamos lo siguien
 x[names(x)!=c("a","c")]
 ```
 
-```{.warning}
+```warning
 Warning in names(x) != c("a", "c"): longer object length is not a multiple of
 shorter object length
 ```
 
-```{.output}
+```output
   b   c   d   e 
 6.2 7.1 4.8 7.5 
 ```
@@ -586,12 +586,12 @@ Tomemos un momento para observar al operador de comparación en este código:
 names(x) != c("a", "c")
 ```
 
-```{.warning}
+```warning
 Warning in names(x) != c("a", "c"): longer object length is not a multiple of
 shorter object length
 ```
 
-```{.output}
+```output
 [1] FALSE  TRUE  TRUE  TRUE  TRUE
 ```
 
@@ -630,7 +630,7 @@ operador `!` para cambiar la inclusión por una *no* inclusión:
 x[! names(x) %in% c("a","c") ]
 ```
 
-```{.output}
+```output
   b   d   e 
 6.2 4.8 7.5 
 ```
@@ -726,7 +726,7 @@ f <- factor(c("a", "a", "b", "c", "c", "d"))
 f[f == "a"]
 ```
 
-```{.output}
+```output
 [1] a a
 Levels: a b c d
 ```
@@ -735,7 +735,7 @@ Levels: a b c d
 f[f %in% c("b", "c")]
 ```
 
-```{.output}
+```output
 [1] b c c
 Levels: a b c d
 ```
@@ -744,7 +744,7 @@ Levels: a b c d
 f[1:3]
 ```
 
-```{.output}
+```output
 [1] a a b
 Levels: a b c d
 ```
@@ -757,7 +757,7 @@ categoría del factor:
 f[-3]
 ```
 
-```{.output}
+```output
 [1] a a c c d
 Levels: a b c d
 ```
@@ -775,7 +775,7 @@ m <- matrix(rnorm(6*4), ncol=4, nrow=6)
 m[3:4, c(3,1)]
 ```
 
-```{.output}
+```output
             [,1]       [,2]
 [1,]  1.12493092 -0.8356286
 [2,] -0.04493361  1.5952808
@@ -789,7 +789,7 @@ o columnas respectivamente:
 m[, c(3,4)]
 ```
 
-```{.output}
+```output
             [,1]        [,2]
 [1,] -0.62124058  0.82122120
 [2,] -2.21469989  0.59390132
@@ -807,7 +807,7 @@ convertirá el resultado a un vector:
 m[3,]
 ```
 
-```{.output}
+```output
 [1] -0.8356286  0.5757814  1.1249309  0.9189774
 ```
 
@@ -819,7 +819,7 @@ argumento; `drop = FALSE`:
 m[3, , drop=FALSE]
 ```
 
-```{.output}
+```output
            [,1]      [,2]     [,3]      [,4]
 [1,] -0.8356286 0.5757814 1.124931 0.9189774
 ```
@@ -832,7 +832,7 @@ columna fuera de la matriz, R arrojará un error:
 m[, c(3,6)]
 ```
 
-```{.error}
+```error
 Error in m[, c(3, 6)]: subscript out of bounds
 ```
 
@@ -855,7 +855,7 @@ solo un argumento:
 m[5]
 ```
 
-```{.output}
+```output
 [1] 0.3295078
 ```
 
@@ -867,7 +867,7 @@ es útil notar que las matrices están acomodadas en un formato **column-major**
 matrix(1:6, nrow=2, ncol=3)
 ```
 
-```{.output}
+```output
      [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6
@@ -880,7 +880,7 @@ Si quisieramos llenar una matriz por filas, usamos `byrow=TRUE`:
 matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
 ```
 
-```{.output}
+```output
      [,1] [,2] [,3]
 [1,]    1    2    3
 [2,]    4    5    6
@@ -901,7 +901,7 @@ m <- matrix(1:18, nrow=3, ncol=6)
 print(m)
 ```
 
-```{.output}
+```output
      [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    1    4    7   10   13   16
 [2,]    2    5    8   11   14   17
@@ -946,7 +946,7 @@ xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
 xlist[1]
 ```
 
-```{.output}
+```output
 $a
 [1] "Software Carpentry"
 ```
@@ -964,7 +964,7 @@ y no en los elementos individuales de dichas estructuras de datos.
 xlist[1:2]
 ```
 
-```{.output}
+```output
 $a
 [1] "Software Carpentry"
 
@@ -980,7 +980,7 @@ la función doble corchete: `[[`.
 xlist[[1]]
 ```
 
-```{.output}
+```output
 [1] "Software Carpentry"
 ```
 
@@ -993,7 +993,7 @@ No puedes extraer más de un elemento al mismo tiempo:
 xlist[[1:2]]
 ```
 
-```{.error}
+```error
 Error in xlist[[1:2]]: subscript out of bounds
 ```
 
@@ -1004,7 +1004,7 @@ Tampoco puedes usarlo para saltar elementos:
 xlist[[-1]]
 ```
 
-```{.error}
+```error
 Error in xlist[[-1]]: invalid negative subscript in get1index <real>
 ```
 
@@ -1015,7 +1015,7 @@ Pero tú puedes usar los nombres para hacer subconjuntos y extraer elementos:
 xlist[["a"]]
 ```
 
-```{.output}
+```output
 [1] "Software Carpentry"
 ```
 
@@ -1026,7 +1026,7 @@ La función `$` es una manera abreviada para extraer elementos por nombre:
 xlist$data
 ```
 
-```{.output}
+```output
                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -1060,7 +1060,7 @@ Pista: el número 2 está contenido en el elemento "b" de la lista.
 xlist$b[2]
 ```
 
-```{.output}
+```output
 [1] 2
 ```
 
@@ -1069,7 +1069,7 @@ xlist$b[2]
 xlist[[2]][2]
 ```
 
-```{.output}
+```output
 [1] 2
 ```
 
@@ -1078,7 +1078,7 @@ xlist[[2]][2]
 xlist[["b"]][2]
 ```
 
-```{.output}
+```output
 [1] 2
 ```
 
@@ -1132,7 +1132,7 @@ será una **data frame**:
 head(gapminder[3])
 ```
 
-```{.output}
+```output
        pop
 1  8425333
 2  9240934
@@ -1149,7 +1149,7 @@ Similarmente, `[[` extraerá *una sola columna*:
 head(gapminder[["lifeExp"]])
 ```
 
-```{.output}
+```output
 [1] 28.801 30.332 31.997 34.020 36.088 38.438
 ```
 
@@ -1160,7 +1160,7 @@ Con dos argumentos, `[` se comporta de la misma manera que para las matrices:
 gapminder[1:3,]
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -1175,7 +1175,7 @@ Si nuestro subconjunto es una sola fila, el resultado será una **data frame**
 gapminder[3,]
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 3 Afghanistan 1962 10267083      Asia  31.997  853.1007
 ```

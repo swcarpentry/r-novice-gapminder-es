@@ -52,7 +52,7 @@ o queremos calcular valores estadísticos de un conjunto. Podemos hacer todo ell
 mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
 ```
 
-```{.output}
+```output
 [1] 2193.755
 ```
 
@@ -60,7 +60,7 @@ mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
 mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 ```
 
-```{.output}
+```output
 [1] 7136.11
 ```
 
@@ -68,7 +68,7 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 ```
 
-```{.output}
+```output
 [1] 7902.15
 ```
 
@@ -170,7 +170,7 @@ Se suponía que teníamos que reducir las repeticiones causantes de errores de l
 str(gapminder)
 ```
 
-```{.output}
+```output
 'data.frame':	1704 obs. of  6 variables:
  $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -184,7 +184,7 @@ str(gapminder)
 str(gapminder %>% group_by(continent))
 ```
 
-```{.output}
+```output
 gropd_df [1,704 × 6] (S3: grouped_df/tbl_df/tbl/data.frame)
  $ country  : chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -254,7 +254,7 @@ lifeExp_bycountry %>%
    filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
 ```
 
-```{.output}
+```output
 # A tibble: 2 × 2
   country      mean_lifeExp
   <chr>               <dbl>
@@ -275,7 +275,7 @@ lifeExp_bycountry %>%
    head(1)
 ```
 
-```{.output}
+```output
 # A tibble: 1 × 2
   country      mean_lifeExp
   <chr>               <dbl>
@@ -288,7 +288,7 @@ lifeExp_bycountry %>%
    head(1)
 ```
 
-```{.output}
+```output
 # A tibble: 1 × 2
   country mean_lifeExp
   <chr>          <dbl>
@@ -308,7 +308,7 @@ gdp_bycontinents_byyear <- gapminder %>%
     summarize(mean_gdpPercap=mean(gdpPercap))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
@@ -325,7 +325,7 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
               sd_pop=sd(pop))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
@@ -343,7 +343,7 @@ gapminder %>%
     count(continent, sort = TRUE)
 ```
 
-```{.output}
+```output
   continent  n
 1    Africa 52
 2      Asia 33
@@ -361,7 +361,7 @@ gapminder %>%
     summarize(se_pop = sd(lifeExp)/sqrt(n()))
 ```
 
-```{.output}
+```output
 # A tibble: 5 × 2
   continent se_pop
   <chr>      <dbl>
@@ -385,7 +385,7 @@ gapminder %>%
       se_le = sd(lifeExp)/sqrt(n()))
 ```
 
-```{.output}
+```output
 # A tibble: 5 × 5
   continent mean_le min_le max_le se_le
   <chr>       <dbl>  <dbl>  <dbl> <dbl>
@@ -413,7 +413,7 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
               sd_gdp_billion=sd(gdp_billion))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
@@ -437,7 +437,7 @@ gdp_pop_bycontinents_byyear_above25 <- gapminder %>%
               sd_gdp_billion = sd(gdp_billion))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
@@ -452,7 +452,7 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
               mean_gdpPercap_expected = mean(gdp_futureExpectation))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
@@ -472,7 +472,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
   geom_line() + facet_wrap( ~ country)
 ```
 
-```{.error}
+```error
 Error in ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
 ```
 
@@ -491,7 +491,7 @@ gapminder %>%
    facet_wrap( ~ country)
 ```
 
-```{.error}
+```error
 Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
 ```
 
@@ -508,7 +508,7 @@ gapminder %>%
 	facet_wrap( ~ country)
 ```
 
-```{.error}
+```error
 Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
 ```
 

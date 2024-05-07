@@ -50,7 +50,7 @@ Aprendimos que las columnas en un *data frame* son vectores. Por lo tanto, sabem
 gatos
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
@@ -68,7 +68,7 @@ Podemos entonces agregarlo como una columna via:
 cbind(gatos, edad)
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -83,7 +83,7 @@ edad <- c(2, 3, 5, 12)
 cbind(gatos, edad)
 ```
 
-```{.error}
+```error
 Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
 ```
 
@@ -92,7 +92,7 @@ edad <- c(2, 3)
 cbind(gatos, edad)
 ```
 
-```{.error}
+```error
 Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 2
 ```
 
@@ -107,7 +107,7 @@ gatos <- cbind(gatos, edad)
 gatos
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -122,7 +122,7 @@ nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
 ```
 
-```{.warning}
+```warning
 Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
 generated
 ```
@@ -135,7 +135,7 @@ colores <- factor(c("negro","canela","canela","negro"))
 levels(colores)
 ```
 
-```{.output}
+```output
 [1] "canela" "negro" 
 ```
 
@@ -143,7 +143,7 @@ levels(colores)
 nlevels(colores)
 ```
 
-```{.output}
+```output
 [1] 2
 ```
 
@@ -154,7 +154,7 @@ Se puede reorganizar el orden de los factores para que en lugar de que aparezcan
 colores ## el orden actual
 ```
 
-```{.output}
+```output
 [1] negro  canela canela negro 
 Levels: canela negro
 ```
@@ -164,7 +164,7 @@ colores <- factor(colores, levels = c("negro", "canela"))
 colores # despues de re-organizar
 ```
 
-```{.output}
+```output
 [1] negro  canela canela negro 
 Levels: negro canela
 ```
@@ -183,7 +183,7 @@ La advertencia (*Warning*) nos está diciendo que agregamos 'carey' a nuestro fa
 levels(gatos$color)
 ```
 
-```{.output}
+```output
 [1] "atigrado" "mixto"    "negro"   
 ```
 
@@ -199,7 +199,7 @@ De manera alternativa, podemos cambiar la columna a tipo *character*. En este ca
 str(gatos)
 ```
 
-```{.output}
+```output
 'data.frame':	5 obs. of  4 variables:
  $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA 4
  $ peso             : num  2.1 5 3.2 3.3 3.3
@@ -212,7 +212,7 @@ gatos$color <- as.character(gatos$color)
 str(gatos)
 ```
 
-```{.output}
+```output
 'data.frame':	5 obs. of  4 variables:
  $ color            : chr  "mixto" "negro" "atigrado" NA ...
  $ peso             : num  2.1 5 3.2 3.3 3.3
@@ -253,7 +253,7 @@ Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero e
 gatos
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -269,7 +269,7 @@ Podemos pedir el *data frame* sin la fila errónea:
 gatos[-4,]
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -286,7 +286,7 @@ Alternativamente, podemos eliminar filas que contengan valores `NA`:
 na.omit(gatos)
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -310,7 +310,7 @@ También podemos eliminar columnas en un *data frame*. Hay dos formas de elimina
 gatos[,-4]
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
@@ -328,7 +328,7 @@ drop <- names(gatos) %in% c("edad")
 gatos[,!drop]
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
@@ -346,7 +346,7 @@ gatos <- rbind(gatos, gatos)
 gatos
 ```
 
-```{.output}
+```output
       color peso legusta_la_cuerda edad
 1     mixto  2.1                 1    2
 2     negro  5.0                 0    3
@@ -366,7 +366,7 @@ rownames(gatos) <- NULL
 gatos
 ```
 
-```{.output}
+```output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -472,7 +472,7 @@ Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ve
 str(gapminder)
 ```
 
-```{.output}
+```output
 'data.frame':	1704 obs. of  6 variables:
  $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -489,7 +489,7 @@ También podemos examinar columnas individuales del *data frame* con la función
 typeof(gapminder$year)
 ```
 
-```{.output}
+```output
 [1] "integer"
 ```
 
@@ -497,7 +497,7 @@ typeof(gapminder$year)
 typeof(gapminder$country)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -505,7 +505,7 @@ typeof(gapminder$country)
 str(gapminder$country)
 ```
 
-```{.output}
+```output
  chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
 ```
 
@@ -517,7 +517,7 @@ recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variable
 length(gapminder)
 ```
 
-```{.output}
+```output
 [1] 6
 ```
 
@@ -528,7 +528,7 @@ Un intento certero hubiera sido decir que el largo (`length`) de un *data frame*
 typeof(gapminder)
 ```
 
-```{.output}
+```output
 [1] "list"
 ```
 
@@ -539,7 +539,7 @@ Cuando `length` devuelve 6, es porque gapminder está construida por una lista d
 nrow(gapminder)
 ```
 
-```{.output}
+```output
 [1] 1704
 ```
 
@@ -547,7 +547,7 @@ nrow(gapminder)
 ncol(gapminder)
 ```
 
-```{.output}
+```output
 [1] 6
 ```
 
@@ -558,7 +558,7 @@ O, para obtener ambos de una vez:
 dim(gapminder)
 ```
 
-```{.output}
+```output
 [1] 1704    6
 ```
 
@@ -569,7 +569,7 @@ Probablemente queremos saber los nombres de las columnas. Para hacerlo, podemos 
 colnames(gapminder)
 ```
 
-```{.output}
+```output
 [1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
 ```
 
@@ -582,7 +582,7 @@ Una vez que estamos contentos con el tipo de datos y que la estructura parece ra
 head(gapminder)
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -611,7 +611,7 @@ Para revisar las últimas líneas del *data frame* R tiene una función para est
 tail(gapminder)
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 1699 Zimbabwe 1982  7636524    Africa  60.363  788.8550
 1700 Zimbabwe 1987  9216418    Africa  62.351  706.1573
@@ -625,7 +625,7 @@ tail(gapminder)
 tail(gapminder, n = 15)
 ```
 
-```{.output}
+```output
       country year      pop continent lifeExp gdpPercap
 1690   Zambia 1997  9417789    Africa  40.238 1071.3538
 1691   Zambia 2002 10595811    Africa  39.193 1071.6139
@@ -656,13 +656,13 @@ Recuerda *my\_dataframe[rows, cols]* imprime el *data frame* con la sección de 
 gapminder[sample(nrow(gapminder), 5), ]
 ```
 
-```{.output}
-            country year      pop continent lifeExp  gdpPercap
-406  Czech Republic 1997 10300707    Europe  74.010 16048.5142
-684         Hungary 2007  9956108    Europe  73.338 18008.9444
-1111      Nicaragua 1982  2979423  Americas  59.298  3470.3382
-1561        Tunisia 1952  3647735    Africa  44.600  1468.4756
-193    Burkina Faso 1952  4469979    Africa  31.975   543.2552
+```output
+       country year      pop continent lifeExp  gdpPercap
+1649   Vietnam 1972 44655014      Asia  50.254   699.5016
+607  Guatemala 1982  6395630  Americas  58.137  4820.4948
+499    Eritrea 1982  2637297    Africa  43.890   524.8758
+726       Iran 1977 35480679      Asia  57.702 11888.5951
+768     Israel 2007  6426679      Asia  80.745 25523.2771
 ```
 
 :::::::::::::::::::::::::

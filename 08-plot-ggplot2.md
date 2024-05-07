@@ -300,7 +300,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm")
 ```
 
-```{.output}
+```output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -314,7 +314,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
 ```
 
-```{.warning}
+```warning
 Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.
 This warning is displayed once every 8 hours.
@@ -322,7 +322,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
 
-```{.output}
+```output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -355,7 +355,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
  geom_smooth(method="lm", size=1.5)
 ```
 
-```{.output}
+```output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -392,7 +392,7 @@ geom_point(size=3, shape=17) + scale_x_log10() +
 geom_smooth(method="lm", size=1.5)
 ```
 
-```{.output}
+```output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -485,7 +485,7 @@ lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=con
 ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
 ```
 
-```{.error}
+```error
 Error in `ggsave()`:
 ! Cannot find directory 'results'.
 ℹ Please supply an existing directory or use `create.dir = TRUE`.
