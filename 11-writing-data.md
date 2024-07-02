@@ -36,7 +36,7 @@ Ya hemos visto como guardar el gráfico más reciente que creaste con el paquete
 usando el comando `ggsave`. A manera de recordatorio, aquí está el código:
 
 
-```r
+``` r
 ggsave("My_most_recent_plot.pdf")
 ```
 
@@ -57,7 +57,7 @@ nuevo pdf del cual puedes controlar el tamaño y la resolución usando los
 argumentos específicos de esta función.
 
 
-```r
+``` r
 pdf("Life_Exp_vs_time.pdf", width=12, height=4)
 ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
   geom_line() +
@@ -82,7 +82,7 @@ mismos datos. Esto te permitirá visualizar en un gráfico los datos por contine
 ## Solución al desafío 1
 
 
-```r
+``` r
 pdf("Life_Exp_vs_time.pdf", width = 12, height = 4)
 p <- ggplot(data = gapminder, aes(x = year, y = lifeExp, colour = country)) +
   geom_line() +
@@ -110,7 +110,7 @@ Vamos a crear un **script** para limpiar datos. En este análisis, vamos a
 enfocarnos solamente en los datos de **gapminder** para Australia:
 
 
-```r
+``` r
 aust_subset <- gapminder[gapminder$country == "Australia",]
 
 write.table(aust_subset,
@@ -123,11 +123,11 @@ Ahora regresemos a la terminal para dar un vistazo a los datos y
 asegurarnos que se vean bien:
 
 
-```bash
+``` bash
 head cleaned-data/gapminder-aus.csv
 ```
 
-```output
+``` output
 "country","year","pop","continent","lifeExp","gdpPercap"
 "61","Australia",1952,8691212,"Oceania",69.12,10039.59564
 "62","Australia",1957,9712569,"Oceania",70.33,10949.64959
@@ -147,7 +147,7 @@ Veamos el archivo de ayuda para investigar como podemos cambiar este
 comportamiento.
 
 
-```r
+``` r
 ?write.table
 ```
 
@@ -158,7 +158,7 @@ columnas.
 Cambiemos esto:
 
 
-```r
+``` r
 write.table(
   gapminder[gapminder$country == "Australia",],
   file="cleaned-data/gapminder-aus.csv",
@@ -170,11 +170,11 @@ Ahora echemos de nuevo un vistazo a los datos usando nuestras habilidades en
 la terminal:
 
 
-```bash
+``` bash
 head cleaned-data/gapminder-aus.csv
 ```
 
-```output
+``` output
 country,year,pop,continent,lifeExp,gdpPercap
 Australia,1952,8691212,Oceania,69.12,10039.59564
 Australia,1957,9712569,Oceania,70.33,10949.64959
@@ -204,7 +204,7 @@ directorio `cleaned-data`.
 ## Solución al desafío 2
 
 
-```r
+``` r
 write.table(
   gapminder[gapminder$year > 1990, ],
   file = "cleaned-data/gapminder-after1990.csv",

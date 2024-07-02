@@ -129,7 +129,7 @@ trabajo y compartirlo con colaboradores.
 3. Inicializa el proyecto:
 
 
-```r
+``` r
 install.packages("ProjectTemplate")
 library("ProjectTemplate")
 create.project("../my_project", merge.strategy = "allow.non.conflict")
@@ -205,33 +205,33 @@ línea de comandos para contestar las siguientes preguntas:
 Al ejecutar estos comandos en la terminal:
 
 
-```sh
+``` sh
 ls -lh data/gapminder-FiveYearData.csv
 ```
 
-```output
--rw-r--r-- 1 runner docker 80K Jul  2 00:29 data/gapminder-FiveYearData.csv
+``` output
+-rw-r--r-- 1 runner docker 80K Jul  2 19:16 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.
 
 
-```sh
+``` sh
 wc -l data/gapminder-FiveYearData.csv
 ```
 
-```output
+``` output
 1705 data/gapminder-FiveYearData.csv
 ```
 
 Hay 1705 líneas. Los datos se ven así:
 
 
-```sh
+``` sh
 head data/gapminder-FiveYearData.csv
 ```
 
-```output
+``` output
 country,year,pop,continent,lifeExp,gdpPercap
 Afghanistan,1952,8425333,Asia,28.801,779.4453145
 Afghanistan,1957,9240934,Asia,30.332,820.8530296

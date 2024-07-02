@@ -114,11 +114,11 @@ de "leer, evaluar, mostrar" (tú escribes comandos, R intenta ejecutarlos y lueg
 Lo más simple que podrías hacer con R es aritmética:
 
 
-```r
+``` r
 1 + 100
 ```
 
-```output
+``` output
 [1] 101
 ```
 
@@ -163,22 +163,22 @@ De mayor a menor precedencia:
 - Resta: `-`
 
 
-```r
+``` r
 3 + 5 * 2
 ```
 
-```output
+``` output
 [1] 13
 ```
 
 Usa paréntesis para agrupar las operaciones a fin de forzar el orden de la evaluación o para aclarar lo que deseas hacer.
 
 
-```r
+``` r
 (3 + 5) * 2
 ```
 
-```output
+``` output
 [1] 16
 ```
 
@@ -186,7 +186,7 @@ Esto puede ser difícil de manejar cuando no es necesario, pero aclara tus inten
 Recuerda que otros pueden leer tu código.
 
 
-```r
+``` r
 (3 + (5 * (2 ^ 2))) # difícil de leer
 3 + 5 * 2 ^ 2       # claro, si recuerdas las reglas
 3 + 5 * (2 ^ 2)     # si olvidas algunas reglas, esto podría ayudar
@@ -197,11 +197,11 @@ El texto después de cada línea de código se llama "comentario". Todo lo que s
 Los números pequeños o grandes tienen una notación científica:
 
 
-```r
+``` r
 2/10000
 ```
 
-```output
+``` output
 [1] 2e-04
 ```
 
@@ -210,11 +210,11 @@ Es la abreviatura de "multiplicado por `10 ^ XX` ". Entonces `2e-4` es la abrevi
 Tú también puedes escribir números en notación científica:
 
 
-```r
+``` r
 5e3  # nota la falta del signo menos aquí
 ```
 
-```output
+``` output
 [1] 5000
 ```
 
@@ -224,38 +224,38 @@ R tiene muchas funciones matemáticas integradas. Para llamar a una función, si
 Todo lo que escribas dentro de los paréntesis se llaman argumentos de la función:
 
 
-```r
+``` r
 sin(1)  # función trigonométrica
 ```
 
-```output
+``` output
 [1] 0.841471
 ```
 
 
-```r
+``` r
 log(1)  # logaritmo natural
 ```
 
-```output
+``` output
 [1] 0
 ```
 
 
-```r
+``` r
 log10(10) # logaritmo en base-10
 ```
 
-```output
+``` output
 [1] 1
 ```
 
 
-```r
+``` r
 exp(0.5) # e^(1/2)
 ```
 
-```output
+``` output
 [1] 1.648721
 ```
 
@@ -275,56 +275,56 @@ disponibles en el sitio de RStudio.
 Podemos realizar comparaciones en R:
 
 
-```r
+``` r
 1 == 1  # igualdad (observa dos signos iguales, se lee como "es igual a")
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
 
-```r
+``` r
 1 != 2  # desigualdad (leída como "no es igual a")
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
 
-```r
+``` r
 1 < 2  # menor que
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
 
-```r
+``` r
 1 <= 1  # menor o igual que
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
 
-```r
+``` r
 1 > 0  # mayor que
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
 
-```r
+``` r
 1 >= -9 # mayor o igual que
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
@@ -354,18 +354,18 @@ Lectura adicional: [http://floating-point-gui.de/](https://floating-point-gui.de
 Podemos almacenar valores en variables usando el operador de asignación `<-`. Veamos un ejemplo:
 
 
-```r
+``` r
 x <- 1/40
 ```
 
 Observa que la asignación no muestra el valor. En cambio, lo almacena para más adelante en algo llamado **variable**. `x` ahora contiene el **valor** `0.025`:
 
 
-```r
+``` r
 x
 ```
 
-```output
+``` output
 [1] 0.025
 ```
 
@@ -374,18 +374,18 @@ Más precisamente, el valor almacenado es una *aproximación decimal* de esta fr
 Busca la pestaña `Environment` en uno de los paneles de RStudio, y verás que `x` y su valor han aparecido. Nuestra variable `x` se puede usar en lugar de un número en cualquier cálculo que espere un número:
 
 
-```r
+``` r
 log(x)
 ```
 
-```output
+``` output
 [1] -3.688879
 ```
 
 Ten en cuenta que las variables pueden reasignarse, es decir, puedes cambiar el valor almacenado en la variable:
 
 
-```r
+``` r
 x <- 100
 ```
 
@@ -394,7 +394,7 @@ x <- 100
 También, los valores de asignación pueden contener la variable asignada:
 
 
-```r
+``` r
 x <- x + 1 # observa cómo RStudio actualiza la descripción de x en la pestaña superior derecha
 y <- x * 2
 ```
@@ -413,7 +413,7 @@ Lo que uses depende de ti, pero **sé consistente**.
 También es posible utilizar el operador `=` para la asignación:
 
 
-```r
+``` r
 x = 1/40
 ```
 
@@ -429,7 +429,7 @@ Entonces la recomendación es usar `<-`.
 De los siguientes ejemplos, ¿Cuáles son nombres de variables válidas en R?
 
 
-```r
+``` r
 min_height
 max.height
 _age
@@ -447,7 +447,7 @@ celsius2kelvin
 Los siguientes nombres de variables son válidos en R:
 
 
-```r
+``` r
 min_height
 max.height
 MaxLength
@@ -457,14 +457,14 @@ celsius2kelvin
 El punto al inicio crea una variable oculta:
 
 
-```r
+``` r
 .mass
 ```
 
 Los siguientes no son nombres de variables válidos en R:
 
 
-```r
+``` r
 _age
 min-length
 2widths
@@ -481,28 +481,28 @@ En contraste con los conceptos de vectores de física y matemáticas, un vector 
 mismo tipo de datos en un cierto orden. Por ejemplo:
 
 
-```r
+``` r
 1:5
 ```
 
-```output
+``` output
 [1] 1 2 3 4 5
 ```
 
-```r
+``` r
 2^(1:5)
 ```
 
-```output
+``` output
 [1]  2  4  8 16 32
 ```
 
-```r
+``` r
 x <- 1:5
 2^x
 ```
 
-```output
+``` output
 [1]  2  4  8 16 32
 ```
 
@@ -516,11 +516,11 @@ Hay algunos comandos útiles que puedes usar para interactuar con la sesión de 
 (tu sesión de trabajo en R):
 
 
-```r
+``` r
 ls()
 ```
 
-```output
+``` output
 [1] "x" "y"
 ```
 
@@ -539,11 +539,11 @@ para decirle a R que llame a la función.
 Si escribimos `ls` nada más, ¡R mostrará el código fuente de esa función!
 
 
-```r
+``` r
 ls
 ```
 
-```output
+``` output
 function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
     pattern, sorted = TRUE) 
 {
@@ -575,14 +575,14 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x55a5c4f05e10>
+<bytecode: 0x55d03220ce10>
 <environment: namespace:base>
 ```
 
 Puedes usar `rm` para eliminar objetos que ya no necesitas:
 
 
-```r
+``` r
 rm(x)
 ```
 
@@ -590,7 +590,7 @@ Si tienes muchas cosas en tu entorno y deseas borrarlas todas,
 puedes pasar los resultados de `ls` y mandarlos a la función `rm`:
 
 
-```r
+``` r
 rm(list = ls())
 ```
 
@@ -601,11 +601,11 @@ En este caso, hemos especificado que los resultados de `ls` se deben usar para e
 Si, en cambio, usamos `<-`, habrá efectos secundarios no deseados, o puedes recibir un mensaje de error:
 
 
-```r
+``` r
 rm(list <- ls())
 ```
 
-```error
+``` error
 Error in rm(list <- ls()): ... must contain names or character strings
 ```
 
@@ -642,7 +642,7 @@ R y RStudio tienen funcionalidad para administrar paquetes:
 ¿Cuál será el valor de cada variable después de cada comando en el siguiente programa?
 
 
-```r
+``` r
 mass <- 47.5
 age <- 122
 mass <- mass * 2.3
@@ -654,21 +654,21 @@ age <- age - 20
 ## Solución al desafío 2
 
 
-```r
+``` r
 mass <- 47.5
 ```
 
 Esto dará un valor de 47.5 para la variable mass
 
 
-```r
+``` r
 age <- 122
 ```
 
 Esto dará un valor de 122 para la variable age
 
 
-```r
+``` r
 mass <- mass * 2.3
 ```
 
@@ -676,7 +676,7 @@ Multiplica el valor existente en mass 47.5 por 2.3 para dar un nuevo valor
 109\.25 a la variable mass.
 
 
-```r
+``` r
 age <- age - 20
 ```
 
@@ -703,11 +703,11 @@ Ejecuta el código del desafío anterior y escribe un comando para comparar la v
 Una forma de responder esta pregunta en R es usar `>` para hacer lo siguiente:
 
 
-```r
+``` r
 mass > age
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
@@ -732,7 +732,7 @@ Limpia tu entorno de trabajo borrando las variables de `mass` y `age`.
 Podemos usar el comando `rm` para realizar esta tarea:
 
 
-```r
+``` r
 rm(age, mass)
 ```
 
@@ -753,7 +753,7 @@ Instala los siguientes paquetes: `ggplot2`, `plyr`, `gapminder`.
 Puedes utilizar el comando `install.packages()` para instalar los paquetes requeridos.
 
 
-```r
+``` r
 install.packages("ggplot2")
 install.packages("plyr")
 install.packages("gapminder")

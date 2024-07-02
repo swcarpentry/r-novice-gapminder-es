@@ -46,29 +46,29 @@ Comando : Traducción
 Aprendimos que las columnas en un *data frame* son vectores. Por lo tanto, sabemos que nuestros datos son consistentes con el tipo de dato dentro de esa columna. Si queremos agregar una nueva columna, podemos empezar por crear un nuevo vector:
 
 
-```r
+``` r
 gatos
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
 3 atigrado  3.2                 1
 ```
 
-```r
+``` r
 edad <- c(2,3,5)
 ```
 
 Podemos entonces agregarlo como una columna via:
 
 
-```r
+``` r
 cbind(gatos, edad)
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -78,21 +78,21 @@ cbind(gatos, edad)
 Tenga en cuenta que fallará si tratamos de agregar un vector con un número diferente de entradas que el número de filas en el marco de datos.
 
 
-```r
+``` r
 edad <- c(2, 3, 5, 12)
 cbind(gatos, edad)
 ```
 
-```error
+``` error
 Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
 ```
 
-```r
+``` r
 edad <- c(2, 3)
 cbind(gatos, edad)
 ```
 
-```error
+``` error
 Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 2
 ```
 
@@ -101,13 +101,13 @@ Error in data.frame(..., check.names = FALSE): arguments imply differing number 
 Para que funcione, debemos tener `nrow(gatos)` = `length(edad)`. Vamos a sobrescribir el contenido de los gatos con nuestro nuevo marco de datos.
 
 
-```r
+``` r
 edad <- c(2, 3, 5)
 gatos <- cbind(gatos, edad)
 gatos
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -117,12 +117,12 @@ gatos
 Ahora, qué tal si agregamos filas, en este caso, la última vez vimos que las filas de un *data frame* están compuestas por listas:
 
 
-```r
+``` r
 nueva_fila <- list("carey", 3.3, TRUE, 9)
 gatos <- rbind(gatos, nueva_fila)
 ```
 
-```warning
+``` warning
 Warning in `[<-.factor`(`*tmp*`, ri, value = "carey"): invalid factor level, NA
 generated
 ```
@@ -130,41 +130,41 @@ generated
 Qué significa el error que nos da R? 'invalid factor level' nos dice algo acerca de factores (factors)... pero qué es un factor? Un factor es un tipo de datos en R. Un factor es una categoría (por ejemplo, color) con la que R puede hacer ciertas operaciones. Por ejemplo:
 
 
-```r
+``` r
 colores <- factor(c("negro","canela","canela","negro"))
 levels(colores)
 ```
 
-```output
+``` output
 [1] "canela" "negro" 
 ```
 
-```r
+``` r
 nlevels(colores)
 ```
 
-```output
+``` output
 [1] 2
 ```
 
 Se puede reorganizar el orden de los factores para que en lugar de que aparezcan por orden alfabético sigan el orden elegido por el usuario.
 
 
-```r
+``` r
 colores ## el orden actual
 ```
 
-```output
+``` output
 [1] negro  canela canela negro 
 Levels: canela negro
 ```
 
-```r
+``` r
 colores <- factor(colores, levels = c("negro", "canela"))
 colores # despues de re-organizar
 ```
 
-```output
+``` output
 [1] negro  canela canela negro 
 Levels: negro canela
 ```
@@ -179,15 +179,15 @@ La advertencia (*Warning*) nos está diciendo que agregamos 'carey' a nuestro fa
 *color*. Pero los otros valores, 3.3 (de tipo *numeric*), TRUE (de tipo *logical*), y 9 (de tipo *numeric*) se añadieron exitosamente a *peso*, *le\_gusta\_cuerda*, y *edad*, respectivamente, dado que esos valores no son de tipo *factor*. Para añadir una nueva categoría 'carey' al *data frame* gatos en la columna *color*, debemos agregar explícitamente a 'carey' como un nuevo nivel (*level*) en el factor:
 
 
-```r
+``` r
 levels(gatos$color)
 ```
 
-```output
+``` output
 [1] "atigrado" "mixto"    "negro"   
 ```
 
-```r
+``` r
 levels(gatos$color) <- c(levels(gatos$color), 'carey')
 gatos <- rbind(gatos, list("carey", 3.3, TRUE, 9))
 ```
@@ -195,11 +195,11 @@ gatos <- rbind(gatos, list("carey", 3.3, TRUE, 9))
 De manera alternativa, podemos cambiar la columna a tipo *character*. En este caso, perdemos las categorías, pero a partir de ahora podemos incorporar cualquier palabra a la columna, sin problemas con los niveles del factor.
 
 
-```r
+``` r
 str(gatos)
 ```
 
-```output
+``` output
 'data.frame':	5 obs. of  4 variables:
  $ color            : Factor w/ 4 levels "atigrado","mixto",..: 2 3 1 NA 4
  $ peso             : num  2.1 5 3.2 3.3 3.3
@@ -207,12 +207,12 @@ str(gatos)
  $ edad             : num  2 3 5 9 9
 ```
 
-```r
+``` r
 gatos$color <- as.character(gatos$color)
 str(gatos)
 ```
 
-```output
+``` output
 'data.frame':	5 obs. of  4 variables:
  $ color            : chr  "mixto" "negro" "atigrado" NA ...
  $ peso             : num  2.1 5 3.2 3.3 3.3
@@ -249,11 +249,11 @@ Imaginemos que, como los perros, 1 año humano es equivalente a 7 años en los g
 Ahora sabemos cómo agregar filas y columnas a nuestro *data frame* en R, pero en nuestro primer intento para agregar un gato llamado 'carey' agregamos una fila que no sirve.
 
 
-```r
+``` r
 gatos
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -265,11 +265,11 @@ gatos
 Podemos pedir el *data frame* sin la fila errónea:
 
 
-```r
+``` r
 gatos[-4,]
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -282,11 +282,11 @@ Notar que -4 significa que queremos remover la cuarta fila, la coma sin nada det
 Alternativamente, podemos eliminar filas que contengan valores `NA`:
 
 
-```r
+``` r
 na.omit(gatos)
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -297,7 +297,7 @@ na.omit(gatos)
 Volvamos a asignar el nuevo resultado *output* al *data frame* `gatos`, así nuestros cambios son permanentes:
 
 
-```r
+``` r
 gatos <- na.omit(gatos)
 ```
 
@@ -306,11 +306,11 @@ gatos <- na.omit(gatos)
 También podemos eliminar columnas en un *data frame*. Hay dos formas de eliminar una columna: por número o nombre de índice.
 
 
-```r
+``` r
 gatos[,-4]
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
@@ -323,12 +323,12 @@ Observa la coma sin nada antes, lo que indica que queremos mantener todas las fi
 Alternativamente, podemos quitar la columna usando el nombre del índice.
 
 
-```r
+``` r
 drop <- names(gatos) %in% c("edad")
 gatos[,!drop]
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda
 1    mixto  2.1                 1
 2    negro  5.0                 0
@@ -341,12 +341,12 @@ gatos[,!drop]
 La clave que hay que recordar al añadir datos a un *data frame* es que *las columnas son vectores o factores, mientras que las filas son listas*. Podemos pegar dos *data frames* usando `rbind` que significa unir las filas (verticalmente):
 
 
-```r
+``` r
 gatos <- rbind(gatos, gatos)
 gatos
 ```
 
-```output
+``` output
       color peso legusta_la_cuerda edad
 1     mixto  2.1                 1    2
 2     negro  5.0                 0    3
@@ -361,12 +361,12 @@ gatos
 Pero ahora los nombres de las filas *rownames* son complicados. Podemos removerlos y R los nombrará nuevamente, de manera secuencial:
 
 
-```r
+``` r
 rownames(gatos) <- NULL
 gatos
 ```
 
-```output
+``` output
      color peso legusta_la_cuerda edad
 1    mixto  2.1                 1    2
 2    negro  5.0                 0    3
@@ -385,7 +385,7 @@ gatos
 Puedes crear un nuevo *data frame* desde R con la siguiente sintaxis:
 
 
-```r
+``` r
 df <- data.frame(id = c('a', 'b', 'c'),
                  x = 1:3,
                  y = c(TRUE, TRUE, FALSE),
@@ -406,7 +406,7 @@ Finalmente, usa `cbind` para agregar una columna con espacio para que cada perso
 ## Solución al Desafío 2
 
 
-```r
+``` r
 df <- data.frame(first = c('Grace'),
                  apellido = c('Hopper'),
                  numero_favorito = c(0),
@@ -434,7 +434,7 @@ por tabuladores. De las tres variantes, `read.csv` es la más comúnmente usada.
 el signo de puntuación usado por defecto para ambas funciones: `read.csv` y `read.delim`.
 
 
-```r
+``` r
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 ```
 
@@ -448,7 +448,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
   La función `read.csv` puede ser ejecutada para leer el archivo descargado, por ejemplo:
 
 
-```r
+``` r
 download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 ```
@@ -456,7 +456,7 @@ gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 - De manera alternativa, puedes leer los archivos directamente en R, usando una dirección web y `read.csv`. Es importante notar que, si se hace esto último, no habrá una copia local del archivo csv en tu computadora. Por ejemplo,
 
 
-```r
+``` r
 gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
 ```
 
@@ -468,11 +468,11 @@ gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-ga
 Vamos a investigar gapminder un poco; lo primero que hay que hacer siempre es ver cómo se ve el dataset usando `str`:
 
 
-```r
+``` r
 str(gapminder)
 ```
 
-```output
+``` output
 'data.frame':	1704 obs. of  6 variables:
  $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -485,27 +485,27 @@ str(gapminder)
 También podemos examinar columnas individuales del *data frame* con la función `typeof`:
 
 
-```r
+``` r
 typeof(gapminder$year)
 ```
 
-```output
+``` output
 [1] "integer"
 ```
 
-```r
+``` r
 typeof(gapminder$country)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
-```r
+``` r
 str(gapminder$country)
 ```
 
-```output
+``` output
  chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
 ```
 
@@ -513,63 +513,63 @@ También podemos interrogar al *data frame* por la información sobre sus dimens
 recordando que `str(gapminder)` dijo que había 1704 observaciones de 6 variables en gapminder, ¿qué piensas que el siguiente código producirá y por qué?
 
 
-```r
+``` r
 length(gapminder)
 ```
 
-```output
+``` output
 [1] 6
 ```
 
 Un intento certero hubiera sido decir que el largo (`length`) de un *data frame* es el número de filas (1704), pero no es el caso; recuerda, un *data frame es una lista de vectores y factors*.
 
 
-```r
+``` r
 typeof(gapminder)
 ```
 
-```output
+``` output
 [1] "list"
 ```
 
 Cuando `length` devuelve 6, es porque gapminder está construida por una lista de 6 columnas. Para conseguir el número de filas, intenta:
 
 
-```r
+``` r
 nrow(gapminder)
 ```
 
-```output
+``` output
 [1] 1704
 ```
 
-```r
+``` r
 ncol(gapminder)
 ```
 
-```output
+``` output
 [1] 6
 ```
 
 O, para obtener ambos de una vez:
 
 
-```r
+``` r
 dim(gapminder)
 ```
 
-```output
+``` output
 [1] 1704    6
 ```
 
 Probablemente queremos saber los nombres de las columnas. Para hacerlo, podemos pedir:
 
 
-```r
+``` r
 colnames(gapminder)
 ```
 
-```output
+``` output
 [1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
 ```
 
@@ -578,11 +578,11 @@ A esta altura, es importante preguntarnos si la estructura de R está en sinton�
 Una vez que estamos contentos con el tipo de datos y que la estructura parece razonable, es tiempo de empezar a investigar nuestros datos. Mira las siguientes líneas:
 
 
-```r
+``` r
 head(gapminder)
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -607,11 +607,11 @@ Buscar líneas exactamente en el medio no es tan difícil, pero simplemente revi
 Para revisar las últimas líneas del *data frame* R tiene una función para esto:
 
 
-```r
+``` r
 tail(gapminder)
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 1699 Zimbabwe 1982  7636524    Africa  60.363  788.8550
 1700 Zimbabwe 1987  9216418    Africa  62.351  706.1573
@@ -621,11 +621,11 @@ tail(gapminder)
 1704 Zimbabwe 2007 12311143    Africa  43.487  469.7093
 ```
 
-```r
+``` r
 tail(gapminder, n = 15)
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 1690   Zambia 1997  9417789    Africa  40.238 1071.3538
 1691   Zambia 2002 10595811    Africa  39.193 1071.6139
@@ -652,17 +652,17 @@ La solución que presentamos aquí utiliza funciones anidadas, por ejemplo una f
 Recuerda *my\_dataframe[rows, cols]* imprime el *data frame* con la sección de filas y columnas definidas (incluso puedes seleccionar un rando de filas y columnas usando **:** por ejemplo). Para obtener un número al azar o varios números al azar R tiene una función llamada *sample*.
 
 
-```r
+``` r
 gapminder[sample(nrow(gapminder), 5), ]
 ```
 
-```output
-                country year      pop continent lifeExp gdpPercap
-437  Dominican Republic 1972  4671329  Americas  59.631  2189.874
-1506             Taiwan 1977 16785196      Asia  70.590  5596.520
-965          Mauritania 1972  1332786    Africa  48.437  1586.852
-1524           Tanzania 2007 38139640    Africa  52.517  1107.482
-187            Bulgaria 1982  8892098    Europe  71.080  8224.192
+``` output
+      country year      pop continent lifeExp  gdpPercap
+93    Bahrain 1992   529491      Asia  72.601 19035.5792
+1165 Pakistan 1952 41346560      Asia  43.436   684.5971
+379   Croatia 1982  4413368    Europe  70.460 13221.8218
+994    Mexico 1997 95895146  Americas  73.670  9767.2975
+736      Iraq 1967  8519282      Asia  54.459  8931.4598
 ```
 
 :::::::::::::::::::::::::
@@ -690,7 +690,7 @@ o apretando el botón de "source" en RStudio.
 Los contenidos de `scripts/load-gapminder.R`:
 
 
-```r
+``` r
 download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
 gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
 ```
@@ -700,7 +700,7 @@ Para ejecutar el script y cargar los archivos en la variable `gapminder`:
 Para ejecutar el script y cargar los archivos en la variable `gapminder`:
 
 
-```r
+``` r
 source(file = "scripts/load-gapminder.R")
 ```
 
