@@ -27,7 +27,7 @@ Hay varias maneras de controlar el flujo en R.
 Para declaraciones condicionales, los enfoques más comúnmente utilizados son los **constructs**:
 
 
-```r
+``` r
 # if
 if (la condición es verdad) {
   realizar una acción
@@ -44,7 +44,7 @@ if (la condición es verdad) {
 Digamos, por ejemplo, que queremos que R imprima un mensaje si una variable `x` tiene un valor en particular:
 
 
-```r
+``` r
 x <- 8
 
 if (x >= 10) {
@@ -54,14 +54,14 @@ if (x >= 10) {
 x
 ```
 
-```output
+``` output
 [1] 8
 ```
 
 La sentencia **print**  "x es mayor o igual que 10" no aparece en la consola porque x no es mayor o igual a 10. Para imprimir un mensaje diferente para numeros menores a 10, podemos agregar una sentencia **else**
 
 
-```r
+``` r
 x <- 8
 
 if (x >= 10) {
@@ -71,14 +71,14 @@ if (x >= 10) {
 }
 ```
 
-```output
+``` output
 [1] "x es menor a 10"
 ```
 
 También podemos testear múltiples condiciones usando **else if**
 
 
-```r
+``` r
 x <- 8
 
 if (x >= 10) {
@@ -90,7 +90,7 @@ if (x >= 10) {
 }
 ```
 
-```output
+``` output
 [1] "x es mayor a 5, pero menor a 10"
 ```
 
@@ -99,7 +99,7 @@ elementos lógicos como `TRUE` o `FALSE`. Entender esto puede ser un dolor de ca
 los principiantes. Por ejemplo:
 
 
-```r
+``` r
 x  <-  4 == 3
 if (x) {
   "4 igual a 3"
@@ -108,19 +108,19 @@ if (x) {
 }
 ```
 
-```output
+``` output
 [1] "4 no es igual a 3"
 ```
 
 Como podemos observar se muestra el mensaje es igual porque el vector x es `FALSE`
 
 
-```r
+``` r
 x <- 4 == 3
 x
 ```
 
-```output
+``` output
 [1] FALSE
 ```
 
@@ -141,28 +141,28 @@ Primero veremos una solución al Desafío 1 que no usa la función `any()`.
 Primero obtenemos un vector lógico que describe que el elemento `gapminder$year` es igual a `2002`:
 
 
-```r
+``` r
 gapminder[(gapminder$year == 2002),]
 ```
 
 Luego, contamos el número de filas del data.frame `gapminder` que corresponde al año 2002:
 
 
-```r
+``` r
 rows2002_number <- nrow(gapminder[(gapminder$year == 2002),])
 ```
 
 La presencia de cualquier registro para el año 2002 es equivalente a la petición de que `rows2002_number` sea mayor o igual a uno:
 
 
-```r
+``` r
 rows2002_number >= 1
 ```
 
 Entonces podríamos escribir:
 
 
-```r
+``` r
 if(nrow(gapminder[(gapminder$year == 2002),]) >= 1){
    print("Se encontraron registro(s) para el año 2002.")
 }
@@ -171,7 +171,7 @@ if(nrow(gapminder[(gapminder$year == 2002),]) >= 1){
 Todo esto se puede hacer más rápido con `any()`. En dicho caso la condición lógica se puede expresar como:
 
 
-```r
+``` r
 if(any(gapminder$year == 2002)){
    print("Se encontraron registro(s) para el año 2002.")
 }
@@ -184,7 +184,7 @@ if(any(gapminder$year == 2002)){
 ¿Alguien recibió un mensaje de advertencia como este?
 
 
-```error
+``` error
 Error in eval(expr, envir, enclos): object 'gapminder' not found
 ```
 
@@ -217,7 +217,7 @@ como cuando el cálculo de cada iteración dependa del resultado de la iteració
 La estructura básica de un bucle `for()` es:
 
 
-```r
+``` r
 for(iterador in conjunto de valores){
   haz alguna acción
 }
@@ -226,13 +226,13 @@ for(iterador in conjunto de valores){
 Por ejemplo:
 
 
-```r
+``` r
 for(i in 1:10){
   print(i)
 }
 ```
 
-```output
+``` output
 [1] 1
 [1] 2
 [1] 3
@@ -252,7 +252,7 @@ Podemos usar un bucle `for()`  anidado con otro bucle `for()` para iterar sobre 
 a la vez.
 
 
-```r
+``` r
 for(i in 1:5){
   for(j in c('a', 'b', 'c', 'd', 'e')){
     print(paste(i,j))
@@ -260,7 +260,7 @@ for(i in 1:5){
 }
 ```
 
-```output
+``` output
 [1] "1 a"
 [1] "1 b"
 [1] "1 c"
@@ -291,7 +291,7 @@ for(i in 1:5){
 En lugar de mostrar los resultados en la pantalla podríamos guardarlos en un nuevo objeto.
 
 
-```r
+``` r
 output_vector <- c()
 for(i in 1:5){
   for(j in c('a', 'b', 'c', 'd', 'e')){
@@ -302,7 +302,7 @@ for(i in 1:5){
 output_vector
 ```
 
-```output
+``` output
  [1] "1 a" "1 b" "1 c" "1 d" "1 e" "2 a" "2 b" "2 c" "2 d" "2 e" "3 a" "3 b"
 [13] "3 c" "3 d" "3 e" "4 a" "4 b" "4 c" "4 d" "4 e" "5 a" "5 b" "5 c" "5 d"
 [25] "5 e"
@@ -331,7 +331,7 @@ Una mejor manera es definir el objeto de salida (vacío) antes de completar los 
 Aunque para este ejemplo parece más complicado, es aún más eficiente.
 
 
-```r
+``` r
 output_matrix <- matrix(nrow=5, ncol=5)
 j_vector <- c('a', 'b', 'c', 'd', 'e')
 for(i in 1:5){
@@ -345,7 +345,7 @@ output_vector2 <- as.vector(output_matrix)
 output_vector2
 ```
 
-```output
+``` output
  [1] "1 a" "2 a" "3 a" "4 a" "5 a" "1 b" "2 b" "3 b" "4 b" "5 b" "1 c" "2 c"
 [13] "3 c" "4 c" "5 c" "1 d" "2 d" "3 d" "4 d" "5 d" "1 e" "2 e" "3 e" "4 e"
 [25] "5 e"
@@ -359,7 +359,7 @@ Algunas veces tendrás la necesidad de repetir una operación hasta que
 cierta condición se cumpla. Puedes hacer esto con un bucle `while()`.
 
 
-```r
+``` r
 while(mientras esta condición es verdad){
   haz algo
 }
@@ -370,7 +370,7 @@ partir de una distribución uniforme (la función `runif()` ) entre 0 y 1 hasta
 que obtiene uno que es menor a 0.1.
 
 
-```r
+``` r
 z <- 1
 while(z > 0.1){
   z <- runif(1)
@@ -399,21 +399,21 @@ Compara los objetos output\_vector y output\_vector2. ¿Son lo mismo? Si no, ¿p
 Podemos verificar si dos vectores son idénticos usando la función `all()` :
 
 
-```r
+``` r
 all(output_vector == output_vector2)
 ```
 
 Sin embargo todos los elementos de `output_vector` se pueden encontrar en `output_vector2`:
 
 
-```r
+``` r
 all(output_vector %in% output_vector2)
 ```
 
 y viceversa:
 
 
-```r
+``` r
 all(output_vector2 %in% output_vector)
 ```
 
@@ -425,28 +425,28 @@ La solución es transponer la `output_matrix`. Podemos hacerlo llamando a la fun
 La primera solución requiere cambiar el original
 
 
-```r
+``` r
 output_vector2 <- as.vector(output_matrix)
 ```
 
 por
 
 
-```r
+``` r
 output_vector2 <- as.vector(t(output_matrix))
 ```
 
 La segunda solución requiere cambiar
 
 
-```r
+``` r
 output_matrix[i, j] <- temp_output
 ```
 
 por
 
 
-```r
+``` r
 output_matrix[j, i] <- temp_output
 ```
 
@@ -469,7 +469,7 @@ años.
 **Paso 1**: Queremos asegurarnos de que podamos extraer todos los valores únicos del vector continente
 
 
-```r
+``` r
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 unique(gapminder$continent)
 ```
@@ -482,7 +482,7 @@ Podemos hacer eso de la siguiente manera:
 3. Regresar la expectativa de vida calculada al usuario imprimiendo el resultado:
 
 
-```r
+``` r
 for( iContinent in unique(gapminder$continent) ){
    tmp <- mean(subset(gapminder, continent==iContinent)$lifeExp)
    cat("Average Life Expectancy in", iContinent, "is", tmp, "\n")
@@ -496,7 +496,7 @@ Necesitamos corregir (3) desde arriba:
 3a. Si la esperanza de vida calculada es menor que algún umbral (50 años), devuelve el continente e imprime la frase "la esperanza de vida es menor que el umbral", de lo contrario devuelve el continente e imprime la frase "la esperanza de vida es mayor que el umbral":
 
 
-```r
+``` r
 thresholdValue <- 50
 
 for( iContinent in unique(gapminder$continent) ){
@@ -530,7 +530,7 @@ países. En esta oportunidad que imprima si la esperanza de vida es menor que 50
 Modificamos nuestra solución al Reto 3 agregando ahora dos umbrales, `lowerThreshold` y` upperThreshold` y extendiendo nuestras declaraciones if-else:
 
 
-```r
+``` r
  lowerThreshold <- 50
  upperThreshold <- 70
 
@@ -550,7 +550,7 @@ for( iCountry in unique(gapminder$country) ){
 }
 ```
 
-```error
+``` error
 Error in eval(expr, envir, enclos): object 'gapminder' not found
 ```
 
@@ -578,7 +578,7 @@ Si seguimos la lección de Shell de Unix podríamos vernos tentados de probar
 lo siguiente
 
 
-```r
+``` r
 grep("^B", unique(gapminder$country))
 ```
 
@@ -588,7 +588,7 @@ Para obtener los valores, debemos agregar la opción `value = TRUE` al
 comando` grep`:
 
 
-```r
+``` r
 grep("^B", unique(gapminder$country), value=TRUE)
 ```
 
@@ -601,7 +601,7 @@ y de ser menor a 50 usamos un gráfico base para trazar la evolución de la
 expectativa de vida promedio:
 
 
-```r
+``` r
 thresholdValue <- 50
 candidateCountries <- grep("^B", unique(gapminder$country), value=TRUE)
 

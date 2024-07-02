@@ -40,7 +40,7 @@ para buscar ayuda en cualquier función, "function\_name", de una función espec
 cargado dentro de tu **namespace** (tu sesión interactiva en R):
 
 
-```r
+``` r
 ?function_name
 help(function_name)
 ```
@@ -76,7 +76,7 @@ uso correcto para cada función que usas. Afortunadamente, están los archivos d
 Para buscar ayuda en operadores especiales, usa comillas:
 
 
-```r
+``` r
 ?"<-"
 ```
 
@@ -95,7 +95,7 @@ Si un paquete no tiene viñetas, generalmente puedes encontrar ayuda escribiendo
 Si no estás seguro de en qué paquete está una función, o cómo se escribe específicamente, puedes hacer una búsqueda difusa:
 
 
-```r
+``` r
 ??function_name
 ```
 
@@ -117,7 +117,7 @@ Si no puedes encontrar la respuesta, hay algunas funciones útiles para
 ayudarte a hacer una pregunta a tus compañeros:
 
 
-```r
+``` r
 ?dput
 ```
 
@@ -125,11 +125,11 @@ Descargará los datos con los que estás trabajando en un formato para que pueda
 ser copiados y pegados por cualquier otra persona en su sesión de R.
 
 
-```r
+``` r
 sessionInfo()
 ```
 
-```output
+``` output
 R version 4.4.1 (2024-06-14)
 Platform: x86_64-pc-linux-gnu
 Running under: Ubuntu 22.04.4 LTS
@@ -151,8 +151,8 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] compiler_4.4.1 tools_4.4.1    yaml_2.3.8     knitr_1.46     xfun_0.43     
-[6] renv_1.0.7     evaluate_0.23 
+[1] compiler_4.4.1  tools_4.4.1     yaml_2.3.8      knitr_1.47     
+[5] xfun_0.45       renv_1.0.7      evaluate_0.24.0
 ```
 
 Imprimirá tu versión actual de R, así como cualquier paquete que hayas
@@ -167,7 +167,7 @@ Buscar la ayuda para la función `c`. ¿Qué tipo de vector
 crees que crearás si evalúas lo siguiente?:
 
 
-```r
+``` r
 c(1, 2, 3)
 c('d', 'e', 'f')
 c(1, 2, 'f')
@@ -202,7 +202,7 @@ Buscar la ayuda para la función `paste`. Tendrás que usar esto más tarde.
 Busca la ayuda de la función `paste()`, usa:
 
 
-```r
+``` r
 help("paste")
 ?paste
 ```
@@ -217,35 +217,35 @@ juntos utilizando el separador dado, y el resultado es una sola cadena.
 e.g.
 
 
-```r
+``` r
 paste(c("a","b"), "c")
 ```
 
-```output
+``` output
 [1] "a c" "b c"
 ```
 
-```r
+``` r
 paste(c("a","b"), "c", sep = ",")
 ```
 
-```output
+``` output
 [1] "a,c" "b,c"
 ```
 
-```r
+``` r
 paste(c("a","b"), "c", collapse = "|")
 ```
 
-```output
+``` output
 [1] "a c|b c"
 ```
 
-```r
+``` r
 paste(c("a","b"), "c", sep = ",", collapse = "|")
 ```
 
-```output
+``` output
 [1] "a,c|b,c"
 ```
 

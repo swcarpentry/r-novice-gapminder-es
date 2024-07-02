@@ -71,7 +71,7 @@ Como el componente básico de la mayoría de los lenguajes de programación, las
 Empecemos abriendo un nuevo **script** de R en el directorio `functions/` y nombrémosle functions-lesson.R.
 
 
-```r
+``` r
 my_sum <- function(a, b) {
   the_sum <- a + b
   return(the_sum)
@@ -82,7 +82,7 @@ Definamos una función `fahr_a_kelvin()` que convierta temperaturas de
 Fahrenheit a Kelvin:
 
 
-```r
+``` r
 fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
@@ -118,22 +118,22 @@ Tratemos de correr nuestra función.
 Llamamos nuestra propia función de la misma manera que llamamos cualquier otra:
 
 
-```r
+``` r
 # Punto de congelación del agua
 fahr_to_kelvin(32)
 ```
 
-```output
+``` output
 [1] 273.15
 ```
 
 
-```r
+``` r
 # Punto de ebullición del agua
 fahr_to_kelvin(212)
 ```
 
-```output
+``` output
 [1] 373.15
 ```
 
@@ -154,7 +154,7 @@ Escribe una función llamada `kelvin_a_celsius()` que toma la temperatura en gra
 Kelvin y devuelve la temperatura en Celsius.
 
 
-```r
+``` r
 kelvin_to_celsius <- function(temp) {
  celsius <- temp - 273.15
  return(celsius)
@@ -174,7 +174,7 @@ Definamos dos funciones que convertirán la temperatura de Fahrenheit a
 Kelvin, y de Kelvin a Celsius:
 
 
-```r
+``` r
 fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
@@ -202,7 +202,7 @@ Define la función para convertir directamente de Fahrenheit a Celsius,
 reutilizando las dos funciones de arriba.
 
 
-```r
+``` r
 fahr_to_celsius <- function(temp) {
   temp_k <- fahr_to_kelvin(temp)
   result <- kelvin_to_celsius(temp_k)
@@ -230,7 +230,7 @@ Empecemos por re-examinar `fahr_a_kelvin()`, nuestra función para convertir
 temperaturas de Fahrenheit a Kelvin. Estaba definida de la siguiente manera:
 
 
-```r
+``` r
 fahr_to_kelvin <- function(temp) {
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
   return(kelvin)
@@ -244,7 +244,7 @@ probarlo con un condicional `if` y devolver un error si la
 condición no se cumple. Podríamos agregar esto a nuestra función de la siguiente manera:
 
 
-```r
+``` r
 fahr_to_kelvin <- function(temp) {
   if (!is.numeric(temp)) {
     stop("temp must be a numeric vector.")
@@ -266,7 +266,7 @@ probar el **input** a nuestra función `fahr_a_kelvin()`.
 Queremos asegurar lo siguiente: `temp` es un vector numérico. Lo podemos hacer de la siguiente manera:
 
 
-```r
+``` r
 fahr_to_kelvin <- function(temp) {
   stopifnot(is.numeric(temp))
   kelvin <- ((temp - 32) * (5 / 9)) + 273.15
@@ -277,24 +277,24 @@ fahr_to_kelvin <- function(temp) {
 Aún funciona si se le da un **input** adecuado.
 
 
-```r
+``` r
 # Punto de congelación del agua
 fahr_to_kelvin(temp = 32)
 ```
 
-```output
+``` output
 [1] 273.15
 ```
 
 Pero falla instantáneamente si se le da un **input** inapropiado.
 
 
-```r
+``` r
 # La métrica es un factor en lugar de numeric
 fahr_to_kelvin(temp = as.factor(32))
 ```
 
-```error
+``` error
 Error in fahr_to_kelvin(temp = as.factor(32)): is.numeric(temp) is not TRUE
 ```
 
@@ -316,7 +316,7 @@ funciones, hacer pruebas a la función hace redundante el agregar pruebas a cada
 dos funciones que la componen.
 
 
-```r
+``` r
 fahr_to_celsius <- function(temp) {
   stopifnot(!is.numeric(temp))
   temp_k <- fahr_to_kelvin(temp)
@@ -335,7 +335,7 @@ Ahora vamos a definir una función que calcula el Producto Interno Bruto ("GDP" 
 Gross Domestic Product) de un país a partir de los datos disponibles en nuestro conjunto de datos:
 
 
-```r
+``` r
 # Toma un dataset y multiplica la columna de población
 # por la columna de GDP per capita
 calcGDP <- function(dat) {
@@ -360,11 +360,11 @@ Esta función `return()` es opcional: R automáticamente devolverá el resultado
 comando que se ejecute en la última línea de la función.
 
 
-```r
+``` r
 calcGDP(head(gapminder))
 ```
 
-```output
+``` output
 [1]  6567086330  7585448670  8758855797  9648014150  9678553274 11697659231
 ```
 
@@ -372,7 +372,7 @@ Eso no es muy informativo. Agreguemos algunos argumentos más para poder extraer
 por año y país.
 
 
-```r
+``` r
 # Toma un dataset y multiplica la columna de población
 # por la columna de GDP per capita
 calcGDP <- function(dat, year=NULL, country=NULL) {
@@ -394,7 +394,7 @@ Si has estado escribiendo estas funciones en un **script** de R aparte
 usando la función `source()`:
 
 
-```r
+``` r
 source("functions/functions-lesson.R")
 ```
 
@@ -409,11 +409,11 @@ es mucho más informativo que un vector numérico.
 Veamos qué sucede cuando especificamos el año:
 
 
-```r
+``` r
 head(calcGDP(gapminder, year=2007))
 ```
 
-```output
+``` output
        country year      pop continent lifeExp  gdpPercap          gdp
 12 Afghanistan 2007 31889923      Asia  43.828   974.5803  31079291949
 24     Albania 2007  3600523    Europe  76.423  5937.0295  21376411360
@@ -426,11 +426,11 @@ head(calcGDP(gapminder, year=2007))
 O para un país específico:
 
 
-```r
+``` r
 calcGDP(gapminder, country="Australia")
 ```
 
-```output
+``` output
      country year      pop continent lifeExp gdpPercap          gdp
 61 Australia 1952  8691212   Oceania  69.120  10039.60  87256254102
 62 Australia 1957  9712569   Oceania  70.330  10949.65 106349227169
@@ -449,11 +449,11 @@ calcGDP(gapminder, country="Australia")
 O ambos:
 
 
-```r
+``` r
 calcGDP(gapminder, year=2007, country="Australia")
 ```
 
-```output
+``` output
      country year      pop continent lifeExp gdpPercap          gdp
 72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
 ```
@@ -461,7 +461,7 @@ calcGDP(gapminder, year=2007, country="Australia")
 Veamos paso a paso el cuerpo de la función:
 
 
-```r
+``` r
 calcGDP <- function(dat, year=NULL, country=NULL) {
 ```
 
@@ -471,7 +471,7 @@ en la definición de la función. Esto significa que esos argumentos tomarán es
 a menos que el usuario especifique lo contrario.
 
 
-```r
+``` r
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
   }
@@ -526,7 +526,7 @@ son modificadas en ninguna manera cuando se ejecuta la función.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-```r
+``` r
   gdp <- dat$pop * dat$gdpPercap
   new <- cbind(dat, gdp=gdp)
   return(new)
@@ -550,7 +550,7 @@ difiere del GDP de Nueva Zelandia en 1952?
 ## Solución al desafío 3
 
 
-```r
+``` r
   calcGDP(gapminder, year = c(1952, 1987), country = "New Zealand")
 ```
 
@@ -571,12 +571,12 @@ GDP para Nueva Zelandia en 1952: 21058193787
 La función `paste()` puede ser usada para combinar texto, ej.:
 
 
-```r
+``` r
 best_practice <- c("Write", "programs", "for", "people", "not", "computers")
 paste(best_practice, collapse=" ")
 ```
 
-```output
+``` output
 [1] "Write programs for people not computers"
 ```
 
@@ -584,7 +584,7 @@ Escribir una función `fence()` que tome dos vectores como argumentos, llamados
 `text` y `wrapper`, y muestra el texto flanqueado del `wrapper`:
 
 
-```r
+``` r
 fence(text=best_practice, wrapper="***")
 ```
 
@@ -600,7 +600,7 @@ Escribir una función `fence()` que toma dos vectores como argumentos, llamados
 `text` y `wrapper`, e imprime el texto flanqueado del `wrapper`:
 
 
-```r
+``` r
 fence <- function(text, wrapper){
   text <- c(wrapper, text, wrapper)
   result <- paste(text, collapse = " ")
@@ -610,7 +610,7 @@ best_practice <- c("Write", "programs", "for", "people", "not", "computers")
 fence(text=best_practice, wrapper="***")
 ```
 
-```output
+``` output
 [1] "*** Write programs for people not computers ***"
 ```
 

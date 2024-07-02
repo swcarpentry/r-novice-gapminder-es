@@ -31,13 +31,13 @@ para las diferentes estructuras de datos.
 Empecemos con el caballito de batalla de R: un vector numérico.
 
 
-```r
+``` r
 x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
 names(x) <- c('a', 'b', 'c', 'd', 'e')
 x
 ```
 
-```output
+``` output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -60,21 +60,21 @@ Para extraer elementos o datos de un vector podemos usar su índice correspondie
 por uno:
 
 
-```r
+``` r
 x[1]
 ```
 
-```output
+``` output
   a 
 5.4 
 ```
 
 
-```r
+``` r
 x[4]
 ```
 
-```output
+``` output
   d 
 4.8 
 ```
@@ -85,11 +85,11 @@ No lo parece, pero el operador corchetes es una función. Para los vectores
 También podemos pedir varios elementos al mismo tiempo:
 
 
-```r
+``` r
 x[c(1, 3)]
 ```
 
-```output
+``` output
   a   c 
 5.4 7.1 
 ```
@@ -97,11 +97,11 @@ x[c(1, 3)]
 O podemos tomar un rango del vector:
 
 
-```r
+``` r
 x[1:4]
 ```
 
-```output
+``` output
   a   b   c   d 
 5.4 6.2 7.1 4.8 
 ```
@@ -110,30 +110,30 @@ el operador `:` crea una sucesión de números del valor a la izquierda hasta el
 la derecha.
 
 
-```r
+``` r
 1:4
 ```
 
-```output
+``` output
 [1] 1 2 3 4
 ```
 
-```r
+``` r
 c(1, 2, 3, 4)
 ```
 
-```output
+``` output
 [1] 1 2 3 4
 ```
 
 También podemos pedir el mismo elemento varias veces:
 
 
-```r
+``` r
 x[c(1,1,3)]
 ```
 
-```output
+``` output
   a   a   c 
 5.4 5.4 7.1 
 ```
@@ -142,11 +142,11 @@ Si pedimos por índices mayores a la longitud del vector, R regresará
 un valor faltante.
 
 
-```r
+``` r
 x[6]
 ```
 
-```output
+``` output
 <NA> 
   NA 
 ```
@@ -157,11 +157,11 @@ Este es un vector de longitud uno que contiene un `NA`, cuyo nombre también es
 Si pedimos el elemento en el índice 0, obtendremos un vector vacío.
 
 
-```r
+``` r
 x[0]
 ```
 
-```output
+``` output
 named numeric(0)
 ```
 
@@ -180,11 +180,11 @@ elemento de un vector tiene índice 0. En R, el primer elemento tiene el índice
 Si usamos un valor negativo como índice para un vector, R regresará cada elemento *excepto* lo que se ha especificado:
 
 
-```r
+``` r
 x[-2]
 ```
 
-```output
+``` output
   a   c   d   e 
 5.4 7.1 4.8 7.5 
 ```
@@ -192,11 +192,11 @@ x[-2]
 También podemos saltar o no mostrar varios elementos:
 
 
-```r
+``` r
 x[c(-1, -5)]  # o bien x[-c(1,5)]
 ```
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -210,14 +210,14 @@ de elementos de un vector. Es natural tratar de filtrar una sucesión de la
 siguiente manera:
 
 
-```r
+``` r
 x[-1:3]
 ```
 
 Esto nos devuelve un error algo críptico:
 
 
-```error
+``` error
 Error in x[-1:3]: only 0's may be mixed with negative subscripts
 ```
 
@@ -229,11 +229,11 @@ La solución correcta sería empaquetar la llamada de la función dentro de
 paréntesis, de está manera el operador `-` se aplica al resultado:
 
 
-```r
+``` r
 x[-(1:3)]
 ```
 
-```output
+``` output
   d   e 
 4.8 7.5 
 ```
@@ -244,12 +244,12 @@ Para quitar los elementos de un vector, será necesario que asignes el resultado
 de vuelta a la variable:
 
 
-```r
+``` r
 x <- x[-4]
 x
 ```
 
-```output
+``` output
   a   b   c   e 
 5.4 6.2 7.1 7.5 
 ```
@@ -261,13 +261,13 @@ x
 Dado el siguiente código:
 
 
-```r
+``` r
 x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
 names(x) <- c('a', 'b', 'c', 'd', 'e')
 print(x)
 ```
 
-```output
+``` output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -275,7 +275,7 @@ print(x)
 Encuentra al menos 3 comandos distintos que produzcan la siguiente salida:
 
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -287,41 +287,41 @@ Después de encontrar los tres comandos distintos, compáralos con los de tu vec
 ## Solución al desafío 1
 
 
-```r
+``` r
 x[2:4]
 ```
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
 
 
-```r
+``` r
 x[-c(1,5)]
 ```
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
 
 
-```r
+``` r
 x[c("b", "c", "d")]
 ```
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
 
 
-```r
+``` r
 x[c(2,3,4)]
 ```
 
-```output
+``` output
   b   c   d 
 6.2 7.1 4.8 
 ```
@@ -335,12 +335,12 @@ x[c(2,3,4)]
 Podemos extraer elementos usando sus nombres, en lugar de extraerlos por índice:
 
 
-```r
+``` r
 x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # podemos nombrar un vector en la misma línea
 x[c("a", "c")]
 ```
 
-```output
+``` output
   a   c 
 5.4 7.1 
 ```
@@ -354,11 +354,11 @@ de subconjuntos, ¡pero los nombres siempre permanecen iguales!
 También podemos usar un vector con elementos lógicos para hacer subconjuntos:
 
 
-```r
+``` r
 x[c(FALSE, FALSE, TRUE, FALSE, TRUE)]
 ```
 
-```output
+``` output
   c   e 
 7.1 7.5 
 ```
@@ -368,11 +368,11 @@ podemos usarlos para crear subconjuntos de manera mas sintética: la siguiente i
 tiene el mismo resultado que el anterior.
 
 
-```r
+``` r
 x[x > 7]
 ```
 
-```output
+``` output
   c   e 
 7.1 7.5 
 ```
@@ -385,11 +385,11 @@ Podemos usar `==` para imitar el método anterior de indexar con nombre
 (recordemos que se usa `==` en vez de `=` para comparar):
 
 
-```r
+``` r
 x[names(x) == "a"]
 ```
 
-```output
+``` output
   a 
 5.4 
 ```
@@ -433,13 +433,13 @@ son `TRUE`).
 Dado el siguiente código:
 
 
-```r
+``` r
 x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
 names(x) <- c('a', 'b', 'c', 'd', 'e')
 print(x)
 ```
 
-```output
+``` output
   a   b   c   d   e 
 5.4 6.2 7.1 4.8 7.5 
 ```
@@ -452,12 +452,12 @@ a 4 pero menores que 7.
 ## Solución al desafío 3
 
 
-```r
+``` r
 x_subset <- x[x<7 & x>4]
 print(x_subset)
 ```
 
-```output
+``` output
   a   b   d 
 5.4 6.2 4.8 
 ```
@@ -476,39 +476,39 @@ de las filas deben ser únicos).
 Considera estos ejemplos:
 
 
-```r
+``` r
 x <- 1:3
 x
 ```
 
-```output
+``` output
 [1] 1 2 3
 ```
 
-```r
+``` r
 names(x) <- c('a', 'a', 'a')
 x
 ```
 
-```output
+``` output
 a a a 
 1 2 3 
 ```
 
-```r
+``` r
 x['a']  # solo devuelve el primer valor
 ```
 
-```output
+``` output
 a 
 1 
 ```
 
-```r
+``` r
 x[names(x) == 'a']  # devuelve todos los tres valores
 ```
 
-```output
+``` output
 a a a 
 1 2 3 
 ```
@@ -530,12 +530,12 @@ comillas:
 Saltarse o eliminar elementos con nombre es un poco más difícil. Si tratamos de omitir un elemento con nombre al negar la cadena, R se queja (de una manera un poco oscura) de que no sabe cómo tomar el valor negativo de una cadena:
 
 
-```r
+``` r
 x <- c(a=5.4, b=6.2, c=7.1, d=4.8, e=7.5) # comenzamos nuevamente nombrando un vector en la misma línea
 x[-"a"]
 ```
 
-```error
+``` error
 Error in -"a": invalid argument to unary operator
 ```
 
@@ -543,11 +543,11 @@ Sin embargo, podemos usar el operador `!=` (no igual) para construir un vector
 con elementos lógicos, que es lo que nosotros queremos:
 
 
-```r
+``` r
 x[names(x) != "a"]
 ```
 
-```output
+``` output
   b   c   d   e 
 6.2 7.1 4.8 7.5 
 ```
@@ -556,16 +556,16 @@ Saltar varios índices con nombre es un poco más difícil. Supongamos
 que queremos excluir los elementos `"a"` y `"c"`, entonces intentamos lo siguiente:
 
 
-```r
+``` r
 x[names(x)!=c("a","c")]
 ```
 
-```warning
+``` warning
 Warning in names(x) != c("a", "c"): longer object length is not a multiple of
 shorter object length
 ```
 
-```output
+``` output
   b   c   d   e 
 6.2 7.1 4.8 7.5 
 ```
@@ -582,16 +582,16 @@ pregunta.
 Tomemos un momento para observar al operador de comparación en este código:
 
 
-```r
+``` r
 names(x) != c("a", "c")
 ```
 
-```warning
+``` warning
 Warning in names(x) != c("a", "c"): longer object length is not a multiple of
 shorter object length
 ```
 
-```output
+``` output
 [1] FALSE  TRUE  TRUE  TRUE  TRUE
 ```
 
@@ -626,11 +626,11 @@ Aquí, como queremos *excluir* los valores, nosotros también necesitamos el
 operador `!` para cambiar la inclusión por una *no* inclusión:
 
 
-```r
+``` r
 x[! names(x) %in% c("a","c") ]
 ```
 
-```output
+``` output
   b   d   e 
 6.2 4.8 7.5 
 ```
@@ -651,7 +651,7 @@ Asia y `FALSE` en otros casos?
 Supongamos que se tienen los siguientes datos:
 
 
-```r
+``` r
 seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
 ## leer los datos de gapminder que bajamos en el episodio 2
 gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
@@ -680,7 +680,7 @@ funcionan (o no).
   este problema es
 
 
-```r
+``` r
  (countries=="Myanmar" | countries=="Thailand" |
  countries=="Cambodia" | countries == "Vietnam" | countries=="Laos")
 ```
@@ -721,30 +721,30 @@ podemos hacer subconjuntos de otras estructuras de datos?
 Podemos hacer subconjuntos de factores de la misma manera que con los vectores.
 
 
-```r
+``` r
 f <- factor(c("a", "a", "b", "c", "c", "d"))
 f[f == "a"]
 ```
 
-```output
+``` output
 [1] a a
 Levels: a b c d
 ```
 
-```r
+``` r
 f[f %in% c("b", "c")]
 ```
 
-```output
+``` output
 [1] b c c
 Levels: a b c d
 ```
 
-```r
+``` r
 f[1:3]
 ```
 
-```output
+``` output
 [1] a a b
 Levels: a b c d
 ```
@@ -753,11 +753,11 @@ Saltar elementos no quita el nivel, incluso cuando no existan datos en esa
 categoría del factor:
 
 
-```r
+``` r
 f[-3]
 ```
 
-```output
+``` output
 [1] a a c c d
 Levels: a b c d
 ```
@@ -769,13 +769,13 @@ caso toma dos argumentos: el primero se aplica a las filas y el segundo
 a las columnas:
 
 
-```r
+``` r
 set.seed(1)
 m <- matrix(rnorm(6*4), ncol=4, nrow=6)
 m[3:4, c(3,1)]
 ```
 
-```output
+``` output
             [,1]       [,2]
 [1,]  1.12493092 -0.8356286
 [2,] -0.04493361  1.5952808
@@ -785,11 +785,11 @@ Siempre puedes dejar el primer o segundo argumento vacío para obtener todas las
 o columnas respectivamente:
 
 
-```r
+``` r
 m[, c(3,4)]
 ```
 
-```output
+``` output
             [,1]        [,2]
 [1,] -0.62124058  0.82122120
 [2,] -2.21469989  0.59390132
@@ -803,11 +803,11 @@ Si quisieramos acceder a solo una fila o una columna, R automáticamente
 convertirá el resultado a un vector:
 
 
-```r
+``` r
 m[3,]
 ```
 
-```output
+``` output
 [1] -0.8356286  0.5757814  1.1249309  0.9189774
 ```
 
@@ -815,11 +815,11 @@ Si quieres mantener la salida como una matriz, necesitas especificar un *tercer*
 argumento; `drop = FALSE`:
 
 
-```r
+``` r
 m[3, , drop=FALSE]
 ```
 
-```output
+``` output
            [,1]      [,2]     [,3]      [,4]
 [1,] -0.8356286 0.5757814 1.124931 0.9189774
 ```
@@ -828,11 +828,11 @@ A diferencia de los vectores, si tratamos de acceder a una fila o
 columna fuera de la matriz, R arrojará un error:
 
 
-```r
+``` r
 m[, c(3,6)]
 ```
 
-```error
+``` error
 Error in m[, c(3, 6)]: subscript out of bounds
 ```
 
@@ -851,11 +851,11 @@ Como las matrices son vectores, podemos también hacer subconjuntos usando
 solo un argumento:
 
 
-```r
+``` r
 m[5]
 ```
 
-```output
+``` output
 [1] 0.3295078
 ```
 
@@ -863,11 +863,11 @@ Normalmente esto no es tan útil y muchas veces difícil de leer. Sin embargo
 es útil notar que las matrices están acomodadas en un formato **column-major** por defecto. Esto significa que los elementos del vector están acomodados por columnas:
 
 
-```r
+``` r
 matrix(1:6, nrow=2, ncol=3)
 ```
 
-```output
+``` output
      [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6
@@ -876,11 +876,11 @@ matrix(1:6, nrow=2, ncol=3)
 Si quisieramos llenar una matriz por filas, usamos `byrow=TRUE`:
 
 
-```r
+``` r
 matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
 ```
 
-```output
+``` output
      [,1] [,2] [,3]
 [1,]    1    2    3
 [2,]    4    5    6
@@ -896,12 +896,12 @@ sus filas y de sus columnas en vez de usar sus índices.
 Dado el siguiente código:
 
 
-```r
+``` r
 m <- matrix(1:18, nrow=3, ncol=6)
 print(m)
 ```
 
-```output
+``` output
      [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    1    4    7   10   13   16
 [2,]    2    5    8   11   14   17
@@ -941,12 +941,12 @@ lista, pero no quieres *extraer* un elemento, entonces probablemente usarás
 `[`.
 
 
-```r
+``` r
 xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
 xlist[1]
 ```
 
-```output
+``` output
 $a
 [1] "Software Carpentry"
 ```
@@ -960,11 +960,11 @@ condición en la estructura de datos de los elementos de la lista,
 y no en los elementos individuales de dichas estructuras de datos.
 
 
-```r
+``` r
 xlist[1:2]
 ```
 
-```output
+``` output
 $a
 [1] "Software Carpentry"
 
@@ -976,11 +976,11 @@ Para extraer elementos individuales de la lista, tendrás que hacer uso de
 la función doble corchete: `[[`.
 
 
-```r
+``` r
 xlist[[1]]
 ```
 
-```output
+``` output
 [1] "Software Carpentry"
 ```
 
@@ -989,44 +989,44 @@ Nota que ahora el resultados es un vector, no una lista.
 No puedes extraer más de un elemento al mismo tiempo:
 
 
-```r
+``` r
 xlist[[1:2]]
 ```
 
-```error
+``` error
 Error in xlist[[1:2]]: subscript out of bounds
 ```
 
 Tampoco puedes usarlo para saltar elementos:
 
 
-```r
+``` r
 xlist[[-1]]
 ```
 
-```error
+``` error
 Error in xlist[[-1]]: invalid negative subscript in get1index <real>
 ```
 
 Pero tú puedes usar los nombres para hacer subconjuntos y extraer elementos:
 
 
-```r
+``` r
 xlist[["a"]]
 ```
 
-```output
+``` output
 [1] "Software Carpentry"
 ```
 
 La función `$` es una manera abreviada para extraer elementos por nombre:
 
 
-```r
+``` r
 xlist$data
 ```
 
-```output
+``` output
                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -1043,7 +1043,7 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
 Dada la siguiente lista:
 
 
-```r
+``` r
 xlist <- list(a = "Software Carpentry", b = 1:10, data = head(mtcars))
 ```
 
@@ -1056,29 +1056,29 @@ Pista: el número 2 está contenido en el elemento "b" de la lista.
 ## Solución al desafío 5
 
 
-```r
+``` r
 xlist$b[2]
 ```
 
-```output
+``` output
 [1] 2
 ```
 
 
-```r
+``` r
 xlist[[2]][2]
 ```
 
-```output
+``` output
 [1] 2
 ```
 
 
-```r
+``` r
 xlist[["b"]][2]
 ```
 
-```output
+``` output
 [1] 2
 ```
 
@@ -1093,7 +1093,7 @@ xlist[["b"]][2]
 Dado un modelo lineal:
 
 
-```r
+``` r
 mod <- aov(pop ~ lifeExp, data=gapminder)
 ```
 
@@ -1105,12 +1105,12 @@ ayudar)
 ## Solución del desafío 6
 
 
-```r
+``` r
 attributes(mod) ## `df.residual` es uno de los nombres de `mod`
 ```
 
 
-```r
+``` r
 mod$df.residual
 ```
 
@@ -1128,11 +1128,11 @@ donde cada elemento de la lista corresponde a una columna. El objeto devuelto
 será una **data frame**:
 
 
-```r
+``` r
 head(gapminder[3])
 ```
 
-```output
+``` output
        pop
 1  8425333
 2  9240934
@@ -1145,22 +1145,22 @@ head(gapminder[3])
 Similarmente, `[[` extraerá *una sola columna*:
 
 
-```r
+``` r
 head(gapminder[["lifeExp"]])
 ```
 
-```output
+``` output
 [1] 28.801 30.332 31.997 34.020 36.088 38.438
 ```
 
 Con dos argumentos, `[` se comporta de la misma manera que para las matrices:
 
 
-```r
+``` r
 gapminder[1:3,]
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -1171,11 +1171,11 @@ Si nuestro subconjunto es una sola fila, el resultado será una **data frame**
 (porque los elementos son de distintos tipos):
 
 
-```r
+``` r
 gapminder[3,]
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 3 Afghanistan 1962 10267083      Asia  31.997  853.1007
 ```
@@ -1193,21 +1193,21 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
 1. Extraer observaciones colectadas en el año 1957
   
   
-  ```r
+  ``` r
   gapminder[gapminder$year = 1957,]
   ```
 
 2. Extraer todas las columnas excepto de la 1 a la 4
 
 
-```r
+``` r
    gapminder[,-1:4]
 ```
 
 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
   
   
-  ```r
+  ``` r
   gapminder[gapminder$lifeExp > 80]
   ```
 
@@ -1215,7 +1215,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
   (`lifeExp` y `gdpPercap`).
   
   
-  ```r
+  ``` r
   gapminder[1, 4, 5]
   ```
 
@@ -1223,7 +1223,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
   y 2007
   
   
-  ```r
+  ``` r
   gapminder[gapminder$year == 2002 | 2007,]
   ```
 
@@ -1237,7 +1237,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
 1. Extraer observaciones colectadas en el año 1957
   
   
-  ```r
+  ``` r
   # gapminder[gapminder$year = 1957,]
   gapminder[gapminder$year == 1957,]
   ```
@@ -1245,7 +1245,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
 2. Extraer todas las columnas excepto de la 1 a la 4
   
   
-  ```r
+  ``` r
   # gapminder[,-1:4]
   gapminder[,-c(1:4)]
   ```
@@ -1253,7 +1253,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
 3. Extraer las filas donde la esperanza de vida es mayor a 80 años
   
   
-  ```r
+  ``` r
   # gapminder[gapminder$lifeExp > 80]
   gapminder[gapminder$lifeExp > 80,]
   ```
@@ -1262,7 +1262,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
   (`lifeExp` y `gdpPercap`).
   
   
-  ```r
+  ``` r
   # gapminder[1, 4, 5]
   gapminder[1, c(4, 5)]
   ```
@@ -1271,7 +1271,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
   y 2007
   
   
-  ```r
+  ``` r
   # gapminder[gapminder$year == 2002 | 2007,]
   gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
   gapminder[gapminder$year %in% c(2002, 2007),]
@@ -1300,7 +1300,7 @@ Corrige cada uno de los siguientes errores para hacer subconjuntos de
 
 2. 
 
-```r
+``` r
 gapminder_small <- gapminder[c(1:9, 19:23),]
 ```
 

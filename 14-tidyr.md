@@ -43,7 +43,7 @@ los campos en una base de datos y las variables observadas son como los valores 
 Primero instala los paquetes necesarios, `tidyr` y `dplyr`. Si aún no lo has hecho, puedes también instalar el grupo de paquetes `tidyverse` que contiene varios paquetes incluyendo `tidyr` y `dplyr`.
 
 
-```r
+``` r
 #install.packages("tidyr")
 #install.packages("dplyr")
 ```
@@ -51,7 +51,7 @@ Primero instala los paquetes necesarios, `tidyr` y `dplyr`. Si aún no lo has he
 Ahora carga los paquetes usando **library**.
 
 
-```r
+``` r
 library("tidyr")
 library("dplyr")
 ```
@@ -59,11 +59,11 @@ library("dplyr")
 Primero, veamos la estructura **structure** del **data frame** gapminder:
 
 
-```r
+``` r
 str(gapminder)
 ```
 
-```output
+``` output
 'data.frame':	1704 obs. of  6 variables:
  $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -118,12 +118,12 @@ y guarda el archivo csv en tu carpeta de datos.
 Cargaremos el archivo de datos para verlo. Nota: no queremos que las columnas de caracteres sean convertidas a factores, por lo que usamos el argumento `stringsAsFactors = FALSE` para para deshabilitar eso, más información en la ayuda `?read.csv ()`.
 
 
-```r
+``` r
 gap_wide <- read.csv("data/gapminder_wide.csv", stringsAsFactors = FALSE)
 str(gap_wide)
 ```
 
-```output
+``` output
 'data.frame':	142 obs. of  38 variables:
  $ continent     : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country       : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -172,14 +172,14 @@ El primer paso es formatear los datos de ancho a largo. Usando el paquete `tidyr
 ![](fig/14-tidyr-fig3.png)
 
 
-```r
+``` r
 gap_long <- gap_wide %>%
     gather(obstype_year, obs_values, starts_with("pop"),
            starts_with("lifeExp"), starts_with("gdpPercap"))
 str(gap_long)
 ```
 
-```output
+``` output
 'data.frame':	5112 obs. of  4 variables:
  $ continent   : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country     : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -197,12 +197,12 @@ sintaxis alternativa del uso del símbolo `-` para identificar qué variables qu
 ![](fig/14-tidyr-fig4.png)
 
 
-```r
+``` r
 gap_long <- gap_wide %>% gather(obstype_year, obs_values, -continent, -country)
 str(gap_long)
 ```
 
-```output
+``` output
 'data.frame':	5112 obs. of  4 variables:
  $ continent   : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country     : chr  "Algeria" "Angola" "Benin" "Botswana" ...
@@ -216,7 +216,7 @@ Ahora, `obstype_year` en realidad contiene información en dos partes, la observ
 tipo (`pop`,` lifeExp`, o `gdpPercap`) y el año `year`. Podemos usar la función  `separate()` para dividir las cadenas de caracteres en múltiples variables.
 
 
-```r
+``` r
 gap_long <- gap_long %>% separate(obstype_year, into = c("obs_type", "year"), sep = "_")
 gap_long$year <- as.integer(gap_long$year)
 ```
@@ -233,18 +233,18 @@ Usando el **data frame** `gap_long`, calcula el promedio de esperanza de vida, p
 ## Solución al Desafío 2
 
 
-```r
+``` r
 gap_long %>% 
     group_by(continent, obs_type) %>%
     summarize(means = mean(obs_values))
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'continent'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 15 × 3
 # Groups:   continent [5]
    continent obs_type       means
@@ -275,36 +275,36 @@ gap_long %>%
 Siempre es bueno detenerse y verificar el trabajo. Entonces, usemos el opuesto de `gather()` para separar nuestras variables de observación con la función `spread()`. Para expandir nuestro objeto `gap_long()` al formato intermedio original o al formato ancho usaremos esta nueva función. Comencemos con el formato intermedio.
 
 
-```r
+``` r
 gap_normal <- gap_long %>% spread(obs_type,obs_values)
 dim(gap_normal)
 ```
 
-```output
+``` output
 [1] 1704    6
 ```
 
-```r
+``` r
 dim(gapminder)
 ```
 
-```output
+``` output
 [1] 1704    6
 ```
 
-```r
+``` r
 names(gap_normal)
 ```
 
-```output
+``` output
 [1] "continent" "country"   "year"      "gdpPercap" "lifeExp"   "pop"      
 ```
 
-```r
+``` r
 names(gapminder)
 ```
 
-```output
+``` output
 [1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
 ```
 
@@ -312,12 +312,12 @@ Ahora tenemos un marco de datos intermedio `gap_normal` con las mismas dimension
 eso antes de comprobar si son iguales con la función `all.equal()`.
 
 
-```r
+``` r
 gap_normal <- gap_normal[,names(gapminder)]
 all.equal(gap_normal,gapminder)
 ```
 
-```output
+``` output
 [1] "Component \"country\": 1704 string mismatches"              
 [2] "Component \"pop\": Mean relative difference: 1.634504"      
 [3] "Component \"continent\": 1212 string mismatches"            
@@ -325,11 +325,11 @@ all.equal(gap_normal,gapminder)
 [5] "Component \"gdpPercap\": Mean relative difference: 1.162302"
 ```
 
-```r
+``` r
 head(gap_normal)
 ```
 
-```output
+``` output
   country year      pop continent lifeExp gdpPercap
 1 Algeria 1952  9279525    Africa  43.077  2449.008
 2 Algeria 1957 10270856    Africa  45.685  3013.976
@@ -339,11 +339,11 @@ head(gap_normal)
 6 Algeria 1977 17152804    Africa  58.014  4910.417
 ```
 
-```r
+``` r
 head(gapminder)
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
@@ -357,12 +357,12 @@ Ya casi, el **data frame** original está ordenado por `country`, `continent`, y
 `year`. Entonces probemos con la función `arrange()`.
 
 
-```r
+``` r
 gap_normal <- gap_normal %>% arrange(country, continent, year)
 all.equal(gap_normal, gapminder)
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
@@ -375,12 +375,12 @@ en las tres métricas (`pop`,` lifeExp`, `gdpPercap`) y año (` year`). Primero 
 necesitamos crear etiquetas apropiadas para todas nuestras nuevas variables (combinaciones de métricas\*año) y también necesitamos unificar nuestras variables de **ID** para simplificar el proceso de definir el nuevo objeto `gap_wide`.
 
 
-```r
+``` r
 gap_temp <- gap_long %>% unite(var_ID, continent, country, sep = "_")
 str(gap_temp)
 ```
 
-```output
+``` output
 'data.frame':	5112 obs. of  4 variables:
  $ var_ID    : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ obs_type  : chr  "gdpPercap" "gdpPercap" "gdpPercap" "gdpPercap" ...
@@ -388,14 +388,14 @@ str(gap_temp)
  $ obs_values: num  2449 3521 1063 851 543 ...
 ```
 
-```r
+``` r
 gap_temp <- gap_long %>%
     unite(ID_var, continent, country, sep = "_") %>%
     unite(var_names, obs_type, year, sep = "_")
 str(gap_temp)
 ```
 
-```output
+``` output
 'data.frame':	5112 obs. of  3 variables:
  $ ID_var    : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ var_names : chr  "gdpPercap_1952" "gdpPercap_1952" "gdpPercap_1952" "gdpPercap_1952" ...
@@ -406,7 +406,7 @@ Usando la función `unite()` tenemos ahora un único **ID** que es la combinaci�
 `continent`, `country`, y así definimos nuestras nuevas variables. Ahora podemos usar ese resultado con la función `spread()`.
 
 
-```r
+``` r
 gap_wide_new <- gap_long %>%
     unite(ID_var, continent, country, sep = "_") %>%
     unite(var_names, obs_type, year,sep = "_") %>%
@@ -414,7 +414,7 @@ gap_wide_new <- gap_long %>%
 str(gap_wide_new)
 ```
 
-```output
+``` output
 'data.frame':	142 obs. of  37 variables:
  $ ID_var        : chr  "Africa_Algeria" "Africa_Angola" "Africa_Benin" "Africa_Botswana" ...
  $ gdpPercap_1952: num  2449 3521 1063 851 543 ...
@@ -467,7 +467,7 @@ Crea un formato de datos `gap_super_wide` mediante la distribución por países,
 ## Solución para el desafío 3
 
 
-```r
+``` r
 gap_super_wide <- gap_long %>%
    unite(var_names, obs_type, year, country, sep = "_") %>%
    spread(var_names, obs_values)
@@ -480,7 +480,7 @@ gap_super_wide <- gap_long %>%
 Ahora tenemos un gran **data frame** con formato 'ancho', pero el `ID_var` podría ser más mejor, hay que separarlos en dos variables con `separate()`
 
 
-```r
+``` r
 gap_wide_betterID <- separate(gap_wide_new, ID_var, c("continent", "country"), sep = "_")
 gap_wide_betterID <- gap_long %>%
     unite(ID_var, continent, country, sep = "_") %>%
@@ -490,7 +490,7 @@ gap_wide_betterID <- gap_long %>%
 str(gap_wide_betterID)
 ```
 
-```output
+``` output
 'data.frame':	142 obs. of  38 variables:
  $ continent     : chr  "Africa" "Africa" "Africa" "Africa" ...
  $ country       : chr  "Algeria" "Angola" "Benin" "Botswana" ...

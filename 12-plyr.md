@@ -23,7 +23,7 @@ Previamente vimos como puedes usar funciones para simplificar tu código.
 Definimos la función `calcGDP`, la cual toma el **dataset**  gapminder, y multiplica la columna de población por la columna GDP per cápita. También definimos argumentos adicionales de modo que pudiéramos filtrar por `"year"` o por `"country"`:
 
 
-```r
+``` r
 # Toma un dataset y multiplica la columna population con
 # la columna GDP per cápita.
 calcGDP <- function(dat, year=NULL, country=NULL) {
@@ -45,28 +45,28 @@ Una tarea común que encontrarás mientras trabajes con datos, es que querrás h
 Podríamos ejecutar `calcGDP`  y entonces tomar la media  de cada continente:
 
 
-```r
+``` r
 withGDP <- calcGDP(gapminder)
 mean(withGDP[withGDP$continent == "Africa", "gdp"])
 ```
 
-```output
+``` output
 [1] 20904782844
 ```
 
-```r
+``` r
 mean(withGDP[withGDP$continent == "Americas", "gdp"])
 ```
 
-```output
+``` output
 [1] 379262350210
 ```
 
-```r
+``` r
 mean(withGDP[withGDP$continent == "Asia", "gdp"])
 ```
 
-```output
+``` output
 [1] 227233738153
 ```
 
@@ -88,7 +88,7 @@ Para aquellos que han usado antes R, es posible que estén familiarizados con la
 Instalamos este paquete en un desafío anterior. Vamos a cargarlo ahora:
 
 
-```r
+``` r
 library("plyr")
 ```
 
@@ -109,7 +109,7 @@ Note que el uso de "array" de plyr es diferente a R, un array en ply puede  incl
 Cada una de las funciones de xxply (`daply`,` ddply`, `llply`,` laply`, ...) tiene la misma estructura y 4 características clave:
 
 
-```r
+``` r
 xxply(.data, .variables, .fun)
 ```
 
@@ -121,7 +121,7 @@ xxply(.data, .variables, .fun)
 Ahora podemos calcular rápidamente la media GDP por `"continent"`:
 
 
-```r
+``` r
 ddply(
  .data = calcGDP(gapminder),
  .variables = "continent",
@@ -129,7 +129,7 @@ ddply(
 )
 ```
 
-```output
+``` output
   continent           V1
 1    Africa  20904782844
 2  Americas 379262350210
@@ -148,7 +148,7 @@ Veamos el código anterior:
 ¿Qué pasa si queremos un tipo diferente de estructura de datos de salida?:
 
 
-```r
+``` r
 dlply(
  .data = calcGDP(gapminder),
  .variables = "continent",
@@ -156,7 +156,7 @@ dlply(
 )
 ```
 
-```output
+``` output
 $Africa
 [1] 20904782844
 
@@ -188,7 +188,7 @@ Llamamos a la misma función otra vez, pero cambiamos la segunda letra por una `
 Podemos especificar múltiples columnas para agrupar:
 
 
-```r
+``` r
 ddply(
  .data = calcGDP(gapminder),
  .variables = c("continent", "year"),
@@ -196,7 +196,7 @@ ddply(
 )
 ```
 
-```output
+``` output
    continent year           V1
 1     Africa 1952   5992294608
 2     Africa 1957   7359188796
@@ -261,7 +261,7 @@ ddply(
 ```
 
 
-```r
+``` r
 daply(
  .data = calcGDP(gapminder),
  .variables = c("continent", "year"),
@@ -269,7 +269,7 @@ daply(
 )
 ```
 
-```output
+``` output
           year
 continent          1952         1957         1962         1967         1972
   Africa     5992294608   7359188796   8784876958  11443994101  15072241974
@@ -297,7 +297,7 @@ Puedes usar estas funciones en lugar de ciclos `for` (y generalmente es mas ráp
 Para remplazar un ciclo ‘for',  pon el código que estaba en el cuerpo del ciclo `for`  dentro de la función anónima.
 
 
-```r
+``` r
 d_ply(
   .data=gapminder,
   .variables = "continent",
@@ -311,7 +311,7 @@ d_ply(
 )
 ```
 
-```output
+``` output
 [1] "La media GDP per cápita para Africa es 2,193.755"
 [1] "La media GDP per cápita para Americas es 7,136.11"
 [1] "La media GDP per cápita para Asia es 7,902.15"
@@ -370,7 +370,7 @@ de la esperanza de vida por continente:
 
 1. 
 
-```r
+``` r
 ddply(
   .data = gapminder,
   .variables = gapminder$continent,
@@ -382,7 +382,7 @@ ddply(
 
 2. 
 
-```r
+``` r
 ddply(
   .data = gapminder,
   .variables = "continent",
@@ -392,7 +392,7 @@ ddply(
 
 3. 
 
-```r
+``` r
 ddply(
   .data = gapminder,
   .variables = "continent",
@@ -404,7 +404,7 @@ ddply(
 
 4. 
 
-```r
+``` r
 adply(
   .data = gapminder,
   .variables = "continent",

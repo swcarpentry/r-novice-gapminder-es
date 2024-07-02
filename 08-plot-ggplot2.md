@@ -61,7 +61,7 @@ ggplot(data = <DATOS>, mapping = aes(<MAPEOS>)) +  <GEOM_FUNCIÓN>()
 
 
 
-```r
+``` r
 library("ggplot2")
 ggplot(data = gapminder)
 ```
@@ -73,7 +73,7 @@ ggplot(data = gapminder)
   buscar esa columna en los **datos**!:
 
 
-```r
+``` r
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
 ```
 
@@ -88,7 +88,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
   Para agregar un geom, usa el operador `+`. ¡Podemos agregar varios geoms unidos a través de múltiples operadores `+`! Observa que en la figura anterior, llamar a la función **`ggplot`** no fue suficiente para obtener un gráfico, debemos agregar un geom. Podemos usar **`geom_point`** para representar visualmente la relación entre **x** y **y** como un gráfico de dispersión de puntos (**scatterplot**).
 
 
-```r
+``` r
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
@@ -103,7 +103,7 @@ Modifica el ejemplo anterior de manera que en la figura se muestre
 como la esperanza de vida ha cambiado a través del tiempo:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
 ```
 
@@ -120,7 +120,7 @@ como la esperanza de vida ha cambiado a través del tiempo:
 Esta es una posible solución:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 ```
 
@@ -149,7 +149,7 @@ es el *color*. Modifica el código del desafío anterior para **colorear** los p
 "continent". ¿Qué tendencias observas en los datos? ¿Son lo que esperabas?
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
   geom_point()
 ```
@@ -166,7 +166,7 @@ Un gráfico de dispersión probablemente no es la mejor manera de visualizar el 
 En vez de eso, vamos a decirle a `ggplot` que queremos visualizar los datos como un diagrama de línea (line plot):
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
 ```
@@ -181,7 +181,7 @@ Pero, ¿qué pasa si queremos visualizar ambos, puntos y líneas en la misma gr�
 Simplemente tenemos que agregar otra capa al gráfico:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point()
 ```
@@ -192,7 +192,7 @@ Es importante notar que cada capa se dibuja encima de la capa anterior. En este 
 los puntos se han dibujado *sobre* las líneas. A continuación observamos una demostración:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
   geom_line(aes(color=continent)) + geom_point()
 ```
@@ -231,7 +231,7 @@ Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. 
 Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. ¿Qué sucede?
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
  geom_point() + geom_line(aes(color=continent))
 ```
@@ -250,7 +250,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 Para demostrarlo regresaremos a nuestro primer ejemplo:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
   geom_point()
 ```
@@ -265,7 +265,7 @@ de los puntos, usando la función *alpha*, la cual es especialmente útil cuando
 gran cantidad de datos fuertemente conglomerados.
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + scale_x_log10()
 ```
@@ -295,12 +295,12 @@ Podemos ajustar una relación simple a los datos agregando otra capa,
 `geom_smooth`:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm")
 ```
 
-```output
+``` output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -309,12 +309,12 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 Podemos hacer la línea más gruesa *configurando* el argumento **aesthetic** **tamaño** en la capa `geom_smooth`:
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
 ```
 
-```warning
+``` warning
 Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.
 This warning is displayed once every 8 hours.
@@ -322,7 +322,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
 
-```output
+``` output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -349,13 +349,13 @@ Modifica el color y el tamaño de los puntos en la capa puntos en el ejemplo ant
 Pista: No uses la función `aes`.
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
  geom_point(size=3, color="orange") + scale_x_log10() +
  geom_smooth(method="lm", size=1.5)
 ```
 
-```output
+``` output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -386,13 +386,13 @@ incluyendo líneas de tendencia.
 Pista: El argumento color puede ser usado dentro de **aesthetic**
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
 geom_point(size=3, shape=17) + scale_x_log10() +
 geom_smooth(method="lm", size=1.5)
 ```
 
-```output
+``` output
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -422,7 +422,7 @@ es equivalente a `starts.with == "A" | starts.with == "Z"`)
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-```r
+``` r
 starts.with <- substr(gapminder$country, start = 1, stop = 1)
 az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
@@ -449,7 +449,7 @@ el título de la leyenda de los colores de las líneas se define utilizando `col
 de la leyenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
 
 
-```r
+``` r
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
     labs(
@@ -472,7 +472,7 @@ Para poder guardar la gráfica de arriba, primero tenemos que asignarla a una va
 llamada `results/` en tu directorio de trabajo.)
 
 
-```r
+``` r
 lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
   labs(
@@ -485,7 +485,7 @@ lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=con
 ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
 ```
 
-```error
+``` error
 Error in `ggsave()`:
 ! Cannot find directory 'results'.
 ℹ Please supply an existing directory or use `create.dir = TRUE`.
@@ -526,7 +526,7 @@ Avanzado:
 - Agrega una capa **facet** para generar gráficos de densidad con un panel para cada año.
 
 
-```r
+``` r
 ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 ```

@@ -48,7 +48,7 @@ como los que puedes tener en una planilla de cálculo o un archivo CSV.
 Comencemos creando un **dataset** llamado `gatos` que se vea de la siguiente forma:
 
 
-```r
+``` r
 color,peso,le_gusta_cuerda
 mixto,2.1,1
 negro,5.0,0
@@ -58,14 +58,14 @@ atigrado,3.2,1
 Podemos usar la función `data.frame` para crearlo.
 
 
-```r
+``` r
 gatos <- data.frame(color = c("mixto", "negro", "atigrado"),
                       peso = c(2.1, 5.0, 3.2),
                       le_gusta_cuerda = c(1, 0, 1))                    
 gatos                   
 ```
 
-```output
+``` output
      color peso le_gusta_cuerda
 1    mixto  2.1               1
 2    negro  5.0               0
@@ -88,12 +88,12 @@ Ahora sí usa `write.csv(gatos, "data/gatos-data.csv", row.names=FALSE)` para cr
 Podemos leer el archivo en R con el siguiente comando:
 
 
-```r
+``` r
 gatos <- read.csv(file = "data/gatos-data.csv", stringsAsFactors = TRUE)
 gatos
 ```
 
-```output
+``` output
      color peso le_gusta_cuerda
 1    mixto  2.1               1
 2    negro  5.0               0
@@ -113,19 +113,19 @@ para `read.csv` y ` read.delim`.
 Podemos empezar a explorar el **dataset** inmediatamente proyectando las columnas usando el operador `$`:
 
 
-```r
+``` r
 gatos$peso
 ```
 
-```output
+``` output
 [1] 2.1 5.0 3.2
 ```
 
-```r
+``` r
 gatos$color
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -133,22 +133,22 @@ Levels: atigrado mixto negro
 Podemos hacer otras operaciones sobre las columnas. Por ejemplo, podemos aumentar el peso de todos los gatos con:
 
 
-```r
+``` r
 gatos$peso + 2
 ```
 
-```output
+``` output
 [1] 4.1 7.0 5.2
 ```
 
 Podemos imprimir los resultados en una oración
 
 
-```r
+``` r
 paste("El color del gato es", gatos$color)
 ```
 
-```output
+``` output
 [1] "El color del gato es mixto"    "El color del gato es negro"   
 [3] "El color del gato es atigrado"
 ```
@@ -156,15 +156,15 @@ paste("El color del gato es", gatos$color)
 Pero qué pasa con:
 
 
-```r
+``` r
 gatos$peso + gatos$color
 ```
 
-```warning
+``` warning
 Warning in Ops.factor(gatos$peso, gatos$color): '+' not meaningful for factors
 ```
 
-```output
+``` output
 [1] NA NA NA
 ```
 
@@ -180,30 +180,30 @@ Hay 5 tipos de datos principales: `double`, `integer`, `complex`, `logical` and 
 Podemos preguntar cuál es la estructura de datos si usamos la función `class`:
 
 
-```r
+``` r
 class(gatos$color)
 ```
 
-```output
+``` output
 [1] "factor"
 ```
 
-```r
+``` r
 class(gatos$peso)
 ```
 
-```output
+``` output
 [1] "numeric"
 ```
 
 También podemos ver que `gatos` es un **data.frame** si usamos la función `class`:
 
 
-```r
+``` r
 class(gatos)
 ```
 
-```output
+``` output
 [1] "data.frame"
 ```
 
@@ -223,11 +223,11 @@ de los elementos del vector - en este caso **strings** vacíos.
 Podemos ver que `gatos$peso` es un vector usando la funcion `str`.
 
 
-```r
+``` r
 str(gatos$peso)
 ```
 
-```output
+``` output
  num [1:3] 2.1 5 3.2
 ```
 
@@ -262,27 +262,27 @@ a la larga, la consistencia estricta hace nuestras vidas más fáciles cuando us
 También puedes crear vectores con contenido explícito con la función **combine** o `c()`:
 
 
-```r
+``` r
 mi_vector <- c(2,6,3)
 mi_vector
 ```
 
-```output
+``` output
 [1] 2 6 3
 ```
 
-```r
+``` r
 str(mi_vector)
 ```
 
-```output
+``` output
  num [1:3] 2 6 3
 ```
 
 Dado lo que aprendimos hasta ahora, ¿qué crees que hace el siguiente código?
 
 
-```r
+``` r
 otro_vector <- c(2,6,'3')
 ```
 
@@ -292,21 +292,21 @@ los tipos de datos básicos y cómo R los interpreta. Cuando R encuentra una mez
 Considera:
 
 
-```r
+``` r
 vector_coercion <- c('a', TRUE)
 str(vector_coercion)
 ```
 
-```output
+``` output
  chr [1:2] "a" "TRUE"
 ```
 
-```r
+``` r
 otro_vector_coercion <- c(0, TRUE)
 str(otro_vector_coercion)
 ```
 
-```output
+``` output
  num [1:2] 0 1
 ```
 
@@ -315,38 +315,38 @@ Las reglas de coerción son: `logical` -> `integer` -> `numeric` -> `complex` ->
 Puedes intentar forzar la coerción de acuerdo a esta cadena usando las funciones `as.`:
 
 
-```r
+``` r
 vector_caracteres <- c('0','2','4')
 vector_caracteres
 ```
 
-```output
+``` output
 [1] "0" "2" "4"
 ```
 
-```r
+``` r
 str(vector_caracteres)
 ```
 
-```output
+``` output
  chr [1:3] "0" "2" "4"
 ```
 
-```r
+``` r
 caracteres_coercionados_numerico <- as.numeric(vector_caracteres)
 caracteres_coercionados_numerico
 ```
 
-```output
+``` output
 [1] 0 2 4
 ```
 
-```r
+``` r
 numerico_coercionado_logico <- as.logical(caracteres_coercionados_numerico)
 numerico_coercionado_logico
 ```
 
-```output
+``` output
 [1] FALSE  TRUE  TRUE
 ```
 
@@ -360,115 +360,115 @@ lo que nuestros datos representan. Podemos convertir esta columna al tipo de dat
 usando la función `as.logical`:
 
 
-```r
+``` r
 gatos$le_gusta_cuerda
 ```
 
-```output
+``` output
 [1] 1 0 1
 ```
 
-```r
+``` r
 class(gatos$le_gusta_cuerda)
 ```
 
-```output
+``` output
 [1] "integer"
 ```
 
-```r
+``` r
 gatos$le_gusta_cuerda <- as.logical(gatos$le_gusta_cuerda)
 gatos$le_gusta_cuerda
 ```
 
-```output
+``` output
 [1]  TRUE FALSE  TRUE
 ```
 
-```r
+``` r
 class(gatos$le_gusta_cuerda)
 ```
 
-```output
+``` output
 [1] "logical"
 ```
 
 La función **combine**, `c()`, también agregará elementos al final de un vector existente:
 
 
-```r
+``` r
 ab <- c('a', 'b')
 ab
 ```
 
-```output
+``` output
 [1] "a" "b"
 ```
 
-```r
+``` r
 abc <- c(ab, 'c')
 abc
 ```
 
-```output
+``` output
 [1] "a" "b" "c"
 ```
 
 También puedes hacer una serie de números así:
 
 
-```r
+``` r
 mySerie <- 1:5
 mySerie
 ```
 
-```output
+``` output
 [1] 1 2 3 4 5
 ```
 
-```r
+``` r
 str(mySerie)
 ```
 
-```output
+``` output
  int [1:5] 1 2 3 4 5
 ```
 
-```r
+``` r
 class(mySerie)
 ```
 
-```output
+``` output
 [1] "integer"
 ```
 
 Finalmente, puedes darle nombres a los elementos de tu vector:
 
 
-```r
+``` r
 names(mySerie) <- c("a", "b", "c", "d", "e")
 mySerie
 ```
 
-```output
+``` output
 a b c d e 
 1 2 3 4 5 
 ```
 
-```r
+``` r
 str(mySerie)
 ```
 
-```output
+``` output
  Named int [1:5] 1 2 3 4 5
  - attr(*, "names")= chr [1:5] "a" "b" "c" "d" ...
 ```
 
-```r
+``` r
 class(mySerie)
 ```
 
-```output
+``` output
 [1] "integer"
 ```
 
@@ -485,7 +485,7 @@ Multiplica el vector por 2 y asigna al vector resultante, los nombres de A hasta
 ## Solución del desafío 1
 
 
-```r
+``` r
 x <- 1:26
 x <- x * 2
 names(x) <- LETTERS
@@ -500,11 +500,11 @@ names(x) <- LETTERS
 Otra estructura de datos importante se llama **factor**.
 
 
-```r
+``` r
 str(gatos$color)
 ```
 
-```output
+``` output
  Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ```
 
@@ -513,40 +513,40 @@ Por ejemplo, construyamos un vector de **strings** con etiquetas para las colora
 gatos en nuestro estudio:
 
 
-```r
+``` r
 capas <- c('atigrado', 'carey', 'carey', 'negro', 'atigrado')
 capas
 ```
 
-```output
+``` output
 [1] "atigrado" "carey"    "carey"    "negro"    "atigrado"
 ```
 
-```r
+``` r
 str(capas)
 ```
 
-```output
+``` output
  chr [1:5] "atigrado" "carey" "carey" "negro" "atigrado"
 ```
 
 Podemos convertir un vector en un **factor** de la siguiente manera:
 
 
-```r
+``` r
 categorias <- factor(capas)
 class(categorias)
 ```
 
-```output
+``` output
 [1] "factor"
 ```
 
-```r
+``` r
 str(categorias)
 ```
 
-```output
+``` output
  Factor w/ 3 levels "atigrado","carey",..: 1 2 2 3 1
 ```
 
@@ -556,19 +556,19 @@ serie de números. R ha reemplazado las categorías con índices numéricos, lo 
 muchos cálculos estadísticos usan esa representación para datos categóricos:
 
 
-```r
+``` r
 class(capas)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
-```r
+``` r
 class(categorias)
 ```
 
-```output
+``` output
 [1] "factor"
 ```
 
@@ -588,7 +588,7 @@ en lugar de factores; luego escribe uno o más comandos para mostrar que el **fa
 Una solución es usar el argumento `stringAsFactors`:
 
 
-```r
+``` r
 gatos <- read.csv(file="data/gatos-data.csv", stringsAsFactors=FALSE)
 str(gatos$color)
 ```
@@ -597,7 +597,7 @@ Otra solución es usar el argumento `colClasses`
 que permiten un control más fino.
 
 
-```r
+``` r
 gatos <- read.csv(file="data/gatos-data.csv", colClasses=c(NA, NA, "character"))
 str(gatos$color)
 ```
@@ -617,13 +617,13 @@ que es el primer factor, pero por defecto los factores están etiquetados en
 orden alfabetico. Puedes cambiar esto especificando los niveles:
 
 
-```r
+``` r
 misdatos <- c("caso", "control", "control", "caso")
 factor_orden <- factor(misdatos, levels = c("control", "caso"))
 str(factor_orden)
 ```
 
-```output
+``` output
  Factor w/ 2 levels "control","caso": 2 1 1 2
 ```
 
@@ -638,12 +638,12 @@ es más simple en algunos aspectos que los otros tipos, porque puedes poner cual
 que tú quieras en ella:
 
 
-```r
+``` r
 lista <- list(1, "a", TRUE, 1+4i)
 lista
 ```
 
-```output
+``` output
 [[1]]
 [1] 1
 
@@ -657,12 +657,12 @@ lista
 [1] 1+4i
 ```
 
-```r
+``` r
 otra_lista <- list(title = "Numbers", numbers = 1:10, data = TRUE )
 otra_lista
 ```
 
-```output
+``` output
 $title
 [1] "Numbers"
 
@@ -676,11 +676,11 @@ $data
 Ahora veamos algo interesante acerca de nuestro **data.frame**; ¿Qué pasa si corremos la siguiente línea?
 
 
-```r
+``` r
 typeof(gatos)
 ```
 
-```output
+``` output
 [1] "list"
 ```
 
@@ -695,37 +695,37 @@ En nuestro ejemplo de `gatos`, tenemos una variable **integer**, una **double** 
 ya hemos visto, cada columna del **data.frame** es un vector.
 
 
-```r
+``` r
 gatos$color
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
 
-```r
+``` r
 gatos[,1]
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
 
-```r
+``` r
 typeof(gatos[,1])
 ```
 
-```output
+``` output
 [1] "integer"
 ```
 
-```r
+``` r
 str(gatos[,1])
 ```
 
-```output
+``` output
  Factor w/ 3 levels "atigrado","mixto",..: 2 3 1
 ```
 
@@ -733,28 +733,28 @@ Cada fila es una *observación* de diferentes variables del mismo **data.frame**
 por lo tanto puede estar compuesto de elementos de diferentes tipos.
 
 
-```r
+``` r
 gatos[1,]
 ```
 
-```output
+``` output
   color peso le_gusta_cuerda
 1 mixto  2.1            TRUE
 ```
 
-```r
+``` r
 typeof(gatos[1,])
 ```
 
-```output
+``` output
 [1] "list"
 ```
 
-```r
+``` r
 str(gatos[1,])
 ```
 
-```output
+``` output
 'data.frame':	1 obs. of  3 variables:
  $ color          : Factor w/ 3 levels "atigrado","mixto",..: 2
  $ peso           : num 2.1
@@ -784,11 +784,11 @@ Investiga cada uno de los ejemplos anteriores y explica el resultado de cada uno
 ## Solución al desafío 3
 
 
-```r
+``` r
 gatos[1]
 ```
 
-```output
+``` output
      color
 1    mixto
 2    negro
@@ -800,11 +800,11 @@ resulta en la primera proyección de la lista, como otra lista. En este caso es 
 **data frame**.
 
 
-```r
+``` r
 gatos[[1]]
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -813,11 +813,11 @@ El doble corchete `[[1]]` devuelve el contenido del elemento de la lista. En est
 es el contenido de la primera columna, un *vector* de tipo *factor*.
 
 
-```r
+``` r
 gatos$color
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -826,11 +826,11 @@ Este ejemplo usa el caracter `$` para direccionar elementos por nombre. *color* 
 primera columna del *data frame*, de nuevo un *vector* de tipo *factor*.
 
 
-```r
+``` r
 gatos["color"]
 ```
 
-```output
+``` output
      color
 1    mixto
 2    negro
@@ -841,11 +841,11 @@ Aquí estamos usando un solo corchete `["color"]` reemplazando el número del í
 el nombre de la columna. Como el ejemplo 1, el objeto devuelto es un *list*.
 
 
-```r
+``` r
 gatos[1, 1]
 ```
 
-```output
+``` output
 [1] mixto
 Levels: atigrado mixto negro
 ```
@@ -855,11 +855,11 @@ El objeto devuelto es el valor en la fila 1, columna 1. El objeto es un *integer
 es parte de un *vector* de tipo *factor*, R muestra la etiqueta "mixto" asociada con el valor entero.
 
 
-```r
+``` r
 gatos[, 1]
 ```
 
-```output
+``` output
 [1] mixto    negro    atigrado
 Levels: atigrado mixto negro
 ```
@@ -869,11 +869,11 @@ las coordenadas de fila y columna. La coordenada de la fila no se especifica,
 R interpreta este valor faltante como todos los elementos en este *column* *vector*.
 
 
-```r
+``` r
 gatos[1, ]
 ```
 
-```output
+``` output
   color peso le_gusta_cuerda
 1 mixto  2.1            TRUE
 ```
@@ -892,12 +892,12 @@ Por último, pero no menos importante, están las matrices. Podemos declarar una
 la siguiente forma:
 
 
-```r
+``` r
 matrix_example <- matrix(0, ncol=6, nrow=3)
 matrix_example
 ```
 
-```output
+``` output
      [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    0    0    0    0    0    0
 [2,]    0    0    0    0    0    0
@@ -907,51 +907,51 @@ matrix_example
 Y de manera similar a otras estructuras de datos, podemos preguntar cosas sobre la matriz:
 
 
-```r
+``` r
 class(matrix_example)
 ```
 
-```output
+``` output
 [1] "matrix" "array" 
 ```
 
-```r
+``` r
 typeof(matrix_example)
 ```
 
-```output
+``` output
 [1] "double"
 ```
 
-```r
+``` r
 str(matrix_example)
 ```
 
-```output
+``` output
  num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
 ```
 
-```r
+``` r
 dim(matrix_example)
 ```
 
-```output
+``` output
 [1] 3 6
 ```
 
-```r
+``` r
 nrow(matrix_example)
 ```
 
-```output
+``` output
 [1] 3
 ```
 
-```r
+``` r
 ncol(matrix_example)
 ```
 
-```output
+``` output
 [1] 6
 ```
 
@@ -972,12 +972,12 @@ Inténtalo.
 `length(matrix_example)`?
 
 
-```r
+``` r
 matrix_example <- matrix(0, ncol=6, nrow=3)
 length(matrix_example)
 ```
 
-```output
+``` output
 [1] 18
 ```
 
@@ -1011,7 +1011,7 @@ Investiga como cambiar este comportamento.
 (Sugerencia: lee la documentación de la función **`matrix`**.)
 
 
-```r
+``` r
 x <- matrix(1:50, ncol=5, nrow=10)
 x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
 ```
@@ -1037,7 +1037,7 @@ que hemos visto hasta ahora.
 ## Solución al desafío 6
 
 
-```r
+``` r
 dataTypes <- c('double', 'complex', 'integer', 'character', 'logical')
 dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
 answer <- list(dataTypes, dataStructures)
@@ -1058,7 +1058,7 @@ para recordar la importancia de estos elementos básicos.
 Considera la salida de R para la siguiente matriz:
 
 
-```output
+``` output
      [,1] [,2]
 [1,]    4    1
 [2,]    9    5
@@ -1081,7 +1081,7 @@ Piensa en qué matrices producirán los otros comandos.
 Considera la salida de R para la siguiente matriz:
 
 
-```output
+``` output
      [,1] [,2]
 [1,]    4    1
 [2,]    9    5
@@ -1093,7 +1093,7 @@ cada comando e intenta determinar el correcto antes de escribirlos.
 Piensa en qué matrices producirán los otros comandos.
 
 
-```r
+``` r
 matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
 ```
 

@@ -25,12 +25,12 @@ de cada elemento y actuar sobre cada uno de ellos. Esto hace la escritura de có
 concisa, fácil de leer y menos propenso a errores.
 
 
-```r
+``` r
 x <- 1:4
 x * 2
 ```
 
-```output
+``` output
 [1] 2 4 6 8
 ```
 
@@ -39,19 +39,19 @@ La multiplicación se aplicó a cada elemento del vector.
 También podemos sumar dos vectores juntos:
 
 
-```r
+``` r
 y <- 6:9
 x + y
 ```
 
-```output
+``` output
 [1]  7  9 11 13
 ```
 
 Cada elemento de `x` fue sumado a su correspondiente elemento de `y`:
 
 
-```r
+``` r
 x:  1  2  3  4
     +  +  +  +
 y:  6  7  8  9
@@ -82,12 +82,12 @@ Comprueba el principio o el final del **data frame** para asegurar
 que funcionó.
 
 
-```r
+``` r
 gapminder$pop_millions <- gapminder$pop / 1e6
 head(gapminder)
 ```
 
-```output
+``` output
       country year      pop continent lifeExp gdpPercap pop_millions
 1 Afghanistan 1952  8425333      Asia  28.801  779.4453     8.425333
 2 Afghanistan 1957  9240934      Asia  30.332  820.8530     9.240934
@@ -119,14 +119,14 @@ Indonesia. Nuevamente, no te preocupes acerca de cuál es cuál.
 Recuerda tus habilidades de graficación al crear una gráfica con la población en millones en comparación con el año.
 
 
-```r
+``` r
 ggplot(gapminder, aes(x = year, y = pop_millions)) +
  geom_point()
 ```
 
 <img src="fig/09-vectorization-rendered-ch2-sol-1.png" style="display: block; margin: auto;" />
 
-```r
+``` r
 countryset <- c("China","India","Indonesia")
 ggplot(gapminder[gapminder$country %in% countryset,],
        aes(x = year, y = pop_millions)) +
@@ -145,23 +145,23 @@ vectorizadas:
 **Operadores de Comparación**
 
 
-```r
+``` r
 x > 2
 ```
 
-```output
+``` output
 [1] FALSE FALSE  TRUE  TRUE
 ```
 
 **Operadores Lógicos**
 
 
-```r
+``` r
 a <- x > 3  # o, para más claridad, a <- (x > 3)
 a
 ```
 
-```output
+``` output
 [1] FALSE FALSE FALSE  TRUE
 ```
 
@@ -180,24 +180,24 @@ La mayoría de las funciones también operan elemento por elemento en los vector
 **Funciones**
 
 
-```r
+``` r
 x <- 1:4
 log(x)
 ```
 
-```output
+``` output
 [1] 0.0000000 0.6931472 1.0986123 1.3862944
 ```
 
 Operaciones vectorizadas en matrices:
 
 
-```r
+``` r
 m <- matrix(1:12, nrow=3, ncol=4)
 m * -1
 ```
 
-```output
+``` output
      [,1] [,2] [,3] [,4]
 [1,]   -1   -4   -7  -10
 [2,]   -2   -5   -8  -11
@@ -212,22 +212,22 @@ Muy importante: el operador`*` te da una multiplicación de elemento por element
 Para hacer multiplicación de matrices, necesitás usar el operador `%*%`:
 
 
-```r
+``` r
 m %*% matrix(1, nrow=4, ncol=1)
 ```
 
-```output
+``` output
      [,1]
 [1,]   22
 [2,]   26
 [3,]   30
 ```
 
-```r
+``` r
 matrix(1:4, nrow=1) %*% matrix(1:4, ncol=1)
 ```
 
-```output
+``` output
      [,1]
 [1,]   30
 ```
@@ -244,12 +244,12 @@ Para saber más sobre Álgebra de matrices, ver [Quick-R reference guide](https:
 Dada la siguiente matriz:
 
 
-```r
+``` r
 m <- matrix(1:12, nrow=3, ncol=4)
 m
 ```
 
-```output
+``` output
      [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    2    5    8   11
@@ -272,12 +272,12 @@ Escribe lo que crees que sucederá cuando se ejecute:
 Dada la siguiente matriz:
 
 
-```r
+``` r
 m <- matrix(1:12, nrow=3, ncol=4)
 m
 ```
 
-```output
+``` output
      [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    2    5    8   11
@@ -289,7 +289,7 @@ Escribe lo que piensas que sucederá cuando ejecutes:
 1. `m ^ -1`
 
 
-```output
+``` output
           [,1]      [,2]      [,3]       [,4]
 [1,] 1.0000000 0.2500000 0.1428571 0.10000000
 [2,] 0.5000000 0.2000000 0.1250000 0.09090909
@@ -299,7 +299,7 @@ Escribe lo que piensas que sucederá cuando ejecutes:
 2. `m * c(1, 0, -1)`
 
 
-```output
+``` output
      [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    0    0    0    0
@@ -309,7 +309,7 @@ Escribe lo que piensas que sucederá cuando ejecutes:
 3. `m > c(0, 20)`
 
 
-```output
+``` output
       [,1]  [,2]  [,3]  [,4]
 [1,]  TRUE FALSE  TRUE FALSE
 [2,] FALSE  TRUE FALSE  TRUE
@@ -328,7 +328,7 @@ Estamos interesados en encontrar la suma de la
 siguiente secuencia de fracciones:
 
 
-```r
+``` r
  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 ```
 
@@ -344,7 +344,7 @@ Estamos interesados en encontrar la suma de la
 siguiente secuencia de fracciones:
 
 
-```r
+``` r
  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 ```
 
@@ -354,59 +354,59 @@ valores altos de n.
 ¿Qué tal cuando n=10,000?
 
 
-```r
+``` r
 sum(1/(1:100)^2)
 ```
 
-```output
+``` output
 [1] 1.634984
 ```
 
-```r
+``` r
 sum(1/(1:1e04)^2)
 ```
 
-```output
+``` output
 [1] 1.644834
 ```
 
-```r
+``` r
 n <- 10000
 sum(1/(1:n)^2)
 ```
 
-```output
+``` output
 [1] 1.644834
 ```
 
 Podemos obtener el mismo resultado usando una función:
 
 
-```r
+``` r
 inverse_sum_of_squares <- function(n) {
   sum(1/(1:n)^2)
 }
 inverse_sum_of_squares(100)
 ```
 
-```output
+``` output
 [1] 1.634984
 ```
 
-```r
+``` r
 inverse_sum_of_squares(10000)
 ```
 
-```output
+``` output
 [1] 1.644834
 ```
 
-```r
+``` r
 n <- 10000
 inverse_sum_of_squares(n)
 ```
 
-```output
+``` output
 [1] 1.644834
 ```
 
