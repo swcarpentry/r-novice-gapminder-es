@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ```output
-       country year       pop continent lifeExp  gdpPercap
-916 Madagascar 1967   6334556    Africa  42.881  1634.0473
-618     Guinea 1977   4227026    Africa  40.762   874.6859
-798      Japan 1977 113872473      Asia  75.380 16610.3770
-783    Jamaica 1962   1665128  Americas  65.610  5246.1075
-868    Lebanon 1967   2186894      Asia  63.870  6006.9830
+                country year      pop continent lifeExp gdpPercap
+437  Dominican Republic 1972  4671329  Americas  59.631  2189.874
+1506             Taiwan 1977 16785196      Asia  70.590  5596.520
+965          Mauritania 1972  1332786    Africa  48.437  1586.852
+1524           Tanzania 2007 38139640    Africa  52.517  1107.482
+187            Bulgaria 1982  8892098    Europe  71.080  8224.192
 ```
 
 :::::::::::::::::::::::::
