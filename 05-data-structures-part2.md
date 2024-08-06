@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-      country year      pop continent lifeExp  gdpPercap
-93    Bahrain 1992   529491      Asia  72.601 19035.5792
-1165 Pakistan 1952 41346560      Asia  43.436   684.5971
-379   Croatia 1982  4413368    Europe  70.460 13221.8218
-994    Mexico 1997 95895146  Americas  73.670  9767.2975
-736      Iraq 1967  8519282      Asia  54.459  8931.4598
+         country year      pop continent lifeExp gdpPercap
+1215 Philippines 1962 30325264      Asia  54.757 1649.5522
+1684      Zambia 1967  3900000    Africa  47.768 1777.0773
+607    Guatemala 1982  6395630  Americas  58.137 4820.4948
+961   Mauritania 1952  1022556    Africa  40.543  743.1159
+449      Ecuador 1972  6298651  Americas  58.796 5280.9947
 ```
 
 :::::::::::::::::::::::::
