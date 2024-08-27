@@ -363,10 +363,10 @@
               </div>
             </div>
 
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+            <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordionFlush12">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                  <button class="accordion-button collapsed" id="lesson-resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     RECURSOS
                   </button>
                 </h2>
@@ -386,7 +386,7 @@
                 </div>
               </div>
             </div>
-            <hr class="half-width resources"><a href="../instructor/aio.html">Todo en una sola página</a>
+            <hr class="half-width lesson-resources"><a href="../instructor/aio.html">Todo en una sola página</a>
 
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
@@ -462,8 +462,7 @@
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="motivación">Motivación<a class="anchor" aria-label="anclaje" href="#motivaci%C3%B3n"></a>
-<a class="anchor" aria-label="anchor" href="#motivaci%C3%B3n"></a></h2>
+<section><h2 class="section-heading" id="motivación">Motivación<a class="anchor" aria-label="anchor" href="#motivaci%C3%B3n"></a></h2>
 <hr class="half-width"><p>La ciencia es un proceso de varios pasos: una vez que hayas diseñado
 un experimento y recopilado datos, ¡comienza la verdadera diversión!
 Esta lección te enseñará cómo comenzar este proceso usando R y RStudio.
@@ -476,8 +475,7 @@ de Senegal? ¿Puedes calcular el ingreso promedio de los países del
 continente asiático? Al final de estas lecciones, ¡podrás hacer cosas
 como graficar datos de poblaciones de estos países en menos de un
 minuto!</p>
-</section><section><h2 class="section-heading" id="antes-de-empezar-el-taller">Antes de empezar el taller<a class="anchor" aria-label="anclaje" href="#antes-de-empezar-el-taller"></a>
-<a class="anchor" aria-label="anchor" href="#antes-de-empezar-el-taller"></a></h2>
+</section><section><h2 class="section-heading" id="antes-de-empezar-el-taller">Antes de empezar el taller<a class="anchor" aria-label="anchor" href="#antes-de-empezar-el-taller"></a></h2>
 <hr class="half-width"><p>Asegúrate de tener instalada la última versión de R y RStudio en tu
 máquina. Esto es importante, ya que algunos paquetes utilizados en el
 taller pueden no instalarse correctamente (o no funcionar) si R no está
@@ -485,8 +483,7 @@ actualizado.</p>
 <p><a href="https://www.r-project.org/" class="external-link">Descarga e instala la última
 versión de R aquí</a>, <a href="https://www.rstudio.com/" class="external-link">descarga e
 instala RStudio aquí</a></p>
-</section><section><h2 class="section-heading" id="introducción-a-rstudio">Introducción a RStudio<a class="anchor" aria-label="anclaje" href="#introducci%C3%B3n-a-rstudio"></a>
-<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-a-rstudio"></a></h2>
+</section><section><h2 class="section-heading" id="introducción-a-rstudio">Introducción a RStudio<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-a-rstudio"></a></h2>
 <hr class="half-width"><p>Bienvenido a la parte R del taller de Software Carpentry.</p>
 <p>A lo largo de esta lección, vamos a enseñarte algunos de los
 fundamentos del lenguaje R, así como algunas buenas prácticas para
@@ -504,8 +501,7 @@ paneles:</p>
 <li>Archivos/Gráficos/Paquetes/Ayuda/Visor (abajo a la derecha)</li>
 </ul><figure><img src="../fig/01-rstudio.png" alt="RStudio layout" class="figure mx-auto d-block"></figure><p>Si abres archivos, como los scripts R, también se abrirá un panel de
 editor en la esquina superior izquierda.</p>
-<figure><img src="../fig/01-rstudio-script.png" alt="RStudio layout with .R file open" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="flujo-de-trabajo-dentro-de-rstudio">Flujo de trabajo dentro de RStudio<a class="anchor" aria-label="anclaje" href="#flujo-de-trabajo-dentro-de-rstudio"></a>
-<a class="anchor" aria-label="anchor" href="#flujo-de-trabajo-dentro-de-rstudio"></a></h2>
+<figure><img src="../fig/01-rstudio-script.png" alt="RStudio layout with .R file open" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="flujo-de-trabajo-dentro-de-rstudio">Flujo de trabajo dentro de RStudio<a class="anchor" aria-label="anchor" href="#flujo-de-trabajo-dentro-de-rstudio"></a></h2>
 <hr class="half-width"><p>Hay dos formas principales en que uno puede trabajar dentro de
 RStudio.</p>
 <ol style="list-style-type: decimal"><li>Probar y jugar dentro de la consola interactiva de R y luego copiar
@@ -525,8 +521,7 @@ función <code>source ()</code> de R.</li>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-ejecutando-segmentossecciones-de-tu-código" class="callout-inner">
-<h3 class="callout-title">Sugerencia: Ejecutando segmentos/secciones de tu código<a class="anchor" aria-label="anclaje" href="#sugerencia-ejecutando-segmentossecciones-de-tu-c%C3%B3digo"></a>
-</h3>
+<h3 class="callout-title">Sugerencia: Ejecutando segmentos/secciones de tu código</h3>
 <div class="callout-content">
 <p>RStudio ofrece gran flexibilidad para ejecutar código desde dentro de
 la ventana del editor Hay botones, opciones de menú y atajos de teclado.
@@ -544,8 +539,7 @@ código anterior, incluidas las modificaciones que hayas realizado.</li>
 </ol></div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="introducción-a-r">Introducción a R<a class="anchor" aria-label="anclaje" href="#introducci%C3%B3n-a-r"></a>
-<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-a-r"></a></h2>
+</section><section><h2 class="section-heading" id="introducción-a-r">Introducción a R<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-a-r"></a></h2>
 <hr class="half-width"><p>Gran parte de tu tiempo en R lo gastarás en la consola interactiva de
 R. Aquí es donde ejecutarás todo tu código, y puede ser un entorno útil
 para probar ideas antes de guardarlas en un script R. La consola en
@@ -557,8 +551,7 @@ similar al entorno de la terminal de shell que aprendiste durante las
 lecciones de shell: R opera con la misma idea de “leer, evaluar,
 mostrar” (tú escribes comandos, R intenta ejecutarlos y luego devuelve
 un resultado).</p>
-</section><section><h2 class="section-heading" id="usando-r-como-una-calculadora">Usando R como una calculadora<a class="anchor" aria-label="anclaje" href="#usando-r-como-una-calculadora"></a>
-<a class="anchor" aria-label="anchor" href="#usando-r-como-una-calculadora"></a></h2>
+</section><section><h2 class="section-heading" id="usando-r-como-una-calculadora">Usando R como una calculadora<a class="anchor" aria-label="anchor" href="#usando-r-como-una-calculadora"></a></h2>
 <hr class="half-width"><p>Lo más simple que podrías hacer con R es aritmética:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -595,8 +588,7 @@ el “&gt;” <strong>prompt</strong>.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-cancelando-comandos" class="callout-inner">
-<h3 class="callout-title">Sugerencia: Cancelando comandos<a class="anchor" aria-label="anclaje" href="#sugerencia-cancelando-comandos"></a>
-</h3>
+<h3 class="callout-title">Sugerencia: Cancelando comandos</h3>
 <div class="callout-content">
 <p>Si usas R desde la línea de comandos en lugar de estar dentro de
 RStudio, debes usar <code>Ctrl + C</code> en lugar de<code>Esc</code>
@@ -688,8 +680,7 @@ Entonces <code>2e-4</code> es la abreviatura de
 </h3>
 <pre class="output" tabindex="0"><code>[1] 5000</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="funciones-matemáticas">Funciones matemáticas<a class="anchor" aria-label="anclaje" href="#funciones-matem%C3%A1ticas"></a>
-<a class="anchor" aria-label="anchor" href="#funciones-matem%C3%A1ticas"></a></h2>
+</section><section><h2 class="section-heading" id="funciones-matemáticas">Funciones matemáticas<a class="anchor" aria-label="anchor" href="#funciones-matem%C3%A1ticas"></a></h2>
 <hr class="half-width"><p>R tiene muchas funciones matemáticas integradas. Para llamar a una
 función, simplemente escribimos su nombre seguido de paréntesis ( ).
 Todo lo que escribas dentro de los paréntesis se llaman argumentos de la
@@ -752,8 +743,7 @@ inferior de la página de ayuda generalmente se mostrarán ejemplos que
 ilustran el uso del comando. Veremos un ejemplo más adelante. Puedes
 consultar también <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/spanish/introduccion-a-r.pdf" class="external-link">las
 guías rápidas</a> disponibles en el sitio de RStudio.</p>
-</section><section><h2 class="section-heading" id="comparando">Comparando<a class="anchor" aria-label="anclaje" href="#comparando"></a>
-<a class="anchor" aria-label="anchor" href="#comparando"></a></h2>
+</section><section><h2 class="section-heading" id="comparando">Comparando<a class="anchor" aria-label="anchor" href="#comparando"></a></h2>
 <hr class="half-width"><p>Podemos realizar comparaciones en R:</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -826,8 +816,7 @@ guías rápidas</a> disponibles en el sitio de RStudio.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-comparando-números" class="callout-inner">
-<h3 class="callout-title">Sugerencia: Comparando números<a class="anchor" aria-label="anclaje" href="#sugerencia-comparando-n%C3%BAmeros"></a>
-</h3>
+<h3 class="callout-title">Sugerencia: Comparando números</h3>
 <div class="callout-content">
 <p>Una advertencia sobre la comparación de números: nunca debes usar
 <code>==</code> para comparar dos números a menos que sean enteros
@@ -843,8 +832,7 @@ subyacentes y por lo tanto ser diferentes por un pequeño margen de error
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="variables-y-asignaciones">Variables y asignaciones<a class="anchor" aria-label="anclaje" href="#variables-y-asignaciones"></a>
-<a class="anchor" aria-label="anchor" href="#variables-y-asignaciones"></a></h2>
+</section><section><h2 class="section-heading" id="variables-y-asignaciones">Variables y asignaciones<a class="anchor" aria-label="anchor" href="#variables-y-asignaciones"></a></h2>
 <hr class="half-width"><p>Podemos almacenar valores en variables usando el operador de
 asignación <code>&lt;-</code>. Veamos un ejemplo:</p>
 <div class="codewrapper sourceCode" id="cb34">
@@ -935,8 +923,7 @@ en la comunidad. Entonces la recomendación es usar
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-1" class="callout-inner">
-<h3 class="callout-title">Desafío 1<a class="anchor" aria-label="anclaje" href="#desaf%C3%ADo-1"></a>
-</h3>
+<h3 class="callout-title">Desafío 1</h3>
 <div class="callout-content">
 <p>De los siguientes ejemplos, ¿Cuáles son nombres de variables válidas
 en R?</p>
@@ -962,7 +949,7 @@ en R?</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Los siguientes nombres de variables son válidos en R:</p>
 <div class="codewrapper sourceCode" id="cb43">
@@ -993,8 +980,7 @@ en R?</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="vectorización">Vectorización<a class="anchor" aria-label="anclaje" href="#vectorizaci%C3%B3n"></a>
-<a class="anchor" aria-label="anchor" href="#vectorizaci%C3%B3n"></a></h2>
+</section><section><h2 class="section-heading" id="vectorización">Vectorización<a class="anchor" aria-label="anchor" href="#vectorizaci%C3%B3n"></a></h2>
 <hr class="half-width"><p>Es muy importante tener en cuenta que R es <em>vectorizado</em>, lo
 que significa que las variables y funciones pueden tener vectores como
 valores y R puede operar en vectores completos a la vez. En contraste
@@ -1037,8 +1023,7 @@ orden. Por ejemplo:</p>
 </div>
 <p>Esto es increíblemente poderoso; discutiremos esto en una próxima
 lección.</p>
-</section><section><h2 class="section-heading" id="administrando-tu-entorno">Administrando tu entorno<a class="anchor" aria-label="anclaje" href="#administrando-tu-entorno"></a>
-<a class="anchor" aria-label="anchor" href="#administrando-tu-entorno"></a></h2>
+</section><section><h2 class="section-heading" id="administrando-tu-entorno">Administrando tu entorno<a class="anchor" aria-label="anchor" href="#administrando-tu-entorno"></a></h2>
 <hr class="half-width"><p>Hay algunos comandos útiles que puedes usar para interactuar con la
 sesión de R.</p>
 <p><code>ls</code> listará todas las variables y funciones almacenadas
@@ -1059,8 +1044,7 @@ en el entorno global (tu sesión de trabajo en R):</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-ocultando-objetos" class="callout-inner">
-<h3 class="callout-title">Sugerencia: ocultando objetos<a class="anchor" aria-label="anclaje" href="#sugerencia-ocultando-objetos"></a>
-</h3>
+<h3 class="callout-title">Sugerencia: ocultando objetos</h3>
 <div class="callout-content">
 <p>Al igual que en el shell, <code>ls</code> oculta por defecto
 cualquier variable o función que comience con un “.”. Para listar todos
@@ -1159,8 +1143,7 @@ no deseados, o puedes recibir un mensaje de error:</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="sugerencia-advertencias-vs.-errores" class="callout-inner">
-<h3 class="callout-title">Sugerencia: Advertencias vs. Errores<a class="anchor" aria-label="anclaje" href="#sugerencia-advertencias-vs.-errores"></a>
-</h3>
+<h3 class="callout-title">Sugerencia: Advertencias vs. Errores</h3>
 <div class="callout-content">
 <p>¡Presta atención cuando R hace algo inesperado! Los errores, como el
 anterior, se lanzan cuando R no puede proceder a un cálculo. Por otro
@@ -1171,8 +1154,7 @@ sobre cómo solucionar el problema.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="paquetes-en-r">Paquetes en R<a class="anchor" aria-label="anclaje" href="#paquetes-en-r"></a>
-<a class="anchor" aria-label="anchor" href="#paquetes-en-r"></a></h2>
+</section><section><h2 class="section-heading" id="paquetes-en-r">Paquetes en R<a class="anchor" aria-label="anchor" href="#paquetes-en-r"></a></h2>
 <hr class="half-width"><p>Es posible agregar funciones a R escribiendo un paquete u obteniendo
 un paquete escrito por otra persona. Hay más de 10.000 paquetes
 disponibles en CRAN (la red completa de archivos R). R y RStudio tienen
@@ -1197,8 +1179,7 @@ funcionalidad para administrar paquetes:</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-2" class="callout-inner">
-<h3 class="callout-title">Desafío 2<a class="anchor" aria-label="anclaje" href="#desaf%C3%ADo-2"></a>
-</h3>
+<h3 class="callout-title">Desafío 2</h3>
 <div class="callout-content">
 <p>¿Cuál será el valor de cada variable después de cada comando en el
 siguiente programa?</p>
@@ -1221,7 +1202,7 @@ siguiente programa?</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1262,8 +1243,7 @@ valor 109.25 a la variable mass.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-3" class="callout-inner">
-<h3 class="callout-title">Desafío 3<a class="anchor" aria-label="anclaje" href="#desaf%C3%ADo-3"></a>
-</h3>
+<h3 class="callout-title">Desafío 3</h3>
 <div class="callout-content">
 <p>Ejecuta el código del desafío anterior y escribe un comando para
 comparar la variable <code>mass</code> con <code>age</code>. ¿Es la
@@ -1278,7 +1258,7 @@ variable <code>mass</code> más grande que <code>age</code>?</p>
   Solución del desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Una forma de responder esta pregunta en R es usar <code>&gt;</code>
 para hacer lo siguiente:</p>
@@ -1304,8 +1284,7 @@ mayor que 102.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-4" class="callout-inner">
-<h3 class="callout-title">Desafío 4<a class="anchor" aria-label="anclaje" href="#desaf%C3%ADo-4"></a>
-</h3>
+<h3 class="callout-title">Desafío 4</h3>
 <div class="callout-content">
 <p>Limpia tu entorno de trabajo borrando las variables de
 <code>mass</code> y <code>age</code>.</p>
@@ -1319,7 +1298,7 @@ mayor que 102.</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Podemos usar el comando <code>rm</code> para realizar esta tarea:</p>
 <div class="codewrapper sourceCode" id="cb67">
@@ -1337,8 +1316,7 @@ mayor que 102.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="desafío-5" class="callout-inner">
-<h3 class="callout-title">Desafío 5<a class="anchor" aria-label="anclaje" href="#desaf%C3%ADo-5"></a>
-</h3>
+<h3 class="callout-title">Desafío 5</h3>
 <div class="callout-content">
 <p>Instala los siguientes paquetes: <code>ggplot2</code>,
 <code>plyr</code>, <code>gapminder</code>.</p>
@@ -1352,7 +1330,7 @@ mayor que 102.</p>
   Solución al desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Puedes utilizar el comando <code>install.packages()</code> para
 instalar los paquetes requeridos.</p>
@@ -1373,8 +1351,7 @@ instalar los paquetes requeridos.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Puntos Clave<a class="anchor" aria-label="anclaje" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Puntos Clave</h3>
 <div class="callout-content">
 <ul><li>Usa RStudio para escribir y correr programas en R.</li>
 <li>R tiene operadores aritméticos y funciones matemáticas usuales.</li>
@@ -1424,7 +1401,7 @@ programa.</li>
         <p>Materiales bajo la <a href="LICENSE.html">CC-BY 4.0</a> por las autoras</p>
 
         <p>Plantilla compartida bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> por <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
+        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.16.6" class="external-link">sandpaper (0.16.6)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a> y <a href="https://github.com/carpentries/varnish/tree/1.0.4" class="external-link">varnish (1.0.4)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1447,7 +1424,7 @@ programa.</li>
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/01-rstudio-intro.html",
   "dateCreated": "2018-03-20",
   "dateModified": "2024-08-06",
-  "datePublished": "2024-08-20"
+  "datePublished": "2024-08-27"
 }
 
   </script><script>
