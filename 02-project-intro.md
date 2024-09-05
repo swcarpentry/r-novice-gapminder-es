@@ -90,7 +90,7 @@ En muchos casos tus datos estarán "sucios" y necesitarán un preprocesamiento s
 para obtener un formato R (o cualquier otro lenguaje de programación) que te resulte útil. Esta
 tarea es algunas veces llamada **"data munging"**. Es útil almacenar estos **scripts** en una carpeta separada y crear una segunda carpeta de datos de "sólo lectura" para contener los **datasets** "limpios".
 
-### Tratar la salida generada como disponible
+### Tratar la salida generada como descartable
 
 Todo lo generado por tus **scripts** debe tratarse como descartable: todo debería
 poder regenerarse a partir de tus **scripts**.
@@ -210,7 +210,7 @@ ls -lh data/gapminder-FiveYearData.csv
 ```
 
 ``` output
--rw-r--r-- 1 runner docker 80K Aug  6 17:00 data/gapminder-FiveYearData.csv
+-rw-r--r-- 1 runner docker 80K Sep  5 16:11 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.
