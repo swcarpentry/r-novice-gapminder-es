@@ -210,7 +210,7 @@ ls -lh data/gapminder-FiveYearData.csv
 ```
 
 ``` output
--rw-r--r-- 1 runner docker 80K Sep  5 16:11 data/gapminder-FiveYearData.csv
+-rw-r--r-- 1 runner docker 80K Sep  5 16:12 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.

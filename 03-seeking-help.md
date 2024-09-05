@@ -152,7 +152,7 @@ attached base packages:
 
 loaded via a namespace (and not attached):
 [1] compiler_4.4.1  tools_4.4.1     yaml_2.3.10     knitr_1.48     
-[5] xfun_0.46       renv_1.0.7      evaluate_0.24.0
+[5] xfun_0.47       renv_1.0.7      evaluate_0.24.0
 ```
 
 Imprimirá tu versión actual de R, así como cualquier paquete que hayas
