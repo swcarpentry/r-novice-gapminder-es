@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year      pop continent lifeExp gdpPercap
-1090     Netherlands 1997 15604464    Europe  78.030 30246.131
-672  Hong Kong China 2007  6980412      Asia  82.208 39724.979
-1392        Slovenia 2007  2009245    Europe  77.926 25768.258
-1131         Nigeria 1962 41871351    Africa  39.360  1150.927
-1129         Nigeria 1952 33119096    Africa  36.324  1077.282
+         country year       pop continent lifeExp gdpPercap
+209      Burundi 1972   3529983    Africa  44.057  464.0995
+172       Brazil 1967  88049823  Americas  57.632 3429.8644
+8    Afghanistan 1987  13867957      Asia  40.822  852.3959
+1139     Nigeria 2002 119901274    Africa  46.608 1615.2864
+499      Eritrea 1982   2637297    Africa  43.890  524.8758
 ```
 
 :::::::::::::::::::::::::

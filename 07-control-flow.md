@@ -185,7 +185,7 @@ if(any(gapminder$year == 2002)){
 
 
 ``` error
-Error in eval(expr, envir, enclos): object 'gapminder' not found
+Error: object 'gapminder' not found
 ```
 
 Si tu condición se evalúa como un vector con más de un elemento lógico,
@@ -551,7 +551,7 @@ for( iCountry in unique(gapminder$country) ){
 ```
 
 ``` error
-Error in eval(expr, envir, enclos): object 'gapminder' not found
+Error: object 'gapminder' not found
 ```
 
 :::::::::::::::::::::::::
