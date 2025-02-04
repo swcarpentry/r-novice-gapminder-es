@@ -521,7 +521,7 @@ ls()
 ```
 
 ``` output
-[1] "object" "x"      "y"     
+[1] "x" "y"
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -575,7 +575,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x55b26aa87d80>
+<bytecode: 0x56115d82ce10>
 <environment: namespace:base>
 ```
 
