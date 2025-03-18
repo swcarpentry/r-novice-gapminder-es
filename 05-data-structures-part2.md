@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-      country year      pop continent lifeExp  gdpPercap
-1516 Tanzania 1967 12607312    Africa  45.757   848.2187
-1497    Syria 1992 13219062      Asia  69.249  3340.5428
-660  Honduras 2007  7483763  Americas  70.198  3548.3308
-412   Denmark 1967  4838800    Europe  72.960 15937.2112
-45     Angola 1992  8735988    Africa  40.647  2627.8457
+                   country year      pop continent lifeExp  gdpPercap
+556                 Gambia 1967   439593    Africa  35.857   734.7829
+877                Lesotho 1952   748747    Africa  42.138   298.8462
+591                 Greece 1962  8448233    Europe  69.510  6017.1907
+149 Bosnia and Herzegovina 1972  3819000    Europe  67.450  2860.1698
+247                 Canada 1982 25201900  Americas  75.760 22898.7921
 ```
 
 :::::::::::::::::::::::::
