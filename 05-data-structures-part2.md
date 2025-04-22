@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-            country year     pop continent lifeExp gdpPercap
-62        Australia 1957 9712569   Oceania  70.330 10949.650
-113         Belgium 1972 9709100    Europe  71.440 16672.144
-2       Afghanistan 1957 9240934      Asia  30.332   820.853
-666 Hong Kong China 1977 4583700      Asia  73.600 11186.141
-614          Guinea 1957 2876726    Africa  34.558   576.267
+              country year      pop continent lifeExp  gdpPercap
+609         Guatemala 1992  8486949  Americas  63.373  4439.4508
+790           Jamaica 1997  2531311  Americas  72.262  7121.9247
+482 Equatorial Guinea 1957   232922    Africa  35.983   426.0964
+281             Chile 1972  9717524  Americas  63.441  5494.0244
+54          Argentina 1977 26983828  Americas  68.481 10079.0267
 ```
 
 :::::::::::::::::::::::::
