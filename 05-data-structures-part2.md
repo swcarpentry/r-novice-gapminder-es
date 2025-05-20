@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-            country year      pop continent lifeExp gdpPercap
-1210           Peru 1997 24748122  Americas  68.386  5838.348
-401  Czech Republic 1972  9862158    Europe  70.290 13108.454
-277           Chile 1952  6377619  Americas  54.745  3939.979
-755         Ireland 2002  3879155    Europe  77.783 34077.049
-342      Congo Rep. 1977  1536769    Africa  55.625  3259.179
+                country year      pop continent lifeExp  gdpPercap
+443  Dominican Republic 2002  8650322  Americas  70.847  4563.8082
+1694           Zimbabwe 1957  3646340    Africa  50.469   518.7643
+516            Ethiopia 2007 76511887    Africa  52.947   690.8056
+1626            Uruguay 1977  2873520  Americas  69.481  6504.3397
+522             Finland 1977  4738902    Europe  72.520 15605.4228
 ```
 
 :::::::::::::::::::::::::
