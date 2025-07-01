@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                    country year      pop continent lifeExp gdpPercap
-1069                  Nepal 1952  9182536      Asia  36.157  545.8657
-148  Bosnia and Herzegovina 1967  3585000    Europe  64.790 2172.3524
-469             El Salvador 1952  2042865  Americas  45.262 3048.3029
-785                 Jamaica 1972  1997616  Americas  69.000 7433.8893
-1039             Mozambique 1982 12587223    Africa  42.795  462.2114
+               country year      pop continent lifeExp  gdpPercap
+826              Kenya 1997 28263827    Africa  54.407  1360.4850
+492  Equatorial Guinea 2007   551201    Africa  51.579 12154.0897
+1585            Uganda 1952  5824797    Africa  39.978   734.7535
+887            Lesotho 2002  2046772    Africa  44.593  1275.1846
+1671        Yemen Rep. 1962  6120081      Asia  35.180   825.6232
 ```
 
 :::::::::::::::::::::::::
