@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year      pop continent lifeExp gdpPercap
-793            Japan 1952 86459025      Asia  63.030  3216.956
-141          Bolivia 1992  6893451  Americas  59.957  2961.700
-839  Korea Dem. Rep. 2002 22215365      Asia  66.662  1646.758
-1158            Oman 1977  1004533      Asia  57.367 11848.344
-190         Bulgaria 1997  8066057    Europe  70.320  5970.389
+      country year     pop continent lifeExp  gdpPercap
+658  Honduras 1997 5867957  Americas  67.659  3160.4549
+1687   Zambia 1982 6100407    Africa  51.821  1408.6786
+1588   Uganda 1967 8900294    Africa  48.051   908.9185
+78    Austria 1977 7568430    Europe  72.170 19749.4223
+860    Kuwait 1987 1891487      Asia  74.174 28118.4300
 ```
 
 :::::::::::::::::::::::::
