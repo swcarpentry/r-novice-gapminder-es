@@ -657,12 +657,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year     pop continent lifeExp  gdpPercap
-270             Chad 1977 4388260    Africa  47.383  1133.9850
-1288          Rwanda 1967 3451079    Africa  44.100   510.9637
-221         Cambodia 1972 7450606      Asia  40.317   421.6240
-216          Burundi 2007 8390505    Africa  49.580   430.0707
-1376 Slovak Republic 1987 5199318    Europe  71.080 12037.2676
+         country year      pop continent lifeExp gdpPercap
+1100 New Zealand 1987  3317166   Oceania  74.320 19007.191
+26       Algeria 1957 10270856    Africa  45.685  3013.976
+1141      Norway 1952  3327728    Europe  72.670 10095.422
+1357   Singapore 1952  1127000      Asia  60.396  2315.138
+1470      Sweden 1977  8251648    Europe  75.440 18855.725
 ```
 
 :::::::::::::::::::::::::
