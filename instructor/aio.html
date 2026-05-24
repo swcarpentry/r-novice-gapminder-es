@@ -477,7 +477,7 @@
         
 <section id="aio-01-rstudio-intro"><p>Content from <a href="01-rstudio-intro.html">Introducción a R y RStudio</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/01-rstudio-intro.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 55 minutos</p>
@@ -1045,7 +1045,7 @@ en R?</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Los siguientes nombres de variables son válidos en R:</p>
 <div class="codewrapper sourceCode" id="cb43">
@@ -1198,7 +1198,7 @@ de esa función!</p>
     }
     else all.names
 }
-&lt;bytecode: 0x55b5a960dfb0&gt;
+&lt;bytecode: 0x563cd7752310&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <p>Puedes usar <code>rm</code> para eliminar objetos que ya no
@@ -1237,7 +1237,8 @@ no deseados, o puedes recibir un mensaje de error:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in rm(list &lt;- ls()): ... must contain names or character strings</code></pre>
+<pre class="error" tabindex="0"><code>Error in `rm()`:
+! ... must contain names or character strings</code></pre>
 </div>
 <div id="sugerencia-advertencias-vs.-errores" class="callout">
 <div class="callout-square">
@@ -1309,7 +1310,7 @@ siguiente programa?</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1366,7 +1367,7 @@ variable <code>mass</code> más grande que <code>age</code>?</p>
   Solución del desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Una forma de responder esta pregunta en R es usar <code>&gt;</code>
 para hacer lo siguiente:</p>
@@ -1407,7 +1408,7 @@ mayor que 102.</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Podemos usar el comando <code>rm</code> para realizar esta tarea:</p>
 <div class="codewrapper sourceCode" id="cb67">
@@ -1440,7 +1441,7 @@ mayor que 102.</p>
   Solución al desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Puedes utilizar el comando <code>install.packages()</code> para
 instalar los paquetes requeridos.</p>
@@ -1479,7 +1480,7 @@ programa.</li>
 </div>
 </section></section><section id="aio-02-project-intro"><p>Content from <a href="02-project-intro.html">Gestión de proyectos con RStudio</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/02-project-intro.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 30 minutos</p>
@@ -1789,7 +1790,7 @@ comandos para contestar las siguientes preguntas:</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>-rw-r--r-- 1 runner runner 80K Apr 14 01:00 data/gapminder-FiveYearData.csv</code></pre>
+<pre class="output" tabindex="0"><code>-rw-r--r-- 1 root root 80K May 24 03:50 data/gapminder-FiveYearData.csv</code></pre>
 </div>
 <p>El tamaño del archivo es 80K.</p>
 <div class="codewrapper sourceCode" id="cb4">
@@ -1866,7 +1867,7 @@ consistente.</li>
 </div>
 </section></section><section id="aio-03-seeking-help"><p>Content from <a href="03-seeking-help.html">Buscando ayuda</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/03-seeking-help.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 20 minutos</p>
@@ -2031,27 +2032,29 @@ sesión de R.</p>
 </h3>
 <pre class="output" tabindex="0"><code>R version 4.5.3 (2026-03-11)
 Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 22.04.5 LTS
+Running under: Ubuntu 24.04.4 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0  LAPACK version 3.10.0
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
 
 locale:
- [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8
- [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8
- [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C
-[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
 
-time zone: UTC
+time zone: Etc/UTC
 tzcode source: system (glibc)
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base
 
 loaded via a namespace (and not attached):
-[1] compiler_4.5.3 tools_4.5.3    yaml_2.3.10    knitr_1.50     xfun_0.53
-[6] renv_1.2.1     evaluate_1.0.5</code></pre>
+ [1] compiler_4.5.3 cli_3.6.6      tools_4.5.3    otel_0.2.0     yaml_2.3.12
+ [6] knitr_1.51     xfun_0.57      rlang_1.2.0    renv_1.2.3     evaluate_1.0.5</code></pre>
 </div>
 <p>Imprimirá tu versión actual de R, así como cualquier paquete que
 hayas cargado. Esto puede ser útil para otros para ayudar a reproducir y
@@ -2084,7 +2087,7 @@ crees que crearás si evalúas lo siguiente?:</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>La función <code>c()</code> crea un vector, en el cual todos los
 elementos son del mismo tipo. En el primer caso, los elementos son
@@ -2116,7 +2119,7 @@ esto más tarde. ¿Cuál es la diferencia entre los argumentos
   Solución para el desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Busca la ayuda de la función <code>paste()</code>, usa:</p>
 <div class="codewrapper sourceCode" id="cb8">
@@ -2213,7 +2216,7 @@ funciones relacionadas con csv.</p>
   Solución para el desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>La función R estándar para leer archivos delimitados por tabuladores
 con un separador de punto decimal es <code>read.delim()</code>. Tu
@@ -2250,7 +2253,7 @@ cheat sheets</a></li>
 </div>
 </section></section><section id="aio-04-data-structures-part1"><p>Content from <a href="04-data-structures-part1.html">Estructuras de datos</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/04-data-structures-part1.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 55 minutos</p>
@@ -2547,7 +2550,7 @@ columnas de datos? ¿Cómo nos ayuda esto?</p>
   Discusión 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Al mantener todos los elementos de una columna del mismo tipo,
 podemos hacer suposiciones simples sobre nuestros datos; si puedes
@@ -2861,7 +2864,7 @@ A hasta Z (Pista: hay un vector pre-definido llamado
   Solución del desafío 1
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2996,7 +2999,7 @@ de caracteres cuando se carga de esta manera.</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Una solución es usar el argumento <code>stringAsFactors</code>:</p>
 <div class="codewrapper sourceCode" id="cb81">
@@ -3237,7 +3240,7 @@ cada caso.</p>
   Solución al desafío 3
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb105">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3466,7 +3469,7 @@ cosas sobre la matriz:</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>¿Cuál crees que es el resultado del comando
 <code>length(matrix_example)</code>?</p>
@@ -3513,7 +3516,7 @@ por columna o por renglón? Investiga como cambiar este comportamento.
   Solución al desafío 5
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Construye otra matriz, esta vez conteniendo los números 1:50, con 5
 columnas y 10 renglones. ¿Cómo llenó la función
@@ -3558,7 +3561,7 @@ datos y estructuras de datos que hemos visto hasta ahora.</p>
   Solución al desafío 6
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb136">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3612,7 +3615,7 @@ qué matrices producirán los otros comandos.</p>
   Solución al desafío 7
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <p>Considera la salida de R para la siguiente matriz:</p>
 <div class="codewrapper">
@@ -3658,7 +3661,7 @@ R.</li>
 </div>
 </section></section><section id="aio-05-data-structures-part2"><p>Content from <a href="05-data-structures-part2.html">Explorando data frames</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/05-data-structures-part2.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 30 minutos</p>
@@ -3774,7 +3777,8 @@ datos.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4</code></pre>
+<pre class="error" tabindex="0"><code>Error in `data.frame()`:
+! arguments imply differing number of rows: 3, 4</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3786,7 +3790,8 @@ datos.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 2</code></pre>
+<pre class="error" tabindex="0"><code>Error in `data.frame()`:
+! arguments imply differing number of rows: 3, 2</code></pre>
 </div>
 <p>¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra
 nueva columna para cada fila de la tabla:</p>
@@ -3979,7 +3984,7 @@ regresar a las edades originales. Explica lo sucedido.</li>
   Solución al Desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>human.edad &lt;- gatos$edad * 7</code></li>
@@ -4203,7 +4208,7 @@ pregunta: “¿Es hora de una pausa?”</p>
   Solución al Desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4475,7 +4480,7 @@ eso?</p>
   Solución al desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Para revisar las últimas líneas del <em>data frame</em> R tiene una
 función para esto:</p>
@@ -4543,12 +4548,12 @@ al azar o varios números al azar R tiene una función llamada
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>         country year      pop continent lifeExp gdpPercap
-1100 New Zealand 1987  3317166   Oceania  74.320 19007.191
-26       Algeria 1957 10270856    Africa  45.685  3013.976
-1141      Norway 1952  3327728    Europe  72.670 10095.422
-1357   Singapore 1952  1127000      Asia  60.396  2315.138
-1470      Sweden 1977  8251648    Europe  75.440 18855.725</code></pre>
+<pre class="output" tabindex="0"><code>                    country year       pop continent lifeExp gdpPercap
+1567                Tunisia 1982   6734098    Africa  64.048 3560.2332
+152  Bosnia and Herzegovina 1987   4338977    Europe  71.140 4314.1148
+499                 Eritrea 1982   2637297    Africa  43.890  524.8758
+714               Indonesia 1977 136725000      Asia  52.702 1382.7021
+387                    Cuba 1962   7254373  Americas  65.246 5180.7559</code></pre>
 </div>
 </div>
 </div>
@@ -4580,7 +4585,7 @@ path como su argumento o apretando el botón de “source” en RStudio.</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Los contenidos de <code>scripts/load-gapminder.R</code>:</p>
 <div class="codewrapper sourceCode" id="cb77">
@@ -4627,7 +4632,7 @@ entender, discútelo con tus compañeros.</p>
   Solución desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>El objeto <code>gapminder</code> es un data frame con columnas</p>
 <ul>
@@ -4682,7 +4687,7 @@ frame</em>
 </div>
 </section></section><section id="aio-06-data-subsetting"><p>Content from <a href="06-data-subsetting.html">Haciendo subconjuntos de datos</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/06-data-subsetting.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 50 minutos</p>
@@ -4946,7 +4951,8 @@ sucesión de la siguiente manera:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in x[-1:3]: only 0's may be mixed with negative subscripts</code></pre>
+<pre class="error" tabindex="0"><code>Error in `x[-1:3]`:
+! only 0's may be mixed with negative subscripts</code></pre>
 </div>
 <p>Pero recuerda el orden de las operaciones. <code>:</code> es en
 realidad una función. Toma como primer elemento -1 y como segundo 3, por
@@ -5028,7 +5034,7 @@ de tu vecino. ¿Tuvieron distintas estrategias?</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5239,7 +5245,7 @@ del vector son <code>TRUE</code>).</p>
   Solución al desafío 3
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5354,7 +5360,8 @@ negativo de una cadena:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in -"a": invalid argument to unary operator</code></pre>
+<pre class="error" tabindex="0"><code>Error in `-"a"`:
+! invalid argument to unary operator</code></pre>
 </div>
 <p>Sin embargo, podemos usar el operador <code>!=</code> (no igual) para
 construir un vector con elementos lógicos, que es lo que nosotros
@@ -5503,7 +5510,7 @@ maneras y explica cómo funcionan (o no).</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ul>
 <li>La manera <strong>incorrecta</strong> de hacer este problema es
@@ -5696,7 +5703,8 @@ columna fuera de la matriz, R arrojará un error:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in m[, c(3, 6)]: subscript out of bounds</code></pre>
+<pre class="error" tabindex="0"><code>Error in `m[, c(3, 6)]`:
+! subscript out of bounds</code></pre>
 </div>
 <div id="sugerencia-arrays-de-más-dimensiones" class="callout">
 <div class="callout-square">
@@ -5803,7 +5811,7 @@ de sus filas y de sus columnas en vez de usar sus índices.</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>D</p>
 </div>
@@ -5879,7 +5887,8 @@ uso de la función doble corchete: <code>[[</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in xlist[[1:2]]: subscript out of bounds</code></pre>
+<pre class="error" tabindex="0"><code>Error in `xlist[[1:2]]`:
+! subscript out of bounds</code></pre>
 </div>
 <p>Tampoco puedes usarlo para saltar elementos:</p>
 <div class="codewrapper sourceCode" id="cb110">
@@ -5891,7 +5900,8 @@ uso de la función doble corchete: <code>[[</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in xlist[[-1]]: invalid negative subscript in get1index &lt;real&gt;</code></pre>
+<pre class="error" tabindex="0"><code>Error in `xlist[[-1]]`:
+! invalid negative subscript in get1index &lt;real&gt;</code></pre>
 </div>
 <p>Pero tú puedes usar los nombres para hacer subconjuntos y extraer
 elementos:</p>
@@ -5953,7 +5963,7 @@ contenido en el elemento “b” de la lista.</p>
   Solución al desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb117">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6019,7 +6029,7 @@ contenido en el elemento “b” de la lista.</p>
   Solución del desafío 6
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb124">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6174,7 +6184,7 @@ cambiarse con el tercer argumento, <code>drop = FALSE</code>).</p>
   Solución del desafío 7
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <p>Corrige cada uno de los siguientes errores para hacer subconjuntos de
 <strong>data frames</strong>:</p>
@@ -6260,7 +6270,7 @@ del 19 al 23. Puedes hacerlo en uno o dos pasos.</p></li>
   Solución al desafío 8
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p><code>gapminder</code> es un <code>data.frame</code> por lo que
@@ -6300,7 +6310,7 @@ subconjuntos de datos</li>
 </div>
 </section></section><section id="aio-07-control-flow"><p>Content from <a href="07-control-flow.html">Control de flujo</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/07-control-flow.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 65 minutos</p>
@@ -6475,7 +6485,7 @@ haz lo mismo para el año 2012.</p>
   Solución al Desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Primero veremos una solución al Desafío 1 que no usa la función
 <code>any()</code>. Primero obtenemos un vector lógico que describe que
@@ -6531,7 +6541,8 @@ caso la condición lógica se puede expresar como:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error: object 'gapminder' not found</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'gapminder' not found</code></pre>
 </div>
 <p>Si tu condición se evalúa como un vector con más de un elemento
 lógico, la función <code>if()</code> todavía se ejecutará, pero solo
@@ -6773,7 +6784,7 @@ output_vector2 igual a output_vector?</p>
   Solución al Desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Podemos verificar si dos vectores son idénticos usando la función
 <code>all()</code> :</p>
@@ -6859,7 +6870,7 @@ vida media es menor o mayor de 50 años.</p>
   Solución al Desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p><strong>Paso 1</strong>: Queremos asegurarnos de que podamos extraer
 todos los valores únicos del vector continente</p>
@@ -6944,7 +6955,7 @@ mayor que 70.</p>
   Solución al Desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Modificamos nuestra solución al Reto 3 agregando ahora dos umbrales,
 <code>lowerThreshold</code> y<code>upperThreshold</code> y extendiendo
@@ -6974,7 +6985,8 @@ nuestras declaraciones if-else:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error: object 'gapminder' not found</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'gapminder' not found</code></pre>
 </div>
 </div>
 </div>
@@ -7003,7 +7015,7 @@ menor de 50 años.</p>
   Solución para el Desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Lo primero que vamos a hacer es usar el comando <code>grep</code> que
 se introdujo en la lección Shell de Unix para encontrar países que
@@ -7079,7 +7091,7 @@ elecciones.</li>
 </div>
 </section></section><section id="aio-08-plot-ggplot2"><p>Content from <a href="08-plot-ggplot2.html">Creando gráficas con calidad para publicación con ggplot2</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/08-plot-ggplot2.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 80 minutos</p>
@@ -7214,7 +7226,7 @@ de dispersión de puntos (<strong>scatterplot</strong>).</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>, y <span class="op">=</span> <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="desafío-1" class="callout challenge">
+<figure><img src="../fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="desafío-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -7242,7 +7254,7 @@ llamada “year”, la cual debe aparecer en el eje X.</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Modifica el ejemplo de manera que en la figura se muestre como la
 esperanza de vida ha cambiado a través del tiempo:</p>
@@ -7253,7 +7265,7 @@ esperanza de vida ha cambiado a través del tiempo:</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch1-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch1-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -7284,7 +7296,7 @@ esperabas?</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>En los ejemplos y desafios anteriores hemos usado la función
 <code>aes</code> para decirle al <code>geom_point</code> cuáles serán
@@ -7301,7 +7313,7 @@ esperabas?</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch2-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch2-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -7320,7 +7332,7 @@ de línea (line plot):</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>, y<span class="op">=</span><span class="va">lifeExp</span>, by<span class="op">=</span><span class="va">country</span>, color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-line-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En vez de agregar una capa <code>geom_point</code>, hemos agregado
+<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-line-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En vez de agregar una capa <code>geom_point</code>, hemos agregado
 una capa <code>geom_line</code>. Además, hemos agregado el argumento
 <strong>aesthetic</strong> <strong>by</strong>, el cual le dice a
 <code>ggplot</code> que debe dibujar una línea para cada país.</p>
@@ -7333,7 +7345,7 @@ misma gráfica? Simplemente tenemos que agregar otra capa al gráfico:</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>, y<span class="op">=</span><span class="va">lifeExp</span>, by<span class="op">=</span><span class="va">country</span>, color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-line-point-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Es importante notar que cada capa se dibuja encima de la capa
+<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-line-point-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Es importante notar que cada capa se dibuja encima de la capa
 anterior. En este ejemplo, los puntos se han dibujado <em>sobre</em> las
 líneas. A continuación observamos una demostración:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -7343,7 +7355,7 @@ líneas. A continuación observamos una demostración:</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>, y<span class="op">=</span><span class="va">lifeExp</span>, by<span class="op">=</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-layer-example-1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En este ejemplo, el mapeo <strong>aesthetic</strong> de
+<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-layer-example-1-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En este ejemplo, el mapeo <strong>aesthetic</strong> de
 <strong>color</strong> se ha movido de las opciones globales de la
 gráfica en <code>ggplot</code> a la capa <code>geom_line</code> y, por
 lo tanto, ya no es válido para los puntos. Ahora podemos ver claramente
@@ -7391,7 +7403,7 @@ anterior. ¿Qué sucede?</p>
   Solución a desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Intercambia el orden de las capas de los puntos y líneas del ejemplo
 anterior. ¿Qué sucede?</p>
@@ -7402,7 +7414,7 @@ anterior. ¿Qué sucede?</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>, y<span class="op">=</span><span class="va">lifeExp</span>, by<span class="op">=</span><span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch3-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>¡Las líneas ahora están dibujadas sobre los puntos!</p>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch3-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>¡Las líneas ahora están dibujadas sobre los puntos!</p>
 </div>
 </div>
 </div>
@@ -7419,7 +7431,7 @@ a los datos. Para demostrarlo regresaremos a nuestro primer ejemplo:</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-vs-gdpPercap-scatter3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En este momento es difícil ver las relaciones entre los puntos debido
+<figure><img src="../fig/08-plot-ggplot2-rendered-lifeExp-vs-gdpPercap-scatter3-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>En este momento es difícil ver las relaciones entre los puntos debido
 a algunos valores altamente atípicos de la variable GDP per capita.
 Podemos cambiar la escala de unidades del eje X usando las funciones de
 <strong>escala</strong>. Estas funciones controlan la relación entre los
@@ -7435,7 +7447,7 @@ conglomerados.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>, y <span class="op">=</span> <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_x_log10</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-axis-scale-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La función <code>log10</code> aplica una transformación sobre los
+<figure><img src="../fig/08-plot-ggplot2-rendered-axis-scale-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La función <code>log10</code> aplica una transformación sobre los
 valores de la columna “gdpPercap” antes de presentarlos en el gráfico,
 de manera que cada múltiplo de 10 ahora corresponde a un incremento de 1
 en la escala transformada, e.g. un GDP per capita de 1,000 se convierte
@@ -7476,7 +7488,7 @@ usando <code>geom_point(aes(alpha = continent))</code>.</p>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lm-fit-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Podemos hacer la línea más gruesa <em>configurando</em> el argumento
+<figure><img src="../fig/08-plot-ggplot2-rendered-lm-fit-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Podemos hacer la línea más gruesa <em>configurando</em> el argumento
 <strong>aesthetic</strong> <strong>tamaño</strong> en la capa
 <code>geom_smooth</code>:</p>
 <div class="codewrapper sourceCode" id="cb17">
@@ -7500,7 +7512,7 @@ generated.</code></pre>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-lm-fit2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Existen dos formas en las que un <em>aesthetic</em> puede ser
+<figure><img src="../fig/08-plot-ggplot2-rendered-lm-fit2-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Existen dos formas en las que un <em>aesthetic</em> puede ser
 especificado. Aquí <em>configuramos</em> el <strong>aesthetic</strong>
 <strong>tamaño</strong> pasándolo como un argumento a
 <code>geom_smooth</code>. Previamente en la lección habíamos usado la
@@ -7527,7 +7539,7 @@ ejemplo anterior</p>
   Solución al desafío 4a
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Modifica el color y el tamaño de los puntos en la capa puntos en el
 ejemplo anterior</p>
@@ -7545,7 +7557,7 @@ ejemplo anterior</p>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch4a-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch4a-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -7573,7 +7585,7 @@ incluyendo líneas de tendencia.</p>
   Solución al desafío 4b
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Modifica tu solución al Desafío 4a de manera que ahora los puntos
 tengan una forma diferente y estén coloreados de acuerdo al continente
@@ -7593,7 +7605,7 @@ incluyendo líneas de tendencia.</p>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch4b-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch4b-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -7635,7 +7647,7 @@ una condición muy larga para subdividir los datos (en este caso,
 <span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">az.countries</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, color<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_wrap</span><span class="op">(</span> <span class="op">~</span> <span class="va">country</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-facet-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La capa <code>facet_wrap</code> toma una “fórmula” como argumento, lo
+<figure><img src="../fig/08-plot-ggplot2-rendered-facet-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La capa <code>facet_wrap</code> toma una “fórmula” como argumento, lo
 cual se indica por el símbolo <code>~</code>. Esto le dice a R que debe
 dibujar un panel para cada valor único de la columna “country” del
 <strong>dataset</strong> gapminder.</p>
@@ -7671,7 +7683,7 @@ del color del relleno se definiría utilizando
 <span>    <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>axis.text.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.ticks.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-theme-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="exportando-una-gráfica">Exportando una gráfica<a class="anchor" aria-label="anchor" href="#exportando-una-gr%C3%A1fica"></a>
+<figure><img src="../fig/08-plot-ggplot2-rendered-theme-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="exportando-una-gráfica">Exportando una gráfica<a class="anchor" aria-label="anchor" href="#exportando-una-gr%C3%A1fica"></a>
 </h2>
 <hr class="half-width">
 <p>La función <code>ggsave()</code> permite exportar una gráfica creada
@@ -7749,7 +7761,7 @@ densidad con un panel para cada año.</li>
   Solución al desafío 5
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Crea una gráfica de densidad de GDP per cápita, en la que el color
 del relleno cambie por continente.</p>
@@ -7767,7 +7779,7 @@ densidad con un panel para cada año.</li>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdpPercap</span>, fill<span class="op">=</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span> <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_wrap</span><span class="op">(</span> <span class="op">~</span> <span class="va">year</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_x_log10</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/08-plot-ggplot2-rendered-ch5-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/08-plot-ggplot2-rendered-ch5-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -7789,7 +7801,7 @@ transformaciones de escala, y agrupamiento.</li>
 </div>
 </section></section><section id="aio-09-vectorization"><p>Content from <a href="09-vectorization.html">Vectorización</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/09-vectorization.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 25 minutos</p>
@@ -7888,7 +7900,7 @@ frame</strong> para asegurar que funcionó.</p>
   Solución al desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Intenta esto en la columna <code>pop</code> del
 <strong>dataset</strong> <code>gapminder</code>.</p>
@@ -7941,7 +7953,7 @@ Nuevamente, no te preocupes acerca de cuál es cuál.</p>
   Solución al desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Recuerda tus habilidades de graficación al crear una gráfica con la
 población en millones en comparación con el año.</p>
@@ -7952,7 +7964,7 @@ población en millones en comparación con el año.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">pop_millions</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/09-vectorization-rendered-ch2-sol-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb9">
+<figure><img src="../fig/09-vectorization-rendered-ch2-sol-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -7961,7 +7973,7 @@ población en millones en comparación con el año.</p>
 <span>       <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">pop_millions</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/09-vectorization-rendered-ch2-sol-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/09-vectorization-rendered-ch2-sol-2.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -8126,7 +8138,7 @@ ayudante!</p>
   Solución al desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Dada la siguiente matriz:</p>
 <div class="codewrapper sourceCode" id="cb24">
@@ -8211,7 +8223,7 @@ cuando n=10.000?</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Estamos interesados en encontrar la suma de la siguiente secuencia de
 fracciones:</p>
@@ -8314,7 +8326,7 @@ cuando n=10,000?</p>
 </div>
 </div></section><section id="aio-10-functions"><p>Content from <a href="10-functions.html">Funciones</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/10-functions.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 60 minutos</p>
@@ -8683,7 +8695,8 @@ inapropiado.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in fahr_to_kelvin(temp = as.factor(32)): is.numeric(temp) is not TRUE</code></pre>
+<pre class="error" tabindex="0"><code>Error in `fahr_to_kelvin()`:
+! is.numeric(temp) is not TRUE</code></pre>
 </div>
 <div id="desafío-3" class="callout challenge">
 <div class="callout-square">
@@ -9136,7 +9149,7 @@ función en R de manera flexible.</li>
 </div>
 </section></section><section id="aio-11-writing-data"><p>Content from <a href="11-writing-data.html">Guardando datos</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/11-writing-data.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 20 minutos</p>
@@ -9407,7 +9420,7 @@ de datos en el directorio <code>cleaned-data</code>.</p>
 </div>
 </section></section><section id="aio-12-plyr"><p>Content from <a href="12-plyr.html">División y combinación de data frames con plyr</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/12-plyr.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 60 minutos</p>
@@ -9950,7 +9963,7 @@ funciones sobre subconjuntos, y combinar los resultados</li>
 </div>
 </section></section><section id="aio-13-dplyr"><p>Content from <a href="13-dplyr.html">Manipulación de data frames con dplyr</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/13-dplyr.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 55 minutos</p>
@@ -10376,8 +10389,12 @@ varias variables. Vamos a agrupar por <code>year</code> y
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <p>Esto ya es bastante potente, pero puede ser incluso mejor. Puedes
 definir más de una variable en <code>summarize()</code>.</p>
@@ -10395,8 +10412,12 @@ definir más de una variable en <code>summarize()</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="count-y-n">count() y n()<a class="anchor" aria-label="anchor" href="#count-y-n"></a>
 </h2>
@@ -10502,8 +10523,12 @@ resumir la información usando <code>mutate()</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="conectando-mutate-con-filtrado-lógico-ifelse">Conectando mutate con filtrado lógico: ifelse<a class="anchor" aria-label="anchor" href="#conectando-mutate-con-filtrado-l%C3%B3gico-ifelse"></a>
 </h2>
@@ -10534,8 +10559,12 @@ valores dependiendo de la condición utilizada.</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10552,8 +10581,12 @@ valores dependiendo de la condición utilizada.</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="combinando-dplyr-y-ggplot2">Combinando <code>dplyr</code> y <code>ggplot2</code>
 <a class="anchor" aria-label="anchor" href="#combinando-dplyr-y-ggplot2"></a>
@@ -10578,7 +10611,8 @@ comentarios extra):</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"</code></pre>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 <p>Este código construye la gráfica correcta, pero también crea algunas
 variables <code>starts.with</code> y <code>az.countries</code>) que
@@ -10608,7 +10642,8 @@ nueva variable y sin modificar los datos.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"</code></pre>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 <p>Las funciones del paquete <code>dplyr</code> también nos ayudan a
 simplificar las cosas, por ejemplo, combinando los primeros dos
@@ -10628,7 +10663,8 @@ pasos:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"</code></pre>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 <div id="reto-avanzado" class="callout challenge">
 <div class="callout-square">
@@ -10705,7 +10741,7 @@ trabajar con subconjuntos de datos.</li>
 </div>
 </section></section><section id="aio-14-tidyr"><p>Content from <a href="14-tidyr.html">Manipulación de data frames usando tidyr</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/14-tidyr.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 45 minutos</p>
@@ -10823,7 +10859,7 @@ algo intermedio?</p>
   Solución del Desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>El data frame gapminder tiene un formato intermedio. No es
 completamente largo porque tiene múltiples observaciones por cada
@@ -11024,7 +11060,7 @@ aprendiste en el episodio anterior.</p>
   Solución al Desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -11037,8 +11073,12 @@ aprendiste en el episodio anterior.</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and obs_type.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, obs_type))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -11311,7 +11351,7 @@ este nuevo <strong>data frame</strong> sólo debe tener cinco filas.</p>
   Solución para el desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -11413,7 +11453,7 @@ formato ancho.</li>
 </div>
 </section></section><section id="aio-15-knitr-markdown"><p>Content from <a href="15-knitr-markdown.html">Produciendo informes con knitr</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/15-knitr-markdown.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 75 minutos</p>
@@ -11638,7 +11678,9 @@ figuras, las figuras se insertarán en el documento final.</p>
 <p>Los fragmentos del código principal se ven así:</p>
 <pre>
 ```{r load_data}
-gapminder
+gapminder &lt;- read.csv("~/Desktop/gapminder.csv")
+```
+</pre>
 <p>Es decir, coloca un fragmento de código <strong>R</strong> entre
 <code>```{r chunk_name}</code> y <code>```</code>. Es una buena idea
 darle a cada fragmento un nombre, ya que te ayudarán a corregir los
@@ -11664,7 +11706,7 @@ produjo.</p>
 </div>
 </div>
 </div>
-</pre></section><section><h2 class="section-heading" id="cómo-se-compilan-las-cosas">Cómo se compilan las cosas<a class="anchor" aria-label="anchor" href="#c%C3%B3mo-se-compilan-las-cosas"></a>
+</section><section><h2 class="section-heading" id="cómo-se-compilan-las-cosas">Cómo se compilan las cosas<a class="anchor" aria-label="anchor" href="#c%C3%B3mo-se-compilan-las-cosas"></a>
 </h2>
 <hr class="half-width">
 <p>Cuando presionas el botón <strong>“Knit HTML”</strong>, el documento
@@ -11677,7 +11719,7 @@ son producidas, se incluyen enlaces a esas figuras.</p>
 procesados por la herramienta <a href="https://pandoc.org/" class="external-link">pandoc</a>,
 que convierte el archivo <strong>Markdown</strong> en un archivo
 <strong>html</strong>, con las figuras embebidas.</p>
-<figure><img src="../fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" style="display: block; margin: auto auto auto 0;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="opciones-de-fragmento">Opciones de fragmento<a class="anchor" aria-label="anchor" href="#opciones-de-fragmento"></a>
+<figure><img src="../fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" alt="" style="display: block; margin: auto auto auto 0;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="opciones-de-fragmento">Opciones de fragmento<a class="anchor" aria-label="anchor" href="#opciones-de-fragmento"></a>
 </h2>
 <hr class="half-width">
 <p>Hay una variedad de opciones quen afectan la forma en que los
@@ -11830,7 +11872,7 @@ otros formatos.</li>
 </div>
 </section></section><section id="aio-16-wrap-up"><p>Content from <a href="16-wrap-up.html">Escribiendo buen software</a></p>
 <hr>
-<p>Última actualización: 2026-04-14 |
+<p>Última actualización: 2026-05-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/16-wrap-up.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Tiempo estimado: <i aria-hidden="true" data-feather="clock"></i> 15 minutos</p>
@@ -11965,7 +12007,7 @@ estilo.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Plantilla compartida bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> por <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.20.1" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a> y <a href="https://github.com/carpentries/varnish/tree/1.1.0" class="external-link">varnish (1.1.0)</a></p>
+        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a> y <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.0)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -11988,8 +12030,8 @@ estilo.</li>
   "url": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/aio.html",
   "dateCreated": "2018-03-20",
-  "dateModified": "2026-05-12",
-  "datePublished": "2026-05-12"
+  "dateModified": "2026-05-24",
+  "datePublished": "2026-05-24"
 }
 
   </script><script>
