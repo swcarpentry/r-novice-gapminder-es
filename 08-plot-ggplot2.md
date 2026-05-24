@@ -93,7 +93,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-build-ggplot-3-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -124,7 +124,7 @@ Esta es una posible solución:
 ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch1-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch1-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -154,7 +154,7 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
   geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch2-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch2-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -171,7 +171,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lifeExp-line-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lifeExp-line-1.png" alt="" style="display: block; margin: auto;" />
 
 En vez de agregar una capa `geom_point`, hemos agregado una capa `geom_line`.
 Además, hemos agregado el argumento **aesthetic** **by**, el cual le dice a `ggplot` que
@@ -186,7 +186,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lifeExp-line-point-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lifeExp-line-point-1.png" alt="" style="display: block; margin: auto;" />
 
 Es importante notar que cada capa se dibuja encima de la capa anterior. En este ejemplo,
 los puntos se han dibujado *sobre* las líneas. A continuación observamos una demostración:
@@ -197,7 +197,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
   geom_line(aes(color=continent)) + geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lifeExp-layer-example-1-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lifeExp-layer-example-1-1.png" alt="" style="display: block; margin: auto;" />
 
 En este ejemplo, el mapeo **aesthetic** de **color** se ha movido de las opciones globales de la gráfica en
 `ggplot` a la capa `geom_line` y, por lo tanto, ya no es válido para los puntos.
@@ -236,7 +236,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
  geom_point() + geom_line(aes(color=continent))
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch3-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch3-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 ¡Las líneas ahora están dibujadas sobre los puntos!
 
@@ -255,7 +255,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
   geom_point()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lifeExp-vs-gdpPercap-scatter3-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lifeExp-vs-gdpPercap-scatter3-1.png" alt="" style="display: block; margin: auto;" />
 
 En este momento es difícil ver las relaciones entre los puntos debido a algunos
 valores altamente atípicos de la variable GDP per capita. Podemos cambiar la escala de unidades del eje X
@@ -270,7 +270,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + scale_x_log10()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-axis-scale-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-axis-scale-1.png" alt="" style="display: block; margin: auto;" />
 
 La función `log10` aplica una transformación sobre los valores de la columna "gdpPercap"
 antes de presentarlos en el gráfico, de manera que cada múltiplo de 10 ahora
@@ -304,7 +304,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lm-fit-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lm-fit-1.png" alt="" style="display: block; margin: auto;" />
 
 Podemos hacer la línea más gruesa *configurando* el argumento **aesthetic** **tamaño** en la capa `geom_smooth`:
 
@@ -326,7 +326,7 @@ generated.
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-lm-fit2-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-lm-fit2-1.png" alt="" style="display: block; margin: auto;" />
 
 Existen dos formas en las que un *aesthetic* puede ser especificado. Aquí *configuramos* el
 **aesthetic** **tamaño** pasándolo como un argumento a `geom_smooth`. Previamente en la lección
@@ -359,7 +359,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch4a-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch4a-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -396,7 +396,7 @@ geom_smooth(method="lm", size=1.5)
 `geom_smooth()` using formula = 'y ~ x'
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch4b-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch4b-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -429,7 +429,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country)
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-facet-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-facet-1.png" alt="" style="display: block; margin: auto;" />
 
 La capa `facet_wrap` toma una "fórmula" como argumento, lo cual se indica por el símbolo `~`.
 Esto le dice a R que debe dibujar un panel para cada valor único de la columna "country"
@@ -461,7 +461,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-theme-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-theme-1.png" alt="" style="display: block; margin: auto;" />
 
 ## Exportando una gráfica
 
@@ -531,7 +531,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 ```
 
-<img src="fig/08-plot-ggplot2-rendered-ch5-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/08-plot-ggplot2-rendered-ch5-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 

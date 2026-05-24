@@ -124,7 +124,7 @@ ggplot(gapminder, aes(x = year, y = pop_millions)) +
  geom_point()
 ```
 
-<img src="fig/09-vectorization-rendered-ch2-sol-1.png" style="display: block; margin: auto;" />
+<img src="fig/09-vectorization-rendered-ch2-sol-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 countryset <- c("China","India","Indonesia")
@@ -133,7 +133,7 @@ ggplot(gapminder[gapminder$country %in% countryset,],
   geom_point()
 ```
 
-<img src="fig/09-vectorization-rendered-ch2-sol-2.png" style="display: block; margin: auto;" />
+<img src="fig/09-vectorization-rendered-ch2-sol-2.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 

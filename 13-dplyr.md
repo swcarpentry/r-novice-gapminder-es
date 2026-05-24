@@ -309,8 +309,12 @@ gdp_bycontinents_byyear <- gapminder %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 Esto ya es bastante potente, pero puede ser incluso mejor. Puedes definir más de una variable en `summarize()`.
@@ -326,8 +330,12 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ## count() y n()
@@ -414,8 +422,12 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ## Conectando mutate con filtrado lógico: ifelse
@@ -438,8 +450,12 @@ gdp_pop_bycontinents_byyear_above25 <- gapminder %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
@@ -453,8 +469,12 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'continent'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by continent and year.
+ℹ Output is grouped by continent.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(continent, year))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ## Combinando `dplyr` y `ggplot2`
@@ -473,7 +493,8 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
 ```
 
 ``` error
-Error in ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 Este código construye la gráfica correcta, pero también crea algunas variables `starts.with` y `az.countries`) que podemos no querer usar para nada más. Del mismo modo que usamos `%>%` para pasar datos con **pipes** a lo largo de una cadena de funciones `dplyr`, podemos usarlo para pasarle datos a `ggplot()`. Como `%>%` sustituye al primer argumento de una función, no necesitamos especificar el argumento `data=` de la función `ggplot()`. Combinando funciones de los paquetes `dplyr` y `ggplot` podemos hacer la misma figura sin crear ninguna nueva variable y sin modificar los datos.
@@ -492,7 +513,8 @@ gapminder %>%
 ```
 
 ``` error
-Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 Las funciones del paquete `dplyr` también nos ayudan a simplificar las cosas, por ejemplo, combinando los primeros dos pasos:
@@ -509,7 +531,8 @@ gapminder %>%
 ```
 
 ``` error
-Error in ggplot(., aes(x = year, y = lifeExp, color = continent)): could not find function "ggplot"
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge

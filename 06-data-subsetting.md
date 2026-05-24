@@ -218,7 +218,8 @@ Esto nos devuelve un error algo críptico:
 
 
 ``` error
-Error in x[-1:3]: only 0's may be mixed with negative subscripts
+Error in `x[-1:3]`:
+! only 0's may be mixed with negative subscripts
 ```
 
 Pero recuerda el orden de las operaciones. `:` es en realidad una función. Toma
@@ -536,7 +537,8 @@ x[-"a"]
 ```
 
 ``` error
-Error in -"a": invalid argument to unary operator
+Error in `-"a"`:
+! invalid argument to unary operator
 ```
 
 Sin embargo, podemos usar el operador `!=` (no igual) para construir un vector
@@ -833,7 +835,8 @@ m[, c(3,6)]
 ```
 
 ``` error
-Error in m[, c(3, 6)]: subscript out of bounds
+Error in `m[, c(3, 6)]`:
+! subscript out of bounds
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -994,7 +997,8 @@ xlist[[1:2]]
 ```
 
 ``` error
-Error in xlist[[1:2]]: subscript out of bounds
+Error in `xlist[[1:2]]`:
+! subscript out of bounds
 ```
 
 Tampoco puedes usarlo para saltar elementos:
@@ -1005,7 +1009,8 @@ xlist[[-1]]
 ```
 
 ``` error
-Error in xlist[[-1]]: invalid negative subscript in get1index <real>
+Error in `xlist[[-1]]`:
+! invalid negative subscript in get1index <real>
 ```
 
 Pero tú puedes usar los nombres para hacer subconjuntos y extraer elementos:

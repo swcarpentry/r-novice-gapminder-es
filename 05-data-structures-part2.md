@@ -84,7 +84,8 @@ cbind(gatos, edad)
 ```
 
 ``` error
-Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
+Error in `data.frame()`:
+! arguments imply differing number of rows: 3, 4
 ```
 
 ``` r
@@ -93,7 +94,8 @@ cbind(gatos, edad)
 ```
 
 ``` error
-Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 2
+Error in `data.frame()`:
+! arguments imply differing number of rows: 3, 2
 ```
 
 ¿Por qué no funcionó? Claro, R quiere ver un elemento en nuestra nueva columna para cada fila de la tabla:
@@ -657,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-         country year      pop continent lifeExp gdpPercap
-1100 New Zealand 1987  3317166   Oceania  74.320 19007.191
-26       Algeria 1957 10270856    Africa  45.685  3013.976
-1141      Norway 1952  3327728    Europe  72.670 10095.422
-1357   Singapore 1952  1127000      Asia  60.396  2315.138
-1470      Sweden 1977  8251648    Europe  75.440 18855.725
+                    country year       pop continent lifeExp gdpPercap
+1567                Tunisia 1982   6734098    Africa  64.048 3560.2332
+152  Bosnia and Herzegovina 1987   4338977    Europe  71.140 4314.1148
+499                 Eritrea 1982   2637297    Africa  43.890  524.8758
+714               Indonesia 1977 136725000      Asia  52.702 1382.7021
+387                    Cuba 1962   7254373  Americas  65.246 5180.7559
 ```
 
 :::::::::::::::::::::::::

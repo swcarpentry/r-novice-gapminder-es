@@ -253,7 +253,7 @@ Los documentos **Markdown** y figura son entones procesados por la herramienta
 [pandoc](https://pandoc.org/), que convierte el archivo **Markdown** en un
 archivo **html**, con las figuras embebidas.
 
-<img src="fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" style="display: block; margin: auto auto auto 0;" />
+<img src="fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" alt="" style="display: block; margin: auto auto auto 0;" />
 
 ## Opciones de fragmento
 
