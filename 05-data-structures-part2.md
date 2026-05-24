@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                    country year       pop continent lifeExp gdpPercap
-1567                Tunisia 1982   6734098    Africa  64.048 3560.2332
-152  Bosnia and Herzegovina 1987   4338977    Europe  71.140 4314.1148
-499                 Eritrea 1982   2637297    Africa  43.890  524.8758
-714               Indonesia 1977 136725000      Asia  52.702 1382.7021
-387                    Cuba 1962   7254373  Americas  65.246 5180.7559
+         country year      pop continent lifeExp  gdpPercap
+955         Mali 1982  6998256    Africa  43.916   618.0141
+1483 Switzerland 1982  6468126    Europe  76.210 28397.7151
+479  El Salvador 2002  6353681  Americas  70.734  5351.5687
+1289      Rwanda 1972  3992121    Africa  44.600   590.5807
+283        Chile 1982 11487112  Americas  70.565  5095.6657
 ```
 
 :::::::::::::::::::::::::
