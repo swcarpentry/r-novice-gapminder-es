@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-         country year      pop continent lifeExp  gdpPercap
-955         Mali 1982  6998256    Africa  43.916   618.0141
-1483 Switzerland 1982  6468126    Europe  76.210 28397.7151
-479  El Salvador 2002  6353681  Americas  70.734  5351.5687
-1289      Rwanda 1972  3992121    Africa  44.600   590.5807
-283        Chile 1982 11487112  Americas  70.565  5095.6657
+         country year      pop continent lifeExp gdpPercap
+349   Costa Rica 1952   926317  Americas  57.206  2627.009
+1100 New Zealand 1987  3317166   Oceania  74.320 19007.191
+76       Austria 1967  7376998    Europe  70.140 12834.602
+860       Kuwait 1987  1891487      Asia  74.174 28118.430
+1596      Uganda 2007 29170398    Africa  51.542  1056.380
 ```
 
 :::::::::::::::::::::::::
