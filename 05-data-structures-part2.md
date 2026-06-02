@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-        country year      pop continent lifeExp gdpPercap
-1451      Sudan 2002 37090298    Africa  56.369  1993.398
-1001   Mongolia 1972  1320500      Asia  53.754  1421.742
-351  Costa Rica 1962  1345187  Americas  62.842  3460.937
-1395    Somalia 1962  3080153    Africa  36.981  1369.488
-1143     Norway 1962  3638919    Europe  73.470 13450.402
+                    country year      pop continent lifeExp gdpPercap
+1510                 Taiwan 1997 21628605      Asia  75.250 20206.821
+149  Bosnia and Herzegovina 1972  3819000    Europe  67.450  2860.170
+793                   Japan 1952 86459025      Asia  63.030  3216.956
+1495                  Syria 1982  9410494      Asia  64.590  3761.838
+438      Dominican Republic 1977  5302800  Americas  61.788  2681.989
 ```
 
 :::::::::::::::::::::::::
