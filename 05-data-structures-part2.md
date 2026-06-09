@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year      pop continent lifeExp gdpPercap
-54         Argentina 1977 26983828  Americas  68.481 10079.027
-837  Korea Dem. Rep. 1992 20711375      Asia  69.978  3726.064
-1250     Puerto Rico 1957  2260000  Americas  68.540  3907.156
-285            Chile 1992 13572994  Americas  74.126  7596.126
-240         Cameroon 2007 17696293    Africa  50.430  2042.095
+        country year      pop continent lifeExp  gdpPercap
+597      Greece 1992 10325429    Europe  77.030 17541.4963
+599      Greece 2002 10603863    Europe  78.256 22514.2548
+828       Kenya 2007 35610177    Africa  54.110  1463.2493
+1583     Turkey 2002 67308928    Europe  70.845  6508.0857
+1036 Mozambique 1967  8680909    Africa  38.113   566.6692
 ```
 
 :::::::::::::::::::::::::
