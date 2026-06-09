@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                    country year      pop continent lifeExp gdpPercap
-1510                 Taiwan 1997 21628605      Asia  75.250 20206.821
-149  Bosnia and Herzegovina 1972  3819000    Europe  67.450  2860.170
-793                   Japan 1952 86459025      Asia  63.030  3216.956
-1495                  Syria 1982  9410494      Asia  64.590  3761.838
-438      Dominican Republic 1977  5302800  Americas  61.788  2681.989
+             country year      pop continent lifeExp gdpPercap
+54         Argentina 1977 26983828  Americas  68.481 10079.027
+837  Korea Dem. Rep. 1992 20711375      Asia  69.978  3726.064
+1250     Puerto Rico 1957  2260000  Americas  68.540  3907.156
+285            Chile 1992 13572994  Americas  74.126  7596.126
+240         Cameroon 2007 17696293    Africa  50.430  2042.095
 ```
 
 :::::::::::::::::::::::::
