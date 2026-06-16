@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-        country year      pop continent lifeExp  gdpPercap
-597      Greece 1992 10325429    Europe  77.030 17541.4963
-599      Greece 2002 10603863    Europe  78.256 22514.2548
-828       Kenya 2007 35610177    Africa  54.110  1463.2493
-1583     Turkey 2002 67308928    Europe  70.845  6508.0857
-1036 Mozambique 1967  8680909    Africa  38.113   566.6692
+      country year        pop continent lifeExp gdpPercap
+1530 Thailand 1977   44148285      Asia  62.494 1961.2246
+1687   Zambia 1982    6100407    Africa  51.821 1408.6786
+817     Kenya 1952    6464046    Africa  42.270  853.5409
+300     China 2007 1318683096      Asia  72.961 4959.1149
+317   Comoros 1972     250027    Africa  48.944 1937.5777
 ```
 
 :::::::::::::::::::::::::
