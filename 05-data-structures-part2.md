@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-            country year      pop continent lifeExp gdpPercap
-1599 United Kingdom 1962 53292000    Europe  70.760 12477.177
-1028        Morocco 1987 22987397    Africa  62.677  2755.047
-1417          Spain 1952 28549870    Europe  64.940  3834.035
-943        Malaysia 1982 14441916      Asia  68.000  4920.356
-301        Colombia 1952 12350771  Americas  50.643  2144.115
+                     country year      pop continent lifeExp  gdpPercap
+206                  Burundi 1957  2667518    Africa  40.533   379.5646
+115                  Belgium 1982  9856303    Europe  73.930 20979.8459
+257 Central African Republic 1972  1927260    Africa  43.457  1070.0133
+97                Bangladesh 1952 46886859      Asia  37.484   684.2442
+20                   Albania 1987  3075321    Europe  72.000  3738.9327
 ```
 
 :::::::::::::::::::::::::
