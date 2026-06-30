@@ -660,11 +660,11 @@ gapminder[sample(nrow(gapminder), 5), ]
 
 ``` output
      country year      pop continent lifeExp  gdpPercap
-1233  Poland 1992 38370697    Europe  70.990  7738.8812
-882  Lesotho 1977  1251524    Africa  52.208   745.3695
-1338  Serbia 1977  8686367    Europe  70.300 12980.6696
-790  Jamaica 1997  2531311  Americas  72.262  7121.9247
-1290  Rwanda 1977  4657072    Africa  45.000   670.0806
+932   Malawi 1987  7824747    Africa  47.457   635.5174
+1500   Syria 2007 19314747      Asia  74.143  4184.5481
+887  Lesotho 2002  2046772    Africa  44.593  1275.1846
+676  Hungary 1967 10223422    Europe  69.500  9326.6447
+595   Greece 1982  9786480    Europe  75.240 15268.4209
 ```
 
 :::::::::::::::::::::::::
