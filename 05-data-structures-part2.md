@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year      pop continent lifeExp  gdpPercap
-1242        Portugal 1977  9662600    Europe  70.410 10172.4857
-1403         Somalia 2002  7753310    Africa  45.936   882.0818
-661  Hong Kong China 1952  2125900      Asia  60.960  3054.4212
-101       Bangladesh 1972 70759295      Asia  45.252   630.2336
-843       Korea Rep. 1962 26420307      Asia  55.292  1536.3444
+     country year      pop continent lifeExp  gdpPercap
+1233  Poland 1992 38370697    Europe  70.990  7738.8812
+882  Lesotho 1977  1251524    Africa  52.208   745.3695
+1338  Serbia 1977  8686367    Europe  70.300 12980.6696
+790  Jamaica 1997  2531311  Americas  72.262  7121.9247
+1290  Rwanda 1977  4657072    Africa  45.000   670.0806
 ```
 
 :::::::::::::::::::::::::
