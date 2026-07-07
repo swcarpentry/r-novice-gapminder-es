@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-     country year      pop continent lifeExp  gdpPercap
-932   Malawi 1987  7824747    Africa  47.457   635.5174
-1500   Syria 2007 19314747      Asia  74.143  4184.5481
-887  Lesotho 2002  2046772    Africa  44.593  1275.1846
-676  Hungary 1967 10223422    Europe  69.500  9326.6447
-595   Greece 1982  9786480    Europe  75.240 15268.4209
+          country year      pop continent lifeExp  gdpPercap
+1089  Netherlands 1992 15174244    Europe  77.420 26790.9496
+185      Bulgaria 1972  8576200    Europe  70.900  6597.4944
+1496        Syria 1987 11242847      Asia  66.974  3116.7743
+517       Finland 1952  4090500    Europe  66.550  6424.5191
+1355 Sierra Leone 2002  5359092    Africa  41.012   699.4897
 ```
 
 :::::::::::::::::::::::::
