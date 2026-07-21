@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-       country year       pop continent lifeExp gdpPercap
-455    Ecuador 2002  12921234  Americas  74.173  5773.045
-718  Indonesia 1997 199278000      Asia  66.041  3119.336
-1205      Peru 1972  13954700  Americas  55.448  5937.827
-782    Jamaica 1957   1535090  Americas  62.610  4756.526
-1433 Sri Lanka 1972  13016733      Asia  65.042  1213.396
+      country year      pop continent lifeExp gdpPercap
+659  Honduras 2002  6677328  Americas  68.565 3099.7287
+1449    Sudan 1992 28227588    Africa  53.556 1492.1970
+310  Colombia 1997 37657830  Americas  70.313 6117.3617
+619    Guinea 1982  4710497    Africa  42.891  857.2504
+1491    Syria 1962  4834621      Asia  50.305 2193.0371
 ```
 
 :::::::::::::::::::::::::
