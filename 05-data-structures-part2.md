@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-      country year      pop continent lifeExp gdpPercap
-659  Honduras 2002  6677328  Americas  68.565 3099.7287
-1449    Sudan 1992 28227588    Africa  53.556 1492.1970
-310  Colombia 1997 37657830  Americas  70.313 6117.3617
-619    Guinea 1982  4710497    Africa  42.891  857.2504
-1491    Syria 1962  4834621      Asia  50.305 2193.0371
+          country year      pop continent lifeExp gdpPercap
+1409 South Africa 1972 23935810    Africa  53.696  7765.963
+1144       Norway 1967  3786019    Europe  74.080 16361.876
+1441        Sudan 1952  8504667    Africa  38.635  1615.991
+58      Argentina 1997 36203463  Americas  73.275 10967.282
+229      Cameroon 1952  5009067    Africa  38.523  1172.668
 ```
 
 :::::::::::::::::::::::::
