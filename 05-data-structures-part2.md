@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-          country year       pop continent lifeExp gdpPercap
-233      Cameroon 1972   7021028    Africa  47.049 1684.1465
-175        Brazil 1982 128962939  Americas  63.336 7030.8359
-627 Guinea-Bissau 1962    627820    Africa  34.488  522.0344
-181      Bulgaria 1952   7274900    Europe  59.600 2444.2866
-349    Costa Rica 1952    926317  Americas  57.206 2627.0095
+          country year      pop continent lifeExp gdpPercap
+1352 Sierra Leone 1987  3868905    Africa  40.006  1294.448
+384       Croatia 2007  4493312    Europe  75.748 14619.223
+522       Finland 1977  4738902    Europe  72.520 15605.423
+414       Denmark 1977  5088419    Europe  74.690 20422.901
+1169     Pakistan 1972 69325921      Asia  51.929  1049.939
 ```
 
 :::::::::::::::::::::::::
