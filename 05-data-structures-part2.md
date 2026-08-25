@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-           country year      pop continent lifeExp gdpPercap
-424       Djibouti 1967   127617    Africa  42.074  3020.051
-172         Brazil 1967 88049823  Americas  57.632  3429.864
-368  Cote d'Ivoire 1987 10761098    Africa  54.655  2156.956
-1385      Slovenia 1972  1694510    Europe  69.820 12383.486
-738           Iraq 1977 11882916      Asia  60.413 14688.235
+          country year      pop continent lifeExp  gdpPercap
+224      Cambodia 1987  8371791      Asia  53.914   683.8956
+1692       Zambia 2007 11746035    Africa  42.384  1271.2116
+1408 South Africa 1967 20997321    Africa  51.927  7114.4780
+1079        Nepal 2002 25873917      Asia  61.340  1057.2063
+87        Bahrain 1962   171863      Asia  56.923 12753.2751
 ```
 
 :::::::::::::::::::::::::
