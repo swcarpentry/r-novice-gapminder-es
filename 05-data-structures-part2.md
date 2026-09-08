@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-           country year     pop continent lifeExp  gdpPercap
-885        Lesotho 1992 1803195    Africa  59.685   977.4863
-1469        Sweden 1972 8122293    Europe  74.720 17832.0246
-972     Mauritania 2007 3270065    Africa  64.164  1803.1515
-633  Guinea-Bissau 1992 1050938    Africa  43.266   745.5399
-955           Mali 1982 6998256    Africa  43.916   618.0141
+      country year      pop continent lifeExp  gdpPercap
+395      Cuba 2002 11226999  Americas  77.158  6340.6467
+895   Liberia 1982  1956875    Africa  44.852   572.1996
+69  Australia 1992 17481977   Oceania  77.560 23424.7668
+732      Iran 2007 69453570      Asia  70.964 11605.7145
+548     Gabon 1987   880397    Africa  60.190 11864.4084
 ```
 
 :::::::::::::::::::::::::
