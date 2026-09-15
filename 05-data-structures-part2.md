@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-         country year       pop continent lifeExp gdpPercap
-1081 Netherlands 1952  10381988    Europe  72.130 8941.5719
-1680  Yemen Rep. 2007  22211743      Asia  62.698 2280.7699
-276         Chad 2007  10238807    Africa  50.651 1704.0637
-289        China 1952 556263528      Asia  44.000  400.4486
-1283     Romania 2002  22404337    Europe  71.322 7885.3601
+           country year       pop continent lifeExp gdpPercap
+975      Mauritius 1962    701016    Africa  60.246  2529.067
+1609 United States 1952 157553000  Americas  68.440 13990.482
+1535      Thailand 2002  62806748      Asia  68.564  5913.188
+448        Ecuador 1967   5432424  Americas  56.678  4579.074
+1494         Syria 1977   7932503      Asia  61.195  3195.485
 ```
 
 :::::::::::::::::::::::::
