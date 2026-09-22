@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-           country year       pop continent lifeExp gdpPercap
-975      Mauritius 1962    701016    Africa  60.246  2529.067
-1609 United States 1952 157553000  Americas  68.440 13990.482
-1535      Thailand 2002  62806748      Asia  68.564  5913.188
-448        Ecuador 1967   5432424  Americas  56.678  4579.074
-1494         Syria 1977   7932503      Asia  61.195  3195.485
+          country year      pop continent lifeExp gdpPercap
+1063      Namibia 1982  1099010    Africa  58.968  4191.101
+1155         Oman 1962   628164      Asia  43.165  2924.638
+814        Jordan 1997  4526235      Asia  69.772  3645.380
+1241     Portugal 1972  8970450    Europe  69.260  9022.247
+1408 South Africa 1967 20997321    Africa  51.927  7114.478
 ```
 
 :::::::::::::::::::::::::
