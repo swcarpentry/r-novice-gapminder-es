@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-         country year      pop continent lifeExp gdpPercap
-170       Brazil 1957 65551171  Americas  53.285  2487.366
-651     Honduras 1962  2090162  Americas  48.041  2291.157
-571      Germany 1982 78335266    Europe  73.800 22031.533
-1470      Sweden 1977  8251648    Europe  75.440 18855.725
-1104 New Zealand 2007  4115771   Oceania  80.204 25185.009
+                 country year     pop continent lifeExp gdpPercap
+758               Israel 1957 1944401      Asia  67.840  5385.278
+37                Angola 1952 4232095    Africa  30.015  3520.610
+1628             Uruguay 1987 3045153  Americas  71.918  7452.399
+484    Equatorial Guinea 1967  259864    Africa  38.987   915.596
+1558 Trinidad and Tobago 1997 1138101  Americas  69.465  8792.573
 ```
 
 :::::::::::::::::::::::::
