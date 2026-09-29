@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-          country year      pop continent lifeExp gdpPercap
-1063      Namibia 1982  1099010    Africa  58.968  4191.101
-1155         Oman 1962   628164      Asia  43.165  2924.638
-814        Jordan 1997  4526235      Asia  69.772  3645.380
-1241     Portugal 1972  8970450    Europe  69.260  9022.247
-1408 South Africa 1967 20997321    Africa  51.927  7114.478
+         country year      pop continent lifeExp gdpPercap
+170       Brazil 1957 65551171  Americas  53.285  2487.366
+651     Honduras 1962  2090162  Americas  48.041  2291.157
+571      Germany 1982 78335266    Europe  73.800 22031.533
+1470      Sweden 1977  8251648    Europe  75.440 18855.725
+1104 New Zealand 2007  4115771   Oceania  80.204 25185.009
 ```
 
 :::::::::::::::::::::::::
