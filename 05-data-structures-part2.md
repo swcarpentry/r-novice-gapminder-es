@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-          country year      pop continent lifeExp gdpPercap
-1341       Serbia 1992  9826397    Europe  71.659 9325.0682
-1346 Sierra Leone 1957  2295678    Africa  31.570 1004.4844
-1228       Poland 1967 31785378    Europe  69.610 6557.1528
-1645      Vietnam 1952 26246839      Asia  40.412  605.0665
-20        Albania 1987  3075321    Europe  72.000 3738.9327
+        country year       pop continent lifeExp gdpPercap
+1018 Montenegro 1997    692651    Europe  75.445 6465.6133
+879     Lesotho 1962    893143    Africa  47.747  411.8006
+1121      Niger 1972   5060262    Africa  40.546  954.2092
+1138    Nigeria 1997 106207839    Africa  47.464 1624.9413
+1178     Panama 1957   1063506  Americas  59.201 2961.8009
 ```
 
 :::::::::::::::::::::::::
