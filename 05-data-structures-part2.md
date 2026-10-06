@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                 country year     pop continent lifeExp gdpPercap
-758               Israel 1957 1944401      Asia  67.840  5385.278
-37                Angola 1952 4232095    Africa  30.015  3520.610
-1628             Uruguay 1987 3045153  Americas  71.918  7452.399
-484    Equatorial Guinea 1967  259864    Africa  38.987   915.596
-1558 Trinidad and Tobago 1997 1138101  Americas  69.465  8792.573
+          country year      pop continent lifeExp gdpPercap
+1341       Serbia 1992  9826397    Europe  71.659 9325.0682
+1346 Sierra Leone 1957  2295678    Africa  31.570 1004.4844
+1228       Poland 1967 31785378    Europe  69.610 6557.1528
+1645      Vietnam 1952 26246839      Asia  40.412  605.0665
+20        Albania 1987  3075321    Europe  72.000 3738.9327
 ```
 
 :::::::::::::::::::::::::
