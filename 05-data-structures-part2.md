@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-     country year       pop continent lifeExp gdpPercap
-390     Cuba 1977   9537988  Americas  72.649  6380.495
-593   Greece 1972   8888628    Europe  72.340 12724.830
-778    Italy 1997  57479469    Europe  78.820 24675.024
-1570 Tunisia 1997   9231669    Africa  71.973  4876.799
-706    India 1997 959000000      Asia  61.765  1458.817
+     country year      pop continent lifeExp  gdpPercap
+1395 Somalia 1962  3080153    Africa  36.981  1369.4883
+494  Eritrea 1957  1542611    Africa  38.047   344.1619
+826    Kenya 1997 28263827    Africa  54.407  1360.4850
+1569 Tunisia 1992  8523077    Africa  70.001  4332.7202
+571  Germany 1982 78335266    Europe  73.800 22031.5327
 ```
 
 :::::::::::::::::::::::::
