@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                     country year      pop continent lifeExp  gdpPercap
-254 Central African Republic 1957  1392284    Africa  37.464  1190.8443
-681                  Hungary 1992 10348684    Europe  69.170 10535.6285
-883                  Lesotho 1982  1411807    Africa  55.078   797.2631
-879                  Lesotho 1962   893143    Africa  47.747   411.8006
-347               Congo Rep. 2002  3328795    Africa  52.970  3484.0620
+                    country year      pop continent lifeExp gdpPercap
+146  Bosnia and Herzegovina 1957  3076000    Europe  58.450  1353.989
+1395                Somalia 1962  3080153    Africa  36.981  1369.488
+858                  Kuwait 1977  1140357      Asia  69.343 59265.477
+339              Congo Rep. 1962  1047924    Africa  48.435  2464.783
+1029                Morocco 1992 25798239    Africa  65.393  2948.047
 ```
 
 :::::::::::::::::::::::::
