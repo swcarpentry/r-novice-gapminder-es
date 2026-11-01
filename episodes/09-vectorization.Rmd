@@ -99,7 +99,7 @@ Indonesia. Nuevamente, no te preocupes acerca de cuál es cuál.
 
 Recuerda tus habilidades de graficación al crear una gráfica con la población en millones en comparación con el año.
 
-```{r ch2-sol}
+```{r ch2-sol, fig.alt=c("Gráfico de dispersión de la población en millones frente al año para todos los países.", "Gráfico de dispersión de la población en millones frente al año para China, India e Indonesia; los países no están identificados.")}
 ggplot(gapminder, aes(x = year, y = pop_millions)) +
  geom_point()
 countryset <- c("China","India","Indonesia")
