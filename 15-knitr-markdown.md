@@ -65,7 +65,7 @@ páginas **web** y también otros formatos.
 Dentro de **R Studio**, haz clic en Archivo; Nuevo archivo; **R Markdown** y
 obtendrás un cuadro de diálogo parecido a éste:
 
-![](fig/New_R_Markdown.png)
+![](fig/New_R_Markdown.png){alt='Captura de pantalla del cuadro de diálogo para crear un nuevo archivo R Markdown en RStudio'}
 
 Puedes mantener el valor predeterminado (salida **HTML**), pero dale un título.
 
@@ -253,7 +253,7 @@ Los documentos **Markdown** y figura son entones procesados por la herramienta
 [pandoc](https://pandoc.org/), que convierte el archivo **Markdown** en un
 archivo **html**, con las figuras embebidas.
 
-<img src="fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" alt="" style="display: block; margin: auto auto auto 0;" />
+<img src="fig/15-knitr-markdown-rendered-rmd_to_html_fig-1.png" alt="Diagrama del proceso de conversión de un documento R Markdown en una página web html." style="display: block; margin: auto auto auto 0;" />
 
 ## Opciones de fragmento
 

@@ -29,7 +29,7 @@ eventualmente todo está mezclado.
 
 La mayoría de la gente tiende a organizar sus proyectos de esta manera:
 
-![](fig/bad_layout.png)
+![](fig/bad_layout.png){alt='Captura de pantalla de un explorador de archivos que muestra una mala organización de un proyecto'}
 
 Hay muchas razones de por qué debemos **siempre** evitar esto:
 
@@ -210,7 +210,7 @@ ls -lh data/gapminder-FiveYearData.csv
 ```
 
 ``` output
--rw-r--r-- 1 root root 80K Oct 27 01:02 data/gapminder-FiveYearData.csv
+-rw-r--r-- 1 root root 80K Nov  1 09:31 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.

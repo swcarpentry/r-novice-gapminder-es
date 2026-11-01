@@ -113,7 +113,7 @@ Si por ejemplo queremos continuar el trabajo con sólo unas pocas de las variabl
 year_country_gdp <- select(gapminder,year,country,gdpPercap)
 ```
 
-![](fig/13-dplyr-fig1.png)
+![](fig/13-dplyr-fig1.png){alt='Diagrama que ilustra el uso de la función select para seleccionar dos columnas de un data frame'}
 
 Si ahora investigamos `year_country_gdp` veremos que sólo contiene el año, el país y la renta per cápita. Arriba hemos usado la gramática 'normal', pero la fortaleza de `dplyr` consiste en combinar funciones usando **pipes**. Como la gramática de las **pipes** es distinta a todo lo que hemos visto antes en R, repitamos lo que hemos hecho arriba, pero esta vez usando **pipes**.
 
@@ -206,7 +206,7 @@ gropd_df [1,704 × 6] (S3: grouped_df/tbl_df/tbl/data.frame)
 
 Se puede observar que la estructura del **data frame** obtenido por `group_by()` (`grouped_df`) no es la misma que la del **data frame** original `gapminder`(`data.fram`). Se puede pensar en un `grouped_df` como en una `list` donde cada item in la `list` es un `data.frame` que contiene únicamente las filas que corresponden a un valor particular de `continent` (en el ejemplo mostrado).
 
-![](fig/13-dplyr-fig2.png)
+![](fig/13-dplyr-fig2.png){alt='Diagrama que ilustra cómo la función group_by organiza un data frame en grupos'}
 
 ## Usando summarize()
 
@@ -219,7 +219,7 @@ gdp_bycontinents <- gapminder %>%
     summarize(mean_gdpPercap=mean(gdpPercap))
 ```
 
-![](fig/13-dplyr-fig3.png)
+![](fig/13-dplyr-fig3.png){alt='Diagrama que ilustra el uso conjunto de group_by y summarize para crear una nueva variable con la media de cada grupo'}
 
 
 ``` r

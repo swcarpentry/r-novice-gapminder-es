@@ -31,7 +31,7 @@ repetidas a lo largo del tiempo, o puede ser la observación de múltiples varia
 una mezcla de ambos). Para algunas aplicaciones, es preferible el formato "ancho". Sin embargo, muchas de las funciones de `R` han
 sido diseñadas para datos de formato "largo". Este tutorial te ayudará a transformar tus datos de manera eficiente, independientemente del formato original.
 
-![](fig/14-tidyr-fig1.png)
+![](fig/14-tidyr-fig1.png){alt='Diagrama que ilustra la diferencia entre el formato ancho y el formato largo de un data frame'}
 
 Estos formatos de datos afectan principalmente a la legibilidad. Para los humanos, el formato "ancho" es
 a menudo más intuitivo ya que podemos ver más de los datos en la pantalla debido a su forma. Sin embargo, el formato "largo" es más legible para las máquinas y está más cerca
@@ -165,11 +165,11 @@ str(gap_wide)
  $ pop_2007      : int  33333216 12420476 8078314 1639131 14326203 8390505 17696293 4369038 10238807 710960 ...
 ```
 
-![](fig/14-tidyr-fig2.png)
+![](fig/14-tidyr-fig2.png){alt='Diagrama que ilustra el formato ancho del data frame gapminder'}
 
 El primer paso es formatear los datos de ancho a largo. Usando el paquete `tidyr` y la función `gather()` podemos juntar las variables de observación en una sola variable.
 
-![](fig/14-tidyr-fig3.png)
+![](fig/14-tidyr-fig3.png){alt='Diagrama que ilustra cómo gather reorganiza un data frame del formato ancho al formato largo'}
 
 
 ``` r
@@ -194,7 +194,7 @@ Dentro de `gather()`, primero nombramos la nueva columna para la nueva variable 
 (`obs_value`), luego los nombres de la antigua variable de observación. Nosotros podríamos tener escritas todas las variables de observación, pero como lo hacíamos en la función `select()` (ver la lección de `dplyr`), podemos usar el argumento `starts_with()` para seleccionar todas las variables que comiencen con la cadena de caracteres deseada. Reunir o **gather** también permite la
 sintaxis alternativa del uso del símbolo `-` para identificar qué variables queremos excluir (por ejemplo, las variables de identificación o **ID**)
 
-![](fig/14-tidyr-fig4.png)
+![](fig/14-tidyr-fig4.png){alt='Diagrama que ilustra el formato largo de los datos de gapminder'}
 
 
 ``` r

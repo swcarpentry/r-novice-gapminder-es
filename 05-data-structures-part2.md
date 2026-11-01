@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-             country year      pop continent lifeExp gdpPercap
-249           Canada 1992 28523502  Americas   77.95 26342.884
-1373 Slovak Republic 1972  4593433    Europe   70.35  9674.168
-764           Israel 1987  4203148      Asia   75.60 17122.480
-1423           Spain 1982 37983310    Europe   76.30 13926.170
-573          Germany 1992 80597764    Europe   76.07 26505.303
+         country year       pop continent lifeExp  gdpPercap
+559       Gambia 1982    715523    Africa  45.580   835.8096
+1081 Netherlands 1952  10381988    Europe  72.130  8941.5719
+946     Malaysia 1997  20476091      Asia  71.938 10132.9096
+700        India 1967 506000000      Asia  47.193   700.7706
+914   Madagascar 1957   5181679    Africa  38.865  1589.2027
 ```
 
 :::::::::::::::::::::::::
