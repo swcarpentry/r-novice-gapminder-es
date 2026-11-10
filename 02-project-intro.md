@@ -210,7 +210,7 @@ ls -lh data/gapminder-FiveYearData.csv
 ```
 
 ``` output
--rw-r--r-- 1 runner runner 80K Nov 10 00:36 data/gapminder-FiveYearData.csv
+-rw-r--r-- 1 root root 80K Nov 10 00:42 data/gapminder-FiveYearData.csv
 ```
 
 El tamaño del archivo es 80K.
