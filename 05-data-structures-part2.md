@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                country year      pop continent lifeExp gdpPercap
-1641          Venezuela 1992 20265563  Americas  71.150 10733.926
-694             Iceland 1997   271192    Europe  78.950 28061.100
-436  Dominican Republic 1967  4049146  Americas  56.751  1653.723
-41               Angola 1972  5894858    Africa  37.928  5473.288
-825               Kenya 1992 25020539    Africa  59.285  1341.922
+         country year        pop continent lifeExp gdpPercap
+798        Japan 1977  113872473      Asia  75.380 16610.377
+993       Mexico 1992   88111030  Americas  71.455  9472.384
+776        Italy 1987   56729703    Europe  76.420 19207.235
+1257 Puerto Rico 1992    3585176  Americas  73.911 14641.587
+707        India 2002 1034172547      Asia  62.879  1746.769
 ```
 
 :::::::::::::::::::::::::
