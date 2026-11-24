@@ -428,7 +428,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Explorando data frames</h1>
-        <p>Última actualización: 2026-11-17 |
+        <p>Última actualización: 2026-11-24 |
 
         <a href="https://github.com/swcarpentry/r-novice-gapminder-es/edit/main/episodes/05-data-structures-part2.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -748,7 +748,7 @@ regresar a las edades originales. Explica lo sucedido.</li>
   Solución al Desafío 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><code>human.edad &lt;- gatos$edad * 7</code></li>
 <li>
@@ -962,7 +962,7 @@ pregunta: “¿Es hora de una pausa?”</p>
   Solución al Desafío 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1226,7 +1226,7 @@ eso?</p>
   Solución al desafío 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Para revisar las últimas líneas del <em>data frame</em> R tiene una
 función para esto:</p>
@@ -1293,12 +1293,12 @@ al azar o varios números al azar R tiene una función llamada
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>                   country year      pop continent lifeExp  gdpPercap
-597                 Greece 1992 10325429    Europe  77.030 17541.4963
-1699              Zimbabwe 1982  7636524    Africa  60.363   788.8550
-193           Burkina Faso 1952  4469979    Africa  31.975   543.2552
-1301 Sao Tome and Principe 1972    76595    Africa  56.480  1532.9853
-1444                 Sudan 1967 12716129    Africa  42.858  1687.9976</code></pre>
+<pre class="output" tabindex="0"><code>     country year       pop continent  lifeExp gdpPercap
+292    China 1967 754550000      Asia 58.38112  612.7057
+40    Angola 1967   5247469    Africa 35.98500 5522.7764
+795    Japan 1962  95831757      Asia 68.73000 6576.6495
+639    Haiti 1962   3880130  Americas 43.59000 1796.5890
+1264 Reunion 1967    414024    Africa 60.54200 4021.1757</code></pre>
 </div>
 </div>
 </div>
@@ -1330,7 +1330,7 @@ path como su argumento o apretando el botón de “source” en RStudio.</p>
   Solución al desafío 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Los contenidos de <code>scripts/load-gapminder.R</code>:</p>
 <div class="codewrapper sourceCode" id="cb77">
@@ -1377,7 +1377,7 @@ entender, discútelo con tus compañeros.</p>
   Solución desafío 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>El objeto <code>gapminder</code> es un data frame con columnas</p>
 <ul><li>
@@ -1396,7 +1396,7 @@ como <em>numeric vectors</em>.</li>
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
-<span class="callout-header">Puntos Clave</span>
+<h2 class="callout-header">Puntos Clave</h2>
 <div class="callout-inner">
 <div class="callout-content">
 <ul><li>Usar <code>cbind()</code> para agregar una nueva columna a un
@@ -1464,7 +1464,7 @@ frame</em>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Plantilla compartida bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> por <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a> y <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.3)</a></p>
+        <p>Construido con <a href="https://github.com/carpentries/sandpaper/tree/0.21.2" class="external-link">sandpaper (0.21.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.8.0" class="external-link">pegboard (0.8.0)</a> y <a href="https://github.com/carpentries/varnish/tree/1.1.4" class="external-link">varnish (1.1.4)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1486,8 +1486,8 @@ frame</em>
   "url": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/05-data-structures-part2.html",
   "identifier": "https://swcarpentry.github.io/r-novice-gapminder-es/instructor/05-data-structures-part2.html",
   "dateCreated": "2018-03-20",
-  "dateModified": "2026-11-17",
-  "datePublished": "2026-11-17"
+  "dateModified": "2026-11-24",
+  "datePublished": "2026-11-24"
 }
 
   </script><script>
