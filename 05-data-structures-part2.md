@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-     country year       pop continent  lifeExp gdpPercap
-292    China 1967 754550000      Asia 58.38112  612.7057
-40    Angola 1967   5247469    Africa 35.98500 5522.7764
-795    Japan 1962  95831757      Asia 68.73000 6576.6495
-639    Haiti 1962   3880130  Americas 43.59000 1796.5890
-1264 Reunion 1967    414024    Africa 60.54200 4021.1757
+               country year       pop continent lifeExp gdpPercap
+489  Equatorial Guinea 1992    387838    Africa  47.545  1132.055
+1109         Nicaragua 1972   2182908  Americas  55.151  4688.593
+1153              Oman 1952    507833      Asia  37.578  1828.230
+604          Guatemala 1967   4690773  Americas  50.016  3242.531
+1173          Pakistan 1992 120065004      Asia  60.838  1971.829
 ```
 
 :::::::::::::::::::::::::
