@@ -659,12 +659,12 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ``` output
-                   country year      pop continent lifeExp  gdpPercap
-597                 Greece 1992 10325429    Europe  77.030 17541.4963
-1699              Zimbabwe 1982  7636524    Africa  60.363   788.8550
-193           Burkina Faso 1952  4469979    Africa  31.975   543.2552
-1301 Sao Tome and Principe 1972    76595    Africa  56.480  1532.9853
-1444                 Sudan 1967 12716129    Africa  42.858  1687.9976
+     country year       pop continent  lifeExp gdpPercap
+292    China 1967 754550000      Asia 58.38112  612.7057
+40    Angola 1967   5247469    Africa 35.98500 5522.7764
+795    Japan 1962  95831757      Asia 68.73000 6576.6495
+639    Haiti 1962   3880130  Americas 43.59000 1796.5890
+1264 Reunion 1967    414024    Africa 60.54200 4021.1757
 ```
 
 :::::::::::::::::::::::::
