@@ -89,7 +89,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
   
   Para agregar un geom, usa el operador `+`. ¡Podemos agregar varios geoms unidos a través de múltiples operadores `+`! Observa que en la figura anterior, llamar a la función **`ggplot`** no fue suficiente para obtener un gráfico, debemos agregar un geom. Podemos usar **`geom_point`** para representar visualmente la relación entre **x** y **y** como un gráfico de dispersión de puntos (**scatterplot**).
 
-```{r build-ggplot-3, purl=FALSE}
+```{r build-ggplot-3, purl=FALSE, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita, ahora mostrando los puntos de datos."}
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 ```
@@ -117,7 +117,7 @@ como la esperanza de vida ha cambiado a través del tiempo:
 
 Esta es una posible solución:
 
-```{r ch1-sol}
+```{r ch1-sol, fig.alt="Gráfico de dispersión de la esperanza de vida frente al año, que muestra cómo la esperanza de vida ha aumentado a lo largo del tiempo."}
 ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 ```
 
@@ -143,7 +143,7 @@ cuáles serán las posiciones **x** y **y** para cada punto. Otra propiedad **ae
 es el *color*. Modifica el código del desafío anterior para **colorear** los puntos de acuerdo a la columna
 "continent". ¿Qué tendencias observas en los datos? ¿Son lo que esperabas?
 
-```{r ch2-sol}
+```{r ch2-sol, fig.alt="Gráfico de dispersión de la esperanza de vida frente al año, con los puntos coloreados por continente, que muestra cómo la esperanza de vida ha aumentado a lo largo del tiempo."}
 ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
   geom_point()
 ```
@@ -157,7 +157,7 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
 Un gráfico de dispersión probablemente no es la mejor manera de visualizar el cambio a través del tiempo.
 En vez de eso, vamos a decirle a `ggplot` que queremos visualizar los datos como un diagrama de línea (line plot):
 
-```{r lifeExp-line}
+```{r lifeExp-line, fig.alt="Gráfico de líneas de la esperanza de vida a lo largo del tiempo, con una línea por país, coloreada según el continente."}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
 ```
@@ -169,7 +169,7 @@ debe dibujar una línea para cada país.
 Pero, ¿qué pasa si queremos visualizar ambos, puntos y líneas en la misma gráfica?
 Simplemente tenemos que agregar otra capa al gráfico:
 
-```{r lifeExp-line-point}
+```{r lifeExp-line-point, fig.alt="Gráfico de líneas de la esperanza de vida a lo largo del tiempo, con una línea y puntos de datos por país, coloreados según el continente."}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point()
 ```
@@ -177,7 +177,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 Es importante notar que cada capa se dibuja encima de la capa anterior. En este ejemplo,
 los puntos se han dibujado *sobre* las líneas. A continuación observamos una demostración:
 
-```{r lifeExp-layer-example-1}
+```{r lifeExp-layer-example-1, fig.alt="Gráfico de líneas de la esperanza de vida a lo largo del tiempo, con una línea y puntos de datos por país; las líneas están coloreadas según el continente y los puntos negros se dibujan sobre las líneas."}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
   geom_line(aes(color=continent)) + geom_point()
 ```
@@ -213,7 +213,7 @@ Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. 
 
 Intercambia el orden de las capas de los puntos y líneas del ejemplo anterior. ¿Qué sucede?
 
-```{r ch3-sol}
+```{r ch3-sol, fig.alt="Gráfico de líneas de la esperanza de vida a lo largo del tiempo, con una línea y puntos de datos por país; ahora las líneas, coloreadas según el continente, se dibujan sobre los puntos negros."}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
  geom_point() + geom_line(aes(color=continent))
 ```
@@ -229,7 +229,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
 `ggplot` también facilita sobreponer modelos estadísticos a los datos.
 Para demostrarlo regresaremos a nuestro primer ejemplo:
 
-```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
+```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita, con los puntos coloreados por continente y agrupados en valores bajos de GDP per cápita."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
   geom_point()
 ```
@@ -241,7 +241,7 @@ de los datos y los valores visuales de un **aesthetic**. También podemos modifi
 de los puntos, usando la función *alpha*, la cual es especialmente útil cuando tienes una
 gran cantidad de datos fuertemente conglomerados.
 
-```{r axis-scale}
+```{r axis-scale, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita, con el eje X en escala logarítmica y puntos semitransparentes, que muestra mejor la dispersión de los datos."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + scale_x_log10()
 ```
@@ -268,14 +268,14 @@ podemos asignar una transparencia diferente a cada continente usando `geom_point
 Podemos ajustar una relación simple a los datos agregando otra capa,
 `geom_smooth`:
 
-```{r lm-fit}
+```{r lm-fit, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita en escala logarítmica, con una línea de tendencia azul que resume la relación entre las variables y un área gris sombreada que indica el intervalo de confianza del 95 % de esa línea."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm")
 ```
 
 Podemos hacer la línea más gruesa *configurando* el argumento **aesthetic** **tamaño** en la capa `geom_smooth`:
 
-```{r lm-fit2}
+```{r lm-fit2, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita en escala logarítmica, con una línea de tendencia que resume la relación entre las variables. La línea de tendencia azul es un poco más gruesa que en la figura anterior."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
 ```
@@ -300,7 +300,7 @@ Modifica el color y el tamaño de los puntos en la capa puntos en el ejemplo ant
 
 Pista: No uses la función `aes`.
 
-```{r ch4a-sol}
+```{r ch4a-sol, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita en escala logarítmica, con una línea de tendencia. Los puntos son más grandes y de color naranja, lo que ilustra cómo modificar el estilo de una capa."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
  geom_point(size=3, color="orange") + scale_x_log10() +
  geom_smooth(method="lm", size=1.5)
@@ -330,7 +330,7 @@ incluyendo líneas de tendencia.
 
 Pista: El argumento color puede ser usado dentro de **aesthetic**
 
-```{r ch4b-sol}
+```{r ch4b-sol, fig.alt="Gráfico de dispersión de la esperanza de vida frente al GDP per cápita en escala logarítmica, con puntos triangulares coloreados por continente y una línea de tendencia para cada continente."}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
 geom_point(size=3, shape=17) + scale_x_log10() +
 geom_smooth(method="lm", size=1.5)
@@ -359,7 +359,7 @@ es equivalente a `starts.with == "A" | starts.with == "Z"`)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-```{r facet}
+```{r facet, fig.alt="Gráficos de líneas en múltiples paneles de la esperanza de vida a lo largo del tiempo, con un panel para cada país cuyo nombre empieza con A o Z y líneas coloreadas según el continente."}
 starts.with <- substr(gapminder$country, start = 1, stop = 1)
 az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
@@ -383,7 +383,7 @@ haciendo referencia a los mismos nombres que utilizamos en la especificación `a
 el título de la leyenda de los colores de las líneas se define utilizando `color = "Continent"`, mientras que el título
 de la leyenda del color del relleno se definiría utilizando `fill = "MyTitle"`.
 
-```{r theme}
+```{r theme, fig.alt="Gráficos de líneas en múltiples paneles de la esperanza de vida a lo largo del tiempo, con un panel para cada país cuyo nombre empieza con A o Z, títulos en los ejes, una leyenda de continentes y sin etiquetas en el eje X."}
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country) +
     labs(
@@ -450,7 +450,7 @@ Avanzado:
 - Transforma el eje X para visulaizar mejor la dispersión de los datos.
 - Agrega una capa **facet** para generar gráficos de densidad con un panel para cada año.
 
-```{r ch5-sol}
+```{r ch5-sol, fig.alt="Gráficos de densidad del GDP per cápita en escala logarítmica, con el relleno coloreado por continente y un panel para cada año."}
 ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
 ```

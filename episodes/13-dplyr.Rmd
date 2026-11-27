@@ -93,7 +93,7 @@ Si por ejemplo queremos continuar el trabajo con sólo unas pocas de las variabl
 year_country_gdp <- select(gapminder,year,country,gdpPercap)
 ```
 
-![](fig/13-dplyr-fig1.png)
+![](fig/13-dplyr-fig1.png){alt='Diagrama que ilustra el uso de la función select para seleccionar dos columnas de un data frame'}
 
 Si ahora investigamos `year_country_gdp` veremos que sólo contiene el año, el país y la renta per cápita. Arriba hemos usado la gramática 'normal', pero la fortaleza de `dplyr` consiste en combinar funciones usando **pipes**. Como la gramática de las **pipes** es distinta a todo lo que hemos visto antes en R, repitamos lo que hemos hecho arriba, pero esta vez usando **pipes**.
 
@@ -149,7 +149,7 @@ str(gapminder %>% group_by(continent))
 
 Se puede observar que la estructura del **data frame** obtenido por `group_by()` (`grouped_df`) no es la misma que la del **data frame** original `gapminder`(`data.fram`). Se puede pensar en un `grouped_df` como en una `list` donde cada item in la `list` es un `data.frame` que contiene únicamente las filas que corresponden a un valor particular de `continent` (en el ejemplo mostrado).
 
-![](fig/13-dplyr-fig2.png)
+![](fig/13-dplyr-fig2.png){alt='Diagrama que ilustra cómo la función group_by organiza un data frame en grupos'}
 
 ## Usando summarize()
 
@@ -161,7 +161,7 @@ gdp_bycontinents <- gapminder %>%
     summarize(mean_gdpPercap=mean(gdpPercap))
 ```
 
-![](fig/13-dplyr-fig3.png)
+![](fig/13-dplyr-fig3.png){alt='Diagrama que ilustra el uso conjunto de group_by y summarize para crear una nueva variable con la media de cada grupo'}
 
 ```{r, eval=FALSE}
 continent mean_gdpPercap
@@ -310,7 +310,7 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
 
 En la función de creación de gráficas vimos cómo hacer una figura con múltiples paneles añadiendo una capa de paneles separados (**facet panels**). Aquí está el código que usamos (con algunos comentarios extra):
 
-```{r}
+```{r, fig.alt="Gráficos de líneas en múltiples paneles de la esperanza de vida a lo largo del tiempo, con un panel para cada país cuyo nombre empieza con A o Z y líneas coloreadas según el continente."}
 # Obtener la primera letra de cada país
 starts.with <- substr(gapminder$country, start = 1, stop = 1)
 # Filtrar países que empiezan con "A" o "Z"
@@ -322,7 +322,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
 
 Este código construye la gráfica correcta, pero también crea algunas variables `starts.with` y `az.countries`) que podemos no querer usar para nada más. Del mismo modo que usamos `%>%` para pasar datos con **pipes** a lo largo de una cadena de funciones `dplyr`, podemos usarlo para pasarle datos a `ggplot()`. Como `%>%` sustituye al primer argumento de una función, no necesitamos especificar el argumento `data=` de la función `ggplot()`. Combinando funciones de los paquetes `dplyr` y `ggplot` podemos hacer la misma figura sin crear ninguna nueva variable y sin modificar los datos.
 
-```{r}
+```{r, fig.alt="Gráficos de líneas en múltiples paneles de la esperanza de vida a lo largo del tiempo, con un panel para cada país cuyo nombre empieza con A o Z, creados con un pipe de dplyr."}
 gapminder %>%
    # Get the start letter of each country
    mutate(startsWith = substr(country, start = 1, stop = 1)) %>%
@@ -336,7 +336,7 @@ gapminder %>%
 
 Las funciones del paquete `dplyr` también nos ayudan a simplificar las cosas, por ejemplo, combinando los primeros dos pasos:
 
-```{r}
+```{r, fig.alt="Gráficos de líneas en múltiples paneles de la esperanza de vida a lo largo del tiempo, con un panel para cada país cuyo nombre empieza con A o Z, creados con un pipe de dplyr más corto; la figura es la misma que la anterior."}
 gapminder %>%
     # Filter countries that start with "A" or "Z"
 	filter(substr(country, start = 1, stop = 1) %in% c("A", "Z")) %>%
